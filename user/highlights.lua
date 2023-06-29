@@ -5,52 +5,59 @@
 local M = {}
 local c = require "custom.user.colors.vscode"
 local vs = require "custom.user.colors.vs"
+local is_transparent = require "custom.user.vars".transparency
 
----@type Base46HLGroupsList
 M.override = {
-    Normal          =   { fg = c.vscFront, bg = c.vscBack },
-    ColorColumn     =   { fg = 'NONE', bg = -[[c.vscCursorDarkDark]] },
-    Cursor          =   { fg = c.vscCursorDark, bg = c.vscCursorLight },
+---@type Base46HLGroupsList
+  -----------------EDITOR------------------------------
+    Normal          =   { fg = c.vscFront, bg = is_transparent  and 'none' or c.vscCursorDarkDark },
+    ColorColumn     =   { fg = 'NONE', bg = is_transparent  and 'none' or c.vscCursorDarkDark },
+    Cursor          =   { fg = c.vscCursorDark, --[[ bg = c.vscCursorLight ]] },
     CursorLine      =   { bg = c.vscCursorDarkDark },
-    CursorColumn    =   { fg = 'NONE', bg = c.vscCursorDarkDark },
-    Directory       =   { fg = vs.Method, bg = c.vscBack },
+    CursorColumn    =   { fg = 'NONE',  bg = c.vscCursorDarkDark  },
+    Directory       =   { fg = vs.Method, --[[ bg = c.vscBack ]] },
     DiffAdd         =   { fg = 'NONE', bg = c.vscDiffGreenLight },
     DiffChange      =   { fg = 'NONE', bg = c.vscDiffRedDark },
     DiffDelete      =   { fg = 'NONE', bg = c.vscDiffRedLight },
     DiffText        =   { fg = 'NONE', bg = c.vscDiffRedLight },
     EndOfBuffer     =   { fg = c.vscBack, bg = 'NONE' },
-    ErrorMsg        =   { fg = c.vscRed, bg = c.vscBack },
-    VertSplit       =   { fg = c.vscSplitDark, bg = c.vscBack },
-    Folded          =   { fg = 'NONE', bg = c.vscFoldBackground },
-    FoldColumn      =   { fg = c.vscLineNumber, bg = c.vscBack },
-    SignColumn      =   { fg = 'NONE', bg = c.vscBack },
+    ErrorMsg        =   { fg = c.vscRed, --[[ bg = c.vscBack ]] },
+    VertSplit       =   { fg = c.vscSplitDark, --[[ bg = c.vscBack ]] },
+    Folded          =   { fg = 'NONE', --[[ bg = c.vscFoldBackground ]] },
+    FoldColumn      =   { fg = c.vscLineNumber, --[[ bg = c.vscBack ]] },
+    SignColumn      =   { fg = 'NONE', --[[ bg = c.vscBack ]] },
     IncSearch       =   { fg = c.vscNone, bg = c.vscSearchCurrent },
-    LineNr          =   { fg = c.vscLineNumber, bg = c.vscBack },
-    CursorLineNr    =   { fg = c.vscPopupFront, bg = c.vscBack },
+    LineNr          =   { fg = c.vscLineNumber, --[[bg = c.vscBack]] },
+    CursorLineNr    =   { fg = c.vscPopupFront, --[[bg = c.vscBack ]] },
     MatchParen      =   { fg = c.vscNone, bg = c.vscCursorDark },
-    ModeMsg         =   { fg = c.vscFront, bg = c.vscLeftDark },
-    MoreMsg         =   { fg = c.vscFront, bg = c.vscLeftDark },
-    NonText         =   { fg = (c.vscLineNumber ), bg = c.vscNone },
-    Pmenu           =   { fg = c.vscPopupFront, bg = c.vscPopupBack },
+    ModeMsg         =   { fg = c.vscFront, --[[ bg = c.vscLeftDark ]] },
+    MoreMsg         =   { fg = c.vscFront, --[[ bg = c.vscLeftDark ]] },
+    NonText         =   { fg = c.vscLineNumber , --[[bg = c.vscNone]] },
+    Pmenu           =   { fg = c.vscPopupFront, --[[ bg = c.vscPopupBack ]] },
     PmenuSel        =   { fg = c.vscPopupFront , bg = c.vscPopupHighlightBlue },
-    PmenuSbar       =   { fg = 'NONE', bg = c.vscPopupHighlightGray },
-    PmenuThumb      =   { fg = 'NONE', bg = c.vscPopupFront },
-    Question        =   { fg = c.vscBlue, bg = c.vscBack },
+    PmenuSbar       =   { fg = 'NONE', --[[ bg = c.vscPopupHighlightGray ]] },
+    PmenuThumb      =   { fg = 'NONE', --[[ bg = c.vscPopupFront ]] },
+    Question        =   { fg = c.vscBlue, --[[ bg = c.vscBack ]] },
     Search          =   { fg = c.vscNone, bg = c.vscSearch },
     SpecialKey      =   { fg = c.vscBlue, bg = c.vscNone },
-    StatusLine      =   { fg = c.vscFront, bg = c.vscLeftMid },
-    StatusLineNC    =   { fg = c.vscFront, bg = c.vscLeftDark },
-    Todo            =   { fg = c.vscYellowOrange, bg = c.vscBack, bold = true },
+    StatusLine      =   { fg = c.vscFront, --[[ bg = c.vscLeftMid ]] },
+    StatusLineNC    =   { fg = c.vscFront, --[[ bg = c.vscLeftDark ]] },
+    Todo            =   { fg = c.vscYellowOrange --[[ bg = c.vscBack ]], bold = true },
     TabLine         =   { fg = c.vscFront, bg = c.vscTabOther },
     TabLineFill     =   { fg = c.vscFront, bg = c.vscTabOutside },
     TabLineSel      =   { fg = c.vscFront, bg = c.vscTabCurrent },
-    Title           =   { fg = c.vscNone, bg = c.vscNone, bold = true },
+    Title           =   { --[[ fg = c.vscNone, bg = c.vscNone, ]] bold = true },
     Visual          =   { fg = c.vscNone, bg = c.vscSelection },
     VisualNOS       =   { fg = c.vscNone, bg = c.vscSelection },
     WarningMsg      =   { fg = c.vscRed, bg = c.vscBack, bold = true },
     WildMenu        =   { fg = c.vscNone, bg = c.vscSelection },
-    Comment           =   { fg = vs.Comment, bg = 'NONE' },
-    Variable          = { fg = vs.Variable, bg = 'None'},
+  -------------------------------------------------------------------------
+
+
+  --------------------------BASIC-----------------
+    Comment         =   { fg = vs.Comment, bg = 'NONE' },
+    Variable        =   { fg = vs.Variable, bg = 'None'},
+
     --Constant        =   { fg = "None", bg = 'NONE' },
     Global          =   { fg = vs.Global, bg = 'NONE' },
     String          =   { fg = c.vscOrange, bg = 'NONE' },
@@ -83,14 +90,14 @@ M.override = {
     SpecialComment  =   { fg = vs.Comment, bg = 'NONE' },
     Debug           =   { fg = c.vscFront, bg = 'NONE' },
     Underlined      =   { fg = c.vscNone, bg = 'NONE', underline = true },
-    Conceal         =   { fg = c.vscFront, bg = c.vscBack },
+    Conceal         =   { fg = c.vscFront, --[[ bg = c.vscBack ]] },
     Ignore          =   { fg = c.vscFront, bg = 'NONE' },
     Error           =   { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
     SpellBad        =   { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
     SpellCap        =   { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
     SpellRare       =   { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
     SpellLocal      =   { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
-    Whitespace      =   { fg = c.vscLineNumber },
+    --Whitespace      =   { fg = c.vscLineNumber },
     TODO            =   { fg = c.vscRed },
     LspGlobal         = { fg = vs.Global, bg = 'None', bold = true},
     GlobalScope       = { fg = vs.Global, bg = 'None', bold = true},
@@ -103,8 +110,8 @@ M.override = {
     ['@namespace']    = { fg = vs.Namespace,  bold = false, italic = false},
     ['@globalScope']  = { italic = true,  bold = true},
     --['@variable#globalScope']  ={ fg = vs.Global,italic = true,  bold = true},
-    ['@defaultLibrary.lua']  = { fg = vs.Native},
     ['@defaultLibrary.python']  = { fg = vs.Native},
+    ['@defaultLibrary.lua']  = { fg = vs.Native},
 
   ['@comment']= { fg = vs.Comment, bg = 'NONE',  },
   ['@keyword']= { fg = vs.Keyword, bg = 'NONE' },
@@ -207,9 +214,9 @@ M.override = {
 }
 
 ---@type HLTable
-M.add = {
-  NvimTreeOpenedFolderName = { fg = "#9099dd", bold = true },
-}
+M.add = { NvimTreeOpenedFolderName = { --[[ fg = "#9098dd" ]] bold = true }, }
 
 
 return M
+--return {override={}, add={}}
+

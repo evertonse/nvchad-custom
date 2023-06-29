@@ -11,7 +11,7 @@ lsp.ensure_installed({
   'pylsp',
   'jdtls',
   'clangd',
-  'tsserver',
+  --'tsserver',
   'rust_analyzer',
 })
 

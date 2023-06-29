@@ -408,35 +408,35 @@ M.lspconfig = {
       "Goto next",
     },
 
-    ["<leader>loc"] = {
+    ["<leader>sl"] = {
       function()
         vim.diagnostic.setloclist()
       end,
       "Diagnostic setloclist",
     },
 
-    ["<leader>lf"] = {
+    ["<leader>sf"] = {
       function()
         vim.lsp.buf.format { async = true }
       end,
       "LSP formatting",
     },
 
-    ["<leader>lwa"] = {
+    ["<leader>swa"] = {
       function()
         vim.lsp.buf.add_workspace_folder()
       end,
       "Add workspace folder",
     },
 
-    ["<leader>lwr"] = {
+    ["<leader>swr"] = {
       function()
         vim.lsp.buf.remove_workspace_folder()
       end,
       "Remove workspace folder",
     },
 
-    ["<leader>lwl"] = {
+    ["<leader>swl"] = {
       function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end,
