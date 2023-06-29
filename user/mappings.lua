@@ -150,7 +150,8 @@ M.general = {
         ['[d'] ={  vim.diagnostic.goto_prev,opts = noremap_opts},
         [']d'] ={  vim.diagnostic.goto_next,opts = noremap_opts},
         ['U'] ={ '<C-r>'},
-        ['<leader>re'] ={  'yW:%s/<C-r>*/<C-r>*/gc<Left><Left><Left><Down>', opts = noremap_opts},
+        --['<leader>re'] ={  'yW:%s/<C-r>*/<C-r>*/gc<Left><Left><Left><Down>', opts = noremap_opts},
+        ['<leader>re'] ={  ':%s///g<Left><Left><Left><Down>', opts = noremap_opts},
         ['<leader>ra'] ={  'yW:%s/<C-r>*/<C-r>*/<Left><Down>', opts = noremap_opts},
         ["<leader>se"] ={  "yW/<C-r>*<Down>",opts = noremap_opts},
 
