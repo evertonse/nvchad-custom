@@ -4,7 +4,6 @@ local nowait_opts = { noremap = true, silent = true, nowait = true }
 
 local M = {}
 -- add this table only when you want to disable default keys
--- 
 M.disabled = {
   n = {
     ["<leader>fo"] = "",
@@ -63,6 +62,8 @@ M.disabled = {
     ["<leader>e"] = "",
     -- bufferline
     ["<leader>b"] = "",
+
+    ["<leader>l"] = "",
   },
   v = {
     -- comment
@@ -77,7 +78,7 @@ M.disabled = {
 }
 M.general = {
     n = {
-   
+    ["<leader>x"] = { ":%bd!|e# <cr>", "close all buffers expect current one" },
     ["<Esc><Esc>"] = { ":noh <CR>", "Clear highlights" },
 
     -- save
@@ -293,13 +294,13 @@ M.tabufline = {
       "Goto prev buffer",
     },
 
-    -- close buffer + hide terminal buffer
-    ["<leader>x"] = {
-      function()
-        require("nvchad_ui.tabufline").close_buffer()
-      end,
-      "Close buffer",
-    },
+    -- -- close buffer + hide terminal buffer
+    -- ["<leader>x"] = {
+    --   function()
+    --     require("nvchad_ui.tabufline").close_buffer()
+    --   end,
+    --   "Close buffer",
+    -- },
   },
 }
 
@@ -372,11 +373,11 @@ M.lspconfig = {
       "LSP definition type",
     },
 
-    ["<leader>ra"] = {
+    ["<leader>lr"] = {
       function()
         require("nvchad_ui.renamer").open()
       end,
-      "LSP rename",
+      "[L]SP [R]ename",
     },
 
     ["<leader>lca"] = {
@@ -393,7 +394,7 @@ M.lspconfig = {
       "LSP references",
     },
 
-    ["<leader>of"] = {
+    ["<leader>lof"] = {
       function()
         vim.diagnostic.open_float { border = "rounded" }
       end,
@@ -414,35 +415,35 @@ M.lspconfig = {
       "Goto next",
     },
 
-    ["<leader>sl"] = {
+    ["<leader>loc"] = {
       function()
         vim.diagnostic.setloclist()
       end,
       "Diagnostic setloclist",
     },
 
-    ["<leader>sf"] = {
+    ["<leader>lf"] = {
       function()
         vim.lsp.buf.format { async = true }
       end,
       "LSP formatting",
     },
 
-    ["<leader>swa"] = {
+    ["<leader>lwa"] = {
       function()
         vim.lsp.buf.add_workspace_folder()
       end,
       "Add workspace folder",
     },
 
-    ["<leader>swr"] = {
+    ["<leader>lwr"] = {
       function()
         vim.lsp.buf.remove_workspace_folder()
       end,
       "Remove workspace folder",
     },
 
-    ["<leader>swl"] = {
+    ["<leader>lwl"] = {
       function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end,
@@ -651,7 +652,7 @@ M.gitsigns = {
       function()
         package.loaded.gitsigns.blame_line()
       end,
-      "Blame line",
+      "[G]it [B]lame line",
     },
 
     ["<leader>td"] = {
