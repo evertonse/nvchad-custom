@@ -78,6 +78,8 @@ M.disabled = {
 }
 M.general = {
     n = {
+   
+      
     ["<leader>x"] = { ":%bd!|e# <cr>", "close all buffers expect current one" },
     ["<Esc><Esc>"] = { ":noh <CR>", "Clear highlights" },
 

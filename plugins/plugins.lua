@@ -15,10 +15,11 @@ M.plugins = {
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
-        lazy = false,
+        lazy = true, --@important, might not be a agood ideia to make it so
+        enabled = false,
         config = function()
-          -- This is where you modify the settings for lsp-zero
-          -- Note: autocompletion settings will not take effect
+        -- This is where you modify the settings for lsp-zero
+        -- Note: autocompletion settings will not take effect
 
           --require('lsp-zero.settings').preset({})
           require "custom.plugins.configs.lsp_zero"
@@ -42,7 +43,6 @@ M.plugins = {
             {'rafamadriz/friendly-snippets'},
         },
     },
-    {'famiu/bufdelete.nvim'},
     {
       'neovim/nvim-lspconfig',
       cmd = 'LspInfo',
@@ -60,17 +60,7 @@ M.plugins = {
       config = function()
         -- This is where all the LSP shenanigans will live
         require "plugins.configs.lspconfig"
-        local lsp = require('lsp-zero')
-
-        lsp.on_attach(function(client, bufnr)
-          lsp.default_keymaps({buffer = bufnr})
-        end)
-
-        -- (Optional) Configure lua language server for neovim
-        require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-        lsp.setup()
-
+        require "custom.plugins.configs.lspconfig"
       end
     },
     { "onsails/lspkind.nvim",}, -- better lsp cmp icons
