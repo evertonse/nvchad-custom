@@ -9,7 +9,7 @@ local vs = require "custom.user.colors.vs"
 ---@type Base46HLGroupsList
 M.override = {
     Normal          =   { fg = c.vscFront, bg = c.vscBack },
-    ColorColumn     =   { fg = 'NONE', bg = c.vscCursorDarkDark },
+    ColorColumn     =   { fg = 'NONE', bg = -[[c.vscCursorDarkDark]] },
     Cursor          =   { fg = c.vscCursorDark, bg = c.vscCursorLight },
     CursorLine      =   { bg = c.vscCursorDarkDark },
     CursorColumn    =   { fg = 'NONE', bg = c.vscCursorDarkDark },
