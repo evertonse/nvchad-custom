@@ -1,16 +1,16 @@
+-- Apperantly " in front of a line in vimscript is a comment?
 vim.cmd [[
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200}) 
     autocmd BufWinEnter * :set formatoptions-=cro
-    autocmd BufWinEnter * :colorscheme vs
-    autocmd BufWritePost,FileWritePost * :colorscheme vs
-    autocmd BufReadPost * :colorscheme vs
-    autocmd BufEnter * :colorscheme vs
-    autocmd WinNew * :print "hello"
-    autocmd FileType qf set nobuflisted
-    autocmd VimEnter * :colorscheme vs 
+   " autocmd BufWinEnter * :colorscheme vs
+   " autocmd BufWritePost,FileWritePost * :colorscheme vs
+   " autocmd BufReadPost * :colorscheme vs
+   " autocmd WinNew * :print "hello"
+   " autocmd FileType qf set nobuflisted
+   " autocmd VimEnter * :colorscheme vs 
   augroup end
 
   augroup _git
@@ -37,7 +37,7 @@ vim.cmd [[
 
   augroup _nvimtree
     autocmd!
-    autocmd WinNew * :colorscheme blue
+    "autocmd WinNew * :colorscheme blue
   augroup end
 ]]
 

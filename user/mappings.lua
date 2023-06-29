@@ -4,6 +4,7 @@ local nowait_opts = { noremap = true, silent = true, nowait = true }
 
 local M = {}
 -- add this table only when you want to disable default keys
+-- 
 M.disabled = {
   n = {
     ["<leader>fo"] = "",
@@ -30,6 +31,10 @@ M.disabled = {
     ["<leader>fx"] = "",
     ["<leader>fz"] = "",
 
+    ["<leader>ph"] = "",
+    ["<leader>pt"] = "",
+    -- copy whole file c-c
+    ["<C-c>"] = "",
     ["<leader>ch"] = "",
     ["<leader>ca"] = "",
     ["<leader>cc"] = "",
@@ -475,7 +480,7 @@ M.telescope = {
     ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
 
     -- pick a hidden term
-    ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
+    --["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
 
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
@@ -634,7 +639,7 @@ M.gitsigns = {
       "Reset hunk",
     },
 
-    ["<leader>ph"] = {
+    ["<leader>gh"] = {
       function()
         require("gitsigns").preview_hunk()
       end,

@@ -6,7 +6,10 @@ local M = {}
 local c = require "custom.user.colors.vscode"
 local vs = require "custom.user.colors.vs"
 local is_transparent = require "custom.user.vars".transparency
-
+-- @important check https://github.com/NvChad/base46/blob/v2.0/lua/base46/integrations/tbline.lua 
+-- for better ideia of highlight groups
+-- @imporant also check https://github.com/NvChad/ui/blob/v2.0/lua/nvchad_ui/tabufline/modules.lua for default config 
+-- of statusline and tabline
 M.override = {
 ---@type Base46HLGroupsList
   -----------------EDITOR------------------------------
@@ -40,7 +43,7 @@ M.override = {
     Question        =   { fg = c.vscBlue, --[[ bg = c.vscBack ]] },
     Search          =   { fg = c.vscNone, bg = c.vscSearch },
     SpecialKey      =   { fg = c.vscBlue, bg = c.vscNone },
-    StatusLine      =   { fg = c.vscFront, --[[ bg = c.vscLeftMid ]] },
+    --StatusLine      =   { fg = c.vscFront, --[[ bg = c.vscLeftMid ]] },
     StatusLineNC    =   { fg = c.vscFront, --[[ bg = c.vscLeftDark ]] },
     Todo            =   { fg = c.vscYellowOrange --[[ bg = c.vscBack ]], bold = true },
     TabLine         =   { fg = c.vscFront, bg = c.vscTabOther },
@@ -52,7 +55,6 @@ M.override = {
     WarningMsg      =   { fg = c.vscRed, bg = c.vscBack, bold = true },
     WildMenu        =   { fg = c.vscNone, bg = c.vscSelection },
   -------------------------------------------------------------------------
-
 
   --------------------------BASIC-----------------
     Comment         =   { fg = vs.Comment, bg = 'NONE' },
@@ -207,7 +209,98 @@ M.override = {
   -- ['@text.warning']= { fg = c.vscYellowOrange, bg = 'NONE', bold = true },
   -- ['@text.danger']= { fg = c.vscRed, bg = 'NONE', bold = true },
   -- ['@scope']= { fg = c.vscRed, bg = 'NONE', bold = true },
-  NvimTreeOpenedFolderName = { 
+  ----------------------TAB-----------------------------
+  TblineFill = {
+    bg = vs.None
+  },
+
+  TbLineBufOn = {
+    bg = vs.None
+  },
+
+  TbLineBufOff = {
+    bg = vs.None
+  },
+
+  TbLineBufOnModified = {
+    bg = vs.None
+  },
+
+  TbBufLineBufOffModified = {
+    bg = vs.None
+  },
+
+  TbLineBufOnClose = {
+    bg = vs.None
+  },
+
+  TbLineBufOffClose = {
+    bg = vs.None
+  },
+
+  -- TblineTabNewBtn = {
+  --   fg = colors.white,
+  --   bg = colors.one_bg3,
+  --   bold = true,
+  -- },
+  --
+  -- TbLineTabOn = {
+  --   fg = colors.black,
+  --   bg = colors.nord_blue,
+  --   bold = true,
+  -- },
+  --
+  -- TbLineTabOff = {
+  --   fg = colors.white,
+  --   bg = colors.one_bg2,
+  -- },
+  --
+  -- TbLineTabCloseBtn = {
+  --   fg = colors.black,
+  --   bg = colors.nord_blue,
+  -- },
+  --
+  -- TBTabTitle = {
+  --   fg = colors.black,
+  --   bg = colors.white,
+  -- },
+  --
+  -- TbLineThemeToggleBtn = {
+  --   bold = true,
+  --   fg = colors.white,
+  --   bg = colors.one_bg3,
+  -- },
+  --
+  -- TbLineCloseAllBufsBtn = {
+  --   bold = true,
+  --   bg = colors.red,
+  --   fg = colors.black,
+  -- },
+  StatusLine = {
+    bg = vs.None
+  },
+  St_Mode = {
+    fg = vs.None,
+    bg = vs.None,
+  },
+  StText = {
+    fg = vs.None,
+    bg = vs.None,
+  },
+  St_EmptySpace = {
+    fg = vs.None,
+    bg = vs.None,
+  },
+  St_EmptySpace2 = {
+    fg = vs.None,
+    bg = vs.None,
+  },
+  -- St_pos_text = {
+  --   fg = vs.None,
+  --   bg = vs.None,
+  -- },
+  --
+  NvimTreeOpenedFolderName = {
     --fg = "#9099dd", 
     bold = true
   },
@@ -219,4 +312,3 @@ M.add = { NvimTreeOpenedFolderName = { --[[ fg = "#9098dd" ]] bold = true }, }
 
 return M
 --return {override={}, add={}}
-
