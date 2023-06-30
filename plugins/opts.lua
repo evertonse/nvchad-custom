@@ -150,6 +150,10 @@ local function nvimtree_on_attach(bufnr)
   vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
   vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
   vim.keymap.del('n', '<C-k>', opts('Info'))
+
+  vim.keymap.set('n', 'Y',    api.fs.copy.absolute_path,             opts('Copy Absolute Path'))
+  vim.keymap.set('n', 'gy',   api.fs.copy.filename,                  opts('Copy Name'))
+  vim.keymap.set('n', 'y',    api.fs.copy.relative_path,             opts('Copy Relative Path'))
   --vim.cmd('colorscheme vs')
 end
 
