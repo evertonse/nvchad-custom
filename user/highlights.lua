@@ -192,7 +192,7 @@ M.override = {
   ['@label']= { fg = vs.Debug, bg = 'NONE' },
   ['@operator']= { fg = c.vscFront, bg = 'NONE' },
   
-  --['@exception']= { fg = vs.ControlFlow, bg = 'NONE' },
+  ['@exception']= { fg = vs.ControlFlow, bg = 'NONE' },
   -- ['@variable.builtin']= { fg = vs.VariableBuiltin, bg = 'NONE' },
   -- ['@text']= { fg = c.vscFront, bg = 'NONE' },
   -- ['@text.underline']= { fg = c.vscYellowOrange, bg = 'NONE' },
