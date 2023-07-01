@@ -6,8 +6,8 @@ from shutil import copytree as copydir, rmtree as rmdir
 
 
 if os.name == 'nt':
-    nvim_path = Path(os.environ['appdata'], 'nvim')
-    nvim_data_path = Path(os.environ['appdata'], 'nvim-data')
+    nvim_path = Path(os.environ['localappdata'], 'nvim')
+    nvim_data_path = Path(os.environ['localappdata'], 'nvim-data')
 else:
     nvim_path = Path(f'{Path.home()}', '.config/nvim')
     nvim_data_path = Path(f'{Path.home()}', '/.local/share/nvim')
@@ -32,10 +32,13 @@ def unistall():
     try:
         print(f'removing {nvim_path}')
         rmdir(nvim_path)
-        print(f'removing {nvim_path}')
-        rmdir(nvim_data_path)
     except Exception as e:
-        print(f'An exception occurred {e}')
+        print(f'An exception occurred when trying to remove {nvim_path} {e}')
+    try:
+        print(f'removing {nvim_data_path}')
+        rmdir(nvim_data_path)
+    except:
+        print(f'An exception occurred when trying to remove {nvim_path} {e}')
 
 def usage():
     print('usage: ./setup.py [install|uninstall]')
