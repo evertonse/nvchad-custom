@@ -7,7 +7,8 @@ local util = require "lspconfig/util"
 local servers = { 
     "html",
     "cssls",
-    "pylsp",
+    --"pylsp",
+    "pyright",
     --"tsserver", 
     "clangd",
 }
