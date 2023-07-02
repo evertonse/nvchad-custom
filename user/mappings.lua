@@ -471,8 +471,9 @@ M.telescope = {
 
   n = {
     -- find
-    ["<leader>f"] = { "<cmd> Telescope find_files <CR>", "Find files" },
+    --["<leader>f"] = { "<cmd> Telescope find_files <CR>", "Find files" },
     ["<leader>af"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
+    ["<leader>f"] = { "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>"},
     ["<leader>F"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>b"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
     ["<leader>tf"] = { "<cmd> Telescope help_tags <CR>", "Help page" },

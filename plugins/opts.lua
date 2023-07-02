@@ -187,7 +187,7 @@ M.nvimtree = {
   },
 
   filters = {
-    dotfiles = false,
+    dotfiles = true,
     custom = {},
   },
 
