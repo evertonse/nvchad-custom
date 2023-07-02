@@ -190,7 +190,35 @@ M.plugins = {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     }
+  },
+  {
+    'edluffy/hologram.nvim',
+    config = function()
+      require('hologram').setup {
+        auto_display = true -- WIP automatic markdown image display, may be prone to breaking
+      }
+    end,
+  },
+  {
+    "princejoogie/chafa.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "m00qek/baleia.nvim"
+    },
+    lazy = false,
+    config = function()
+      require("chafa").setup({
+        render = {
+          min_padding = 5,
+          show_label = true,
+        },
+        events = {
+          update_on_nvim_resize = true,
+        },
+      })
+    end
   }
+
 }
 
 return M.plugins
