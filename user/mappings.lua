@@ -67,7 +67,9 @@ M.disabled = {
   },
   v = {
     -- comment
-    ["<leader>/"] = "",
+    --["<leader>/"] = "",
+    ["<M-Down"] = "",
+
   },
   t = {
     -- nvterm
@@ -77,9 +79,8 @@ M.disabled = {
   },
 }
 M.general = {
-    n = {
-   
-      
+  n = {
+
     ["<leader>x"] = { ":%bd!|e# <cr>", "close all buffers expect current one" },
     ["<Esc><Esc>"] = { ":noh <CR>", "Clear highlights" },
 
@@ -105,176 +106,175 @@ M.general = {
     -- new buffer
     ["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
     ["<leader>nvc"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
-        ['<M-Up>'] = { "ddkP",opts = noremap_opts }, --// Moving the line up
-        ['<M-Down>'] = { "ddjP",opts = noremap_opts}, -- // Moving the line down
-        ["<M-[>"] = {":resize -2<CR>", opts = noremap_opts},
-        ["<M-]>"] = {":resize +2<CR>", opts = noremap_opts},
-        ["<M-,>"] = {":vertical resize -2<CR>", opts = noremap_opts},
-        ["<M-.>"] = {":vertical resize +2<CR>", opts = noremap_opts},
-        -- Navigate buffers
-        --- behave like other capitals
-        ["Y"] = {"y$",opts = noremap_opts},
-        ["<S-l>"] = {":bnext<CR>", opts = noremap_opts},
-        ["<S-h>"] = {":bprevious<CR>", opts = noremap_opts},
+    ["<M-Up>"] = { "ddkP", opts = noremap_opts }, --// Moving the line up
+    ["<M-Down>"] = { "ddjP", opts = noremap_opts }, -- // Moving the line down
+    ["<M-[>"] = { ":resize -2<CR>", opts = noremap_opts },
+    ["<M-]>"] = { ":resize +2<CR>", opts = noremap_opts },
+    ["<M-,>"] = { ":vertical resize -2<CR>", opts = noremap_opts },
+    ["<M-.>"] = { ":vertical resize +2<CR>", opts = noremap_opts },
+    -- Navigate buffers
+    --- behave like other capitals
+    ["Y"] = { "y$", opts = noremap_opts },
+    ["<S-l>"] = { ":bnext<CR>", opts = noremap_opts },
+    ["<S-h>"] = { ":bprevious<CR>", opts = noremap_opts },
 
-        -- Move text up and down
-        ["<A-j>"] = {"<Esc>:m .+1<CR>==g", opts = noremap_opts},
-        ["<A-k>"] = {"<Esc>:m .-2<CR>==g", opts = noremap_opts},
-        -- >> move fast with crtl Movinge
-        ['<C-h>'] =  {"b", opts = noremap_opts},
-        ['<C-l>'] =  {"e", opts = noremap_opts},
+    -- Move text up and down
+    ["<A-j>"] = { "<Esc>:m .+1<CR>==g", opts = noremap_opts },
+    ["<A-k>"] = { "<Esc>:m .-2<CR>==g", opts = noremap_opts },
+    -- >> move fast with crtl Movinge
+    ["<C-h>"] = { "b", opts = noremap_opts },
+    ["<C-l>"] = { "e", opts = noremap_opts },
 
-        ['<C-Left>'] =  {"b",opts = noremap_opts},
-        ['<C-Right>'] =  {"e",opts = noremap_opts},
+    ["<C-Left>"] = { "b", opts = noremap_opts },
+    ["<C-Right>"] = { "e", opts = noremap_opts },
 
-        ['<C-j>'] =  {"}",opts = noremap_opts},
-        ['<C-k>'] =  {"{",opts = noremap_opts},
+    ["<C-j>"] = { "}", opts = noremap_opts },
+    ["<C-k>"] = { "{", opts = noremap_opts },
 
-        ["<leader>w"] = { ':w<CR>',opts = noremap_opts},
-        ["<leader>q"] = { ':q<CR>',opts = noremap_opts},
-        ["<leader>c"] = { ':Bdelete!<CR>',opts = noremap_opts},
-        -- >> Clip Board option 
-        ["<leader>y"] = { '"_y',opts = noremap_opts},
-        ["<leader>Y"] = { '"_Y',opts = noremap_opts},
-        ['<C-Up>'] =  {"{", opts = noremap_opts},
-        ['<C-Down>'] =  {"}",opts = noremap_opts},
-        -- >> Shift Selection :
-        ['<S-Up>']  = {  "v<Up>",opts = noremap_opts},
-        ['<S-Down>'] = {  "v<Down>",opts = noremap_opts},
-        ['<S-Left>'] = {  "<Left>v",opts = noremap_opts},
-        ['<S-Right>'] = {  "v",opts = noremap_opts},
-        ['<M-Left>'] = {  "<C-o>",opts = noremap_opts},
-        ['<M-Right>'] = {  "<C-i>",opts = noremap_opts},
-        ["<C-d>"] = {  "<C-d>zz",opts = noremap_opts},
-        ["<C-u>"] = {  "<C-u>zz",opts = noremap_opts},
-        ["n"] = { "nzz" ,opts = noremap_opts},
-        ["N"] = { "Nzz" ,opts = noremap_opts},
-        ["Q"] = { "qq",opts = noremap_opts},
-        ['[d'] ={  vim.diagnostic.goto_prev,opts = noremap_opts},
-        [']d'] ={  vim.diagnostic.goto_next,opts = noremap_opts},
-        ['U'] ={ '<C-r>'},
-        --['<leader>re'] ={  'yW:%s/<C-r>*/<C-r>*/gc<Left><Left><Left><Down>', opts = noremap_opts},
-        ['<leader>re'] ={  ':%s///g<Left><Left><Left><Down>', opts = noremap_opts},
-        ['<leader>ra'] ={  'yW:%s/<C-r>*/<C-r>*/<Left><Down>', opts = noremap_opts},
-        ["<leader>se"] ={  "yW/<C-r>*<Down>",opts = noremap_opts},
+    ["<leader>w"] = { ":w<CR>", opts = noremap_opts },
+    ["<leader>q"] = { ":q<CR>", opts = noremap_opts },
+    ["<leader>c"] = { ":Bdelete!<CR>", opts = noremap_opts },
+    -- >> Clip Board option
+    ["<leader>y"] = { '"_y', opts = noremap_opts },
+    ["<leader>Y"] = { '"_Y', opts = noremap_opts },
+    ["<C-Up>"] = { "{", opts = noremap_opts },
+    ["<C-Down>"] = { "}", opts = noremap_opts },
+    -- >> Shift Selection :
+    ["<S-Up>"] = { "v<Up>", opts = noremap_opts },
+    ["<S-Down>"] = { "v<Down>", opts = noremap_opts },
+    ["<S-Left>"] = { "<Left>v", opts = noremap_opts },
+    ["<S-Right>"] = { "v", opts = noremap_opts },
+    ["<M-Left>"] = { "<C-o>", opts = noremap_opts },
+    ["<M-Right>"] = { "<C-i>", opts = noremap_opts },
+    ["<C-d>"] = { "<C-d>zz", opts = noremap_opts },
+    ["<C-u>"] = { "<C-u>zz", opts = noremap_opts },
+    ["n"] = { "nzz", opts = noremap_opts },
+    ["N"] = { "Nzz", opts = noremap_opts },
+    ["Q"] = { "qq", opts = noremap_opts },
+    ["[d"] = { vim.diagnostic.goto_prev, opts = noremap_opts },
+    ["]d"] = { vim.diagnostic.goto_next, opts = noremap_opts },
+    ["U"] = { "<C-r>" },
+    --['<leader>re'] ={  'yW:%s/<C-r>*/<C-r>*/gc<Left><Left><Left><Down>', opts = noremap_opts},
+    ["<leader>re"] = { ":%s///g<Left><Left><Left><Down>", opts = noremap_opts },
+    ["<leader>ra"] = { "yW:%s/<C-r>*/<C-r>*/<Left><Down>", opts = noremap_opts },
+    ["<leader>se"] = { "yW/<C-r>*<Down>", opts = noremap_opts },
 
-        ["<leader>d"]={ "\"_d",opts = noremap_opts},
-        ["<leader>D"]={ '"_D',opts = noremap_opts},
-        ["<leader>p"]={ '"_p',opts = noremap_opts},
-        ["x"]={ '"_x',opts = noremap_opts},
-        ["ge"]={ "G", opts = noremap_opts},
-        ["gh"]={ "0", opts = noremap_opts},
-        ["gl"]={ "$", opts = noremap_opts},
-        ["<leader>s"]={ "\"_s",opts = noremap_opts},
-    },
+    ["<leader>d"] = { '"_d', opts = noremap_opts },
+    ["<leader>D"] = { '"_D', opts = noremap_opts },
+    ["<leader>p"] = { '"_p', opts = noremap_opts },
+    ["x"] = { '"_x', opts = noremap_opts },
+    ["ge"] = { "G", opts = noremap_opts },
+    ["gh"] = { "0", opts = noremap_opts },
+    ["gl"] = { "$", opts = noremap_opts },
+    ["<leader>s"] = { '"_s', opts = noremap_opts },
+  },
 
-    i = {
-      -- go to  beginning and end
-      ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
-      ["<C-e>"] = { "<End>", "End of line" },
+  i = {
+    -- go to  beginning and end
+    ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
+    ["<C-e>"] = { "<End>", "End of line" },
 
-      -- navigate within insert mode
-      ["<C-h>"] = { "<Left>", "Move left" },
-      ["<C-l>"] = { "<Right>", "Move right" },
-      ["<C-j>"] = { "<Down>", "Move down" },
-      ["<C-k>"] = { "<Up>", "Move up" },
-        -- Insert --
-        -- Press jk fast to exit insert mode 
-        ["jk"] = { "<ESC>", opts = noremap_opts},
-        ["kj"] = { "<ESC>", opts = noremap_opts},
-        ['<C-Up>'] = {    "<C-o>{",opts = noremap_opts},
-        ['<C-Down>'] = {  "<C-o>}",opts = noremap_opts},
-        ['<C-Left>'] = {    "<C-o>b",      term_opts = noremap_opts},
-        ['<C-Right>'] = {  "<C-o>e<Right>",term_opts = noremap_opts},
-        ['<C-v>'] = { "<C-o><C-v>",opts = noremap_opts},
-        -- << Move fast with crtl move,
-        ['<S-Up>'] = { "<C-o>v<Up>",opts = noremap_opts},
-        ['<S-Down>'] = { "<C-o>v<Down>",opts = noremap_opts},
-        ['<S-Left>'] = { "<Left><C-o>v",opts = noremap_opts},
-        ['<S-Right>'] = { "<C-o>v",opts = noremap_opts},
-        ["<C-c>"] = { "<Esc>",opts = noremap_opts},
-        ['<M-U>'] = {'<C-o><C-r>'},
-    },
-    v = {
-        ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
-        ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
-        [ "J"] = { ":m '>+1<CR>gv=gv",opts = noremap_opts},
-        [ "K"] = { ":m '<-2<CR>gv=gv",opts = noremap_opts},
-        -- Visual --
-        -- Stay in indent mode
-        [ "<"] = { "<gv", opts = noremap_opts},
-        [ ">"] = { ">gv", opts = noremap_opts},
+    -- navigate within insert mode
+    ["<C-h>"] = { "<Left>", "Move left" },
+    ["<C-l>"] = { "<Right>", "Move right" },
+    ["<C-j>"] = { "<Down>", "Move down" },
+    ["<C-k>"] = { "<Up>", "Move up" },
+    -- Insert --
+    -- Press jk fast to exit insert mode
+    ["jk"] = { "<ESC>", opts = noremap_opts },
+    ["kj"] = { "<ESC>", opts = noremap_opts },
+    ["<C-Up>"] = { "<C-o>{", opts = noremap_opts },
+    ["<C-Down>"] = { "<C-o>}", opts = noremap_opts },
+    ["<C-Left>"] = { "<C-o>b", term_opts = noremap_opts },
+    ["<C-Right>"] = { "<C-o>e<Right>", term_opts = noremap_opts },
+    ["<C-v>"] = { "<C-o><C-v>", opts = noremap_opts },
+    -- << Move fast with crtl move,
+    ["<S-Up>"] = { "<C-o>v<Up>", opts = noremap_opts },
+    ["<S-Down>"] = { "<C-o>v<Down>", opts = noremap_opts },
+    ["<S-Left>"] = { "<Left><C-o>v", opts = noremap_opts },
+    ["<S-Right>"] = { "<C-o>v", opts = noremap_opts },
+    ["<C-c>"] = { "<Esc>", opts = noremap_opts },
+    ["<M-U>"] = { "<C-o><C-r>" },
+  },
+  -- Visual --
+  v = {
+    ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
+    ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
+    ["J"] = { ":m '>+1<CR>gv=gv", opts = noremap_opts },
+    ["K"] = { ":m '<-2<CR>gv=gv", opts = noremap_opts },
 
-        -- Move text up and down
-        [ "<A-j>"] = { ":m .+1<CR>==", opts = noremap_opts},
-        [ "<A-k>"] = { ":m .-2<CR>==", opts = noremap_opts},
-        [ "p"] = { '"_dP', opts = noremap_opts},
+-- Stay in indent mode
+    ["<"] = { "<gv", opts = noremap_opts },
+    [">"] = { ">gv", opts = noremap_opts },
 
-        [ '<C-h>'] = { "b", },
-        [ '<C-l>'] = { "e", },
+    -- Move text up and down
+    ["<A-j>"] = { ":m .+1<CR>==", opts = noremap_opts },
+    ["<A-k>"] = { ":m .-2<CR>==", opts = noremap_opts },
+    ["p"] = { '"_dP', opts = noremap_opts },
 
-        [ '<C-Left>'] = { "b",},
-        [ '<C-Right>'] = { "e",},
+    ["<C-h>"] = { "b" },
+    ["<C-l>"] = { "e" },
 
-        [ '<C-j>'] = { "}",opts = noremap_opts},
-        [ '<C-k>'] = { "{",opts = noremap_opts},
+    ["<C-Left>"] = { "b" },
+    ["<C-Right>"] = { "e" },
 
-        [ '<C-Up>'] = { "{",opts = noremap_opts},
-        [ '<C-Down>'] = { "}",opts = noremap_opts},
+    ["<C-j>"] = { "}", opts = noremap_opts },
+    ["<C-k>"] = { "{", opts = noremap_opts },
 
+    ["<C-Up>"] = { "{", opts = noremap_opts },
+    ["<C-Down>"] = { "}", opts = noremap_opts },
 
-        [ '<M-Up>'] = { ":m '<-2<CR>gv=gv",opts = noremap_opts},
-        [ '<M-Down'] = { ":m '>+2<CR>gv=gv",opts = noremap_opts},
+    ["<M-Up>"] = { ":m '<-2<CR>gv=gv", opts = noremap_opts },
+    ["<M-Down>"] = { ":m '>+2<CR>gv=gv", opts = noremap_opts },
 
+    ["<leader>y"] = { '"_y', opts = noremap_opts },
+    ["<leader>re"] = { "y:%s/<C-r>*/<C-r>*/g<Left><Left><Left><Left><Down>", opts = noremap_opts },
 
-        [ "<leader>y"] = { '"_y',opts = noremap_opts},
-        [ '<leader>re'] = {  'y:%s/<C-r>*/<C-r>*/g<Left><Left><Left><Left><Down>', opts = noremap_opts},
+    ["<A-Up>"] = { ":move '<-2<CR>gv-gv", opts = noremap_opts },
 
-        ["<A-Up>"] = { ":move '<-2<CR>gv-gv", opts = noremap_opts},
+    ["<S-Up>"] = { "<Up>", opts = noremap_opts },
+    ["<S-Down>"] = { "<Down>", opts = noremap_opts },
+    ["<S-Left>"] = { "<Left>", opts = noremap_opts },
+    ["<S-Right>"] = { "<Right>", opts = noremap_opts },
+    -- << Shift Selection :
+    ["<leader>d"] = { '"_d', opts = noremap_opts },
+    ["<leader>D"] = { '"_D', opts = noremap_opts },
+    ["<leader>p"] = { '"_p', opts = noremap_opts },
+    ["x"] = { '"_x', opts = noremap_opts },
+    ["ge"] = { "G", opts = noremap_opts },
+    ["gh"] = { "0", opts = noremap_opts },
+    ["gl"] = { "$", opts = noremap_opts },
+    ["<leader>s"] = { '"_s', opts = noremap_opts },
+  },
+  x = {
+    ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
+    ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
+    -- Don't copy the replaced text after pasting in visual mode
+    -- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
+    ["p"] = { 'p:let @+=@0<CR>:let @"=@0<CR>', "Dont copy replaced text", opts = { silent = true } },
 
-        ['<S-Up>'] = { "<Up>",opts = noremap_opts},
-        ['<S-Down>'] = { "<Down>",opts = noremap_opts},
-        ['<S-Left>'] = { "<Left>",opts = noremap_opts},
-        ['<S-Right>'] = { "<Right>",opts = noremap_opts},
-        -- << Shift Selection :
-        ["<leader>d"]={ "\"_d",opts = noremap_opts},
-        ["<leader>D"]={ '"_D',opts = noremap_opts},
-        ["<leader>p"]={ '"_p',opts = noremap_opts},
-        ["x"]={ '"_x',opts = noremap_opts},
-        ["ge"]={ "G", opts = noremap_opts},
-        ["gh"]={ "0", opts = noremap_opts},
-        ["gl"]={ "$", opts = noremap_opts},
-        ["<leader>s"]={ "\"_s",opts = noremap_opts},
-    },
-    x = {
-      ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
-      ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
-      -- Don't copy the replaced text after pasting in visual mode
-      -- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
-      ["p"] = { 'p:let @+=@0<CR>:let @"=@0<CR>', "Dont copy replaced text", opts = { silent = true } },
+    ["J"] = { ":move '>+1<CR>gv-gv", opts = noremap_opts },
+    ["K"] = { ":move '<-2<CR>gv-gv", opts = noremap_opts },
+    ["<A-j>"] = { ":move '>+1<CR>gv-gv", opts = noremap_opts },
+    ["<A-k>"] = { ":move '<-2<CR>gv-gv", opts = noremap_opts },
+    ["<A-Down>"] = { ":move '>+1<CR>gv-gv", opts = noremap_opts },
+    ["<Space>"] = { "<Nop>", opts = { silent = true } },
+    ["<leader>d"] = { '"_d', opts = noremap_opts },
+    ["<leader>D"] = { '"_D', opts = noremap_opts },
+    ["<leader>p"] = { '"_p', opts = noremap_opts },
+    ["x"] = { '"_x', opts = noremap_opts },
+    ["ge"] = { "G", opts = noremap_opts },
+    ["gh"] = { "0", opts = noremap_opts },
+    ["gl"] = { "$", opts = noremap_opts },
+  },
 
-        [ "J"]={ ":move '>+1<CR>gv-gv", opts = noremap_opts},
-        [ "K"]={ ":move '<-2<CR>gv-gv", opts = noremap_opts},
-        [ "<A-j>"]={ ":move '>+1<CR>gv-gv", opts = noremap_opts},
-        [ "<A-k>"]={ ":move '<-2<CR>gv-gv", opts = noremap_opts},
-        [ "<A-Down>"]={ ":move '>+1<CR>gv-gv", opts = noremap_opts},
-        ['<Space>'] = {'<Nop>', opts = { silent = true }},
-        ["<leader>d"]={ "\"_d",opts = noremap_opts},
-        ["<leader>D"]={ '"_D',opts = noremap_opts},
-        ["<leader>p"]={ '"_p',opts = noremap_opts},
-        ["x"]={ '"_x',opts = noremap_opts},
-        ["ge"]={ "G", opts = noremap_opts},
-        ["gh"]={ "0", opts = noremap_opts},
-        ["gl"]={ "$", opts = noremap_opts},
-    },
-
-    t = {
-        ["<C-x>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
-        ["<C-h>"] = { "<C-\\><C-N><C-w>h", opts = term_opts},
-        ["<C-j>"] = { "<C-\\><C-N><C-w>j", opts = term_opts},
-        ["<C-k>"] = { "<C-\\><C-N><C-w>k", opts = term_opts},
-        ["<C-l>"] = { "<C-\\><C-N><C-w>l", opts = term_opts},
-    },
+  t = {
+    ["<C-x>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
+    ["<C-h>"] = { "<C-\\><C-N><C-w>h", opts = term_opts },
+    ["<C-j>"] = { "<C-\\><C-N><C-w>j", opts = term_opts },
+    ["<C-k>"] = { "<C-\\><C-N><C-w>k", opts = term_opts },
+    ["<C-l>"] = { "<C-\\><C-N><C-w>l", opts = term_opts },
+  },
 }
 
 M.tabufline = {
@@ -405,14 +405,14 @@ M.lspconfig = {
 
     ["[d"] = {
       function()
-        vim.diagnostic.goto_prev({ float = { border = "rounded" }})
+        vim.diagnostic.goto_prev { float = { border = "rounded" } }
       end,
       "Goto prev",
     },
 
     ["]d"] = {
       function()
-        vim.diagnostic.goto_next({ float = { border = "rounded" }})
+        vim.diagnostic.goto_next { float = { border = "rounded" } }
       end,
       "Goto next",
     },
@@ -473,7 +473,9 @@ M.telescope = {
     -- find
     --["<leader>f"] = { "<cmd> Telescope find_files <CR>", "Find files" },
     ["<leader>af"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
-    ["<leader>f"] = { "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>"},
+    ["<leader>f"] = {
+      "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
+    },
     ["<leader>F"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>b"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
     ["<leader>tf"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
@@ -666,8 +668,5 @@ M.gitsigns = {
     },
   },
 }
-
-
-
 
 return M
