@@ -121,8 +121,9 @@ M.general = {
     ["<S-h>"] = { ":bprevious<CR>", opts = noremap_opts },
 
     -- Move text up and down
-    ["<A-j>"] = { "<Esc>:m .+1<CR>==g", opts = noremap_opts },
-    ["<A-k>"] = { "<Esc>:m .-2<CR>==g", opts = noremap_opts },
+    ["<A-j>"] = { "<Esc>:m .+1<CR>==", opts = noremap_opts },
+    ["<A-k>"] = { "<Esc>:m .-2<CR>==", opts = noremap_opts },
+
     -- >> move fast with crtl Movinge
     ["<C-h>"] = { "b", opts = noremap_opts },
     ["<C-l>"] = { "e", opts = noremap_opts },
@@ -207,8 +208,9 @@ M.general = {
     [">"] = { ">gv", opts = noremap_opts },
 
     -- Move text up and down
-    ["<A-j>"] = { ":m .+1<CR>==", opts = noremap_opts },
-    ["<A-k>"] = { ":m .-2<CR>==", opts = noremap_opts },
+    ["<A-j>"] = { ":m '>+1<CR>gv=gv", opts = noremap_opts },
+    ["<A-k>"] = { ":m '<-2<CR>gv=gv", opts = noremap_opts },
+
     ["p"] = { '"_dP', opts = noremap_opts },
 
     ["<C-h>"] = { "b" },
