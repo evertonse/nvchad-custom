@@ -4,6 +4,7 @@ local nowait_opts = { noremap = true, silent = true, nowait = true }
 
 local M = {}
 -- add this table only when you want to disable default keys
+-- TIPS `:map <key>` to see all keys with that prefix
 M.disabled = {
   n = {
     ["<leader>fo"] = "",
@@ -79,6 +80,7 @@ M.disabled = {
   },
 }
 M.general = {
+  -- [NORMAL]
   n = {
 
     ["<leader>x"] = { ":%bd!|e# <cr>", "close all buffers expect current one" },
@@ -104,7 +106,7 @@ M.general = {
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
 
     -- new buffer
-    ["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
+    --["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
     ["<leader>nvc"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
     ["<M-Up>"] = { "ddkP", opts = noremap_opts }, --// Moving the line up
     ["<M-Down>"] = { "ddjP", opts = noremap_opts }, -- // Moving the line down
@@ -156,17 +158,14 @@ M.general = {
     ["U"] = { "<C-r>" },
     --['<leader>re'] ={  'yW:%s/<C-r>*/<C-r>*/gc<Left><Left><Left><Down>', opts = noremap_opts},
     ["<leader>re"] = { ":%s///g<Left><Left><Left><Down>", opts = noremap_opts },
-    ["<leader>ra"] = { "yW:%s/<C-r>*/<C-r>*/<Left><Down>", opts = noremap_opts },
-    ["<leader>se"] = { "yW/<C-r>*<Down>", opts = noremap_opts },
 
     ["<leader>d"] = { '"_d', opts = noremap_opts },
     ["<leader>D"] = { '"_D', opts = noremap_opts },
-    ["<leader>p"] = { '"_p', opts = noremap_opts },
+    --["<leader>p"] = { '"_p', opts = noremap_opts },
     ["x"] = { '"_x', opts = noremap_opts },
     ["ge"] = { "G", opts = noremap_opts },
     ["gh"] = { "0", opts = noremap_opts },
     ["gl"] = { "$", opts = noremap_opts },
-    ["<leader>s"] = { '"_s', opts = noremap_opts },
   },
 
   i = {
@@ -547,18 +546,24 @@ M.nvterm = {
     },
 
     -- new
-    ["<leader>h"] = {
+    ["<leader><M-h>"] = {
       function()
         require("nvterm.terminal").new "horizontal"
       end,
       "New horizontal term",
     },
 
-    ["<leader>v"] = {
+    ["<eader><M-v>"] = {
       function()
         require("nvterm.terminal").new "vertical"
       end,
       "New vertical term",
+    },
+    ["<leader><A-i>"] = {
+      function()
+        require("nvterm.terminal").new"float"
+      end,
+      "Toggle floating term",
     },
   },
 }
