@@ -164,9 +164,9 @@ M.nvimtree = {
         enable = false,
         ignore = true,
     },
-  filesystem_watchers = {
-    enable = true,
-  },
+    filesystem_watchers = {
+      enable = true,
+    },
   actions = {
     open_file = {
       resize_window = true,
@@ -187,7 +187,7 @@ M.nvimtree = {
   },
 
   filters = {
-    dotfiles = true,
+    dotfiles = false,
     custom = {},
   },
 
@@ -231,7 +231,7 @@ M.nvimtree = {
     },
   },
   view = {
-    width = 26,
+    width = 25,
     side = "left",
 
     number = false,

@@ -17,9 +17,12 @@ local sources = {
 
   -- cpp
   b.formatting.clang_format,
+  b.formatting.stylua,
+  b.diagnostics.eslint,
+  b.completion.spell,
 }
-
 null_ls.setup {
   debug = true,
   sources = sources,
 }
+
