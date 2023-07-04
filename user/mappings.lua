@@ -9,6 +9,9 @@ local M = {}
 M.disabled = {
   n = {
     ["<leader>D"] = "",
+    ["<S-tab>"] = "",
+    ["<tab>"] = "",
+
     ["<leader>fo"] = "",
     ["<leader>fa"] = "",
     ["<leader>fb"] = "",
@@ -72,7 +75,6 @@ M.disabled = {
     -- comment
     --["<leader>/"] = "",
     ["<M-Down"] = "",
-
   },
   t = {
     -- nvterm
@@ -85,7 +87,7 @@ M.disabled = {
 M.general = {
   -- [NORMAL]
   n = {
-
+    ["<tab>"] = { ":wincmd p<cr>", "Previous Window" },
     ["<leader>x"] = { ":%bd!|e# <cr>", "close all buffers expect current one" },
     ["<Esc><Esc>"] = { ":noh <CR>", "Clear highlights" },
 
@@ -122,10 +124,10 @@ M.general = {
 
     ["Y"] = { "y$", opts = noremap_opts },
     -- >> Clip Board option
-    ["<leader>y"] = { "\"*y", opts = noremap_opts },
-    ["<leader>Y"] = { "\"*y$", opts = noremap_opts },
-    ["<leader>p"] = { "\"*p", opts = noremap_opts },
-    ["<leader>P"] = { "\"*P", opts = noremap_opts },
+    ["<leader>y"] = { '"*y', opts = noremap_opts },
+    ["<leader>Y"] = { '"*y$', opts = noremap_opts },
+    ["<leader>p"] = { '"*p', opts = noremap_opts },
+    ["<leader>P"] = { '"*P', opts = noremap_opts },
 
     ["<S-l>"] = { ":bnext<CR>", opts = noremap_opts },
     ["<S-h>"] = { ":bprevious<CR>", opts = noremap_opts },
@@ -211,7 +213,7 @@ M.general = {
     ["J"] = { ":m '>+1<CR>gv=gv", opts = noremap_opts },
     ["K"] = { ":m '<-2<CR>gv=gv", opts = noremap_opts },
 
--- Stay in indent mode
+    -- Stay in indent mode
     ["<"] = { "<gv", opts = noremap_opts },
     [">"] = { ">gv", opts = noremap_opts },
 
@@ -233,7 +235,6 @@ M.general = {
     ["<C-Up>"] = { "{", opts = noremap_opts },
     ["<C-Down>"] = { "}", opts = noremap_opts },
 
-
     ["<M-Up>"] = { ":m '<-2<CR>gv=gv", opts = noremap_opts },
     ["<M-Down>"] = { ":m '>+2<CR>gv=gv", opts = noremap_opts },
 
@@ -249,8 +250,8 @@ M.general = {
     ["<leader>d"] = { '"_d', opts = noremap_opts },
     ["<leader>D"] = { '"_D', opts = noremap_opts },
     -- Clip board
-    ["<leader>y"] = { "\"*y", opts = noremap_opts },
-    ["<leader>Y"] = { "\"*y$", opts = noremap_opts },
+    ["<leader>y"] = { '"*y', opts = noremap_opts },
+    ["<leader>Y"] = { '"*y$', opts = noremap_opts },
 
     ["x"] = { '"_x', opts = noremap_opts },
     ["ge"] = { "G", opts = noremap_opts },
@@ -258,8 +259,8 @@ M.general = {
     ["gl"] = { "$", opts = noremap_opts },
     ["<leader>s"] = { '"_s', opts = noremap_opts },
 
-    ["<leader>p"] = { "\"*p", opts = noremap_opts },
-    ["<leader>P"] = { "\"*P", opts = noremap_opts },
+    ["<leader>p"] = { '"*p', opts = noremap_opts },
+    ["<leader>P"] = { '"*P', opts = noremap_opts },
   },
   x = {
     ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
@@ -277,9 +278,9 @@ M.general = {
 
     ["<leader>d"] = { '"_d', opts = noremap_opts },
     ["<leader>D"] = { '"_D', opts = noremap_opts },
-    
-    ["<leader>p"] = { "\"*p", opts = noremap_opts },
-    ["<leader>P"] = { "\"*P", opts = noremap_opts },
+
+    ["<leader>p"] = { '"*p', opts = noremap_opts },
+    ["<leader>P"] = { '"*P', opts = noremap_opts },
 
     ["x"] = { '"_x', opts = noremap_opts },
     ["ge"] = { "G", opts = noremap_opts },
@@ -301,14 +302,14 @@ M.tabufline = {
 
   n = {
     -- cycle through buffers
-    ["<tab>"] = {
+    ["<S-l>"] = {
       function()
         require("nvchad_ui.tabufline").tabuflineNext()
       end,
       "Goto next buffer",
     },
 
-    ["<S-tab>"] = {
+    ["<S-h>"] = {
       function()
         require("nvchad_ui.tabufline").tabuflinePrev()
       end,
@@ -581,7 +582,7 @@ M.nvterm = {
     },
     ["<leader><A-i>"] = {
       function()
-        require("nvterm.terminal").new"float"
+        require("nvterm.terminal").new "float"
       end,
       "Toggle floating term",
     },
