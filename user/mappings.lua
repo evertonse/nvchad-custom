@@ -87,7 +87,7 @@ M.disabled = {
 M.general = {
   -- [NORMAL]
   n = {
-    ["<tab>"] = { ":wincmd p<cr>", "Previous Window" },
+    ["<tab>"] = { "<C-w>w", "Previous Window" },
     ["<leader>x"] = { ":%bd!|e# <cr>", "close all buffers expect current one" },
     ["<Esc><Esc>"] = { ":noh <CR>", "Clear highlights" },
 
