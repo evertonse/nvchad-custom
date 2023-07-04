@@ -79,6 +79,7 @@ M.disabled = {
     ["<A-v>"] = "",
   },
 }
+
 M.general = {
   -- [NORMAL]
   n = {

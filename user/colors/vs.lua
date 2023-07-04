@@ -23,4 +23,5 @@ return {
   ControlFlow       = "#C586C0",
   Method            = "#DCDCAA",
   Native            = "#D7BA7D",
+  Special           = "#D7BA7D",
 }
