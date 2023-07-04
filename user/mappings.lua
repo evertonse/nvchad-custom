@@ -40,6 +40,7 @@ M.disabled = {
     ["<leader>pt"] = "",
     -- copy whole file c-c
     ["<C-c>"] = "",
+    ["<leader><C-A>"] = "",
     ["<leader>ch"] = "",
     ["<leader>ca"] = "",
     ["<leader>cc"] = "",
@@ -95,7 +96,7 @@ M.general = {
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
 
     -- Copy all
-    ["<leader><C-a>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
+    ["<leader><C-y>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
 
     -- line numbers
     ["<leader>n"] = { "<cmd> set nu! <CR>", "Toggle line number" },
