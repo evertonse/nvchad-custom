@@ -5,8 +5,10 @@ local nowait_opts = { noremap = true, silent = true, nowait = true }
 local M = {}
 -- add this table only when you want to disable default keys
 -- TIPS `:map <key>` to see all keys with that prefix
+
 M.disabled = {
   n = {
+    ["<leader>D"] = "",
     ["<leader>fo"] = "",
     ["<leader>fa"] = "",
     ["<leader>fb"] = "",
@@ -117,7 +119,14 @@ M.general = {
     ["<M-.>"] = { ":vertical resize +2<CR>", opts = noremap_opts },
     -- Navigate buffers
     --- behave like other capitals
+
     ["Y"] = { "y$", opts = noremap_opts },
+    -- >> Clip Board option
+    ["<leader>y"] = { "\"*y", opts = noremap_opts },
+    ["<leader>Y"] = { "\"*y$", opts = noremap_opts },
+    ["<leader>p"] = { "\"*p", opts = noremap_opts },
+    ["<leader>P"] = { "\"*P", opts = noremap_opts },
+
     ["<S-l>"] = { ":bnext<CR>", opts = noremap_opts },
     ["<S-h>"] = { ":bprevious<CR>", opts = noremap_opts },
 
@@ -138,9 +147,7 @@ M.general = {
     ["<leader>w"] = { ":w<CR>", opts = noremap_opts },
     ["<leader>q"] = { ":q<CR>", opts = noremap_opts },
     ["<leader>c"] = { ":Bdelete!<CR>", opts = noremap_opts },
-    -- >> Clip Board option
-    ["<leader>y"] = { '"_y', opts = noremap_opts },
-    ["<leader>Y"] = { '"_Y', opts = noremap_opts },
+
     ["<C-Up>"] = { "{", opts = noremap_opts },
     ["<C-Down>"] = { "}", opts = noremap_opts },
     -- >> Shift Selection :
@@ -226,10 +233,10 @@ M.general = {
     ["<C-Up>"] = { "{", opts = noremap_opts },
     ["<C-Down>"] = { "}", opts = noremap_opts },
 
+
     ["<M-Up>"] = { ":m '<-2<CR>gv=gv", opts = noremap_opts },
     ["<M-Down>"] = { ":m '>+2<CR>gv=gv", opts = noremap_opts },
 
-    ["<leader>y"] = { '"_y', opts = noremap_opts },
     ["<leader>re"] = { "y:%s/<C-r>*/<C-r>*/g<Left><Left><Left><Left><Down>", opts = noremap_opts },
 
     ["<A-Up>"] = { ":move '<-2<CR>gv-gv", opts = noremap_opts },
@@ -241,12 +248,18 @@ M.general = {
     -- << Shift Selection :
     ["<leader>d"] = { '"_d', opts = noremap_opts },
     ["<leader>D"] = { '"_D', opts = noremap_opts },
-    ["<leader>p"] = { '"_p', opts = noremap_opts },
+    -- Clip board
+    ["<leader>y"] = { "\"*y", opts = noremap_opts },
+    ["<leader>Y"] = { "\"*y$", opts = noremap_opts },
+
     ["x"] = { '"_x', opts = noremap_opts },
     ["ge"] = { "G", opts = noremap_opts },
     ["gh"] = { "0", opts = noremap_opts },
     ["gl"] = { "$", opts = noremap_opts },
     ["<leader>s"] = { '"_s', opts = noremap_opts },
+
+    ["<leader>p"] = { "\"*p", opts = noremap_opts },
+    ["<leader>P"] = { "\"*P", opts = noremap_opts },
   },
   x = {
     ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
@@ -261,9 +274,13 @@ M.general = {
     ["<A-k>"] = { ":move '<-2<CR>gv-gv", opts = noremap_opts },
     ["<A-Down>"] = { ":move '>+1<CR>gv-gv", opts = noremap_opts },
     ["<Space>"] = { "<Nop>", opts = { silent = true } },
+
     ["<leader>d"] = { '"_d', opts = noremap_opts },
     ["<leader>D"] = { '"_D', opts = noremap_opts },
-    ["<leader>p"] = { '"_p', opts = noremap_opts },
+    
+    ["<leader>p"] = { "\"*p", opts = noremap_opts },
+    ["<leader>P"] = { "\"*P", opts = noremap_opts },
+
     ["x"] = { '"_x', opts = noremap_opts },
     ["ge"] = { "G", opts = noremap_opts },
     ["gh"] = { "0", opts = noremap_opts },
@@ -370,11 +387,11 @@ M.lspconfig = {
       "LSP signature help",
     },
 
-    ["<leader>D"] = {
+    ["<leader>gtd"] = {
       function()
         vim.lsp.buf.type_definition()
       end,
-      "LSP definition type",
+      "LSP [g]o to [t]ype [d]efinition",
     },
 
     ["<leader>lr"] = {

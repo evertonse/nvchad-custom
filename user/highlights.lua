@@ -172,7 +172,7 @@ M.override = {
   --Literals
   ["@string.regex"] = { fg = c.vscOrange, bg = "NONE" },
   ["@string.escape"] = { fg = vs.Special, bg = "NONE" },
-  ["@string"] = { fg = c.vscOrange, bg = vs.Debug },
+  ["@string"] = { fg = c.vscOrange, bg = vs.None},
 
   ["@character"] = { fg = c.vscOrange, bg = "NONE" },
   ["@number"] = { fg = c.vscLightGreen, bg = "NONE" },

@@ -3,4 +3,4 @@
 -- I mean changing the whole colorscheme as workaround for
 -- NvChad chanding the colorscheme everyime we bufwrite
 require "custom.user.autocommands"
-
+vim.cmd(':set clipboard=""')

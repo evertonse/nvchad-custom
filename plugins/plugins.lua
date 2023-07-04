@@ -1,4 +1,4 @@
-local overrides = require "custom.plugins.opts"
+local overrides = require "custom.plugins.overrides"
 
 local M = {}
 
