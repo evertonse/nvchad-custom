@@ -593,13 +593,13 @@ M.whichkey = {
   plugin = true,
 
   n = {
-    ["<leader>wK"] = {
+    ["<leader>WK"] = {
       function()
         vim.cmd "WhichKey"
       end,
       "Which-key all keymaps",
     },
-    ["<leader>wk"] = {
+    ["<leader>Wk"] = {
       function()
         --local input = vim.fn.input "WhichKey: "
         --vim.cmd("WhichKey " .. input)
