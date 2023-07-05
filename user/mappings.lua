@@ -88,6 +88,7 @@ M.disabled = {
     ["<A-v>"] = "",
   },
 }
+
 function ToggleRecording()
     if vim.fn.mode() == 'r' then
         vim.cmd('stoprecording')

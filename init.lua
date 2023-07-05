@@ -2,5 +2,5 @@
 -- some of these autocommands are like too slow,
 -- I mean changing the whole colorscheme as workaround for
 -- NvChad chanding the colorscheme everyime we bufwrite
-vim.cmd(':set clipboard=""')
 require "custom.user.autocommands"
+vim.cmd(':set clipboard=""')
