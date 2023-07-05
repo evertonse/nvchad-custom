@@ -256,7 +256,7 @@ M.general = {
     ["<M-Up>"] = { ":m '<-2<CR>gv=gv", opts = noremap_opts },
     ["<M-Down>"] = { ":m '>+2<CR>gv=gv", opts = noremap_opts },
 
-    ["<leader>re"] = { "y:%s/<C-r>*/<C-r>*/g<Left><Left><Left><Left><Down>", opts = noremap_opts },
+    ["<leader>re"] = { ":s///g<Left><Left><Left><Down><Down>", opts = noremap_opts },
 
     ["<A-Up>"] = { ":move '<-2<CR>gv-gv", opts = noremap_opts },
 
