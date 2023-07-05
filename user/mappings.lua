@@ -46,7 +46,11 @@ M.disabled = {
     ["<leader>cc"] = "",
     -- which-key
     ["<leader>wK"] = "",
+    ["<leader>wr"] = "",
+    ["<leader>wa"] = "",
     ["<leader>wk"] = "",
+    ["<leader>wl"] = "",
+
     ["<leader>fw"] = "",
     ["<leader>tk"] = "",
     -- bufferline
@@ -84,11 +88,23 @@ M.disabled = {
     ["<A-v>"] = "",
   },
 }
+function ToggleRecording()
+    if vim.fn.mode() == 'r' then
+        vim.cmd('stoprecording')
+        vim.api.nvim_echo({{'Recording stopped', 'Normal'}}, false, {})
+    else
+        vim.cmd('normal! qq')
+        vim.api.nvim_echo({{'Recording started', 'Normal'}}, false, {})
+    end
+end
 
 M.general = {
   -- [NORMAL]
   n = {
-    ["<tab>"] = { "<C-w>w", "Previous Window" },
+    -- >> recorging
+    ["Q"] = { ToggleRecording , "Record MACRO on q register" },
+    ["q"] = { "@q", "Activate MACRO on q register" },
+
     ["<leader>x"] = { ":%bd!|e# <cr>", "close all buffers expect current one" },
     ["<Esc><Esc>"] = { ":noh <CR>", "Clear highlights" },
 
@@ -164,7 +180,7 @@ M.general = {
     ["<C-u>"] = { "<C-u>zz", opts = noremap_opts },
     ["n"] = { "nzz", opts = noremap_opts },
     ["N"] = { "Nzz", opts = noremap_opts },
-    ["Q"] = { "qq", opts = noremap_opts },
+
     ["[d"] = { vim.diagnostic.goto_prev, opts = noremap_opts },
     ["]d"] = { vim.diagnostic.goto_next, opts = noremap_opts },
     ["U"] = { "<C-r>" },

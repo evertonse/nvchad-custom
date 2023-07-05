@@ -40,4 +40,6 @@ vim.cmd [[
     "autocmd WinNew * :colorscheme blue
   augroup end
 ]]
+vim.cmd [[ autocmd RecordingEnter * set cmdheight=0 ]]
+vim.cmd [[ autocmd RecordingLeave * set cmdheight=1 ]]
 
