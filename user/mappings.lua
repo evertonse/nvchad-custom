@@ -88,23 +88,29 @@ M.disabled = {
     ["<A-v>"] = "",
   },
 }
-
+local recording = false
 function ToggleRecording()
-    if vim.fn.mode() == 'r' then
-        vim.cmd('stoprecording')
-        vim.api.nvim_echo({{'Recording stopped', 'Normal'}}, false, {})
-    else
-        vim.cmd('normal! qq')
-        vim.api.nvim_echo({{'Recording started', 'Normal'}}, false, {})
-    end
+  if recording then
+    recording = false
+
+    vim.cmd "normal! q"
+    vim.cmd "echo ''"
+    vim.cmd "redraw"
+    vim.api.nvim_echo({ { "recording stopped", "Normal" } }, false, {})
+  else
+    recording = true
+    vim.cmd "redraw"
+    vim.cmd "normal! qq"
+    --vim.api.nvim_echo({ { "recording started", "Normal" } }, false, {})
+  end
 end
 
 M.general = {
   -- [NORMAL]
   n = {
     -- >> recorging
-    ["Q"] = { ToggleRecording , "Record MACRO on q register" },
     ["q"] = { "@q", "Activate MACRO on q register" },
+    ["Q"] = { ToggleRecording, "Record MACRO on q register" },
 
     ["<leader>x"] = { ":%bd!|e# <cr>", "close all buffers expect current one" },
     ["<Esc><Esc>"] = { ":noh <CR>", "Clear highlights" },
