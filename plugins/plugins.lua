@@ -270,6 +270,12 @@ M.plugins = {
       require("recorder").displaySlots()
     end,
   },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require "custom.plugins.configs.indent_blankline"
+    end,
+  },
 }
 
 return M.plugins

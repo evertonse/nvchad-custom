@@ -28,6 +28,7 @@ M.treesitter = {
     enable = true,
     disable = {
       "python",
+      "nvimtree",
     },
   },
   auto_install = true,
