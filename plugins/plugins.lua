@@ -275,8 +275,9 @@ M.plugins = {
     -- config = function()
     --    
     -- end,
-    opts = {}
-    --opts = require "custom.plugins.configs.indent_blankline" 
+    --opts = require 'plugins.configs.others'.blankline
+    --opts = {}
+    opts = overrides.blankline
   },
 }
 
