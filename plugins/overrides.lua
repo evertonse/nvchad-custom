@@ -367,7 +367,7 @@ M.telescope = {
 }
 
 M.blankline = {
-  indentLine_enabled = 0,
+  indentLine_enabled = 1,
   use_treesitter = true,
   filetype_exclude = {
     "startify",
@@ -386,8 +386,11 @@ M.blankline = {
     "nvdash",
     "nvcheatsheet",
     "cmp_menu",
+    "",
   },
-  buftype_exclude = { "terminal" },
+  buftype_exclude = { "terminal", "nofile" },
+  cock = true,
+
   show_trailing_blankline_indent = false,
   show_first_indent_level = false,
   show_current_context = true,
