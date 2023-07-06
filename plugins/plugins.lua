@@ -272,9 +272,11 @@ M.plugins = {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require "custom.plugins.configs.indent_blankline"
-    end,
+    -- config = function()
+    --    
+    -- end,
+    opts = {}
+    --opts = require "custom.plugins.configs.indent_blankline" 
   },
 }
 
