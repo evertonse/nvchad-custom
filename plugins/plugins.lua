@@ -222,6 +222,54 @@ M.plugins = {
       }
     end,
   },
+
+  -- lazy.nvim
+  {
+    "chrisgrieser/nvim-recorder",
+    opts = {},
+    lazy = false,
+    config = function()
+      -- default values
+      require("recorder").setup {
+        -- Named registers where macros are saved. The first register is the default
+        -- register/macro-slot used after startup.
+        slots = { "a", "b" },
+
+        -- default keymaps, see README for description what the commands do
+        mapping = {
+          startStopRecording = "Q",
+          playMacro = "q",
+          switchSlot = "<C-q>",
+          editMacro = "cq",
+          yankMacro = "yq", -- also decodes it for turning macros to mappings
+          addBreakPoint = "##", -- ⚠️ this should be a string you don't use in insert mode during a macro
+        },
+
+        -- clears all macros-slots on startup
+        clear = false,
+
+        -- log level used for any notification, mostly relevant for nvim-notify
+        -- (note that by default, nvim-notify does not show the levels trace and debug.)
+        logLevel = vim.log.levels.INFO,
+
+        -- if enabled, only essential or critical notifications are sent.
+        -- If you do not use a plugin like nvim-notify, set this to `true`
+        -- to remove otherwise annoying notifications.
+        lessNotifications = true,
+
+        -- experimental, see README
+        dapSharedKeymaps = false,
+      }
+      -- indicates whether you are currently recording. Useful if you are using
+      -- `cmdheight=0`, where recording-status is not visible.
+      require("recorder").recordingStatus()
+
+      -- displays non-empty macro-slots (registers) and indicates the selected ones.
+      -- Only displayed when *not* recording. Slots with breakpoints get an extra `#`.
+      -- 💡 use with the config `clear = true` to see recordings you made this session.
+      require("recorder").displaySlots()
+    end,
+  },
 }
 
 return M.plugins

@@ -88,29 +88,54 @@ M.disabled = {
     ["<A-v>"] = "",
   },
 }
+
 local recording = false
 function ToggleRecording()
+  local opts = { noremap = true, silent = true }
+  local map = vim.keymap.set
+
   if recording then
     recording = false
 
     vim.cmd "normal! q"
     vim.cmd "echo ''"
     vim.cmd "redraw"
+
     vim.api.nvim_echo({ { "recording stopped", "Normal" } }, false, {})
+    map({ "n" }, "q", "@q", opts)
   else
     recording = true
     vim.cmd "redraw"
     vim.cmd "normal! qq"
-    --vim.api.nvim_echo({ { "recording started", "Normal" } }, false, {})
+
+    map({ "n" }, "q", "<nop>", {})
+
+    vim.api.nvim_echo({ { "recording started", "Normal" } }, false, {})
   end
+end
+
+local change_key_value_on_press = function()
+  vim.cmd [[
+    nnoremap @{ :nmap ; @}<CR>qq
+    nnoremap @} q:nmap ; @{<CR>
+
+    " Toggle recording
+    nmap Q @{
+
+    " Playback
+    nnoremap gq @q
+  ]]
 end
 
 M.general = {
   -- [NORMAL]
   n = {
     -- >> recorging
-    ["q"] = { "@q", "Activate MACRO on q register" },
-    ["Q"] = { ToggleRecording, "Record MACRO on q register" },
+    -- ["q"] = { "@q", "Activate MACRO on q register" },
+    -- ["Q"] = { ToggleRecording, "Record MACRO on q register" },
+    --
+    -- ["q"] = { "q", "Activate MACRO on q register" },
+    -- ["Q"] = { "qq", "Record MACRO on q register" },
 
     ["<leader>x"] = { ":%bd!|e# <cr>", "close all buffers expect current one" },
     ["<Esc><Esc>"] = { ":noh <CR>", "Clear highlights" },

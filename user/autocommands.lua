@@ -40,6 +40,8 @@ vim.cmd [[
     "autocmd WinNew * :colorscheme blue
   augroup end
 ]]
---vim.cmd [[ autocmd RecordingEnter * set cmdheight=0 ]]
---vim.cmd [[ autocmd RecordingLeave * set cmdheight=1 ]]
+
+-- vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 |  nmap Q q | echo "recording start" ]]
+-- vim.cmd [[ autocmd RecordingLeave * set cmdheight=0 |  nmap Q qq | nnoremap ; @q | set cmdheight=1 | echo "recording stop" ]]
+
 

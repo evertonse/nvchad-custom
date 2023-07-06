@@ -93,6 +93,8 @@ M.override = {
   VisualNOS = { fg = c.vscNone, bg = c.vscSelection },
   WarningMsg = { fg = c.vscRed, bg = c.vscBack, bold = true },
   WildMenu = { fg = c.vscNone, bg = c.vscSelection },
+  --['@spell.markdown'] = { fg = c.vscNone, bg = c.vscSelection },
+  ['@spell'] = { fg = vs.Normal, bg = vs.None, italic = true },
   -------------------------------------------------------------------------
 
   --------------------------BASIC-----------------
