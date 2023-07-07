@@ -2,16 +2,16 @@ local default_on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 capabilities.offsetEncoding = { "utf-16" }
 
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 -- if you just want default config for the servers then put them in a table
-local servers = { 
-    "html",
-    "cssls",
-    --"pylsp",
-    "pyright",
-    --"tsserver", 
-    "clangd",
+local servers = {
+  "html",
+  "cssls",
+  --"pylsp",
+  "pyright",
+  --"tsserver",
+  "clangd",
 }
 
 local lsp_keymaps = function(bufnr)
@@ -38,19 +38,38 @@ end
 
 local on_attach = function(client, bufnr)
   default_on_attach(client, bufnr)
+  client.resolved_capabilities.document_formatting = true
+  client.resolved_capabilities.document_range_formatting = true
   lsp_keymaps(bufnr)
 end
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  if lsp == "pyright" then
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  else
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        python = {
+          formatting = {
+            provider = "black",
+          },
+        },
+      },
+    }
+  end
 end
-
 
 local status_ok, illuminate = pcall(require, "illuminate")
 if not status_ok then
   return
 end
 
+-- Start or restart Neovim.
+-- The Black formatter should now be enabled for Python files. Y
+-- ou can trigger formatting by using the appropriate Neovim command
+-- (such as :lua vim.lsp.buf.formatting()).
