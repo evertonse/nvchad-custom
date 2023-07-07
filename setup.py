@@ -37,7 +37,7 @@ def unistall():
     try:
         print(f'removing {nvim_data_path}')
         rmdir(nvim_data_path)
-    except:
+    except Exception as e:
         print(f'An exception occurred when trying to remove {nvim_path} {e}')
 
 def usage():
@@ -55,5 +55,9 @@ def main():
         install()
     else:
         usage()
-main()
+
+if __name__ == "__main__" :
+    main()
+
+
 

@@ -10,6 +10,7 @@ local is_transparent = require("custom.user.vars").transparency
 -- for better ideia of highlight groups
 -- @imporant also check https://github.com/NvChad/ui/blob/v2.0/lua/nvchad_ui/tabufline/modules.lua for default config
 -- of statusline and tabline
+-- @important highlights https://github.com/folke/tokyonight.nvim/blob/284667adfff02b9a0adc65968c553c6096b543b6/lua/tokyonight/theme.lua#L182
 M.override = {
   ---@type Base46HLGroupsList
   -----------------EDITOR------------------------------
@@ -93,15 +94,15 @@ M.override = {
   VisualNOS = { fg = c.vscNone, bg = c.vscSelection },
   WarningMsg = { fg = c.vscRed, bg = c.vscBack, bold = true },
   WildMenu = { fg = c.vscNone, bg = c.vscSelection },
-  ['@spell'] = { fg = vs.Normal, bg = vs.None, italic = true },
-  ['@spell.markdown'] = { fg = vs.Normal, bg = vs.None, italic = true, bold = true },
+  ["@spell"] = { fg = vs.Normal, bg = vs.None, italic = true },
+  ["@spell.markdown"] = { fg = vs.Normal, bg = vs.None, italic = true, bold = true },
   -------------------------------------------------------------------------
 
   --------------------------BASIC-----------------
   Comment = { fg = vs.Comment, bg = "NONE" },
   Variable = { fg = vs.Variable, bg = "None" },
 
-  --Constant        =   { fg = "None", bg = 'NONE' },
+  Constant = { fg = vs.Constant, bg = "NONE" },
   Global = { fg = vs.Global, bg = "NONE" },
   String = { fg = c.vscOrange, bg = "NONE" },
   Character = { fg = c.vscOrange, bg = "NONE" },
@@ -142,6 +143,13 @@ M.override = {
   SpellCap = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
   SpellRare = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
   SpellLocal = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
+
+  --DiagnosticError = { fg = vs.}, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+  DiagnosticWarn = { fg = c.warning }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+  DiagnosticInfo = { fg = c.info }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+  DiagnosticHint = { fg = c.hint }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+  DiagnosticUnnecessary = { fg = vs.Unnecessary, bg = vs.None, italic=true, undercurl = true, sp = c.vscRed },
+
   --Whitespace      =   { fg = c.vscLineNumber },
   TODO = { fg = c.vscRed },
   LspGlobal = { fg = vs.Global, bg = "None", bold = true },
@@ -165,16 +173,19 @@ M.override = {
   ["@keyword.operator"] = { fg = vs.Keyword, bg = "NONE" },
 
   -- Fucntions
-  ["@function"] = { fg = c.vscYellow, bg = "NONE" },
+  ["@function"] = { fg = vs.Function, bg = "NONE" },
   ["@function.builtin"] = { fg = c.vscYellowOrange, bg = "NONE" },
   ["@function.macro"] = { fg = vs.MacroFunction, bg = "NONE" },
-  --['@function.call']= { fg = vs.None, bg = 'NONE' },
-  --['@method']= { fg = c.vscYellow, bg = 'NONE' },
+  ['@function.call']= { fg = vs.FunctionCall, bg = 'NONE' },
+
+  ['@method.call.python']= { fg = vs.Method, bg = 'NONE' },
+  ['@method.call']= { fg = vs.Method, bg = 'NONE' },
+  ['@method']= { fg = vs.Method, bg = 'NONE' },
 
   --Literals
   ["@string.regex"] = { fg = c.vscOrange, bg = "NONE" },
   ["@string.escape"] = { fg = vs.Special, bg = "NONE" },
-  ["@string"] = { fg = c.vscOrange, bg = vs.None},
+  ["@string"] = { fg = c.vscOrange, bg = vs.None },
 
   ["@character"] = { fg = c.vscOrange, bg = "NONE" },
   ["@number"] = { fg = c.vscLightGreen, bg = "NONE" },
@@ -217,12 +228,12 @@ M.override = {
   --['@definition.var']= { fg = vs.Macro, bg = 'NONE' },
 
   --['@macro.cpp']= { fg = vs.Macro, bg = 'NONE' },
-  --['@constant.macro.cpp']= { fg = vs.Macro, bg = 'NONE' },
+  ['@constant.macro.cpp']= { fg = vs.Macro, bg = 'NONE' },
   --['@error']= { fg = c.vscRed, bg = 'NONE' },
   --['@punctuation.bracket']= { fg = c.vscFront, bg = 'NONE' },
   ["@punctuation.special"] = { fg = c.vscYellow, bg = "NONE" },
   --['@constant']= { fg = c.Macro, bg = 'NONE' },
-  --['@constant.builtin']= { fg = c.Macro, bg = 'NONE' },
+  ['@constant.builtin']= { fg = vs.BuiltInConstant, bg = 'NONE' },
 
   --['@annotation']= { fg = c.vscYellow, bg = 'NONE' },
   --['@attribute']= { fg = c.vscBlueGreen, bg = 'NONE' },
