@@ -389,7 +389,6 @@ M.blankline = {
     "",
   },
   buftype_exclude = { "terminal", "nofile" },
-  cock = true,
 
   show_trailing_blankline_indent = false,
   show_first_indent_level = false,
@@ -420,6 +419,8 @@ M.blankline = {
     "import_statement",
     "operation_type",
   },
+
+  disable_warning_message = true
 }
 
 return M

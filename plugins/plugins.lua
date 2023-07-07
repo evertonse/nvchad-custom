@@ -272,6 +272,8 @@ M.plugins = {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
+    version = "2.20.10",
+
     -- config = function()
     --    
     -- end,
