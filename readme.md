@@ -4,3 +4,5 @@
 ## Uninstall 
 - `python3 setup.py install`
 
+# Tips
+- ideas for overrides of plugins ``https://astronvim.com/3.2.0/Configuration/plugin_defaults`` **astrovim**

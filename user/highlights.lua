@@ -139,10 +139,10 @@ M.override = {
   },
   Ignore = { fg = c.vscFront, bg = "NONE" },
   Error = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
-  SpellBad = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
-  SpellCap = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
-  SpellRare = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
-  SpellLocal = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
+  -- SpellBad = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
+  -- SpellCap = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
+  -- SpellRare = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
+  -- SpellLocal = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
 
   --DiagnosticError = { fg = vs.}, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
   DiagnosticWarn = { fg = c.warning }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default

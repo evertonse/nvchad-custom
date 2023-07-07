@@ -268,8 +268,8 @@ M.hlargs = {
   },
   performance = {
     parse_delay = 1,
-    slow_parse_delay = 25,
-    max_iterations = 2000,
+    slow_parse_delay = 10,
+    max_iterations = 20,
     max_concurrent_partial_parses = 30,
     debounce = {
       partial_parse = 3,
