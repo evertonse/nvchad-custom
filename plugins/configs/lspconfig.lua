@@ -5,6 +5,7 @@ capabilities.offsetEncoding = { "utf-16" }
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 -- if you just want default config for the servers then put them in a table
+
 local servers = {
   "html",
   "cssls",
