@@ -123,7 +123,7 @@ M.override = {
   Define = { fg = vs.Preprocessor, bg = "NONE" },
   Macro = { fg = vs.Macro, bg = "NONE" },
   Type = { fg = vs.Type, bg = "NONE" },
-  StorageClass = { fg = vs.Type, bg = "NONE" },
+  StorageClass = { fg = vs.Keyword, bg = "NONE" },
   Structure = { fg = vs.Type, bg = "NONE" },
   Typedef = { fg = vs.Type, bg = "NONE" },
   Special = { fg = c.vscYellowOrange, bg = "NONE" },
@@ -210,11 +210,12 @@ M.override = {
   -- @Types
   ["@type"] = { fg = vs.Type, bg = "NONE" }, -- Type
   ["@type.qualifier"] = { fg = vs.Keyword, bg = "NONE" },
+  ["@type.qualifier.cpp"] = { fg = vs.Debug, bg = "NONE" },
   ["@type.definition"] = { fg = vs.Keyword, bg = "NONE" },
   ["@type.builtin"] = { fg = vs.Keyword, bg = "NONE" },
   ["@type.builtin.py"] = { fg = vs.Type, bg = "NONE" },
   ["@type.builtin.python"] = { fg = vs.Type, bg = "NONE" },
-  --['@storageClass']= { fg = vs.Keyword, bg = 'NONE' },
+  ['@storageclass']= { fg = vs.Keyword, bg = 'NONE' },
   --['@structure']= { fg = vs.Type, bg = 'NONE' },
 
   -- @Tags
@@ -244,7 +245,7 @@ M.override = {
 
   ["@conditional"] = { fg = vs.ControlFlow, bg = "NONE" },
   ["@repeat"] = { fg = vs.ControlFlow, bg = "NONE" },
-  ["@label"] = { fg = vs.Debug, bg = "NONE" },
+  ["@label"] = { fg = vs.Label, bg = "NONE" },
   ["@operator"] = { fg = c.vscFront, bg = "NONE" },
 
   ["@exception"] = { fg = vs.ControlFlow, bg = "NONE" },

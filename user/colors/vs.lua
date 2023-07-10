@@ -22,6 +22,7 @@ return {
   Variable          = "#9CDCFE",
   VariableBuiltin   = "#2369a2",
   ControlFlow       = "#C586C0",
+  Label             = "#C586C0",
   Method            = "#DCDCAA",
   Function          = '#DCDCAA',
   FunctionCall      = '#DCDCAA',

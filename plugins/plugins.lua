@@ -3,7 +3,6 @@ local overrides = require "custom.plugins.overrides"
 local M = {}
 
 M.plugins = {
-
   { "moll/vim-bbye", lazy = false }, -- Avoid messing with windwos layouts when closing buffers
   {
     "lewis6991/impatient.nvim",
