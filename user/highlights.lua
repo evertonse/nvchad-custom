@@ -225,6 +225,8 @@ M.override = {
 
   ["@text.title"] = { fg = c.vscBlue, bold = true },
   ["@text.literal"] = { fg = c.vscFront, bg = "NONE" },
+  ["@text.diff.delete"]= { fg = c.vscDiffRedLight},
+  ["@text.diff.add"]= { fg = c.vscGitAdded },
 
   --['@definition.macro']= { fg = vs.Macro, bg = 'NONE' },
   --['@definition.var']= { fg = vs.Macro, bg = 'NONE' },
