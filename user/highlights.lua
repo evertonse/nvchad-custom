@@ -208,9 +208,9 @@ M.override = {
   ["@parameter.reference"] = { fg = vs.Parameter, bg = "NONE" },
 
   -- @Types
-  ["@type"] = { fg = vs.Type, bg = "NONE" }, -- Type
-  ["@type.qualifier"] = { fg = vs.Keyword, bg = "NONE" },
+  ["@type"] = { fg = vs.Type, bg = "NONE" }, -- Type ["@type.qualifier"] = { fg = vs.Keyword, bg = "NONE" },
   ["@type.qualifier.cpp"] = { fg = vs.Debug, bg = "NONE" },
+  ["@type.qualifier"] = { fg = vs.Keyword, bg = "NONE" },
   ["@type.definition"] = { fg = vs.Keyword, bg = "NONE" },
   ["@type.builtin"] = { fg = vs.Keyword, bg = "NONE" },
   ["@type.builtin.py"] = { fg = vs.Type, bg = "NONE" },
