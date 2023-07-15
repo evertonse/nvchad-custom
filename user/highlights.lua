@@ -1,7 +1,6 @@
 -- To find any highlight groups: "<cmd> Telescope highlights"
 -- Each highlight group can take a table with variables fg, bg, bold, italic, etc
 -- base30 variable names can also be used as colors
-
 local M = {}
 local c = require "custom.user.colors.vscode"
 local vs = require "custom.user.colors.vs"
@@ -87,7 +86,8 @@ M.override = {
   TabLine = { fg = c.vscFront, bg = c.vscTabOther },
   TabLineFill = { fg = c.vscFront, bg = c.vscTabOutside },
   TabLineSel = { fg = c.vscFront, bg = c.vscTabCurrent },
-  Title = { --[[ fg = c.vscNone, bg = c.vscNone, ]]
+  Title = {
+    --[[ fg = c.vscNone, bg = c.vscNone, ]]
     bold = true,
   },
   Visual = { fg = c.vscNone, bg = c.vscSelection },
@@ -367,9 +367,7 @@ M.override = {
 
 ---@type HLTable
 M.add = {
-  NvimTreeOpenedFolderName = { --[[ fg = "#9098dd" ]]
-    bold = true,
-  },
+  ["@type.qualifier"] = { fg = vs.Keyword, bg = "NONE" },
 }
 
 return M

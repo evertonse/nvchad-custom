@@ -2,10 +2,72 @@ local default_on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 capabilities.offsetEncoding = { "utf-16" }
 
+
+--https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#completionItemKind
+local cmp = require "cmp"
+local CompletionItemKind  = {
+--[[Text ]] 30,
+--[[Method = ]] 2,
+--[[Function = ]] 1,
+--[[Constructor = ]] 4,
+--[[Field = ]] 4,
+--[[Variable = ]] 3,
+--[[Class = ]] 7,
+--[[Interface = ]] 8,
+--[[Module = ]] 9,
+--[[Property = ]] 10,
+--[[Unit = ]] 11,
+--[[Value = ]] 12,
+--[[Enum = ]] 13,
+--[[Keyword = ]] 14,
+--[[Snippet = ]] 0,
+--[[Color = ]] 16,
+--[[File = ]] 17,
+--[[Reference = ]] 18,
+--[[Folder = ]] 19,
+--[[EnumMember = ]] 20,
+--[[Constant = ]] 21,
+--[[Struct = ]] 22,
+--[[Event = ]] 23,
+--[[Operator = ]] 24,
+--[[TypeParameter = ]] 25,
+}
+
+cmp.setup {
+  sorting = {
+    priority_weight = 1.0,
+    comparators = {
+      -- compare.score_offset, -- not good at all
+      cmp.config.compare.exact,
+      function(e1, e2)
+        local k1 = CompletionItemKind[e1:get_kind()]
+        local k2 = CompletionItemKind[e2:get_kind()]
+        if k1 < k2 then
+          return true
+        end
+        return false
+      end,
+      cmp.config.compare.kind,
+      cmp.config.compare.locality,
+      cmp.config.compare.recently_used,
+      cmp.config.compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
+      cmp.config.compare.order,
+      -- compare.scopes, -- what?
+      -- compare.sort_text,
+      -- compare.exact,
+      -- compare.kind,
+      -- compare.length, -- useless
+      cmp.config.compare.offset,
+      -- cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  },
+}
+
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 -- if you just want default config for the servers then put them in a table
-
 local servers = {
   "html",
   "cssls",
