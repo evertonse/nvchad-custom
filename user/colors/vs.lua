@@ -32,7 +32,7 @@ return {
   EnumConstant      = "#A9797A",
   BuiltInConstant   = "#BA797A",
 
-  --DiffAdd           = "#81b88b",
-  DiffAdd           = '#4B5632',
+  DiffAdd           = "#81b88b",
+  --DiffAdd           = '#4B5632',
   DiffDelete        = "#f44747",
 }

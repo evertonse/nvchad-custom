@@ -62,6 +62,7 @@ M.mason = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
+    "bash-language-server",
     "deno",
     "prettier",
 

@@ -2,7 +2,7 @@ local default_on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 capabilities.offsetEncoding = { "utf-16" }
 
-
+-- please take a look at this https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 --https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#completionItemKind
 local cmp = require "cmp"
 local CompletionItemKind  = {
@@ -71,7 +71,7 @@ local util = require "lspconfig/util"
 local servers = {
   "html",
   "cssls",
-  "bash-language-server",
+  "bashls",
   --"pylsp",
   "pyright",
   --"tsserver",
