@@ -71,6 +71,7 @@ local util = require "lspconfig/util"
 local servers = {
   "html",
   "cssls",
+  "bash-language-server",
   --"pylsp",
   "pyright",
   --"tsserver",
@@ -111,11 +112,6 @@ for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
       on_attach = on_attach,
       capabilities = capabilities,
-    }
-  else
-    lspconfig[lsp].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
       settings = {
         python = {
           formatting = {
@@ -123,6 +119,11 @@ for _, lsp in ipairs(servers) do
           },
         },
       },
+    }
+  else
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
     }
   end
 end

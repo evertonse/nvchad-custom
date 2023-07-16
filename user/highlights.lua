@@ -23,10 +23,6 @@ M.override = {
   Directory = {
     fg = vs.Method, --[[ bg = c.vscBack ]]
   },
-  DiffAdd = { fg = "NONE", bg = c.vscDiffGreenLight },
-  DiffChange = { fg = "NONE", bg = c.vscDiffRedDark },
-  DiffDelete = { fg = "NONE", bg = c.vscDiffRedLight },
-  DiffText = { fg = "NONE", bg = c.vscDiffRedLight },
   EndOfBuffer = { fg = c.vscBack, bg = "NONE" },
   ErrorMsg = {
     fg = c.vscRed, --[[ bg = c.vscBack ]]
@@ -225,8 +221,8 @@ M.override = {
 
   ["@text.title"] = { fg = c.vscBlue, bold = true },
   ["@text.literal"] = { fg = c.vscFront, bg = "NONE" },
-  ["@text.diff.delete.diff"]= { fg = c.vscDiffRedLight},
-  ["@text.diff.add.diff"]= { fg = c.vscGitAdded },
+  ["@text.diff.delete.diff"]= { fg = vs.DiffDelete},
+  ["@text.diff.add.diff"]= { fg = vs.DiffAdd},
 
   --['@definition.macro']= { fg = vs.Macro, bg = 'NONE' },
   --['@definition.var']= { fg = vs.Macro, bg = 'NONE' },
@@ -368,6 +364,11 @@ M.override = {
 ---@type HLTable
 M.add = {
   ["@type.qualifier"] = { fg = vs.Keyword, bg = "NONE" },
+  DiffAdd    = { fg = "NONE", bg = c.vscDiffGreenLight },
+  DiffChange = { fg = "NONE", bg = c.vscDiffRedDark },
+  DiffText   = { fg = "NONE", bg = c.vscDiffRedLight },
+  ["@text.diff.delete.diff"]= { fg = vs.DiffDelete},
+  ["@text.diff.add.diff"]= { fg = vs.DiffAdd},
 }
 
 return M

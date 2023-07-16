@@ -2,7 +2,7 @@ return {
   None              = "NONE",
   Debug             = "#FF00FF",
 --  Comment           = "#435f37",
-  Comment           = "#405c37",
+  Comment           = "#435f37",
   Parameter         = "#9a9a9a",
   Type              = "#4EC9B0",
   Construtor        = "#4EC9B0",
@@ -31,4 +31,8 @@ return {
   Constant          = "#A5797A",
   EnumConstant      = "#A9797A",
   BuiltInConstant   = "#BA797A",
+
+  --DiffAdd           = "#81b88b",
+  DiffAdd           = '#4B5632',
+  DiffDelete        = "#f44747",
 }
