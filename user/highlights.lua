@@ -367,8 +367,9 @@ M.add = {
   DiffAdd    = { fg = "NONE", bg = c.vscDiffGreenLight },
   DiffChange = { fg = "NONE", bg = c.vscDiffRedDark },
   DiffText   = { fg = "NONE", bg = c.vscDiffRedLight },
-  ["@text.diff.delete.diff"]= { fg = vs.DiffDelete},
-  ["@text.diff.add.diff"]= { fg = vs.DiffAdd},
+  ["@text.diff.delete.diff"] = { fg = vs.DiffDelete},
+  ["@text.diff.add.diff"] = { fg = vs.DiffAdd},
+  ['@lsp.typemod.variable.globalScope'] = { fg = vs.Global},
 }
 
 return M
