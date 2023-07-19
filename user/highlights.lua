@@ -10,6 +10,8 @@ local is_transparent = require("custom.user.vars").transparency
 -- @imporant also check https://github.com/NvChad/ui/blob/v2.0/lua/nvchad_ui/tabufline/modules.lua for default config
 -- of statusline and tabline
 -- @important highlights https://github.com/folke/tokyonight.nvim/blob/284667adfff02b9a0adc65968c553c6096b543b6/lua/tokyonight/theme.lua#L182
+-- @important lsp tutorial on nvim https://gist.github.com/swarn/fb37d9eefe1bc616c2a7e476c0bc0316
+-- @example vim.api.nvim_set_hl(0, '@lsp.type.parameter', { fg='Purple' })
 M.override = {
   ---@type Base46HLGroupsList
   -----------------EDITOR------------------------------
@@ -249,6 +251,9 @@ M.override = {
 
   ["@exception"] = { fg = vs.ControlFlow, bg = "NONE" },
   ["@exception.python"] = { fg = vs.ControlFlow, bg = "NONE" },
+
+  ['@lsp.typemod.variable.globalScope'] = { fg = vs.Global},
+
   -- ['@variable.builtin']= { fg = vs.VariableBuiltin, bg = 'NONE' },
   -- ['@text']= { fg = c.vscFront, bg = 'NONE' },
   -- ['@text.underline']= { fg = c.vscYellowOrange, bg = 'NONE' },
