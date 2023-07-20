@@ -253,6 +253,7 @@ M.override = {
   ["@exception.python"] = { fg = vs.ControlFlow, bg = "NONE" },
 
   ['@lsp.typemod.variable.globalScope'] = { fg = vs.Global},
+  ['@lsp.typemod.variable.fileScope'] = { fg = vs.FileScope},
 
   -- ['@variable.builtin']= { fg = vs.VariableBuiltin, bg = 'NONE' },
   -- ['@text']= { fg = c.vscFront, bg = 'NONE' },
@@ -375,6 +376,7 @@ M.add = {
   ["@text.diff.delete.diff"] = { fg = vs.DiffDelete},
   ["@text.diff.add.diff"] = { fg = vs.DiffAdd},
   ['@lsp.typemod.variable.globalScope'] = { fg = vs.Global},
+  ['@lsp.typemod.variable.fileScope'] = { fg = vs.FileScope},
 }
 
 return M

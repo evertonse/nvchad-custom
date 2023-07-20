@@ -8,6 +8,7 @@ return {
   Construtor        = "#4EC9B0",
   Namespace         = "#cffae4",
   Global            = "#F8D1EF",
+  FileScope         = "#e1DADA",
   Property          = "#DADADA",
   SelfParameter     = "#CAC4FF",
   Numeric           = "#b5cea8",
