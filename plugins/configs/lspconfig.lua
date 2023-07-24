@@ -76,6 +76,8 @@ local servers = {
   "pyright",
   --"tsserver",
   "clangd",
+  "opencl_ls"
+
 }
 
 local lsp_keymaps = function(bufnr)
@@ -111,6 +113,7 @@ for _, lsp in ipairs(servers) do
   if lsp == "pyright" then
     lspconfig[lsp].setup {
       on_attach = on_attach,
+      autostart = true; -- This is the important new option
       capabilities = capabilities,
       settings = {
         python = {
@@ -123,6 +126,7 @@ for _, lsp in ipairs(servers) do
   else
     lspconfig[lsp].setup {
       on_attach = on_attach,
+      autostart = true; -- This is the important new option
       capabilities = capabilities,
     }
   end
