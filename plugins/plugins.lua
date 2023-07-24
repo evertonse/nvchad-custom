@@ -42,8 +42,8 @@ M.plugins = {
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v2.x",
-    lazy = true, --@important, might not be a agood ideia to make it so
-    enabled = false,
+    lazy = flase, --@important, might not be a agood ideia to make it so
+    enabled = true,
     config = function()
       -- This is where you modify the settings for lsp-zero
       -- Note: autocompletion settings will not take effect

@@ -31,6 +31,5 @@ null_ls.setup {
   sources = sources,
   on_init = function(new_client, _)
     new_client.offset_encoding = "utf-16"
-    
   end,
 }

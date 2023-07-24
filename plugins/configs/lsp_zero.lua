@@ -13,6 +13,7 @@ lsp.ensure_installed({
   'clangd',
   --'tsserver',
   'rust_analyzer',
+  "opencl_ls",
 })
 
 --Options from .configure() will be merged with the ones on .use() and the server will be initialized.

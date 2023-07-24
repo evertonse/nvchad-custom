@@ -6,6 +6,7 @@ return {
   Parameter         = "#9a9a9a",
   Type              = "#4EC9B0",
   Construtor        = "#4EC9B0",
+  ConstrutorOnClass = "#CDFD02",
   Namespace         = "#cffae4",
   Global            = "#F8D1EF",
   FileScope         = "#e1DADA",

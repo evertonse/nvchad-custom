@@ -76,7 +76,7 @@ local servers = {
   "pyright",
   --"tsserver",
   "clangd",
-  "opencl_ls"
+  "opencl_ls",
 
 }
 

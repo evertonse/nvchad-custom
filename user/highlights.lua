@@ -122,7 +122,7 @@ M.override = {
   Macro = { fg = vs.Macro, bg = "NONE" },
   Type = { fg = vs.Type, bg = "NONE" },
   StorageClass = { fg = vs.Keyword, bg = "NONE" },
-  Structure = { fg = vs.Type, bg = "NONE" },
+  Structure = { fg = vs.Keyword, bg = "NONE" },
   Typedef = { fg = vs.Type, bg = "NONE" },
   Special = { fg = c.vscYellowOrange, bg = "NONE" },
   Namespace = { fg = vs.Namespace },
@@ -254,6 +254,7 @@ M.override = {
 
   ['@lsp.typemod.variable.globalScope'] = { fg = vs.Global},
   ['@lsp.typemod.variable.fileScope'] = { fg = vs.FileScope},
+  ['@lsp.mod.constructorOrDestructor'] = { fg = vs.ConstrutorOnClass},
 
   -- ['@variable.builtin']= { fg = vs.VariableBuiltin, bg = 'NONE' },
   -- ['@text']= { fg = c.vscFront, bg = 'NONE' },
@@ -377,6 +378,7 @@ M.add = {
   ["@text.diff.add.diff"] = { fg = vs.DiffAdd},
   ['@lsp.typemod.variable.globalScope'] = { fg = vs.Global},
   ['@lsp.typemod.variable.fileScope'] = { fg = vs.FileScope},
+  ['@lsp.mod.constructorOrDestructor'] = { fg = vs.ConstrutorOnClass},
 }
 
 return M
