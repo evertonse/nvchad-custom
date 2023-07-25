@@ -167,19 +167,19 @@ M.plugins = {
         Using my fork of Mofiqul vscode nvim theme, 
         but my theme is Focusing on Visual Studio Theme, rather tha vs code
     --]]
-  {
-    "evertonse/vs.nvim",
-    branch = "dev",
-    lazy = true,
-    config = function()
-      local status_ok, _ = pcall(vim.cmd, "colorscheme vs")
-      if not status_ok then
-        return
-      end
-      --vim.api.nvim_set_hl(0,'Normal',{bg = "none"})
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-    end,
-  },
+  -- {
+  --   "evertonse/vs.nvim",
+  --   branch = "dev",
+  --   lazy = true,
+  --   config = function()
+  --     local status_ok, _ = pcall(vim.cmd, "colorscheme vs")
+  --     if not status_ok then
+  --       return
+  --     end
+  --     --vim.api.nvim_set_hl(0,'Normal',{bg = "none"})
+  --     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  --   end,
+  -- },
 
   -->> Utils
   { "dstein64/vim-startuptime" },

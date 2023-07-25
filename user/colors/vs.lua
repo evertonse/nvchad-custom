@@ -9,7 +9,7 @@ return {
   ConstrutorOnClass = "#CDFD02",
   Namespace         = "#cffae4",
   Global            = "#F8D1EF",
-  FileScope         = "#e1DADA",
+  FileScope         = "#e8D7D7",
   Property          = "#DADADA",
   SelfParameter     = "#CAC4FF",
   Numeric           = "#b5cea8",
