@@ -6,7 +6,7 @@ M.plugins = {
   { "moll/vim-bbye", lazy = false }, -- Avoid messing with windwos layouts when closing buffers
   {
     "ekickx/clipboard-image.nvim",
-    lazy = false,
+    lazy = true,
     config = function()
       require("clipboard-image").setup {
         -- Default configuration for all filetype
@@ -24,7 +24,7 @@ M.plugins = {
           img_dir = { "src", "assets", "img" }, -- Use table for nested dir (New feature form PR #20)
           img_dir_txt = "/assets/img",
           -- use this -> require 'clipboard-image.paste'.paste_img()
-          img_handler = function(imh) -- New feature from PR #22
+          img_handler = function(img) -- New feature from PR #22
             local script = string.format('./image_compressor.sh "%s"', img.patc)
             os.execute(script)
           end,
@@ -42,7 +42,7 @@ M.plugins = {
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v2.x",
-    lazy = flase, --@important, might not be a agood ideia to make it so
+    lazy = false, --@important, might not be a agood ideia to make it so
     enabled = true,
     config = function()
       -- This is where you modify the settings for lsp-zero
