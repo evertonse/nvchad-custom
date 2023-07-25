@@ -215,7 +215,7 @@ M.override = {
   ["@type.builtin.py"] = { fg = vs.Type, bg = "NONE" },
   ["@type.builtin.python"] = { fg = vs.Type, bg = "NONE" },
   ['@storageclass']= { fg = vs.Keyword, bg = 'NONE' },
-  --['@structure']= { fg = vs.Type, bg = 'NONE' },
+  ['@structure']= { fg = vs.Type, bg = 'NONE' },
 
   -- @Tags
   ["@tag.delimiter"] = { fg = c.vscGray, bg = "NONE" },
@@ -379,6 +379,7 @@ M.add = {
   ['@lsp.typemod.variable.globalScope'] = { fg = vs.Global},
   ['@lsp.typemod.variable.fileScope'] = { fg = vs.FileScope},
   ['@lsp.mod.constructorOrDestructor'] = { fg = vs.ConstrutorOnClass},
+  ['@structure']= { fg = vs.Type, bg = 'NONE' },
 }
 
 return M
