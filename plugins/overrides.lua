@@ -139,7 +139,12 @@ local function nvimtree_on_attach(bufnr)
   -- Mappings migrated from view.mappings.list
   --
   -- You will need to insert "your code goes here" for any mappings with a custom action_cb
-  vim.keymap.set("n", "l", api.node.open.no_window_picker, opts "Open: No Window Picker")
+  vim.keymap.set("n", "l", function ()
+      api.node.open.no_window_picker()
+      api.tree.close()
+    end , opts "Open: No Window Picker"
+  )
+
   vim.keymap.set("n", "<CR>", api.node.open.no_window_picker, opts "Open: No Window Picker")
   vim.keymap.set("n", "o", api.tree.change_root_to_node, opts "Open: No Window Picker")
   --vim.keymap.set('n', '<BS>',  api.tree.change_root_to_parent,        opts('Close Directory'))

@@ -122,7 +122,7 @@ M.override = {
   Macro = { fg = vs.Macro, bg = "NONE" },
   Type = { fg = vs.Type, bg = "NONE" },
   StorageClass = { fg = vs.Keyword, bg = "NONE" },
-  Structure = { fg = vs.Keyword, bg = "NONE" },
+  Structure = { fg = vs.Type, bg = "NONE" },
   Typedef = { fg = vs.Type, bg = "NONE" },
   Special = { fg = c.vscYellowOrange, bg = "NONE" },
   Namespace = { fg = vs.Namespace },
