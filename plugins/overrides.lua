@@ -300,13 +300,13 @@ M.telescope = {
 
     mappings = {
       i = {
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
+        ["<C-i>"] = actions.cycle_history_next,
+        ["<C-o>"] = actions.cycle_history_prev,
 
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-p>"] = actions.move_selection_next,
+        ["<C-n>"] = actions.move_selection_previous,
 
-        ["<C-c>"] = actions.close,
+        -- ["<C-c>"] = actions.close,
 
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
@@ -344,8 +344,9 @@ M.telescope = {
         ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
-        ["j"] = actions.move_selection_next,
-        ["k"] = actions.move_selection_previous,
+        ["n"] = actions.move_selection_next,
+        ["p"] = actions.move_selection_previous,
+
         ["H"] = actions.move_to_top,
         ["M"] = actions.move_to_middle,
         ["L"] = actions.move_to_bottom,
