@@ -530,7 +530,8 @@ M.nvimtree = {
     -- toggle
     ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
     -- focus
-    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+    ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+    --["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
     ["<leader>E"] = { "<cmd> NvimTreeFindFile <CR>", "Focus Current file" },
   },
 }
@@ -546,7 +547,7 @@ M.telescope = {
       "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
     },
     ["<leader>F"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
-    ["<leader>b"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
+    ["<leader>b"] = { "<cmd> Telescope buffers <CR><esc>", "Find buffers" },
     ["<leader>tf"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["<leader>of"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
     ["<leader><C-f>"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "[C]urrent buffer [F]ind " },
