@@ -4,6 +4,7 @@ local M = {}
 
 M.plugins = {
   { "moll/vim-bbye", lazy = false }, -- Avoid messing with windwos layouts when closing buffers
+
   {
     'ThePrimeagen/harpoon',
     lazy = false,
@@ -12,9 +13,10 @@ M.plugins = {
       { 'nvim-lua/plenary.nvim' },
     },
     config = function()
-      require "impatient"
+      require("telescope").load_extension('harpoon')
     end,
   },
+
   {
     "ekickx/clipboard-image.nvim",
     lazy = true,

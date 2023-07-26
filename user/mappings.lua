@@ -130,6 +130,8 @@ end
 M.general = {
   -- [NORMAL]
   n = {
+    -->> Harpoon
+    ["<A-t>"] = { ":lua require('harpoon.term').gotoTerminal(1)", "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
     -- >> recorging
     -- ["q"] = { "@q", "Activate MACRO on q register" },
     -- ["Q"] = { ToggleRecording, "Record MACRO on q register" },
