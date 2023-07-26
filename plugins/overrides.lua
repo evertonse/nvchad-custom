@@ -79,6 +79,21 @@ local function nvimtree_on_attach(bufnr)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
+
+  local function edit_or_open()
+    local node = api.tree.get_node_under_cursor()
+
+    if node.nodes ~= nil then
+      -- expand or collapse folder
+      api.node.open.edit()
+    else
+      -- open file
+      --api.node.open.edit()
+      api.node.open.no_window_picker()
+      -- Close the tree if file was opened
+      api.tree.close()
+    end
+  end
   -- Default mappings. Feel free to modify or remove as you wish.
   --
   -- BEGIN_DEFAULT_ON_ATTACH
@@ -139,10 +154,7 @@ local function nvimtree_on_attach(bufnr)
   -- Mappings migrated from view.mappings.list
   --
   -- You will need to insert "your code goes here" for any mappings with a custom action_cb
-  vim.keymap.set("n", "l", function ()
-      api.node.open.no_window_picker()
-      api.tree.close()
-    end , opts "Open: No Window Picker"
+  vim.keymap.set("n", "l", edit_or_open, opts "Open: No Window Picker"
   )
 
   vim.keymap.set("n", "<CR>", api.node.open.no_window_picker, opts "Open: No Window Picker")

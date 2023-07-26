@@ -5,6 +5,17 @@ local M = {}
 M.plugins = {
   { "moll/vim-bbye", lazy = false }, -- Avoid messing with windwos layouts when closing buffers
   {
+    'ThePrimeagen/harpoon',
+    lazy = false,
+
+    dependencies = {
+      { 'nvim-lua/plenary.nvim' },
+    },
+    config = function()
+      require "impatient"
+    end,
+  },
+  {
     "ekickx/clipboard-image.nvim",
     lazy = true,
     config = function()
@@ -81,8 +92,28 @@ M.plugins = {
           require "custom.plugins.configs.null-ls"
         end,
       },
+
+      -- Autocompletion
+      { "hrsh7th/nvim-cmp" },
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-path" },
+      { "saadparwaiz1/cmp_luasnip" },
       { "hrsh7th/cmp-nvim-lsp" },
-      { "williamboman/mason-lspconfig.nvim" },
+      { "hrsh7th/cmp-nvim-lua" },
+
+      -- Snippets
+      { "L3MON4D3/LuaSnip" },
+      { "rafamadriz/friendly-snippets" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { 
+        "williamboman/mason-lspconfig.nvim" ,
+        config = function()
+          require("mason-lspconfig").setup {
+            ensure_installed = { "lua_ls", "rust_analyzer", "opencl_ls"},
+            automatic_installation = true,
+          }
+        end
+      },
       {
         "williamboman/mason.nvim",
         build = function()

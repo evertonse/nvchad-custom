@@ -624,7 +624,7 @@ M.nvterm = {
       "New horizontal term",
     },
 
-    ["<eader><M-v>"] = {
+    ["<leader><M-v>"] = {
       function()
         require("nvterm.terminal").new "vertical"
       end,
@@ -632,6 +632,8 @@ M.nvterm = {
     },
     ["<leader><A-i>"] = {
       function()
+        -- require("nvterm.terminal").send("exit ", "float") -- the 2nd argument i.e direction is optional
+        -- vim.cmd(":bd!")
         require("nvterm.terminal").new "float"
       end,
       "Toggle floating term",
