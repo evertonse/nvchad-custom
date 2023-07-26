@@ -255,7 +255,8 @@ M.override = {
   ['@lsp.typemod.variable.globalScope'] = { fg = vs.Global},
   ['@lsp.typemod.variable.fileScope'] = { fg = vs.FileScope},
   ['@lsp.mod.constructorOrDestructor'] = { fg = vs.ConstrutorOnClass},
-  ['@lsp.type.comment'] = {fg = vs.DeadCode},
+  ['@lsp.type.comment.c'] = {fg = vs.DeadCode},
+  ['@lsp.type.comment.cpp'] = {fg = vs.DeadCode},
 
   -- ['@variable.builtin']= { fg = vs.VariableBuiltin, bg = 'NONE' },
   -- ['@text']= { fg = c.vscFront, bg = 'NONE' },
@@ -381,7 +382,8 @@ M.add = {
   ['@lsp.typemod.variable.fileScope'] = { fg = vs.FileScope},
   ['@lsp.mod.constructorOrDestructor'] = { fg = vs.ConstrutorOnClass},
   ['@structure']= { fg = vs.Type, bg = 'NONE' },
-  ['@lsp.type.comment'] = {fg = vs.DeadCode, bg = 'NONE'},
+  ['@lsp.type.comment.c'] = {fg = vs.DeadCode, bg = 'NONE'},
+  ['@lsp.type.comment.cpp'] = {fg = vs.DeadCode, bg = 'NONE'},
 }
 
 return M
