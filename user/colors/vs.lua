@@ -1,7 +1,7 @@
 return {
   None              = "NONE",
   Debug             = "#FF00FF",
-  DeadCode          = "#717171",
+  DeadCode          = "#616161",
   Comment           = "#435f37",
   Parameter         = "#9a9a9a",
   Type              = "#4EC9B0",

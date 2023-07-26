@@ -384,6 +384,7 @@ M.add = {
   ['@structure']= { fg = vs.Type, bg = 'NONE' },
   ['@lsp.type.comment.c'] = {fg = vs.DeadCode, bg = 'NONE'},
   ['@lsp.type.comment.cpp'] = {fg = vs.DeadCode, bg = 'NONE'},
+  DiagnosticUnnecessary = { fg = vs.Unnecessary, bg = vs.None, italic=true, undercurl = true, sp = c.vscRed },
 }
 
 return M
