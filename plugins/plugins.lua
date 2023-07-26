@@ -136,7 +136,7 @@ M.plugins = {
     end,
   },
   { "onsails/lspkind.nvim" }, -- better lsp cmp icons
-  { "RRethy/vim-illuminate" },
+  { "RRethy/vim-illuminate", enable = false },
   { "folke/trouble.nvim" }, -- LPS Diagnostic with colors and shit
   { "folke/lsp-colors.nvim" }, -- LSP colors that might be missings
   -- { 'jackguo380/vim-lsp-cxx-highlight',     }, -- LSP based cpp highlighting

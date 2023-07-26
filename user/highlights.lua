@@ -384,7 +384,8 @@ M.add = {
   ['@structure']= { fg = vs.Type, bg = 'NONE' },
   ['@lsp.type.comment.c'] = {fg = vs.DeadCode, bg = 'NONE'},
   ['@lsp.type.comment.cpp'] = {fg = vs.DeadCode, bg = 'NONE'},
-  DiagnosticUnnecessary = { fg = vs.Unnecessary, bg = vs.None, italic=true, undercurl = true, sp = c.vscRed },
+  DiagnosticUnnecessary = { fg = vs.DeadCode, bg = vs.None, italic=true, undercurl = false, sp = vs.None },
+  ["@keyword.as.python"] = { fg = vs.Keyword, sp = vs.None , bg = "NONE" },
 }
 
 return M

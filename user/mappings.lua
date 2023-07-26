@@ -134,7 +134,7 @@ M.general = {
     -- ["<A-t>"] = { ":lua require('harpoon.term').gotoTerminal(1)<CR>", "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
     ["<A-m>"] = {function() require("harpoon.mark").add_file() end, ""},
     ["<A-r>"] = {function() require("harpoon.mark").rm_file() end, ""},
-    ["<A-t>"] = { ":Telescope harpoon marks initial_mode=normal <CR>", "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
+    ["<A-b>"] = { ":Telescope harpoon marks initial_mode=normal <CR>", "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
     ["<A-n>"] = {function() require('harpoon.ui').nav_next() end, "-- navigates to next mark"},
     ["<A-p>"] = {function() require('harpoon.ui').nav_prev() end, "-- navigates to next mark"},
 
