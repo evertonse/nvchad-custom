@@ -146,7 +146,7 @@ M.override = {
   DiagnosticWarn = { fg = c.warning }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
   DiagnosticInfo = { fg = c.info }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
   DiagnosticHint = { fg = c.hint }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-  DiagnosticUnnecessary = { fg = vs.Unnecessary, bg = vs.None, italic=true, undercurl = true, sp = c.vscRed },
+  DiagnosticUnnecessary = { fg = vs.DeadCode, bg = vs.None, italic=true, undercurl = false, sp = vs.None },
 
   --Whitespace      =   { fg = c.vscLineNumber },
   TODO = { fg = c.vscRed },
