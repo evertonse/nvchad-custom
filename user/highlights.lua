@@ -255,6 +255,7 @@ M.override = {
   ['@lsp.typemod.variable.globalScope'] = { fg = vs.Global},
   ['@lsp.typemod.variable.fileScope'] = { fg = vs.FileScope},
   ['@lsp.mod.constructorOrDestructor'] = { fg = vs.ConstrutorOnClass},
+  ['@lsp.type.comment'] = {fg = vs.DeadCode},
 
   -- ['@variable.builtin']= { fg = vs.VariableBuiltin, bg = 'NONE' },
   -- ['@text']= { fg = c.vscFront, bg = 'NONE' },
@@ -370,16 +371,17 @@ M.override = {
 
 ---@type HLTable
 M.add = {
-  ["@type.qualifier"] = { fg = vs.Keyword, bg = "NONE" },
-  DiffAdd    = { fg = "NONE", bg = c.vscDiffGreenLight },
-  DiffChange = { fg = "NONE", bg = c.vscDiffRedDark },
-  DiffText   = { fg = "NONE", bg = c.vscDiffRedLight },
-  ["@text.diff.delete.diff"] = { fg = vs.DiffDelete},
-  ["@text.diff.add.diff"] = { fg = vs.DiffAdd},
+  ["@type.qualifier"] = { fg = vs.Keyword, sp = vs.None , bg = "NONE" },
+  DiffAdd    = { fg = "NONE", sp = vs.None,  bg = c.vscDiffGreenLight },
+  DiffChange = { fg = "NONE", sp = vs.None,  bg = c.vscDiffRedDark },
+  DiffText   = { fg = "NONE", sp = vs.None,  bg = c.vscDiffRedLight },
+  ["@text.diff.delete.diff"] = { fg = vs.DiffDelete, sp = vs.None  },
+  ["@text.diff.add.diff"] = { fg = vs.DiffAdd, sp = vs.None,  bg = vs.None },
   ['@lsp.typemod.variable.globalScope'] = { fg = vs.Global},
   ['@lsp.typemod.variable.fileScope'] = { fg = vs.FileScope},
   ['@lsp.mod.constructorOrDestructor'] = { fg = vs.ConstrutorOnClass},
   ['@structure']= { fg = vs.Type, bg = 'NONE' },
+  ['@lsp.type.comment'] = {fg = vs.DeadCode, bg = 'NONE'},
 }
 
 return M
