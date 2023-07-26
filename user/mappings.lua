@@ -26,7 +26,6 @@ M.disabled = {
     ["<leader>fl"] = "",
     ["<leader>fm"] = "",
     ["<leader>fn"] = "",
-    ["<leader>fp"] = "",
     ["<leader>fq"] = "",
     ["<leader>fr"] = "",
     ["<leader>fs"] = "",
@@ -49,6 +48,7 @@ M.disabled = {
     ["<leader>wr"] = "",
     ["<leader>wa"] = "",
     ["<leader>wk"] = "",
+    ["<leader>fp"] = "",
     ["<leader>wl"] = "",
 
     ["<leader>fw"] = "",
@@ -131,7 +131,13 @@ M.general = {
   -- [NORMAL]
   n = {
     -->> Harpoon
-    ["<A-t>"] = { ":lua require('harpoon.term').gotoTerminal(1)", "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
+    -- ["<A-t>"] = { ":lua require('harpoon.term').gotoTerminal(1)<CR>", "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
+    ["<A-m>"] = {function() require("harpoon.mark").add_file() end, ""},
+    ["<A-r>"] = {function() require("harpoon.mark").rm_file() end, ""},
+    ["<A-t>"] = { ":Telescope harpoon marks initial_mode=normal <CR>", "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
+    ["<A-n>"] = {function() require('harpoon.ui').nav_next() end, "-- navigates to next mark"},
+    ["<A-p>"] = {function() require('harpoon.ui').nav_prev() end, "-- navigates to next mark"},
+
     -- >> recorging
     -- ["q"] = { "@q", "Activate MACRO on q register" },
     -- ["Q"] = { ToggleRecording, "Record MACRO on q register" },
@@ -549,13 +555,13 @@ M.telescope = {
       "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
     },
     ["<leader>F"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
-    ["<leader>b"] = { "<cmd> Telescope buffers <CR><esc>", "Find buffers" },
+    ["<leader>b"] = { "<cmd> Telescope buffers initial_mode=normal<CR><esc>", "Find buffers" },
     ["<leader>tf"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["<leader>of"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
     ["<leader><C-f>"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "[C]urrent buffer [F]ind " },
 
     -- git
-    ["<leader>gcm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+    ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
     ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
 
     -- pick a hidden term
@@ -564,7 +570,7 @@ M.telescope = {
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
-    ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
+    ["<leader>ma"] = { "<cmd> Telescope marks initial_mode=normal<CR>", "telescope bookmarks" },
   },
 }
 
