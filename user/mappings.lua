@@ -142,6 +142,7 @@ M.general = {
     ["<A-n>"] = {function() require('harpoon.ui').nav_next() end, "-- navigates to next mark"},
     ["<A-p>"] = {function() require('harpoon.ui').nav_prev() end, "-- navigates to next mark"},
 
+    -- @todo close tree if opened
     ["<A-1>"] = {function() require('harpoon.ui').nav_file(1) end, "-- navigates to 1"},
     ["<A-2>"] = {function() require('harpoon.ui').nav_file(2) end, "-- navigates to 2"},
     ["<A-3>"] = {function() require('harpoon.ui').nav_file(3) end, "-- navigates to 3"},

@@ -88,7 +88,6 @@ M.plugins = {
   {
     "ThePrimeagen/harpoon",
     lazy = false,
-
     dependencies = {
       { "nvim-lua/plenary.nvim" },
     },
@@ -154,13 +153,16 @@ M.plugins = {
       }
     end,
   }, -- Avoid messing with windwos layouts when closing buffers
+
   {
     "lewis6991/impatient.nvim",
     lazy = false,
+    enable = false,
     config = function()
       require "impatient"
     end,
   },
+
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v2.x",
@@ -206,7 +208,7 @@ M.plugins = {
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+      { "j-hui/fidget.nvim", enable=false, tag = "legacy", opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       { "folke/neodev.nvim" },
