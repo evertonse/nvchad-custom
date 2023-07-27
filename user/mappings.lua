@@ -229,8 +229,8 @@ M.general = {
     ["<M-Right>"] = { "<C-i>", opts = noremap_opts },
     ["<C-d>"] = { "<C-d>zz", opts = noremap_opts },
     ["<C-u>"] = { "<C-u>zz", opts = noremap_opts },
-    ["n"] = { "nzz", opts = noremap_opts },
-    ["N"] = { "Nzz", opts = noremap_opts },
+    ["n"] = { "nzzzv", opts = noremap_opts },
+    ["N"] = { "Nzzzv", opts = noremap_opts },
 
     ["[d"] = { vim.diagnostic.goto_prev, opts = noremap_opts },
     ["]d"] = { vim.diagnostic.goto_next, opts = noremap_opts },
