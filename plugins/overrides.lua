@@ -1,10 +1,14 @@
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
-  return
-end
+-- local status_ok, nvim_tree = pcall(require, "nvim-tree")
+-- if not status_ok then
+--   return
+-- end
+-- local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+-- if not config_status_ok then
+--   return
+-- end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
+local colors_ok, vs = pcall(require, "custom.user.colors.vs")
+if not colors_ok then
   return
 end
 
@@ -78,7 +82,6 @@ local function nvimtree_on_attach(bufnr)
   local function opts(desc)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
-
 
   local function edit_or_open()
     local node = api.tree.get_node_under_cursor()
@@ -154,8 +157,7 @@ local function nvimtree_on_attach(bufnr)
   -- Mappings migrated from view.mappings.list
   --
   -- You will need to insert "your code goes here" for any mappings with a custom action_cb
-  vim.keymap.set("n", "l", edit_or_open, opts "Open: No Window Picker"
-  )
+  vim.keymap.set("n", "l", edit_or_open, opts "Open: No Window Picker")
 
   vim.keymap.set("n", "<CR>", api.node.open.no_window_picker, opts "Open: No Window Picker")
   vim.keymap.set("n", "o", api.tree.change_root_to_node, opts "Open: No Window Picker")
@@ -180,7 +182,7 @@ M.nvimtree = {
 
   on_attach = nvimtree_on_attach,
   git = {
-    enable = false,
+    enable = true,
     ignore = true,
   },
   filesystem_watchers = {
@@ -212,7 +214,18 @@ M.nvimtree = {
 
   renderer = {
     root_folder_modifier = ":t",
+    highlight_git = true,
     icons = {
+      git_placement = "before",
+      modified_placement = "after",
+      webdev_colors = true,
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+        modified = true,
+      },
       glyphs = {
         default = "",
         symlink = "",
@@ -250,7 +263,7 @@ M.nvimtree = {
     },
   },
   view = {
-    width = 25,
+    width = 30,
     side = "left",
 
     number = false,
@@ -441,7 +454,7 @@ M.blankline = {
     "operation_type",
   },
 
-  disable_warning_message = true
+  disable_warning_message = true,
 }
 
 return M

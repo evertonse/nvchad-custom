@@ -3,6 +3,7 @@ return {
   Debug             = "#FF00FF",
   DeadCode          = "#616161",
   Comment           = "#435f37",
+  Args              = "#909090",
   Parameter         = "#9a9a9a",
   Type              = "#4EC9B0",
   Construtor        = "#4EC9B0",
