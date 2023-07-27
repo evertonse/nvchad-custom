@@ -6,19 +6,43 @@ M.plugins = {
   { "moll/vim-bbye", lazy = false }, -- Avoid messing with windwos layouts when closing buffers
 
   {
-    'ThePrimeagen/harpoon',
+    "ThePrimeagen/harpoon",
     lazy = false,
 
     dependencies = {
-      { 'nvim-lua/plenary.nvim' },
+      { "nvim-lua/plenary.nvim" },
     },
     config = function()
-      require("telescope").load_extension('harpoon')
-      require("harpoon").setup({
-          menu = {
-              width = vim.api.nvim_win_get_width(0) - 4,
-          }
-      })
+      require("telescope").load_extension "harpoon"
+      require("harpoon").setup {
+        global_settings = {
+          -- sets the marks upon calling `toggle` on the ui, instead of require `:w`.
+          save_on_toggle = true,
+
+          -- saves the harpoon file upon every change. disabling is unrecommended.
+          save_on_change = true,
+
+          -- sets harpoon to run the command immediately as it's passed to the terminal when calling `sendCommand`.
+          enter_on_sendcmd = false,
+
+          -- closes any tmux windows harpoon that harpoon creates when you close Neovim.
+          tmux_autoclose_windows = false,
+
+          -- filetypes that you want to prevent from adding to the harpoon list menu.
+          excluded_filetypes = { "harpoon" },
+
+          -- set marks specific to each git branch inside git repository
+          mark_branch = false,
+
+          -- enable tabline with harpoon marks
+          tabline = true,
+          tabline_prefix = "   ",
+          tabline_suffix = "   ",
+        },
+        menu = {
+          width = vim.api.nvim_win_get_width(0) - 4,
+        },
+      }
     end,
   },
 
@@ -97,10 +121,15 @@ M.plugins = {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
           require "custom.plugins.configs.null-ls"
-
         end,
       },
 
+      -- Useful status updates for LSP
+      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+      { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+
+      -- Additional lua configuration, makes nvim stuff amazing!
+      { "folke/neodev.nvim" },
       -- Autocompletion
       { "hrsh7th/nvim-cmp" },
       { "hrsh7th/cmp-buffer" },
@@ -113,14 +142,14 @@ M.plugins = {
       { "L3MON4D3/LuaSnip" },
       { "rafamadriz/friendly-snippets" },
       { "hrsh7th/cmp-nvim-lsp" },
-      { 
-        "williamboman/mason-lspconfig.nvim" ,
+      {
+        "williamboman/mason-lspconfig.nvim",
         config = function()
           require("mason-lspconfig").setup {
-            ensure_installed = { "lua_ls", "rust_analyzer", "opencl_ls"},
+            ensure_installed = { "lua_ls", "rust_analyzer", "opencl_ls" },
             automatic_installation = true,
           }
-        end
+        end,
       },
       {
         "williamboman/mason.nvim",
@@ -146,11 +175,17 @@ M.plugins = {
     opts = overrides.telescope,
   },
 
-  -- Fuzzy Finder Algorithm which dependencies local dependencies to be built. Only load if `make` is available
+  -- Fuzzy Finder Algorithm which requires local dependencies to be built.
+  -- Only load if `make` is available. Make sure you have the system
+  -- requirements installed.
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    run = "make",
-    cond = vim.fn.executable "make" == 1,
+    -- NOTE: If you are having trouble with this installation,
+    --       refer to the README for telescope-fzf-native for more instructions.
+    build = "make",
+    cond = function()
+      return vim.fn.executable "make" == 1
+    end,
   },
 
   --Optionally  mine https://github.com/evertonse/nvim-treesitter, removed bug with windows that wasnt adressed nor have I seen any issues opened
@@ -234,6 +269,10 @@ M.plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+    build = ":TSUpdate",
   },
 
   {
@@ -350,4 +389,3 @@ M.plugins = {
 }
 
 return M.plugins
-
