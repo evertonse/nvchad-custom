@@ -131,7 +131,7 @@ M.general = {
   -- [NORMAL]
   n = {
     -->> Harpoon
-    -- ["<A-t>"] = { ":lua require('harpoon.term').gotoTerminal(1)<CR>", "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
+    ["<A-t>"] = { function() require('harpoon.term').gotoTerminal(1) end, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
     ["<A-m>"] = {function() require("harpoon.mark").add_file() end, ""},
     ["<A-r>"] = {function() require("harpoon.mark").rm_file() end, ""},
     ["<A-b>"] = { ":Telescope harpoon marks initial_mode=normal <CR>", "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
@@ -181,10 +181,10 @@ M.general = {
 
     ["Y"] = { "y$", opts = noremap_opts },
     -- >> Clip Board option
-    ["<leader>y"] = { '"*y', opts = noremap_opts },
-    ["<leader>Y"] = { '"*y$', opts = noremap_opts },
-    ["<leader>p"] = { '"*p', opts = noremap_opts },
-    ["<leader>P"] = { '"*P', opts = noremap_opts },
+    ["<leader>y"] = { '"+y', opts = noremap_opts },
+    ["<leader>Y"] = { '"+y$', opts = noremap_opts },
+    ["<leader>p"] = { '"+p', opts = noremap_opts },
+    ["<leader>P"] = { '"+P', opts = noremap_opts },
 
     ["<S-l>"] = { ":bnext<CR>", opts = noremap_opts },
     ["<S-h>"] = { ":bprevious<CR>", opts = noremap_opts },
@@ -307,8 +307,8 @@ M.general = {
     ["<leader>d"] = { '"_d', opts = noremap_opts },
     ["<leader>D"] = { '"_D', opts = noremap_opts },
     -- Clip board
-    ["<leader>y"] = { '"*y', opts = noremap_opts },
-    ["<leader>Y"] = { '"*y$', opts = noremap_opts },
+    ["<leader>y"] = { '"+y', opts = noremap_opts },
+    ["<leader>Y"] = { '"+y$', opts = noremap_opts },
 
     ["x"] = { '"_x', opts = noremap_opts },
     ["ge"] = { "G", opts = noremap_opts },
@@ -316,8 +316,8 @@ M.general = {
     ["gl"] = { "$", opts = noremap_opts },
     ["<leader>s"] = { '"_s', opts = noremap_opts },
 
-    ["<leader>p"] = { '"*p', opts = noremap_opts },
-    ["<leader>P"] = { '"*P', opts = noremap_opts },
+    ["<leader>p"] = { '"+p', opts = noremap_opts },
+    ["<leader>P"] = { '"+P', opts = noremap_opts },
   },
   x = {
     ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
@@ -336,8 +336,8 @@ M.general = {
     ["<leader>d"] = { '"_d', opts = noremap_opts },
     ["<leader>D"] = { '"_D', opts = noremap_opts },
 
-    ["<leader>p"] = { '"*p', opts = noremap_opts },
-    ["<leader>P"] = { '"*P', opts = noremap_opts },
+    ["<leader>p"] = { '"+p', opts = noremap_opts },
+    ["<leader>P"] = { '"+P', opts = noremap_opts },
 
     ["x"] = { '"_x', opts = noremap_opts },
     ["ge"] = { "G", opts = noremap_opts },
