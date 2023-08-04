@@ -246,6 +246,8 @@ M.nvimtree = {
         },
         git = {
           -- 󰀨󰗖󰕗󰰜󱖔󰁢󰪥󰮍󱍸󰊰󰮎󰗖
+          enable = true,
+          ignore = false,
           unstaged = "",
           staged = "S",
           unmerged = "",
@@ -268,7 +270,7 @@ M.nvimtree = {
     },
   },
   view = {
-    width = 30,
+    width = 35,
     side = "left",
 
     number = false,
