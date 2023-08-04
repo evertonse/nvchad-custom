@@ -137,8 +137,11 @@ local function nvimtree_on_attach(bufnr)
   vim.keymap.set("n", "f", api.live_filter.start, opts "Filter")
   vim.keymap.set("n", "g?", api.tree.toggle_help, opts "Help")
   vim.keymap.set("n", "gy", api.fs.copy.absolute_path, opts "Copy Absolute Path")
+
+  -- Le Toggles
   vim.keymap.set("n", "H", api.tree.toggle_hidden_filter, opts "Toggle Dotfiles")
   vim.keymap.set("n", "I", api.tree.toggle_gitignore_filter, opts "Toggle Git Ignore")
+
   vim.keymap.set("n", "J", api.node.navigate.sibling.last, opts "Last Sibling")
   vim.keymap.set("n", "K", api.node.navigate.sibling.first, opts "First Sibling")
   vim.keymap.set("n", "m", api.marks.toggle, opts "Toggle Bookmark")
@@ -188,7 +191,8 @@ M.nvimtree = {
   on_attach = nvimtree_on_attach,
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
+    timeout = 500,
   },
   filesystem_watchers = {
     enable = true,
@@ -246,8 +250,6 @@ M.nvimtree = {
         },
         git = {
           -- 󰀨󰗖󰕗󰰜󱖔󰁢󰪥󰮍󱍸󰊰󰮎󰗖
-          enable = true,
-          ignore = false,
           unstaged = "",
           staged = "S",
           unmerged = "",
