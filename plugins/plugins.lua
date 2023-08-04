@@ -87,7 +87,7 @@ M.plugins = {
 
   {
     "ThePrimeagen/harpoon",
-    lazy = false,
+    lazy = true,
     dependencies = {
       { "nvim-lua/plenary.nvim" },
     },
@@ -194,6 +194,7 @@ M.plugins = {
       { "rafamadriz/friendly-snippets" },
     },
   },
+
   {
     "neovim/nvim-lspconfig",
     cmd = "LspInfo",
@@ -208,7 +209,7 @@ M.plugins = {
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { "j-hui/fidget.nvim", enable=false, tag = "legacy", opts = {} },
+      { "j-hui/fidget.nvim", enable = false, tag = "legacy", opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       { "folke/neodev.nvim" },
@@ -246,11 +247,12 @@ M.plugins = {
       require "custom.plugins.configs.lspconfig"
     end,
   },
+
   { "onsails/lspkind.nvim" }, -- better lsp cmp icons
-  { "RRethy/vim-illuminate", enable = false },
+  { "RRethy/vim-illuminate", enable = true },
   { "folke/trouble.nvim" }, -- LPS Diagnostic with colors and shit
   { "folke/lsp-colors.nvim" }, -- LSP colors that might be missings
-  -- { 'jackguo380/vim-lsp-cxx-highlight',     }, -- LSP based cpp highlighting
+  --{ 'jackguo380/vim-lsp-cxx-highlight',     }, -- LSP based cpp highlighting
   -->> Telescope
   {
     "nvim-telescope/telescope.nvim",
@@ -275,7 +277,7 @@ M.plugins = {
   -- {'David-Kunz/markid',                                                                       }, -- Every identifier has the same color
   {
     "nvim-treesitter/playground",
-    lazy = false,
+    lazy = true,
     config = function()
       require("nvim-treesitter.configs").setup {
         playground = {
@@ -308,6 +310,7 @@ M.plugins = {
 
   -- Argument Coloring
   -- {'octol/vim-cpp-enhanced-highlight',                }, -- still haven't d but adds cpp keywords for highlight tweak even further
+
   {
     "m-demare/hlargs.nvim",
     lazy = false,
@@ -316,6 +319,7 @@ M.plugins = {
       require "custom.plugins.configs.hlargs"
     end,
   },
+
   -->> Colorschemes
   --{'marko-cerovac/material.nvim'},
   --{ "folke/tokyonight.nvim",  },
@@ -339,10 +343,18 @@ M.plugins = {
 
   -->> Utils
   { "dstein64/vim-startuptime" },
-  { "tpope/vim-surround" },
+
+  {
+    "tpope/vim-surround",
+    lazy = false,
+    dependencies = {
+      { "tpope/vim-repeat" },
+    },
+  },
 
   { --https://github.com/andymass/vim-matchup
     "andymass/vim-matchup",
+    lazy = false,
     config = function()
       -- may set any options here
       vim.g.matchup_matchparen_offscreen = { method = "popup" }

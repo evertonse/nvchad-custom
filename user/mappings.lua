@@ -243,8 +243,8 @@ M.general = {
     --["<leader>p"] = { '"_p', opts = noremap_opts },
     ["x"] = { '"_x', opts = noremap_opts },
     ["ge"] = { "G", opts = noremap_opts },
-    ["gh"] = { "0", opts = noremap_opts },
-    ["gl"] = { "$", opts = noremap_opts },
+    ["gh"] = { 'v:count || mode(1)[0:1] == "no" ? "0" : "g0"', "Move big left", opts = { expr = true } },
+    ["gl"] = { 'v:count || mode(1)[0:1] == "no" ? "$" : "g$"', "Move big right", opts = { expr = true } },
   },
 
   i = {
@@ -278,6 +278,11 @@ M.general = {
   v = {
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
+    ["gh"] = { 'v:count || mode(1)[0:1] == "no" ? "0" : "g0"', "Move big left", opts = { expr = true } },
+    ["gl"] = { 'v:count || mode(1)[0:1] == "no" ? "$" : "g$"', "Move big right", opts = { expr = true } },
+    ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
+    ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
+
     ["J"] = { ":m '>+1<CR>gv=gv", opts = noremap_opts },
     ["K"] = { ":m '<-2<CR>gv=gv", opts = noremap_opts },
 
@@ -323,14 +328,16 @@ M.general = {
 
     ["x"] = { '"_x', opts = noremap_opts },
     ["ge"] = { "G", opts = noremap_opts },
-    ["gh"] = { "0", opts = noremap_opts },
-    ["gl"] = { "$", opts = noremap_opts },
     ["<leader>s"] = { '"_s', opts = noremap_opts },
 
     ["<leader>p"] = { '"+p', opts = noremap_opts },
     ["<leader>P"] = { '"+P', opts = noremap_opts },
   },
   x = {
+    ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
+    ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
+    ["gh"] = { 'v:count || mode(1)[0:1] == "no" ? "0" : "g0"', "Move big left", opts = { expr = true } },
+    ["gl"] = { 'v:count || mode(1)[0:1] == "no" ? "$" : "g$"', "Move big right", opts = { expr = true } },
     ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
     ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
     -- Don't copy the replaced text after pasting in visual mode
@@ -352,8 +359,6 @@ M.general = {
 
     ["x"] = { '"_x', opts = noremap_opts },
     ["ge"] = { "G", opts = noremap_opts },
-    ["gh"] = { "0", opts = noremap_opts },
-    ["gl"] = { "$", opts = noremap_opts },
   },
 
   t = {
