@@ -2,12 +2,8 @@
 -- Each highlight group can take a table with variables fg, bg, bold, italic, etc
 -- base30 variable names can also be used as colors
 local M = {}
-local c = {
-  editor = {}, code = {}
-}
 
-c.editor = require "custom.user.colors.ode"
-c.code = require "custom.user.colors.vs"
+local c = require "custom.user.colors.vs"
 local is_transparent = require("custom.user.vars").transparency
 -- @important check https://github.com/NvChad/base46/blob/v2.0/lua/base46/integrations/tbline.lua
 -- for better ideia of highlight groups
@@ -227,8 +223,8 @@ M.override = {
 
   ["@text.title"] = { fg = c.editor.Blue, bold = true },
   ["@text.literal"] = { fg = c.editor.Front, bg = "NONE" },
-  ["@text.diff.delete.diff"]= { fg = c.code.DiffDelete},
-  ["@text.diff.add.diff"]= { fg = c.code.DiffAdd},
+  ["@text.diff.delete.diff"]= { fg = c.text.DiffDelete},
+  ["@text.diff.add.diff"]= { fg = c.text.DiffAdd},
 
   --['@definition.macro']= { fg = c.code.Macro, bg = 'NONE' },
   --['@definition.var']= { fg = c.code.Macro, bg = 'NONE' },
@@ -376,12 +372,12 @@ M.override = {
 
 ---@type HLTable
 M.add = {
-  ["@type.qualifier"] = { fg = c.code.Keyword, sp = c.code.None , bg = "NONE" },
+  ["@type.qualifier"] = { fg = c.code.Keyword, sp = c.code.None , bg = c.text.Background },
   DiffAdd    = { fg = "NONE", sp = c.code.None,  bg = c.editor.DiffGreenLight },
   DiffChange = { fg = "NONE", sp = c.code.None,  bg = c.editor.DiffRedDark },
   DiffText   = { fg = "NONE", sp = c.code.None,  bg = c.editor.DiffRedLight },
-  ["@text.diff.delete.diff"] = { fg = c.code.DiffDelete, sp = c.code.None  },
-  ["@text.diff.add.diff"] = { fg = c.code.DiffAdd, sp = c.code.None,  bg = c.code.None },
+  ["@text.diff.delete.diff"] = { fg = c.text.DiffDelete, sp = c.code.None  },
+  ["@text.diff.add.diff"] = { fg = c.text.DiffAdd, sp = c.code.None,  bg = c.code.None },
   ['@lsp.typemod.variable.globalScope'] = { fg = c.code.Global},
   ['@lsp.typemod.variable.fileScope'] = { fg = c.code.FileScope},
   ['@lsp.mod.constructorOrDestructor'] = { fg = c.code.ConstrutorOnClass},
