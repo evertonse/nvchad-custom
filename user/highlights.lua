@@ -2,8 +2,12 @@
 -- Each highlight group can take a table with variables fg, bg, bold, italic, etc
 -- base30 variable names can also be used as colors
 local M = {}
-local c = require "custom.user.colors.vscode"
-local vs = require "custom.user.colors.vs"
+local c = {
+  editor = {}, code = {}
+}
+
+c.editor = require "custom.user.colors.ode"
+c.code = require "custom.user.colors.vs"
 local is_transparent = require("custom.user.vars").transparency
 -- @important check https://github.com/NvChad/base46/blob/v2.0/lua/base46/integrations/tbline.lua
 -- for better ideia of highlight groups
@@ -15,291 +19,291 @@ local is_transparent = require("custom.user.vars").transparency
 M.override = {
   ---@type Base46HLGroupsList
   -----------------EDITOR------------------------------
-  Normal = { fg = c.vscFront, bg = is_transparent and "none" or c.vscCursorDarkDark },
-  ColorColumn = { fg = "NONE", bg = is_transparent and "none" or c.vscCursorDarkDark },
+  Normal = { fg = c.editor.Front, bg = is_transparent and "none" or c.editor.CursorDarkDark },
+  ColorColumn = { fg = "NONE", bg = is_transparent and "none" or c.editor.CursorDarkDark },
   Cursor = {
-    fg = c.vscCursorDark, --[[ bg = c.vscCursorLight ]]
+    fg = c.editor.CursorDark, --[[ bg = c.editor.CursorLight ]]
   },
-  CursorLine = { bg = c.vscCursorDarkDark },
-  CursorColumn = { fg = "NONE", bg = c.vscCursorDarkDark },
+  CursorLine = { bg = c.editor.CursorDarkDark },
+  CursorColumn = { fg = "NONE", bg = c.editor.CursorDarkDark },
   Directory = {
-    fg = vs.Method, --[[ bg = c.vscBack ]]
+    fg = c.code.Method, --[[ bg = c.editor.Back ]]
   },
-  EndOfBuffer = { fg = c.vscBack, bg = "NONE" },
+  EndOfBuffer = { fg = c.editor.Back, bg = "NONE" },
   ErrorMsg = {
-    fg = c.vscRed, --[[ bg = c.vscBack ]]
+    fg = c.editor.Red, --[[ bg = c.editor.Back ]]
   },
   VertSplit = {
-    fg = c.vscSplitDark, --[[ bg = c.vscBack ]]
+    fg = c.editor.SplitDark, --[[ bg = c.editor.Back ]]
   },
   Folded = {
-    fg = "NONE", --[[ bg = c.vscFoldBackground ]]
+    fg = "NONE", --[[ bg = c.editor.FoldBackground ]]
   },
   FoldColumn = {
-    fg = c.vscLineNumber, --[[ bg = c.vscBack ]]
+    fg = c.editor.LineNumber, --[[ bg = c.editor.Back ]]
   },
   SignColumn = {
-    fg = "NONE", --[[ bg = c.vscBack ]]
+    fg = "NONE", --[[ bg = c.editor.Back ]]
   },
-  IncSearch = { fg = c.vscNone, bg = c.vscSearchCurrent },
+  IncSearch = { fg = c.editor.None, bg = c.editor.SearchCurrent },
   LineNr = {
-    fg = c.vscLineNumber, --[[bg = c.vscBack]]
+    fg = c.editor.LineNumber, --[[bg = c.editor.Back]]
   },
   CursorLineNr = {
-    fg = c.vscPopupFront, --[[bg = c.vscBack ]]
+    fg = c.editor.PopupFront, --[[bg = c.editor.Back ]]
   },
-  MatchParen = { fg = c.vscNone, bg = c.vscCursorDark },
+  MatchParen = { fg = c.editor.None, bg = c.editor.CursorDark },
   ModeMsg = {
-    fg = c.vscFront, --[[ bg = c.vscLeftDark ]]
+    fg = c.editor.Front, --[[ bg = c.editor.LeftDark ]]
   },
   MoreMsg = {
-    fg = c.vscFront, --[[ bg = c.vscLeftDark ]]
+    fg = c.editor.Front, --[[ bg = c.editor.LeftDark ]]
   },
   NonText = {
-    fg = c.vscLineNumber, --[[bg = c.vscNone]]
+    fg = c.editor.LineNumber, --[[bg = c.editor.None]]
   },
   Pmenu = {
-    fg = c.vscPopupFront, --[[ bg = c.vscPopupBack ]]
+    fg = c.editor.PopupFront, --[[ bg = c.editor.PopupBack ]]
   },
-  PmenuSel = { fg = c.vscPopupFront, bg = c.vscPopupHighlightBlue },
+  PmenuSel = { fg = c.editor.PopupFront, bg = c.editor.PopupHighlightBlue },
   PmenuSbar = {
-    fg = "NONE", --[[ bg = c.vscPopupHighlightGray ]]
+    fg = "NONE", --[[ bg = c.editor.PopupHighlightGray ]]
   },
   PmenuThumb = {
-    fg = "NONE", --[[ bg = c.vscPopupFront ]]
+    fg = "NONE", --[[ bg = c.editor.PopupFront ]]
   },
   Question = {
-    fg = c.vscBlue, --[[ bg = c.vscBack ]]
+    fg = c.editor.Blue, --[[ bg = c.editor.Back ]]
   },
-  Search = { fg = c.vscNone, bg = c.vscSearch },
-  SpecialKey = { fg = c.vscBlue, bg = c.vscNone },
-  --StatusLine      =   { fg = c.vscFront, --[[ bg = c.vscLeftMid ]] },
+  Search = { fg = c.editor.None, bg = c.editor.Search },
+  SpecialKey = { fg = c.editor.Blue, bg = c.editor.None },
+  --StatusLine      =   { fg = c.editor.Front, --[[ bg = c.editor.LeftMid ]] },
   StatusLineNC = {
-    fg = c.vscFront, --[[ bg = c.vscLeftDark ]]
+    fg = c.editor.Front, --[[ bg = c.editor.LeftDark ]]
   },
   Todo = {
-    fg = c.vscYellowOrange,--[[ bg = c.vscBack ]]
+    fg = c.editor.YellowOrange,--[[ bg = c.editor.Back ]]
     bold = true,
   },
-  TabLine = { fg = c.vscFront, bg = c.vscTabOther },
-  TabLineFill = { fg = c.vscFront, bg = c.vscTabOutside },
-  TabLineSel = { fg = c.vscFront, bg = c.vscTabCurrent },
+  TabLine = { fg = c.editor.Front, bg = c.editor.TabOther },
+  TabLineFill = { fg = c.editor.Front, bg = c.editor.TabOutside },
+  TabLineSel = { fg = c.editor.Front, bg = c.editor.TabCurrent },
   Title = {
-    --[[ fg = c.vscNone, bg = c.vscNone, ]]
+    --[[ fg = c.editor.None, bg = c.editor.None, ]]
     bold = true,
   },
-  Visual = { fg = c.vscNone, bg = c.vscSelection },
-  VisualNOS = { fg = c.vscNone, bg = c.vscSelection },
-  WarningMsg = { fg = c.vscRed, bg = c.vscBack, bold = true },
-  WildMenu = { fg = c.vscNone, bg = c.vscSelection },
-  ["@spell"] = { fg = vs.Normal, bg = vs.None, italic = true },
-  ["@spell.markdown"] = { fg = vs.Normal, bg = vs.None, italic = true, bold = true },
+  Visual = { fg = c.editor.None, bg = c.editor.Selection },
+  VisualNOS = { fg = c.editor.None, bg = c.editor.Selection },
+  WarningMsg = { fg = c.editor.Red, bg = c.editor.Back, bold = true },
+  WildMenu = { fg = c.editor.None, bg = c.editor.Selection },
+  ["@spell"] = { fg = c.code.Normal, bg = c.code.None, italic = true },
+  ["@spell.markdown"] = { fg = c.code.Normal, bg = c.code.None, italic = true, bold = true },
   -------------------------------------------------------------------------
 
   --------------------------BASIC-----------------
-  Comment = { fg = vs.Comment, bg = "NONE" },
-  Variable = { fg = vs.Variable, bg = "None" },
+  Comment = { fg = c.code.Comment, bg = "NONE" },
+  Variable = { fg = c.code.Variable, bg = "None" },
 
-  Constant = { fg = vs.Constant, bg = "NONE" },
-  Global = { fg = vs.Global, bg = "NONE" },
-  String = { fg = c.vscOrange, bg = "NONE" },
-  Character = { fg = c.vscOrange, bg = "NONE" },
-  Number = { fg = c.vscLightGreen, bg = "NONE" },
-  Boolean = { fg = c.vscBlue, bg = "NONE" },
-  Float = { fg = c.vscLightGreen, bg = "NONE" },
-  Identifier = { fg = vs.Normal, bg = "NONE" },
-  Function = { fg = c.vscYellow, bg = "NONE" },
-  Statement = { fg = vs.Preprocessor, bg = "NONE" },
-  Conditional = { fg = vs.ControlFlow, bg = "NONE" },
-  Repeat = { fg = vs.ControlFlow, bg = "NONE" },
-  Label = { fg = vs.ControlFlow, bg = "NONE" },
-  Operator = { fg = vs.Normal, bg = "NONE" },
-  Keyword = { fg = vs.Keyword, bg = "NONE" },
-  Exception = { fg = vs.ControlFlow, bg = "NONE" },
-  PreProc = { fg = vs.Preprocessor, bg = "NONE" },
-  Include = { fg = vs.Preprocessor, bg = "NONE" },
-  Define = { fg = vs.Preprocessor, bg = "NONE" },
-  Macro = { fg = vs.Macro, bg = "NONE" },
-  Type = { fg = vs.Type, bg = "NONE" },
-  StorageClass = { fg = vs.Keyword, bg = "NONE" },
-  Structure = { fg = vs.Type, bg = "NONE" },
-  Typedef = { fg = vs.Type, bg = "NONE" },
-  Special = { fg = c.vscYellowOrange, bg = "NONE" },
-  Namespace = { fg = vs.Namespace },
-  SpecialChar = { fg = c.vscFront, bg = "NONE" },
-  Tag = { fg = c.vscFront, bg = "NONE" },
-  Delimiter = { fg = c.vscFront, bg = "NONE" },
-  SpecialComment = { fg = vs.Comment, bg = "NONE" },
-  Debug = { fg = c.vscFront, bg = "NONE" },
-  Underlined = { fg = c.vscNone, bg = "NONE", underline = true },
+  Constant = { fg = c.code.Constant, bg = "NONE" },
+  Global = { fg = c.code.Global, bg = "NONE" },
+  String = { fg = c.editor.Orange, bg = "NONE" },
+  Character = { fg = c.editor.Orange, bg = "NONE" },
+  Number = { fg = c.editor.LightGreen, bg = "NONE" },
+  Boolean = { fg = c.editor.Blue, bg = "NONE" },
+  Float = { fg = c.editor.LightGreen, bg = "NONE" },
+  Identifier = { fg = c.code.Normal, bg = "NONE" },
+  Function = { fg = c.editor.Yellow, bg = "NONE" },
+  Statement = { fg = c.code.Preprocessor, bg = "NONE" },
+  Conditional = { fg = c.code.ControlFlow, bg = "NONE" },
+  Repeat = { fg = c.code.ControlFlow, bg = "NONE" },
+  Label = { fg = c.code.ControlFlow, bg = "NONE" },
+  Operator = { fg = c.code.Normal, bg = "NONE" },
+  Keyword = { fg = c.code.Keyword, bg = "NONE" },
+  Exception = { fg = c.code.ControlFlow, bg = "NONE" },
+  PreProc = { fg = c.code.Preprocessor, bg = "NONE" },
+  Include = { fg = c.code.Preprocessor, bg = "NONE" },
+  Define = { fg = c.code.Preprocessor, bg = "NONE" },
+  Macro = { fg = c.code.Macro, bg = "NONE" },
+  Type = { fg = c.code.Type, bg = "NONE" },
+  StorageClass = { fg = c.code.Keyword, bg = "NONE" },
+  Structure = { fg = c.code.Type, bg = "NONE" },
+  Typedef = { fg = c.code.Type, bg = "NONE" },
+  Special = { fg = c.editor.YellowOrange, bg = "NONE" },
+  Namespace = { fg = c.code.Namespace },
+  SpecialChar = { fg = c.editor.Front, bg = "NONE" },
+  Tag = { fg = c.editor.Front, bg = "NONE" },
+  Delimiter = { fg = c.editor.Front, bg = "NONE" },
+  SpecialComment = { fg = c.code.Comment, bg = "NONE" },
+  Debug = { fg = c.editor.Front, bg = "NONE" },
+  Underlined = { fg = c.editor.None, bg = "NONE", underline = true },
   Conceal = {
-    fg = c.vscFront, --[[ bg = c.vscBack ]]
+    fg = c.editor.Front, --[[ bg = c.editor.Back ]]
   },
-  Ignore = { fg = c.vscFront, bg = "NONE" },
-  Error = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
-  -- SpellBad = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
-  -- SpellCap = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
-  -- SpellRare = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
-  -- SpellLocal = { fg = c.vscRed, bg = c.vscBack, undercurl = true, sp = c.vscRed },
+  Ignore = { fg = c.editor.Front, bg = "NONE" },
+  Error = { fg = c.editor.Red, bg = c.editor.Back, undercurl = true, sp = c.editor.Red },
+  -- SpellBad = { fg = c.editor.Red, bg = c.editor.Back, undercurl = true, sp = c.editor.Red },
+  -- SpellCap = { fg = c.editor.Red, bg = c.editor.Back, undercurl = true, sp = c.editor.Red },
+  -- SpellRare = { fg = c.editor.Red, bg = c.editor.Back, undercurl = true, sp = c.editor.Red },
+  -- SpellLocal = { fg = c.editor.Red, bg = c.editor.Back, undercurl = true, sp = c.editor.Red },
 
-  --DiagnosticError = { fg = vs.}, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-  DiagnosticWarn = { fg = c.warning }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-  DiagnosticInfo = { fg = c.info }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-  DiagnosticHint = { fg = c.hint }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-  DiagnosticUnnecessary = { fg = vs.DeadCode, bg = vs.None, italic=true, underline=false, undercurl = false, sp = vs.None },
+  --DiagnosticError = { fg = c.code.}, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+  DiagnosticWarn = { fg = c.editor.warning }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+  DiagnosticInfo = { fg = c.editor.info }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+  DiagnosticHint = { fg = c.editor.hint }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+  DiagnosticUnnecessary = { fg = c.code.DeadCode, bg = c.code.None, italic=true, underline=false, undercurl = false, sp = c.code.None },
 
-  --Whitespace      =   { fg = c.vscLineNumber },
-  TODO = { fg = c.vscRed },
-  LspGlobal = { fg = vs.Global, bg = "None", bold = true },
-  GlobalScope = { fg = vs.Global, bg = "None", bold = true },
-  ["@global"] = { fg = vs.Global, bg = "None", bold = true },
-  LspGlobalScope = { fg = vs.Global, bg = "None", bold = true },
-  LspNamespace = { fg = vs.Global, bg = "None", bold = true },
-  namespace = { fg = vs.Global, bg = "None" },
-  ["@class"] = { fg = vs.Type, bold = false, italic = false },
-  ["@macro"] = { fg = vs.Macro, bold = false, italic = false },
-  ["@namespace"] = { fg = vs.Namespace, bold = false, italic = false },
+  --Whitespace      =   { fg = c.editor.LineNumber },
+  TODO = { fg = c.editor.Red },
+  LspGlobal = { fg = c.code.Global, bg = "None", bold = true },
+  GlobalScope = { fg = c.code.Global, bg = "None", bold = true },
+  ["@global"] = { fg = c.code.Global, bg = "None", bold = true },
+  LspGlobalScope = { fg = c.code.Global, bg = "None", bold = true },
+  LspNamespace = { fg = c.code.Global, bg = "None", bold = true },
+  namespace = { fg = c.code.Global, bg = "None" },
+  ["@class"] = { fg = c.code.Type, bold = false, italic = false },
+  ["@macro"] = { fg = c.code.Macro, bold = false, italic = false },
+  ["@namespace"] = { fg = c.code.Namespace, bold = false, italic = false },
   ["@globalScope"] = { italic = true, bold = true },
-  --['@variable#globalScope']  ={ fg = vs.Global,italic = true,  bold = true},
-  ["@defaultLibrary.python"] = { fg = vs.Native },
-  ["@defaultLibrary.lua"] = { fg = vs.Native },
+  --['@variable#globalScope']  ={ fg = c.code.Global,italic = true,  bold = true},
+  ["@defaultLibrary.python"] = { fg = c.code.Native },
+  ["@defaultLibrary.lua"] = { fg = c.code.Native },
 
-  ["@comment"] = { fg = vs.Comment, bg = "NONE" },
-  ["@keyword"] = { fg = vs.Keyword, bg = "NONE" },
-  ["@keyword.return"] = { fg = vs.ControlFlow, bg = "NONE" }, -- return,
-  ["@keyword.function"] = { fg = vs.Keyword, bg = "NONE" },
-  ["@keyword.operator"] = { fg = vs.Keyword, bg = "NONE" },
+  ["@comment"] = { fg = c.code.Comment, bg = "NONE" },
+  ["@keyword"] = { fg = c.code.Keyword, bg = "NONE" },
+  ["@keyword.return"] = { fg = c.code.ControlFlow, bg = "NONE" }, -- return,
+  ["@keyword.function"] = { fg = c.code.Keyword, bg = "NONE" },
+  ["@keyword.operator"] = { fg = c.code.Keyword, bg = "NONE" },
 
   -- Fucntions
-  ["@function"] = { fg = vs.Function, bg = "NONE" },
-  ["@function.builtin"] = { fg = c.vscYellowOrange, bg = "NONE" },
-  ["@function.macro"] = { fg = vs.MacroFunction, bg = "NONE" },
-  ['@function.call']= { fg = vs.FunctionCall, bg = 'NONE' },
+  ["@function"] = { fg = c.code.Function, bg = "NONE" },
+  ["@function.builtin"] = { fg = c.editor.YellowOrange, bg = "NONE" },
+  ["@function.macro"] = { fg = c.code.MacroFunction, bg = "NONE" },
+  ['@function.call']= { fg = c.code.FunctionCall, bg = 'NONE' },
 
-  ['@method.call.python']= { fg = vs.Method, bg = 'NONE' },
-  ['@method.call']= { fg = vs.Method, bg = 'NONE' },
-  ['@method']= { fg = vs.Method, bg = 'NONE' },
+  ['@method.call.python']= { fg = c.code.Method, bg = 'NONE' },
+  ['@method.call']= { fg = c.code.Method, bg = 'NONE' },
+  ['@method']= { fg = c.code.Method, bg = 'NONE' },
 
   --Literals
-  ["@string.regex"] = { fg = c.vscOrange, bg = "NONE" },
-  ["@string.escape"] = { fg = vs.Special, bg = "NONE" },
-  ["@string"] = { fg = c.vscOrange, bg = vs.None },
+  ["@string.regex"] = { fg = c.editor.Orange, bg = "NONE" },
+  ["@string.escape"] = { fg = c.code.Special, bg = "NONE" },
+  ["@string"] = { fg = c.editor.Orange, bg = c.code.None },
 
-  ["@character"] = { fg = c.vscOrange, bg = "NONE" },
-  ["@number"] = { fg = c.vscLightGreen, bg = "NONE" },
-  ["@boolean"] = { fg = c.vscBlue, bg = "NONE" },
-  ["@float"] = { fg = c.vscLightGreen, bg = "NONE" },
+  ["@character"] = { fg = c.editor.Orange, bg = "NONE" },
+  ["@number"] = { fg = c.editor.LightGreen, bg = "NONE" },
+  ["@boolean"] = { fg = c.editor.Blue, bg = "NONE" },
+  ["@float"] = { fg = c.editor.LightGreen, bg = "NONE" },
 
   -- Variables
-  ["@variable"] = { fg = vs.Variable, bg = "NONE" },
-  ["@variable.builtin"] = { fg = vs.VariableBuiltin, bg = "NONE" },
-  ["@field"] = { fg = vs.Normal, bg = "NONE" },
-  ["@property"] = { fg = vs.Normal, bg = "NONE" },
-  ["@reference"] = { fg = vs.Normal, bg = "NONE" },
+  ["@variable"] = { fg = c.code.Variable, bg = "NONE" },
+  ["@variable.builtin"] = { fg = c.code.VariableBuiltin, bg = "NONE" },
+  ["@field"] = { fg = c.code.Normal, bg = "NONE" },
+  ["@property"] = { fg = c.code.Normal, bg = "NONE" },
+  ["@reference"] = { fg = c.code.Normal, bg = "NONE" },
   -- Preprocessores
-  ["@preproc"] = { fg = vs.Preprocessor, bg = "NONE" },
-  ["@define"] = { fg = vs.Preprocessor, bg = "NONE" },
-  ["@include"] = { fg = vs.Preprocessor, bg = "NONE" },
+  ["@preproc"] = { fg = c.code.Preprocessor, bg = "NONE" },
+  ["@define"] = { fg = c.code.Preprocessor, bg = "NONE" },
+  ["@include"] = { fg = c.code.Preprocessor, bg = "NONE" },
 
   -- Parameteres:
-  ["@parameter"] = { fg = vs.Parameter, bg = "NONE" },
-  ["@parameter.reference"] = { fg = vs.Parameter, bg = "NONE" },
+  ["@parameter"] = { fg = c.code.Parameter, bg = "NONE" },
+  ["@parameter.reference"] = { fg = c.code.Parameter, bg = "NONE" },
 
   -- @Types
-  ["@type"] = { fg = vs.Type, bg = "NONE" },
-  ["@type.qualifier"] = { fg = vs.Keyword, bg = "NONE" },
-  ["@type.qualifier.cpp"] = { fg = vs.Keyword, bg = "NONE" },
-  ["@type.qualifier.c"] = { fg = vs.Keyword, bg = "NONE" },
-  ["@type.definition"] = { fg = vs.Keyword, bg = "NONE" },
-  ["@type.builtin"] = { fg = vs.Keyword, bg = "NONE" },
-  ["@type.builtin.py"] = { fg = vs.Type, bg = "NONE" },
-  ["@type.builtin.python"] = { fg = vs.Type, bg = "NONE" },
-  ['@storageclass']= { fg = vs.Keyword, bg = 'NONE' },
-  ['@structure']= { fg = vs.Type, bg = 'NONE' },
+  ["@type"] = { fg = c.code.Type, bg = "NONE" },
+  ["@type.qualifier"] = { fg = c.code.Keyword, bg = "NONE" },
+  ["@type.qualifier.cpp"] = { fg = c.code.Keyword, bg = "NONE" },
+  ["@type.qualifier.c"] = { fg = c.code.Keyword, bg = "NONE" },
+  ["@type.definition"] = { fg = c.code.Keyword, bg = "NONE" },
+  ["@type.builtin"] = { fg = c.code.Keyword, bg = "NONE" },
+  ["@type.builtin.py"] = { fg = c.code.Type, bg = "NONE" },
+  ["@type.builtin.python"] = { fg = c.code.Type, bg = "NONE" },
+  ['@storageclass']= { fg = c.code.Keyword, bg = 'NONE' },
+  ['@structure']= { fg = c.code.Type, bg = 'NONE' },
 
   -- @Tags
-  ["@tag.delimiter"] = { fg = c.vscGray, bg = "NONE" },
-  ["@tag.attribute"] = { fg = c.Keyword, bg = "NONE" },
+  ["@tag.delimiter"] = { fg = c.editor.Gray, bg = "NONE" },
+  ["@tag.attribute"] = { fg = c.editor.Keyword, bg = "NONE" },
 
-  ["@text.title"] = { fg = c.vscBlue, bold = true },
-  ["@text.literal"] = { fg = c.vscFront, bg = "NONE" },
-  ["@text.diff.delete.diff"]= { fg = vs.DiffDelete},
-  ["@text.diff.add.diff"]= { fg = vs.DiffAdd},
+  ["@text.title"] = { fg = c.editor.Blue, bold = true },
+  ["@text.literal"] = { fg = c.editor.Front, bg = "NONE" },
+  ["@text.diff.delete.diff"]= { fg = c.code.DiffDelete},
+  ["@text.diff.add.diff"]= { fg = c.code.DiffAdd},
 
-  --['@definition.macro']= { fg = vs.Macro, bg = 'NONE' },
-  --['@definition.var']= { fg = vs.Macro, bg = 'NONE' },
+  --['@definition.macro']= { fg = c.code.Macro, bg = 'NONE' },
+  --['@definition.var']= { fg = c.code.Macro, bg = 'NONE' },
 
-  --['@macro.cpp']= { fg = vs.Macro, bg = 'NONE' },
-  ['@constant.macro.cpp']= { fg = vs.Macro, bg = 'NONE' },
-  --['@error']= { fg = c.vscRed, bg = 'NONE' },
-  --['@punctuation.bracket']= { fg = c.vscFront, bg = 'NONE' },
-  ["@punctuation.special"] = { fg = c.vscYellow, bg = "NONE" },
-  --['@constant']= { fg = c.Macro, bg = 'NONE' },
-  ['@constant.builtin']= { fg = vs.BuiltInConstant, bg = 'NONE' },
+  --['@macro.cpp']= { fg = c.code.Macro, bg = 'NONE' },
+  ['@constant.macro.cpp']= { fg = c.code.Macro, bg = 'NONE' },
+  --['@error']= { fg = c.editor.Red, bg = 'NONE' },
+  --['@punctuation.bracket']= { fg = c.editor.Front, bg = 'NONE' },
+  ["@punctuation.special"] = { fg = c.editor.Yellow, bg = "NONE" },
+  --['@constant']= { fg = c.editor.Macro, bg = 'NONE' },
+  ['@constant.builtin']= { fg = c.code.BuiltInConstant, bg = 'NONE' },
 
-  --['@annotation']= { fg = c.vscYellow, bg = 'NONE' },
-  --['@attribute']= { fg = c.vscBlueGreen, bg = 'NONE' },
+  --['@annotation']= { fg = c.editor.Yellow, bg = 'NONE' },
+  --['@attribute']= { fg = c.editor.BlueGreen, bg = 'NONE' },
 
-  ["@constructor"] = { fg = vs.Construtor },
-  ["@constructor.cpp"] = { fg = vs.Construtor, bold = true },
-  ["@constructor.py"] = { fg = vs.Construtor, bold = true },
+  ["@constructor"] = { fg = c.code.Construtor },
+  ["@constructor.cpp"] = { fg = c.code.Construtor, bold = true },
+  ["@constructor.py"] = { fg = c.code.Construtor, bold = true },
 
-  ["@conditional"] = { fg = vs.ControlFlow, bg = "NONE" },
-  ["@repeat"] = { fg = vs.ControlFlow, bg = "NONE" },
-  ["@label"] = { fg = vs.Label, bg = "NONE" },
-  ["@operator"] = { fg = c.vscFront, bg = "NONE" },
+  ["@conditional"] = { fg = c.code.ControlFlow, bg = "NONE" },
+  ["@repeat"] = { fg = c.code.ControlFlow, bg = "NONE" },
+  ["@label"] = { fg = c.code.Label, bg = "NONE" },
+  ["@operator"] = { fg = c.editor.Front, bg = "NONE" },
 
-  ["@exception"] = { fg = vs.ControlFlow, bg = "NONE" },
-  ["@exception.python"] = { fg = vs.ControlFlow, bg = "NONE" },
+  ["@exception"] = { fg = c.code.ControlFlow, bg = "NONE" },
+  ["@exception.python"] = { fg = c.code.ControlFlow, bg = "NONE" },
 
-  ['@lsp.typemod.variable.globalScope'] = { fg = vs.Global},
-  ['@lsp.typemod.variable.fileScope'] = { fg = vs.FileScope},
-  ['@lsp.mod.constructorOrDestructor'] = { fg = vs.ConstrutorOnClass},
-  ['@lsp.type.comment.c'] = {fg = vs.DeadCode},
-  ['@lsp.type.comment.cpp'] = {fg = vs.DeadCode},
+  ['@lsp.typemod.variable.globalScope'] = { fg = c.code.Global},
+  ['@lsp.typemod.variable.fileScope'] = { fg = c.code.FileScope},
+  ['@lsp.mod.constructorOrDestructor'] = { fg = c.code.ConstrutorOnClass},
+  ['@lsp.type.comment.c'] = {fg = c.code.DeadCode},
+  ['@lsp.type.comment.cpp'] = {fg = c.code.DeadCode},
 
-  -- ['@variable.builtin']= { fg = vs.VariableBuiltin, bg = 'NONE' },
-  -- ['@text']= { fg = c.vscFront, bg = 'NONE' },
-  -- ['@text.underline']= { fg = c.vscYellowOrange, bg = 'NONE' },
-  -- ['@tag']= { fg = vs.Normal, bg = 'NONE' },
-  -- ['markdown@text.literal']= { fg = c.vscOrange, bg = 'NONE' },
-  -- ['markdown_inline@text.literal']= { fg = c.vscOrange, bg = 'NONE' },
-  -- ['@text.emphasis']= { fg = c.vscFront, bg = 'NONE', italic = true },
-  -- ['@text.strong']= { fg = isDark and c.vscBlue or c.vscViolet, bold = true },
-  -- ['@text.uri']= { fg = c.vscFront, bg = 'NONE' },
-  -- ['@textReference']= { fg = isDark and c.vscOrange or c.vscYellowOrange },
-  -- ['@punctuation.delimiter']= { fg = c.vscFront, bg = 'NONE' },
-  -- ['@text.note']= { fg = c.vscBlueGreen, bg = 'NONE', bold = true },
-  -- ['@text.warning']= { fg = c.vscYellowOrange, bg = 'NONE', bold = true },
-  -- ['@text.danger']= { fg = c.vscRed, bg = 'NONE', bold = true },
-  -- ['@scope']= { fg = c.vscRed, bg = 'NONE', bold = true },
+  -- ['@variable.builtin']= { fg = c.code.VariableBuiltin, bg = 'NONE' },
+  -- ['@text']= { fg = c.editor.Front, bg = 'NONE' },
+  -- ['@text.underline']= { fg = c.editor.YellowOrange, bg = 'NONE' },
+  -- ['@tag']= { fg = c.code.Normal, bg = 'NONE' },
+  -- ['markdown@text.literal']= { fg = c.editor.Orange, bg = 'NONE' },
+  -- ['markdown_inline@text.literal']= { fg = c.editor.Orange, bg = 'NONE' },
+  -- ['@text.emphasis']= { fg = c.editor.Front, bg = 'NONE', italic = true },
+  -- ['@text.strong']= { fg = isDark and c.editor.Blue or c.editor.Violet, bold = true },
+  -- ['@text.uri']= { fg = c.editor.Front, bg = 'NONE' },
+  -- ['@textReference']= { fg = isDark and c.editor.Orange or c.editor.YellowOrange },
+  -- ['@punctuation.delimiter']= { fg = c.editor.Front, bg = 'NONE' },
+  -- ['@text.note']= { fg = c.editor.BlueGreen, bg = 'NONE', bold = true },
+  -- ['@text.warning']= { fg = c.editor.YellowOrange, bg = 'NONE', bold = true },
+  -- ['@text.danger']= { fg = c.editor.Red, bg = 'NONE', bold = true },
+  -- ['@scope']= { fg = c.editor.Red, bg = 'NONE', bold = true },
   ----------------------TAB-----------------------------
   TblineFill = {
-    bg = vs.None,
+    bg = c.code.None,
   },
 
   TbLineBufOn = {
-    bg = vs.None,
+    bg = c.code.None,
   },
 
   TbLineBufOff = {
-    bg = vs.None,
+    bg = c.code.None,
   },
 
   TbLineBufOnModified = {
-    bg = vs.None,
+    bg = c.code.None,
   },
 
   TbBufLineBufOffModified = {
-    bg = vs.None,
+    bg = c.code.None,
   },
 
   TbLineBufOnClose = {
-    bg = vs.None,
+    bg = c.code.None,
   },
 
   TbLineBufOffClose = {
-    bg = vs.None,
+    bg = c.code.None,
   },
 
   -- TblineTabNewBtn = {
@@ -341,27 +345,27 @@ M.override = {
   --   fg = colors.black,
   -- },
   StatusLine = {
-    bg = vs.None,
+    bg = c.code.None,
   },
   St_Mode = {
-    fg = vs.None,
-    bg = vs.None,
+    fg = c.code.None,
+    bg = c.code.None,
   },
   StText = {
-    fg = vs.None,
-    bg = vs.None,
+    fg = c.code.None,
+    bg = c.code.None,
   },
   St_EmptySpace = {
-    fg = vs.None,
-    bg = vs.None,
+    fg = c.code.None,
+    bg = c.code.None,
   },
   St_EmptySpace2 = {
-    fg = vs.None,
-    bg = vs.None,
+    fg = c.code.None,
+    bg = c.code.None,
   },
   -- St_pos_text = {
-  --   fg = vs.None,
-  --   bg = vs.None,
+  --   fg = c.code.None,
+  --   bg = c.code.None,
   -- },
   --
   NvimTreeOpenedFolderName = {
@@ -372,20 +376,20 @@ M.override = {
 
 ---@type HLTable
 M.add = {
-  ["@type.qualifier"] = { fg = vs.Keyword, sp = vs.None , bg = "NONE" },
-  DiffAdd    = { fg = "NONE", sp = vs.None,  bg = c.vscDiffGreenLight },
-  DiffChange = { fg = "NONE", sp = vs.None,  bg = c.vscDiffRedDark },
-  DiffText   = { fg = "NONE", sp = vs.None,  bg = c.vscDiffRedLight },
-  ["@text.diff.delete.diff"] = { fg = vs.DiffDelete, sp = vs.None  },
-  ["@text.diff.add.diff"] = { fg = vs.DiffAdd, sp = vs.None,  bg = vs.None },
-  ['@lsp.typemod.variable.globalScope'] = { fg = vs.Global},
-  ['@lsp.typemod.variable.fileScope'] = { fg = vs.FileScope},
-  ['@lsp.mod.constructorOrDestructor'] = { fg = vs.ConstrutorOnClass},
-  ['@structure']= { fg = vs.Type, bg = 'NONE' },
-  ['@lsp.type.comment.c'] = {fg = vs.DeadCode, bg = 'NONE'},
-  ['@lsp.type.comment.cpp'] = {fg = vs.DeadCode, bg = 'NONE'},
-  DiagnosticUnnecessary = { fg = vs.DeadCode, bg = vs.None, italic=true, underline=false, undercurl = false, sp = vs.None },
-  ["@keyword.python"] = { fg = vs.Keyword, sp = vs.None , bg = "NONE" },
+  ["@type.qualifier"] = { fg = c.code.Keyword, sp = c.code.None , bg = "NONE" },
+  DiffAdd    = { fg = "NONE", sp = c.code.None,  bg = c.editor.DiffGreenLight },
+  DiffChange = { fg = "NONE", sp = c.code.None,  bg = c.editor.DiffRedDark },
+  DiffText   = { fg = "NONE", sp = c.code.None,  bg = c.editor.DiffRedLight },
+  ["@text.diff.delete.diff"] = { fg = c.code.DiffDelete, sp = c.code.None  },
+  ["@text.diff.add.diff"] = { fg = c.code.DiffAdd, sp = c.code.None,  bg = c.code.None },
+  ['@lsp.typemod.variable.globalScope'] = { fg = c.code.Global},
+  ['@lsp.typemod.variable.fileScope'] = { fg = c.code.FileScope},
+  ['@lsp.mod.constructorOrDestructor'] = { fg = c.code.ConstrutorOnClass},
+  ['@structure']= { fg = c.code.Type, bg = 'NONE' },
+  ['@lsp.type.comment.c'] = {fg = c.code.DeadCode, bg = 'NONE'},
+  ['@lsp.type.comment.cpp'] = {fg = c.code.DeadCode, bg = 'NONE'},
+  DiagnosticUnnecessary = { fg = c.code.DeadCode, bg = c.code.None, italic=true, underline=false, undercurl = false, sp = c.code.None },
+  ["@keyword.python"] = { fg = c.code.Keyword, sp = c.code.None , bg = "NONE" },
 }
 
 return M
