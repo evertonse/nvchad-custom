@@ -42,6 +42,18 @@ vim.cmd [[
 ]]
 
 -- vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 |  nmap Q q | echo "recording start" ]]
+vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 |  nmap q <Nop> | echo "recording start" ]]
 -- vim.cmd [[ autocmd RecordingLeave * set cmdheight=0 |  nmap Q qq | nnoremap ; @q | set cmdheight=1 | echo "recording stop" ]]
 
+-- vim.cmd([[ autocmd FileType *.c nnoremap <buffer> <F5> :wa<CR>:term gcc % -o %:r && ./%:r<CR> ]])
+-- vim.cmd [[autocmd filetype cpp nnoremap <F5> :!g++ % -ggdb -o %:r && ./%:r <CR>]]
+-- vim.cmd [[autocmd FileType c nnoremap <F5> :!gcc % -g -o %:r && ./%:r <CR>]]
+vim.cmd [[autocmd FileType c nnoremap <F5> :!make run <CR>]]
 
+vim.api.nvim_create_autocmd(
+    { "BufRead", "BufNewFile" },
+    { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
+)
+vim.cmd [[autocmd filetype python nnoremap <F5> :w <bar> exec '!python '.shellescape('%')<CR>]]
+-- vim.cmd [[autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>]]
+vim.cmd [[autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>]]
