@@ -7,57 +7,134 @@
 --   return
 -- end
 
-local colors_ok, vs = pcall(require, "custom.user.colors.vs")
-if not colors_ok then
-  return
-end
-
 local M = {}
 
 M.treesitter = {
-  ensure_installed = {
-    "vim",
-    "python",
-    "lua",
-    "html",
-    "css",
-    "javascript",
-    --"typescript",
-    --"tsx",
-    "c",
-    "markdown",
-    "markdown_inline",
-  },
-  indent = {
-    enable = true,
-    disable = {
-      "python",
-      "NvimTree",
-    },
-  },
-  auto_install = true,
-  highlight = {
-    enable = true,
-
-    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-    -- the name of the parser)
-    -- list of language that will be disabled
-    --disable = { "c", "rust" },
-    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-    disable = function(lang, buf)
-      local max_filesize = 100 * 1024 -- 100 KB
-      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-      if ok and stats and stats.size > max_filesize then
-        return true
-      end
-    end,
-    additional_vim_regex_highlighting = false,
-  },
   matchup = {
     enable = true, -- mandatory, false will disable the whole extension
     -- disable = { "c", "ruby" }, -- optional, list of language that will be disabled
     -- [options]
+  },
+  -- run = ':TSPUpdate',
+  ensure_installed = {
+    "c",
+    "cpp",
+    "lua",
+    "vim",
+    "vimdoc",
+    "query",
+    "json",
+    "lua",
+    "python",
+    -- --"typescript", "toml","tsx", "css",
+    "rust",
+    "java", "yaml", "markdown",
+    "markdown_inline",
+  }, -- one of "all" or a list of languages
+  sync_install = false,
+  auto_install = true,
+  ignore_install = {}, -- List of parsers to ignore installing
+  highlight = {
+    enable = true, -- false will disable the whole extension
+    use_languagetree = true,
+    disable = {}, -- list of language that will be disabled
+    additional_vim_regex_highlighting = false,
+    custom_captures = {},
+  },
+
+  autopairs = {
+    enable = true,
+  },
+
+  indent = { enable = true, disable = {} },
+  --markid = { enable = false},
+  query_linter = {
+    enable = false,
+    use_virtual_text = true,
+    lint_events = { "BufWrite", "CursorHold" },
+  },
+  illuminate = {
+    enable = true,
+    loaded = true,
+  },
+
+  incremental_selection = {
+    disable = {},
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_decremental = "grm",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+    },
+  },
+
+  context_commentstring = {
+    enable = true,
+  },
+
+  playground = {
+    enable = true,
+    disable = {},
+    updatetime = 250, -- Debounced time for highlighting nodes in the playground from source code
+    persist_queries = false, -- Whether the query persists across vim sessions
+    keybindings = {
+      toggle_query_editor = "o",
+      toggle_hl_groups = "i",
+      toggle_injected_languages = "t",
+      toggle_anonymous_nodes = "a",
+      toggle_language_display = "I",
+      focus_language = "f",
+      unfocus_language = "F",
+      update = "R",
+      goto_node = "<cr>",
+      show_help = "?",
+    },
+  },
+
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["aa"] = "@parameter.outer",
+        ["ia"] = "@parameter.inner",
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true, -- whether to set jumps in the jumplist
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]]"] = "@class.outer",
+      },
+      goto_next_end = {
+        ["]M"] = "@function.outer",
+        ["]["] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[M"] = "@function.outer",
+        ["[]"] = "@class.outer",
+      },
+    },
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<leader>sn"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["<leader>sN"] = "@parameter.inner",
+      },
+    },
   },
 }
 

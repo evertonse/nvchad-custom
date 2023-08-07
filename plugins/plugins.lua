@@ -360,12 +360,18 @@ M.plugins = {
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
+
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = overrides.treesitter,
+    lazy = false,
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
+    -- config = function ()
+    --   require "plugins.configs.treesitter"
+    --   -- require "custom.plugins.configs.treesitter"
+    -- end,
+    opts = overrides.treesitter,
     build = ":TSUpdate",
   },
 
