@@ -258,6 +258,7 @@ M.override = {
   ['@lsp.type.comment.c'] = {fg = c.code.DeadCode},
   ['@lsp.type.comment.cpp'] = {fg = c.code.DeadCode},
 
+  ["@text.title.1.markdown"] = { fg = c.text.Title , sp = c.code.None,  bg = c.code.None },
   -- ['@variable.builtin']= { fg = c.code.VariableBuiltin, bg = 'NONE' },
   -- ['@text']= { fg = c.editor.Front, bg = 'NONE' },
   -- ['@text.underline']= { fg = c.editor.YellowOrange, bg = 'NONE' },
@@ -378,6 +379,7 @@ M.add = {
   DiffText   = { fg = "NONE", sp = c.code.None,  bg = c.editor.DiffRedLight },
   ["@text.diff.delete.diff"] = { fg = c.text.DiffDelete, sp = c.code.None  },
   ["@text.diff.add.diff"] = { fg = c.text.DiffAdd, sp = c.code.None,  bg = c.code.None },
+  ["@text.title.1.markdown"] = { fg = c.text.Title , sp = c.code.None,  bg = c.code.None },
   ['@lsp.typemod.variable.globalScope'] = { fg = c.code.Global},
   ['@lsp.typemod.variable.fileScope'] = { fg = c.code.FileScope},
   ['@lsp.mod.constructorOrDestructor'] = { fg = c.code.ConstrutorOnClass},

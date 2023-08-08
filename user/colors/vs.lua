@@ -43,6 +43,7 @@ M.code =  {
 M.text = {
   Background        = "NONE",
   DiffAdd           = "#81b88b",
+  Title             = "#D7BA7D",
   DiffDelete        = "#f44747",
 }
 
