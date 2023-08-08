@@ -6,6 +6,7 @@ M.plugins = {
   {
     -- NOTE: Yes, you can install new plugins here!
     "mfussenegger/nvim-dap",
+    enabled = false,
     -- NOTE: And you can specify dependencies as well
     dependencies = {
       -- Creates a beautiful debugger UI
@@ -83,11 +84,39 @@ M.plugins = {
     end,
   },
 
-  { "moll/vim-bbye", lazy = false }, -- Avoid messing with windwos layouts when closing buffers
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    -- lazy-load on filetype
+    ft = "norg",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/notes",
+              },
+            },
+          },
+        },
+      }
+    end,
+  },
+
+  {
+    "moll/vim-bbye",
+    enabled = true,
+    lazy = false,
+  }, -- Avoid messing with windwos layouts when closing buffers
 
   {
     "ThePrimeagen/harpoon",
     lazy = true,
+    enabled = true,
     dependencies = {
       { "nvim-lua/plenary.nvim" },
     },
@@ -155,25 +184,30 @@ M.plugins = {
   }, -- Avoid messing with windwos layouts when closing buffers
 
   {
-    "lewis6991/impatient.nvim",
-    lazy = false,
-    enable = false,
-    config = function()
-      require "impatient"
-    end,
-  },
-
-  {
     "VonHeikemen/lsp-zero.nvim",
-    branch = "v2.x",
     lazy = false, --@important, might not be a agood ideia to make it so
     enabled = false,
+    branch = "v2.x",
     config = function()
       -- This is where you modify the settings for lsp-zero
       -- Note: autocompletion settings will not take effect
+      local default = true
+      if default then
+        local lsp = require("lsp-zero").preset {}
 
-      --require('lsp-zero.settings').preset({})
-      require "custom.plugins.configs.lsp_zero"
+        lsp.on_attach(function(client, bufnr)
+          -- see :help lsp-zero-keybindings
+          -- to learn the available actions
+          lsp.default_keymaps { buffer = bufnr }
+        end)
+
+        -- (Optional) Configure lua language server for neovim
+        require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+
+        lsp.setup()
+      else
+        require "custom.plugins.configs.lsp_zero"
+      end
     end,
     dependencies = {
       -- LSP Support
@@ -183,10 +217,10 @@ M.plugins = {
 
       -- Autocompletion
       { "hrsh7th/nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-path" },
       { "saadparwaiz1/cmp_luasnip" },
-      { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-nvim-lua" },
 
       -- Snippets
@@ -194,9 +228,14 @@ M.plugins = {
       { "rafamadriz/friendly-snippets" },
     },
   },
+  -- if some code requires a module from an unloaded plugin, it will be automatically loaded.
+  -- So for api plugins like devicons, we can always set lazy=true
+  { "nvim-tree/nvim-web-devicons", lazy = true },
 
   {
     "neovim/nvim-lspconfig",
+    lazy = true,
+    enabled = true,
     cmd = "LspInfo",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
@@ -209,7 +248,7 @@ M.plugins = {
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { "j-hui/fidget.nvim", enable = false, tag = "legacy", opts = {} },
+      { "j-hui/fidget.nvim", event = "LspAttach", enabled = true, tag = "legacy", opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       { "folke/neodev.nvim" },
@@ -248,14 +287,35 @@ M.plugins = {
     end,
   },
 
-  { "onsails/lspkind.nvim" }, -- better lsp cmp icons
-  { "RRethy/vim-illuminate", enable = true },
-  { "folke/trouble.nvim" }, -- LPS Diagnostic with colors and shit
-  { "folke/lsp-colors.nvim" }, -- LSP colors that might be missings
+  {
+    "onsails/lspkind.nvim",
+    lazy = true,
+    enabled = false,
+  }, -- better lsp cmp icons
+
+  {
+    "RRethy/vim-illuminate",
+    lazy = true,
+    enabled = true,
+  },
+
+  {
+    "folke/trouble.nvim",
+    lazy = true,
+    enabled = false,
+  }, -- LPS Diagnostic with colors and shit
+
+  {
+    "folke/lsp-colors.nvim",
+    lazy = true,
+    enabled = false,
+  }, -- LSP colors that might be missings
   --{ 'jackguo380/vim-lsp-cxx-highlight',     }, -- LSP based cpp highlighting
   -->> Telescope
   {
     "nvim-telescope/telescope.nvim",
+    lazy = false,
+    enabled = true,
     opts = overrides.telescope,
   },
 
@@ -267,21 +327,28 @@ M.plugins = {
     -- NOTE: If you are having trouble with this installation,
     --       refer to the README for telescope-fzf-native for more instructions.
     build = "make",
+    lazy = false,
+    enabled = true,
     cond = function()
       return vim.fn.executable "make" == 1
     end,
   },
 
   --Optionally  mine https://github.com/evertonse/nvim-treesitter, removed bug with windows that wasnt adressed nor have I seen any issues opened
-  { "JoosepAlviste/nvim-ts-context-commentstring" }, -- Nice Vim commenting --  context_commentstring { enable = true },
-  -- {'David-Kunz/markid',                                                                       }, -- Every identifier has the same color
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    lazy = true,
+    enabled = false,
+  }, -- Nice Vim commenting --  context_commentstring { enabled = true },
+  -- {'David-Kunz/markid',}, -- Every identifier has the same color
   {
     "nvim-treesitter/playground",
     lazy = true,
+    enabled = false,
     config = function()
       require("nvim-treesitter.configs").setup {
         playground = {
-          enable = true,
+          enabled = true,
           disable = {},
           updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
           persist_queries = false, -- Whether the query persists across vim sessions
@@ -299,13 +366,12 @@ M.plugins = {
           },
         },
         query_linter = {
-          enable = true,
+          enabled = true,
           use_virtual_text = true,
           lint_events = { "BufWrite", "CursorHold" },
         },
       }
     end,
-    enable = true,
   },
 
   -- Argument Coloring
@@ -313,7 +379,8 @@ M.plugins = {
 
   {
     "m-demare/hlargs.nvim",
-    lazy = false,
+    lazy = true,
+    enabled = true,
     opts = overrides.hlargs,
     config = function()
       require "custom.plugins.configs.hlargs"
@@ -342,19 +409,42 @@ M.plugins = {
   -- },
 
   -->> Utils
-  { "dstein64/vim-startuptime" },
+  {
+    "dstein64/vim-startuptime",
+    lazy = false,
+    enabled = true,
+    cmd = "StartupTime",
+    -- init is called during startup. Configuration for vim plugins typically should be set in an init function
+    init = function()
+      vim.g.startuptime_tries = 10
+    end,
+  },
 
   {
-    "tpope/vim-surround",
-    lazy = false,
-    dependencies = {
-      { "tpope/vim-repeat" },
-    },
+    "kylechui/nvim-surround",
+    lazy = true,
+    enabled = true,
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
   },
+  -- {
+  --   "tpope/vim-surround",
+  --   lazy = false,
+  --   enabled = true,
+  --   dependencies = {
+  --     { "tpope/vim-repeat" },
+  --   },
+  -- },
 
   { --https://github.com/andymass/vim-matchup
     "andymass/vim-matchup",
-    lazy = false,
+    lazy = true,
+    enabled = true,
     config = function()
       -- may set any options here
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
@@ -363,12 +453,13 @@ M.plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy = false,
+    lazy = true,
+    enabled = true,
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     -- config = function ()
-    --   require "plugins.configs.treesitter"
+    --   -- require "plugins.configs.treesitter"
     --   -- require "custom.plugins.configs.treesitter"
     -- end,
     opts = overrides.treesitter,
@@ -377,6 +468,8 @@ M.plugins = {
 
   {
     "nvim-tree/nvim-tree.lua",
+    lazy = true,
+    enabled = true,
     opts = function()
       --vim.cmd "colorscheme vs"
       return overrides.nvimtree
@@ -386,13 +479,22 @@ M.plugins = {
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
+    lazy = false,
+    enabled = true,
     event = "InsertEnter",
     config = function()
-      require("better_escape").setup()
+      require("better_escape").setup {
+        mapping = { "jk", "jj", "kj" }, -- a table with mappings to use
+        timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+        clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+        keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
+      }
     end,
   },
   {
     "folke/todo-comments.nvim",
+    lazy = false,
+    enabled = true,
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       -- your configuration comes here
@@ -402,6 +504,8 @@ M.plugins = {
   },
   {
     "edluffy/hologram.nvim",
+    lazy = false,
+    enabled = false,
     config = function()
       require("hologram").setup {
         auto_display = true, -- WIP automatic markdown image display, may be prone to breaking
@@ -409,12 +513,13 @@ M.plugins = {
     end,
   },
   {
-    "princejoogie/chafa.nvim",
+    "princejoogie/chafa.nvim", -- A neovim plugin for viewing images.
+    lazy = false,
+    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "m00qek/baleia.nvim",
     },
-    lazy = false,
     config = function()
       require("chafa").setup {
         render = {
@@ -431,8 +536,9 @@ M.plugins = {
   -- lazy.nvim
   {
     "chrisgrieser/nvim-recorder",
-    opts = {},
     lazy = false,
+    enabled = true,
+    opts = {},
     config = function()
       -- default values
       require("recorder").setup {
@@ -477,14 +583,20 @@ M.plugins = {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    version = "2.20.10",
-
-    -- config = function()
-    --
+    -- version = "2.20.7",
+    lazy = true,
+    enabled = true,
+    -- init = function()
+    --   require("core.utils").lazy_load "indent-blankline.nvim"
     -- end,
-    --opts = require 'plugins.configs.others'.blankline
-    --opts = {}
-    opts = overrides.blankline,
+    opts = function()
+      return overrides.blankline
+    end,
+    config = function(_, opts)
+      require("core.utils").load_mappings "blankline"
+      dofile(vim.g.base46_cache .. "blankline")
+      require("indent_blankline").setup(opts)
+    end,
   },
 }
 

@@ -217,6 +217,7 @@ M.general = {
     ["<leader>w"] = { ":w<CR>", opts = noremap_opts },
     ["<leader>q"] = { ":q<CR>", opts = noremap_opts },
     ["<leader>c"] = { ":Bdelete!<CR>", opts = noremap_opts },
+    -- ["<leader>c"] = { ":bd!<CR>", opts = noremap_opts },
 
     ["<C-Up>"] = { "{", opts = noremap_opts },
     ["<C-Down>"] = { "}", opts = noremap_opts },

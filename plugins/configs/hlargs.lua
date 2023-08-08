@@ -4,8 +4,10 @@ if not status_ok then
   return
 end
 
+local c = require "custom.user.colors.vs"
+
 hlargs.setup {
-  color = '#909090',
+  color = c.code.Parameter,
   highlight = {},
   excluded_filetypes = {},
   paint_arg_declarations = true,
@@ -17,7 +19,7 @@ hlargs.setup {
   extras = {
     named_parameters = true,
   },
-  hl_priority = 1000,
+  hl_priority = 200,
   excluded_argnames = {
     declarations = {
       python = {'self', 'cls' },
@@ -31,12 +33,12 @@ hlargs.setup {
     },
   },
   performance = {
-    parse_delay = 1,
-    slow_parse_delay = 25,
-    max_iterations = 2000,
-    max_concurrent_partial_parses = 30,
+    parse_delay = 0.25,
+    slow_parse_delay = 155,
+    max_iterations = 100,
+    max_concurrent_partial_parses = 50,
     debounce = {
-      partial_parse = 3,
+      partial_parse = 5,
       partial_insert_mode = 100,
       total_parse = 700,
       slow_parse = 5000

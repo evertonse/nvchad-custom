@@ -4,3 +4,11 @@ push:
 pull:
 	git pull
 
+clean:
+	rm -rf ~/.local/share/nvim rm -rf ~/.cache/nvim
+
+unistall: clean
+	rm -rf ~/.config/nvim 
+
+install: 
+	git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1; nvim; ln -s ~/dotfiles/nvim/custom ~/.config/nvim/lua/custom;

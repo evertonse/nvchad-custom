@@ -7,4 +7,4 @@ vim.cmd ':set clipboard=""'
 vim.opt.rtp:prepend "righthere, how?"
 vim.treesitter.language.register("c", "*.cl")
 vim.treesitter.language.register("c", "cl")
-
+-- vim.loader.enable()
