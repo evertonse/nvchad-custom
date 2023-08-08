@@ -216,7 +216,15 @@ M.plugins = {
       { "williamboman/mason-lspconfig.nvim" },
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },
+      {
+        "hrsh7th/nvim-cmp",
+        dependencies = { "hrsh7th/cmp-emoji" },
+        ---@param opts cmp.ConfigSchema
+        opts = function(_, opts)
+          local cmp = require "cmp"
+          opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
+        end,
+      },
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-path" },
@@ -322,16 +330,16 @@ M.plugins = {
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
   -- requirements installed.
+  -- add telescope-fzf-native
   {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    -- NOTE: If you are having trouble with this installation,
-    --       refer to the README for telescope-fzf-native for more instructions.
-    build = "make",
-    lazy = false,
-    enabled = true,
-    cond = function()
-      return vim.fn.executable "make" == 1
-    end,
+    "telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+      config = function()
+        require("telescope").load_extension "fzf"
+      end,
+    },
   },
 
   {
