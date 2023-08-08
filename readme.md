@@ -8,6 +8,7 @@
 - ideas for overrides of plugins ``https://astronvim.com/3.2.0/Configuration/plugin_defaults`` **astrovim**
 
 ### Profiling
+- hyperfine "nvim --headless +qa" --warmup 5
 Try run nvim with nvim -u NONE. Is it still slow?
 
 Try profiling when inside that file.

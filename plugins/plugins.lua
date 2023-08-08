@@ -334,6 +334,17 @@ M.plugins = {
     end,
   },
 
+  {
+    "iamcco/markdown-preview.nvim",
+    lazy = false,
+    enabled = true,
+    build = "cd app && npm install",
+    config = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
+
   --Optionally  mine https://github.com/evertonse/nvim-treesitter, removed bug with windows that wasnt adressed nor have I seen any issues opened
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
@@ -599,5 +610,5 @@ M.plugins = {
     end,
   },
 }
-
+--
 return M.plugins
