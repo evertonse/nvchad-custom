@@ -37,27 +37,28 @@ M.code =  {
   Constant          = "#A5797A",
   EnumConstant      = "#A9797A",
   BuiltInConstant   = "#BA797A",
-  GoodColor         = "#90A0A0",
 }
 
 M.text = {
   Background        = "NONE",
   DiffAdd           = "#81b88b",
-  Title             = "#D7BA7D",
+  -- Title             = "#D7BA7D",
+  Title             = "#90A0A0",
   DiffDelete        = "#f44747",
 }
 
 M.editor = { -- VS Code
-  None = "NONE",
-  Front = "#D4D4D4",
-  Back = "#1E1E1E",
+  None           = "NONE",
+  Folder         = "#90A0A0",
+  Front          = "#D4D4D4",
+  Back           = "#1E1E1E",
 
-  TabCurrent = "#1E1E1E",
-  TabOther = "#2D2D2D",
-  TabOutside = "#252526",
+  TabCurrent  = "#1E1E1E",
+  TabOther    = "#2D2D2D",
+  TabOutside  = "#252526",
 
-  LeftDark = "#252526",
-  LeftMid = "#373737",
+  LeftDark        = "#252526",
+  LeftMid         = "#373737",
   LeftLight = "#636369",
 
   PopupFront = "#BBBBBB",

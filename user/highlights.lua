@@ -259,6 +259,7 @@ M.override = {
   ['@lsp.type.comment.cpp'] = {fg = c.code.DeadCode},
 
   ["@text.title.1.markdown"] = { fg = c.text.Title , sp = c.code.None,  bg = c.code.None },
+  ["@text.title.markdown"] = { fg = c.text.Title , sp = c.code.None,  bg = c.code.None },
   -- ['@variable.builtin']= { fg = c.code.VariableBuiltin, bg = 'NONE' },
   -- ['@text']= { fg = c.editor.Front, bg = 'NONE' },
   -- ['@text.underline']= { fg = c.editor.YellowOrange, bg = 'NONE' },
