@@ -37,7 +37,7 @@ M.code =  {
   Constant          = "#A5797A",
   EnumConstant      = "#A9797A",
   BuiltInConstant   = "#BA797A",
-
+  GoodColor         = "#90A0A0",
 }
 
 M.text = {
