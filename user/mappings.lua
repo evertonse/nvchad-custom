@@ -376,22 +376,22 @@ M.tabufline = {
 
   n = {
     -- cycle through buffers
-    ["<S-l>"] = {
-      function()
-        require("nvchad_ui.tabufline").tabuflineNext()
-      end,
-      "Goto next buffer",
-    },
-
-    ["<S-h>"] = {
-      function()
-        require("nvchad_ui.tabufline").tabuflinePrev()
-      end,
-      "Goto prev buffer",
-    },
-
+    -- ["<S-l>"] = {
+    --   function()
+    --     require("nvchad_ui.tabufline").tabuflineNext()
+    --   end,
+    --   "Goto next buffer",
+    -- },
+    --
+    -- ["<S-h>"] = {
+    --   function()
+    --     require("nvchad_ui.tabufline").tabuflinePrev()
+    --   end,
+    --   "Goto prev buffer",
+    -- },
+    --
     -- -- close buffer + hide terminal buffer
-    -- ["<leader>x"] = {
+    -- ["<leader>c"] = {
     --   function()
     --     require("nvchad_ui.tabufline").close_buffer()
     --   end,
