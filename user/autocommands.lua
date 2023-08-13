@@ -57,3 +57,11 @@ vim.cmd [[autocmd FileType c nnoremap <F5> :!make run <CR>]]
 vim.cmd [[autocmd filetype python nnoremap <F5> :w <bar> exec '!python '.shellescape('%')<CR>]]
 -- vim.cmd [[autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>]]
 vim.cmd [[autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>]]
+-- Auto command to activate virtual environment on terminal open
+
+vim.cmd([[
+    augroup AutoActivateVirtualEnv
+        autocmd!
+          autocmd BufWinEnter * :lua if vim.fn.isdirectory(vim.fn.getcwd() .. 'venv') and vim.fn.buftype() == 'terminal' then vim.fn.termopen('source ./venv/bin/activate') end
+    augroup END
+]])
