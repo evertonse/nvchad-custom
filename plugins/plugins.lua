@@ -86,6 +86,8 @@ M.plugins = {
 
   {
     "nvim-neorg/neorg",
+    enabled = false,
+    lazy = true,
     build = ":Neorg sync-parsers",
     -- lazy-load on filetype
     ft = "norg",
@@ -186,7 +188,7 @@ M.plugins = {
   {
     "VonHeikemen/lsp-zero.nvim",
     lazy = false, --@important, might not be a agood ideia to make it so
-    enabled = false,
+    enabled = true,
     branch = "v2.x",
     config = function()
       -- This is where you modify the settings for lsp-zero
@@ -238,12 +240,16 @@ M.plugins = {
   },
   -- if some code requires a module from an unloaded plugin, it will be automatically loaded.
   -- So for api plugins like devicons, we can always set lazy=true
-  { "nvim-tree/nvim-web-devicons", lazy = true },
+  { 
+    "nvim-tree/nvim-web-devicons",
+    lazy = true,
+    enabled = false,
+  },
 
   {
     "neovim/nvim-lspconfig",
     lazy = true,
-    enabled = true,
+    enabled = false,
     cmd = "LspInfo",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
@@ -322,7 +328,7 @@ M.plugins = {
   -->> Telescope
   {
     "nvim-telescope/telescope.nvim",
-    lazy = false,
+    lazy = true,
     enabled = true,
     opts = overrides.telescope,
   },
@@ -345,7 +351,7 @@ M.plugins = {
   {
     "iamcco/markdown-preview.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     build = "cd app && npm install",
     config = function()
       vim.g.mkdp_filetypes = { "markdown" }
@@ -398,7 +404,7 @@ M.plugins = {
 
   {
     "m-demare/hlargs.nvim",
-    lazy = true,
+    lazy = false,
     enabled = true,
     opts = overrides.hlargs,
     config = function()
@@ -431,7 +437,7 @@ M.plugins = {
   {
     "dstein64/vim-startuptime",
     lazy = false,
-    enabled = true,
+    enabled = false,
     cmd = "StartupTime",
     -- init is called during startup. Configuration for vim plugins typically should be set in an init function
     init = function()
@@ -510,6 +516,7 @@ M.plugins = {
       }
     end,
   },
+
   {
     "folke/todo-comments.nvim",
     lazy = false,
@@ -531,6 +538,7 @@ M.plugins = {
       }
     end,
   },
+
   {
     "princejoogie/chafa.nvim", -- A neovim plugin for viewing images.
     lazy = false,
@@ -600,14 +608,15 @@ M.plugins = {
       require("recorder").displaySlots()
     end,
   },
+
   {
     "lukas-reineke/indent-blankline.nvim",
     -- version = "2.20.7",
     lazy = true,
     enabled = true,
-    -- init = function()
-    --   require("core.utils").lazy_load "indent-blankline.nvim"
-    -- end,
+    init = function()
+      require("core.utils").lazy_load "indent-blankline.nvim"
+    end,
     opts = function()
       return overrides.blankline
     end,

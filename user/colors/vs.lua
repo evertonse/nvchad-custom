@@ -34,9 +34,12 @@ M.code =  {
   FunctionCall      = '#DCDCAA',
   Native            = "#D7BA7D",
   Special           = "#D7BA7D",
-  Constant          = "#A5797A",
-  EnumConstant      = "#A9797A",
-  BuiltInConstant   = "#BA797A",
+  Constant          = "#b5cea8",
+  EnumConstant      = "#b5cea8",
+  BuiltInConstant   = "#b5cea8",
+  -- Constant          = "#A5797A",
+  -- EnumConstant      = "#A9797A",
+  -- BuiltInConstant   = "#BA797A",
 }
 
 M.text = {

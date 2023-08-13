@@ -532,12 +532,13 @@ M.blankline = {
     "",
   },
 
-  buftype_exclude = { "terminal", "nofile" },
+  buftype_exclude = { 'terminal', 'nofile', 'quickfix' },
   show_trailing_blankline_indent = false,
   show_first_indent_level = false,
   show_current_context = true,
   show_current_context_start = true,
-
+  context_char = "│",
+  max_indent_increase = 1,
   -- context_patterns = {
   --   "class",
   --   "return",
