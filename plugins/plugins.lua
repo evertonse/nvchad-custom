@@ -36,6 +36,10 @@ M.plugins = {
         -- online, please don't ask me how to install them :)
         ensure_installed = {
           -- Update this to ensure that you have the debuggers for the langs you want
+          'vscode-java-decompiler',
+          'cpptools',
+          'codelldb',
+          'debugpy',
           "delve",
         },
       }
@@ -564,7 +568,7 @@ M.plugins = {
   {
     "chrisgrieser/nvim-recorder",
     lazy = false,
-    enabled = true,
+    enabled = false,
     opts = {},
     config = function()
       -- default values
