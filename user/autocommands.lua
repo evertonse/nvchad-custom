@@ -62,6 +62,6 @@ vim.cmd [[autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('
 vim.cmd([[
     augroup AutoActivateVirtualEnv
         autocmd!
-          autocmd BufWinEnter * :lua if vim.fn.isdirectory(vim.fn.getcwd() .. 'venv') and vim.fn.buftype() == 'terminal' then vim.fn.termopen('source ./venv/bin/activate') end
-    augroup END
+          autocmd TermOpen * :lua if vim.fn.isdirectory(vim.fn.getcwd() .. 'venv') then vim.fn.termopen('source ./venv/bin/activate') end
+    augroup end
 ]])
