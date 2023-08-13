@@ -279,8 +279,7 @@ M.plugins = {
       { "hrsh7th/cmp-nvim-lua" },
 
       -- Snippets
-      { "L3MON4D3/LuaSnip" },
-      { "rafamadriz/friendly-snippets" },
+      { "L3MON4D3/LuaSnip", lazy = false, dependencies = { "rafamadriz/friendly-snippets", lazy = false }, },
       { "hrsh7th/cmp-nvim-lsp" },
       {
         "williamboman/mason-lspconfig.nvim",
