@@ -188,7 +188,7 @@ M.plugins = {
   {
     "VonHeikemen/lsp-zero.nvim",
     lazy = false, --@important, might not be a agood ideia to make it so
-    enabled = true,
+    enabled = false,
     branch = "v2.x",
     config = function()
       -- This is where you modify the settings for lsp-zero
@@ -243,13 +243,13 @@ M.plugins = {
   { 
     "nvim-tree/nvim-web-devicons",
     lazy = true,
-    enabled = false,
+    enabled = true,
   },
 
   {
     "neovim/nvim-lspconfig",
     lazy = true,
-    enabled = false,
+    enabled = true,
     cmd = "LspInfo",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
