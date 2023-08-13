@@ -219,7 +219,7 @@ M.override = {
 
   -- @Tags
   ["@tag.delimiter"] = { fg = c.editor.Gray, bg = "NONE" },
-  ["@tag.attribute"] = { fg = c.editor.Keyword, bg = "NONE" },
+  ["@tag.attribute"] = { fg = c.editor.Keyword, italic = true, bg = "NONE" },
   ["@tag.html"]      = { fg = c.editor.Keyword, bold = true, bg = "NONE" },
 
   ["@text.title"] = { fg = c.editor.Blue, bold = true },
@@ -378,7 +378,7 @@ M.add = {
 
   -- @Tags
   ["@tag.delimiter"] = { fg = c.editor.Gray, bg = "NONE" },
-  ["@tag.attribute"] = { fg = c.editor.Keyword, bg = "NONE" },
+  ["@tag.attribute"] = { fg = c.editor.Keyword, italic = true, bg = "NONE" },
   ["@tag.html"]      = { fg = c.editor.Keyword, bold = true, bg = "NONE" },
 
   ["@type.qualifier"] = { fg = c.code.Keyword, sp = c.code.None , bg = c.text.Background },
