@@ -39,6 +39,7 @@ vim.cmd [[
     autocmd!
     "autocmd WinNew * :colorscheme blue
   augroup end
+
 ]]
 
 -- vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 |  nmap Q q | echo "recording start" ]]
@@ -65,3 +66,13 @@ vim.cmd [[autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('
 --           autocmd TermOpen * :lua if vim.fn.isdirectory( vim.fn.getcwd() .. '/venv' ) then print('source ./venv/bin/activate') else print ('nothing') end
 --     augroup end
 -- ]])
+
+vim.cmd [[
+  let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+  if executable(s:clip)
+      augroup WSLYank
+          autocmd!
+          autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+      augroup END
+  endif
+]];

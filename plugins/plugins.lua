@@ -279,7 +279,21 @@ M.plugins = {
       { "hrsh7th/cmp-nvim-lua" },
 
       -- Snippets
-      { "L3MON4D3/LuaSnip", lazy = false, dependencies = { "rafamadriz/friendly-snippets", lazy = false }, },
+      { 
+        "L3MON4D3/LuaSnip", lazy = false, dependencies = {
+          {
+            "rafamadriz/friendly-snippets", lazy = false,
+            config = function ()
+              local snip = require'luasnip'
+              -- check filetype with vim.bo.filetype
+              -- snip.filetype_extend("html", {"django-html"})
+              snip.filetype_extend("htmldjango", {"djangohtml"})
+              snip.filetype_extend("htmldjango", {"html"})
+           end
+          },
+        },
+      },
+
       { "hrsh7th/cmp-nvim-lsp" },
       {
         "williamboman/mason-lspconfig.nvim",
@@ -487,8 +501,8 @@ M.plugins = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     -- config = function ()
-    --   -- require "plugins.configs.treesitter"
-    --   -- require "custom.plugins.configs.treesitter"
+    --   require "plugins.configs.treesitter"
+    --   require "custom.plugins.configs.treesitter"
     -- end,
     opts = overrides.treesitter,
     build = ":TSUpdate",
@@ -627,6 +641,20 @@ M.plugins = {
       require("core.utils").load_mappings "blankline"
       dofile(vim.g.base46_cache .. "blankline")
       require("indent_blankline").setup(opts)
+      vim.cmd[[
+        function! s:IndentBlanklineLinecount()
+            if nvim_buf_line_count(0) < 5000
+                IndentBlanklineRefresh
+            endif
+        endfunction
+
+        augroup IndentBlanklineAutogroup
+            autocmd!
+            autocmd OptionSet shiftwidth,tabstop IndentBlanklineRefresh
+            autocmd FileChangedShellPost,Syntax * IndentBlanklineRefresh
+            autocmd TextChanged,TextChangedI * call s:IndentBlanklineLinecount()
+        augroup END      
+      ]]
     end,
   },
 }

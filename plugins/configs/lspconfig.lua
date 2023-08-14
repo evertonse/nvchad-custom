@@ -72,7 +72,7 @@ local servers = {
   "html",
   "cssls",
   "bashls",
-  --"pylsp",
+  -- "pylsp",
   "pyright",
   --"tsserver",
   "clangd",
@@ -141,3 +141,6 @@ end
 -- The Black formatter should now be enabled for Python files. Y
 -- ou can trigger formatting by using the appropriate Neovim command
 -- (such as :lua vim.lsp.buf.formatting()).
+require'luasnip'.filetype_extend("html", {"django-html"})
+require'luasnip'.filetype_extend("htmldjango", {"django-html"})
+require'luasnip'.filetype_extend("htmldjango", {"html"})

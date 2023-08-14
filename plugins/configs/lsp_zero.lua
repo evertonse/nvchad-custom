@@ -7,8 +7,8 @@ end
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-  --'pyright',
-  'pylsp',
+  'pyright',
+  -- 'pylsp',
   'jdtls',
   'clangd',
   --'tsserver',
@@ -33,7 +33,9 @@ lsp.configure('lua_ls', {
 local flake_ignores = { "E203", -- whitespace before :
   "W503", -- line break before binary operator
   "E501", -- line too long
-  "C901" } -- mccabe complexity
+  "C901", -- mccabe complexity
+}
+
 local pylsp_settings = {
   settings = {
     python = {
