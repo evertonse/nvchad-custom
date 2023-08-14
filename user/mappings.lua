@@ -471,7 +471,8 @@ M.lspconfig = {
 
     ["<leader>lr"] = {
       function()
-        require("nvchad_ui.renamer").open()
+        -- require("nvchad_ui.renamer").open()
+        vim.lsp.buf.rename()
       end,
       "[L]SP [R]ename",
     },
