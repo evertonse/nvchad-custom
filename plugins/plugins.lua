@@ -495,13 +495,13 @@ M.plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy = true,
+    lazy = false,
     enabled = true,
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     -- config = function ()
-    --   require "plugins.configs.treesitter"
+    -- require "plugins.configs.treesitter"
     --   require "custom.plugins.configs.treesitter"
     -- end,
     opts = overrides.treesitter,

@@ -174,7 +174,7 @@ local function nvimtree_on_attach(bufnr)
 
   local function edit_or_open()
     local node = api.tree.get_node_under_cursor()
-
+    api.tree.reload()
     if node.nodes ~= nil then
       -- expand or collapse folder
       api.node.open.edit()

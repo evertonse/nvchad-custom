@@ -36,7 +36,7 @@ configs.setup {
   },
 
   indent = { enable = true, disable = {} },
-  --markid = { enable = false},
+  markid = { enable = true},
   query_linter = {
     enable = false,
     use_virtual_text = true,
