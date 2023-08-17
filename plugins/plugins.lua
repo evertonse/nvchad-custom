@@ -426,6 +426,7 @@ M.plugins = {
     opts = overrides.hlargs,
     config = function()
       require "custom.plugins.configs.hlargs"
+      require('hlargs').enable()
     end,
   },
 
@@ -497,6 +498,7 @@ M.plugins = {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     enabled = true,
+    commit = '59f06b3b33fb3013cfbdf378297c756e44a6919e',
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },

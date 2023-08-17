@@ -5,7 +5,8 @@ if not status_ok then
 end
 
 local c = require "custom.user.colors.vs"
-
+require('hlargs').setup()
+return 
 hlargs.setup {
   color = c.code.Parameter,
   highlight = {},
