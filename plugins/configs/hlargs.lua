@@ -5,8 +5,7 @@ if not status_ok then
 end
 
 local c = require "custom.user.colors.vs"
-require('hlargs').setup()
-return 
+-- require('hlargs').setup(); return --DEBUG with default
 hlargs.setup {
   color = c.code.Parameter,
   highlight = {},
