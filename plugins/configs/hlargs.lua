@@ -19,7 +19,7 @@ hlargs.setup {
   extras = {
     named_parameters = true,
   },
-  hl_priority = 200,
+  hl_priority = 1000,
   excluded_argnames = {
     declarations = {
       python = {'self', 'cls' },
@@ -36,7 +36,7 @@ hlargs.setup {
     parse_delay = 0.25,
     slow_parse_delay = 155,
     max_iterations = 100,
-    max_concurrent_partial_parses = 50,
+    max_concurrent_partial_parses = 500,
     debounce = {
       partial_parse = 5,
       partial_insert_mode = 100,

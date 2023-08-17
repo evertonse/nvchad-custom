@@ -6,6 +6,26 @@ local M = {}
 -- add this table only when you want to disable default keys
 -- TIPS `:map <key>` to see all keys with that prefix
 
+-- redirect output of command to scratch buffer
+local scratch = function()
+  vim.ui.input({ prompt = "enter command", completion = "command" }, function(input)
+    if input == nil then
+      return
+    elseif input == "scratch" then
+      input = "echo('')"
+    end
+    local cmd = vim.api.nvim_exec(input, { output = true })
+    local output = {}
+    for line in cmd:gmatch("[^\n]+") do
+      table.insert(output, line)
+    end
+    local buf = vim.api.nvim_create_buf(true, true)
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, output)
+    vim.api.nvim_win_set_buf(0, buf)
+  end)
+end
+
+
 M.disabled = {
   n = {
     ["<leader>D"] = "",
@@ -132,6 +152,7 @@ M.general = {
   n = {
     -->> Window
 
+    ["<leader>sc"] = { scratch, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
     ["<C-w>z"] = { function() vim.cmd "split v" end, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
     -->> Harpoon
     ["<A-t>"] = { function() require('harpoon.term').gotoTerminal(1) end, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
