@@ -7,6 +7,9 @@ pull:
 clean:
 	rm -rf ~/.local/share/nvim rm -rf ~/.cache/nvim
 
+query:
+	cp -rf ./queries/ ../../
+
 unistall: clean
 	rm -rf ~/.config/nvim 
 
