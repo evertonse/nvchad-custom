@@ -171,10 +171,10 @@ M.general = {
     ["<A-5>"] = {function() require('harpoon.ui').nav_file(5) end, "-- navigates to 5"},
 
     -- >> recorging
-    -- ["q"] = { "@q", "Activate MACRO on q register" },
+    ["Q"] = { "@", "Activate MACRO on q register" },
+    -- ["q"] = { "q", "Activate MACRO on q register" },
     -- ["Q"] = { ToggleRecording, "Record MACRO on q register" },
     --
-    -- ["q"] = { "q", "Activate MACRO on q register" },
     -- ["Q"] = { "qq", "Record MACRO on q register" },
 
     ["<leader>x"] = { ":%bd!|e# <cr>", "close all buffers expect current one" },

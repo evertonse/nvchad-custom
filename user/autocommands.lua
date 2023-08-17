@@ -43,8 +43,10 @@ vim.cmd [[
 ]]
 
 -- vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 |  nmap Q q | echo "recording start" ]]
-vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 |  nnoremap q <Nop> | echo "recording start" ]]
--- vim.cmd [[ autocmd RecordingLeave * set cmdheight=0 |  nmap Q qq | nnoremap ; @q | set cmdheight=1 | echo "recording stop" ]]
+-- vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 |  nnoremap Q q | echo "recording start" ]]
+-- vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 |  nnoremap q <Nop> | echo "recording start" ]]
+-- vim.cmd [[ autocmd RecordingLeave * set cmdheight=0 |  nmap q q | echo "recording stop" ]]
+-- vim.cmd [[ autocmd RecordingLeave * set cmdheight=0 |  nmap Q @q | echo "recording stop" ]]
 
 -- vim.cmd([[ autocmd FileType *.c nnoremap <buffer> <F5> :wa<CR>:term gcc % -o %:r && ./%:r<CR> ]])
 -- vim.cmd [[autocmd filetype cpp nnoremap <F5> :!g++ % -ggdb -o %:r && ./%:r <CR>]]
