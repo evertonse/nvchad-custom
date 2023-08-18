@@ -19,6 +19,11 @@
 
 "return" @keyword.return
 
+(
+  ("enum" @keyword.keyword)
+  (#set! "priority" 110)
+ )
+
 [
   "while"
   "for"

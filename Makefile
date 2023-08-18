@@ -15,3 +15,5 @@ unistall: clean
 
 install: 
 	git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1; nvim; ln -s ~/dotfiles/nvim/custom ~/.config/nvim/lua/custom;
+
+.PHONY: install uninstall query clean, pull, push

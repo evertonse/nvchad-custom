@@ -386,7 +386,7 @@ M.plugins = {
   {
     "nvim-treesitter/playground",
     lazy = true,
-    enabled = false,
+    enabled = true,
     config = function()
       require("nvim-treesitter.configs").setup {
         playground = {
