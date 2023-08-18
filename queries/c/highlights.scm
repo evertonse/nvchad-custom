@@ -1,6 +1,3 @@
-; Lower priority to prefer @parameter when identifier appears in parameter_declaration.
-((identifier) @variable (#set! "priority" 95))
-(preproc_def (preproc_arg) @variable (#set! "priority" 95))
 
 [
   "enum"
@@ -23,6 +20,10 @@
   ("enum" @keyword.keyword)
   (#set! "priority" 110)
  )
+
+; Lower priority to prefer @parameter when identifier appears in parameter_declaration.
+; ((identifier) @variable (#set! "priority" 95))
+(preproc_def (preproc_arg) @variable (#set! "priority" 95))
 
 [
   "while"
