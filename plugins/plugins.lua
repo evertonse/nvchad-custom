@@ -385,7 +385,7 @@ M.plugins = {
   -- {'David-Kunz/markid',}, -- Every identifier has the same color
   {
     "nvim-treesitter/playground",
-    lazy = true,
+    lazy = false,
     enabled = true,
     config = function()
       require("nvim-treesitter.configs").setup {
@@ -628,37 +628,38 @@ M.plugins = {
     end,
   },
 
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    -- version = "2.20.7",
-    lazy = true,
-    enabled = true,
-    init = function()
-      require("core.utils").lazy_load "indent-blankline.nvim"
-    end,
-    opts = function()
-      return overrides.blankline
-    end,
-    config = function(_, opts)
-      require("core.utils").load_mappings "blankline"
-      dofile(vim.g.base46_cache .. "blankline")
-      require("indent_blankline").setup(opts)
-      vim.cmd[[
-        function! s:IndentBlanklineLinecount()
-            if nvim_buf_line_count(0) < 5000
-                IndentBlanklineRefresh
-            endif
-        endfunction
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   -- version = "2.20.7",
+  --   lazy = true,
+  --   enabled = true,
+  --   init = function()
+  --     require("core.utils").lazy_load "indent-blankline.nvim"
+  --   end,
+  --   opts = function()
+  --     return overrides.blankline
+  --   end,
+  --   config = function(_, opts)
+  --     require("core.utils").load_mappings "blankline"
+  --     dofile(vim.g.base46_cache .. "blankline")
+  --     require("indent_blankline").setup(opts)
+  --     vim.cmd[[
+  --       function! s:IndentBlanklineLinecount()
+  --           if nvim_buf_line_count(0) < 2000
+  --               IndentBlanklineRefresh
+  --           endif
+  --       endfunction
+  --
+  --       augroup IndentBlanklineAutogroup
+  --           autocmd!
+  --           autocmd OptionSet shiftwidth,tabstop IndentBlanklineRefresh
+  --           autocmd FileChangedShellPost,Syntax * IndentBlanklineRefresh
+  --           autocmd TextChanged,TextChangedI * call s:IndentBlanklineLinecount()
+  --       augroup END      
+  --     ]]
+  --   end,
+  -- },
 
-        augroup IndentBlanklineAutogroup
-            autocmd!
-            autocmd OptionSet shiftwidth,tabstop IndentBlanklineRefresh
-            autocmd FileChangedShellPost,Syntax * IndentBlanklineRefresh
-            autocmd TextChanged,TextChangedI * call s:IndentBlanklineLinecount()
-        augroup END      
-      ]]
-    end,
-  },
 }
 --
 return M.plugins

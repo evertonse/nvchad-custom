@@ -167,6 +167,7 @@ M.override = {
   ["@comment"] = { fg = c.code.Comment, bg = "NONE" },
   ["@keyword"] = { fg = c.code.Keyword, bg = "NONE" },
   ["@keyword.return"] = { fg = c.code.ControlFlow, bg = "NONE" }, -- return,
+  ["@keyword.enum"] = { fg = c.code.Keyword, bg = "NONE" },
   ["@keyword.function"] = { fg = c.code.Keyword, bg = "NONE" },
   ["@keyword.operator"] = { fg = c.code.Keyword, bg = "NONE" },
 
@@ -380,7 +381,7 @@ M.add = {
   ["@tag.delimiter"] = { fg = c.editor.Gray, bg = "NONE" },
   ["@tag.attribute"] = { fg = c.editor.Keyword, italic = true, bg = "NONE" },
   ["@tag.html"]      = { fg = c.editor.Keyword, bold = true, bg = "NONE" },
-
+  ["@keyword.enum"] = { fg = c.code.Keyword, bg = "NONE" },
   ["@type.qualifier"] = { fg = c.code.Keyword, sp = c.code.None , bg = c.text.Background },
   DiffAdd    = { fg = "NONE", sp = c.code.None,  bg = c.editor.DiffGreenLight },
   DiffChange = { fg = "NONE", sp = c.code.None,  bg = c.editor.DiffRedDark },

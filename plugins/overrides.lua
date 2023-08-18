@@ -552,7 +552,7 @@ M.blankline = {
     "method",
     "if",
     "while",
-    -- "jsx_element",
+    "jsx_element",
     "for",
     "^object",
     "^table",
