@@ -421,11 +421,7 @@ M.telescope = {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-    pickers = {
-        buffers = {
-          initial_mode = "normal"
-        }
-    },
+    -- initial_mode = "normal",
     preview = {
       treesitter = false
     },
