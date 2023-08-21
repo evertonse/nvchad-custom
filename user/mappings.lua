@@ -156,8 +156,8 @@ M.general = {
     ["<C-w>z"] = { function() vim.cmd "split v" end, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
     -->> Harpoon
     ["<A-t>"] = { function() require('harpoon.term').gotoTerminal(1) end, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
-    ["<A-m>"] = {function() require("harpoon.mark").add_file() end, ""},
-    ["<A-r>"] = {function() require("harpoon.mark").rm_file() end, ""},
+    ["<A-m>"] = {function(a) require("harpoon.mark").add_file() print("harpoon mark added"..a) end, ""},
+    ["<A-r>"] = {function() require("harpoon.mark").rm_file("harpoon mark removed") end, ""},
     -- ["<A-b>"] = { ":Telescope harpoon marks initial_mode=normal <CR>", "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
     ["<A-b>"] = {function() require("harpoon.ui").toggle_quick_menu() end, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
     ["<A-n>"] = {function() require('harpoon.ui').nav_next() end, "-- navigates to next mark"},

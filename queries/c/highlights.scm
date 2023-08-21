@@ -22,7 +22,7 @@
  )
 
 ; Lower priority to prefer @parameter when identifier appears in parameter_declaration.
-; ((identifier) @variable (#set! "priority" 95))
+((identifier) @variable (#set! "priority" 95))
 (preproc_def (preproc_arg) @variable (#set! "priority" 95))
 
 [

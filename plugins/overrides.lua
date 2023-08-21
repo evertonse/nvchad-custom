@@ -54,25 +54,27 @@ M.treesitter = {
   },
 
   indent = { enable = true, disable = {} },
-  --markid = { enable = false},
+  markid = { enable = true},
+
   query_linter = {
     enable = false,
     use_virtual_text = true,
     lint_events = { "BufWrite", "CursorHold" },
   },
+
   illuminate = {
     enable = true,
     loaded = true,
   },
 
   incremental_selection = {
-    disable = {},
     enable = true,
+    disable = {},
     keymaps = {
-      init_selection = "gnn",
-      node_decremental = "grm",
-      node_incremental = "grn",
-      scope_incremental = "grc",
+      init_selection = 'gis',
+      scope_incremental = 'gsi',
+      node_incremental = 'gni',
+      node_decremental = 'gnd',
     },
   },
 
@@ -419,7 +421,11 @@ M.telescope = {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-
+    pickers = {
+        buffers = {
+          initial_mode = "normal"
+        }
+    },
     preview = {
       treesitter = false
     },
