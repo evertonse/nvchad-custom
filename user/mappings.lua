@@ -156,7 +156,7 @@ M.general = {
     ["<C-w>z"] = { function() vim.cmd "split v" end, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
     -->> Harpoon
     ["<A-t>"] = { function() require('harpoon.term').gotoTerminal(1) end, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
-    ["<A-m>"] = {function(a) require("harpoon.mark").add_file() print("harpoon mark added"..a) end, ""},
+    ["<A-m>"] = {function() require("harpoon.mark").add_file() print("harpoon mark added") end, ""},
     ["<A-r>"] = {function() require("harpoon.mark").rm_file("harpoon mark removed") end, ""},
     -- ["<A-b>"] = { ":Telescope harpoon marks initial_mode=normal <CR>", "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
     ["<A-b>"] = {function() require("harpoon.ui").toggle_quick_menu() end, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
@@ -591,7 +591,9 @@ M.telescope = {
     --["<leader>f"] = { "<cmd> Telescope find_files <CR>", "Find files" },
     ["<leader>af"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
     ["<leader>f"] = {
-      "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
+      -- "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
+    "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'fd', '--type', 'file', '--no-ignore', '--hidden', '--exclude', '.git' }})<cr>",
+       -- "<cmd>lua require'telescope.builtin'.find_files()<cr>",
     },
     ["<leader>F"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>b"] = { "<cmd> Telescope buffers initial_mode=normal<CR><esc>", "Find buffers" },
