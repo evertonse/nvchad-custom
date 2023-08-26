@@ -19,10 +19,20 @@ M.plugins = {
 
       -- Add your own debuggers here
       "leoluz/nvim-dap-go",
+      {
+        "mfussenegger/nvim-dap-python",
+        ft = "python",
+        config = function(_, opts)
+          local path = "/home/excyber/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+          require("dap-python").setup(path)
+          require("core.utils").load_mappings "dap_python"
+        end,
+      },
     },
     config = function()
       local dap = require "dap"
       local dapui = require "dapui"
+      require("core.utils").load_mappings "dap"
 
       require("mason-nvim-dap").setup {
         -- Makes a best effort to setup the various debuggers with
@@ -37,10 +47,10 @@ M.plugins = {
         -- online, please don't ask me how to install them :)
         ensure_installed = {
           -- Update this to ensure that you have the debuggers for the langs you want
-          'vscode-java-decompiler',
-          'cpptools',
-          'codelldb',
-          'debugpy',
+          "vscode-java-decompiler",
+          "cpptools",
+          "codelldb",
+          "debugpy",
           "delve",
         },
       }
@@ -86,6 +96,7 @@ M.plugins = {
 
       -- Install golang specific config
       require("dap-go").setup()
+      require("dap-python").setup()
     end,
   },
 
@@ -245,7 +256,7 @@ M.plugins = {
   },
   -- if some code requires a module from an unloaded plugin, it will be automatically loaded.
   -- So for api plugins like devicons, we can always set lazy=true
-  { 
+  {
     "nvim-tree/nvim-web-devicons",
     lazy = true,
     enabled = true,
@@ -280,17 +291,20 @@ M.plugins = {
       { "hrsh7th/cmp-nvim-lua" },
 
       -- Snippets
-      { 
-        "L3MON4D3/LuaSnip", lazy = false, dependencies = {
+      {
+        "L3MON4D3/LuaSnip",
+        lazy = false,
+        dependencies = {
           {
-            "rafamadriz/friendly-snippets", lazy = false,
-            config = function ()
-              local snip = require'luasnip'
+            "rafamadriz/friendly-snippets",
+            lazy = false,
+            config = function()
+              local snip = require "luasnip"
               -- check filetype with vim.bo.filetype
               -- snip.filetype_extend("html", {"django-html"})
-              snip.filetype_extend("htmldjango", {"djangohtml"})
-              snip.filetype_extend("htmldjango", {"html"})
-           end
+              snip.filetype_extend("htmldjango", { "djangohtml" })
+              snip.filetype_extend("htmldjango", { "html" })
+            end,
           },
         },
       },
@@ -307,16 +321,20 @@ M.plugins = {
       },
       {
         "williamboman/mason.nvim",
-        opts = overrides.mason,
-        build = function()
-          pcall(vim.cmd, "MasonUpdate")
-        end,
       },
     },
     config = function()
       -- This is where all the LSP shenanigans will live
       require "plugins.configs.lspconfig"
       require "custom.plugins.configs.lspconfig"
+    end,
+  },
+
+  {
+    "williamboman/mason.nvim",
+    opts = overrides.mason,
+    build = function()
+      pcall(vim.cmd, "MasonUpdate")
     end,
   },
 
@@ -428,7 +446,7 @@ M.plugins = {
     opts = overrides.hlargs,
     config = function()
       require "custom.plugins.configs.hlargs"
-      require('hlargs').enable()
+      require("hlargs").enable()
     end,
   },
 
@@ -500,7 +518,7 @@ M.plugins = {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     enabled = true,
-    commit = '59f06b3b33fb3013cfbdf378297c756e44a6919e',
+    commit = "59f06b3b33fb3013cfbdf378297c756e44a6919e",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
@@ -656,11 +674,10 @@ M.plugins = {
   --           autocmd OptionSet shiftwidth,tabstop IndentBlanklineRefresh
   --           autocmd FileChangedShellPost,Syntax * IndentBlanklineRefresh
   --           autocmd TextChanged,TextChangedI * call s:IndentBlanklineLinecount()
-  --       augroup END      
+  --       augroup END
   --     ]]
   --   end,
   -- },
-
 }
 --
 return M.plugins

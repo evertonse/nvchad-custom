@@ -25,7 +25,7 @@ local sources = {
 
   -- python
   b.formatting.black,
-  b.diagnostics.mypy,
+  b.diagnostics.flake8,
   b.diagnostics.ruff,
 
   --b.diagnostics.shellcheck,
@@ -38,18 +38,18 @@ null_ls.setup {
     new_client.offset_encoding = "utf-16"
   end,
   on_attach = function(client, bufnr)
-      if client.supports_method("textDocument/formatting") then
-        vim.api.nvim_clear_autocmds({
-          group = augroup,
-          buffer = bufnr,
-        })
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          group = augroup,
-          buffer = bufnr,
-          callback = function()
-            vim.lsp.buf.format({ bufnr = bufnr })
-          end,
-        })
-      end
-    end,
+    if client.supports_method "textDocument/formatting" then
+      vim.api.nvim_clear_autocmds {
+        group = augroup,
+        buffer = bufnr,
+      }
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format { bufnr = bufnr }
+        end,
+      })
+    end
+  end,
 }

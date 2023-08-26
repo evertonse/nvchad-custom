@@ -16,7 +16,7 @@ local scratch = function()
     end
     local cmd = vim.api.nvim_exec(input, { output = true })
     local output = {}
-    for line in cmd:gmatch("[^\n]+") do
+    for line in cmd:gmatch "[^\n]+" do
       table.insert(output, line)
     end
     local buf = vim.api.nvim_create_buf(true, true)
@@ -24,7 +24,6 @@ local scratch = function()
     vim.api.nvim_win_set_buf(0, buf)
   end)
 end
-
 
 M.disabled = {
   n = {
@@ -152,23 +151,87 @@ M.general = {
   n = {
     -->> Window
 
-    ["<leader>sc"] = { scratch, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
-    ["<C-w>z"] = { function() vim.cmd "split v" end, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
+    ["<leader>sc"] = {
+      scratch,
+      "this works like file navigation except that if there is no terminal at the specified index a new terminal is created.",
+    },
+    ["<C-w>z"] = {
+      function()
+        vim.cmd "split v"
+      end,
+      "this works like file navigation except that if there is no terminal at the specified index a new terminal is created.",
+    },
     -->> Harpoon
-    ["<A-t>"] = { function() require('harpoon.term').gotoTerminal(1) end, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
-    ["<A-m>"] = { function() require("harpoon.mark").add_file() print("harpoon mark added") end, ""},
-    ["<A-r>"] = { function() require("harpoon.mark").rm_file("harpoon mark removed") end, ""},
+    ["<A-t>"] = {
+      function()
+        require("harpoon.term").gotoTerminal(1)
+      end,
+      "this works like file navigation except that if there is no terminal at the specified index a new terminal is created.",
+    },
+    ["<A-m>"] = {
+      function()
+        require("harpoon.mark").add_file()
+        print "harpoon mark added"
+      end,
+      "",
+    },
+    ["<A-r>"] = {
+      function()
+        require("harpoon.mark").rm_file "harpoon mark removed"
+      end,
+      "",
+    },
     -- ["<A-b>"] = { ":Telescope harpoon marks initial_mode=normal <CR>", "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
-    ["<A-b>"] = { function() require("harpoon.ui").toggle_quick_menu() end, "this works like file navigation except that if there is no terminal at the specified index a new terminal is created." },
-    ["<A-n>"] = { function() require('harpoon.ui').nav_next() end, "-- navigates to next mark"},
-    ["<A-p>"] = { function() require('harpoon.ui').nav_prev() end, "-- navigates to next mark"},
+    ["<A-b>"] = {
+      function()
+        require("harpoon.ui").toggle_quick_menu()
+      end,
+      "this works like file navigation except that if there is no terminal at the specified index a new terminal is created.",
+    },
+    ["<A-n>"] = {
+      function()
+        require("harpoon.ui").nav_next()
+      end,
+      "-- navigates to next mark",
+    },
+    ["<A-p>"] = {
+      function()
+        require("harpoon.ui").nav_prev()
+      end,
+      "-- navigates to next mark",
+    },
 
     -- @todo close tree if opened
-    ["<A-1>"] = { function() require('harpoon.ui').nav_file(1) end, "-- navigates to 1"},
-    ["<A-2>"] = { function() require('harpoon.ui').nav_file(2) end, "-- navigates to 2"},
-    ["<A-3>"] = { function() require('harpoon.ui').nav_file(3) end, "-- navigates to 3"},
-    ["<A-4>"] = { function() require('harpoon.ui').nav_file(4) end, "-- navigates to 4"},
-    ["<A-5>"] = { function() require('harpoon.ui').nav_file(5) end, "-- navigates to 5"},
+    ["<A-1>"] = {
+      function()
+        require("harpoon.ui").nav_file(1)
+      end,
+      "-- navigates to 1",
+    },
+    ["<A-2>"] = {
+      function()
+        require("harpoon.ui").nav_file(2)
+      end,
+      "-- navigates to 2",
+    },
+    ["<A-3>"] = {
+      function()
+        require("harpoon.ui").nav_file(3)
+      end,
+      "-- navigates to 3",
+    },
+    ["<A-4>"] = {
+      function()
+        require("harpoon.ui").nav_file(4)
+      end,
+      "-- navigates to 4",
+    },
+    ["<A-5>"] = {
+      function()
+        require("harpoon.ui").nav_file(5)
+      end,
+      "-- navigates to 5",
+    },
 
     -- >> recorging
     ["Q"] = { "@", "Activate MACRO on q register" },
@@ -593,7 +656,7 @@ M.telescope = {
     ["<leader>f"] = {
       -- "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
       "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'fd', '--type', 'file', '--no-ignore', '--hidden', '--exclude', '.git' }})<cr>",
-       -- "<cmd>lua require'telescope.builtin'.find_files()<cr>",
+      -- "<cmd>lua require'telescope.builtin'.find_files()<cr>",
     },
     ["<leader>F"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>b"] = { "<cmd> Telescope buffers initial_mode=normal<CR><esc>", "Find buffers" },
@@ -792,6 +855,24 @@ M.gitsigns = {
         require("gitsigns").toggle_deleted()
       end,
       "Toggle deleted",
+    },
+  },
+}
+
+M.dap = {
+  plugin = true,
+  n = {
+    ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
+  },
+}
+
+M.dap_python = {
+  plugin = true,
+  n = {
+    ["<leader>dpr"] = {
+      function()
+        require("dap-python").test_method()
+      end,
     },
   },
 }

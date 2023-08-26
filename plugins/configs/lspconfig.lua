@@ -5,39 +5,64 @@ capabilities.offsetEncoding = { "utf-16" }
 -- please take a look at this https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 --https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#completionItemKind
 local cmp = require "cmp"
-local CompletionItemKind  = {
---[[Text ]] 30,
---[[Method = ]] 2,
---[[Function = ]] 1,
---[[Constructor = ]] 4,
---[[Field = ]] 4,
---[[Variable = ]] 3,
---[[Class = ]] 7,
---[[Interface = ]] 8,
---[[Module = ]] 9,
---[[Property = ]] 10,
---[[Unit = ]] 11,
---[[Value = ]] 12,
---[[Enum = ]] 13,
---[[Keyword = ]] 14,
---[[Snippet = ]] 0,
---[[Color = ]] 16,
---[[File = ]] 17,
---[[Reference = ]] 18,
---[[Folder = ]] 19,
---[[EnumMember = ]] 20,
---[[Constant = ]] 21,
---[[Struct = ]] 22,
---[[Event = ]] 23,
---[[Operator = ]] 24,
---[[TypeParameter = ]] 25,
+local CompletionItemKind = {
+  --[[Text ]]
+  30,
+  --[[Method = ]]
+  2,
+  --[[Function = ]]
+  1,
+  --[[Constructor = ]]
+  4,
+  --[[Field = ]]
+  4,
+  --[[Variable = ]]
+  3,
+  --[[Class = ]]
+  7,
+  --[[Interface = ]]
+  8,
+  --[[Module = ]]
+  9,
+  --[[Property = ]]
+  10,
+  --[[Unit = ]]
+  11,
+  --[[Value = ]]
+  12,
+  --[[Enum = ]]
+  13,
+  --[[Keyword = ]]
+  14,
+  --[[Snippet = ]]
+  3,
+  --[[Color = ]]
+  16,
+  --[[File = ]]
+  17,
+  --[[Reference = ]]
+  18,
+  --[[Folder = ]]
+  19,
+  --[[EnumMember = ]]
+  20,
+  --[[Constant = ]]
+  21,
+  --[[Struct = ]]
+  22,
+  --[[Event = ]]
+  23,
+  --[[Operator = ]]
+  24,
+  --[[TypeParameter = ]]
+  25,
 }
 
 cmp.setup {
   sorting = {
     priority_weight = 1.0,
     comparators = {
-      -- compare.score_offset, -- not good at all
+      cmp.score_offset, -- not good at all
       cmp.config.compare.exact,
       function(e1, e2)
         local k1 = CompletionItemKind[e1:get_kind()]
@@ -47,15 +72,14 @@ cmp.setup {
         end
         return false
       end,
-      cmp.config.compare.kind,
       cmp.config.compare.locality,
+      cmp.config.compare.kind,
       cmp.config.compare.recently_used,
       cmp.config.compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
       cmp.config.compare.order,
       -- compare.scopes, -- what?
       -- compare.sort_text,
       -- compare.exact,
-      -- compare.kind,
       -- compare.length, -- useless
       cmp.config.compare.offset,
       -- cmp.config.compare.sort_text,
@@ -77,7 +101,6 @@ local servers = {
   --"tsserver",
   "clangd",
   "opencl_ls",
-
 }
 
 local lsp_keymaps = function(bufnr)
@@ -113,9 +136,9 @@ for _, lsp in ipairs(servers) do
   if lsp == "pyright" then
     lspconfig[lsp].setup {
       on_attach = on_attach,
-      autostart = true; -- This is the important new option
+      autostart = true, -- This is the important new option
       capabilities = capabilities,
-      filetypes = {"python"},
+      filetypes = { "python" },
       settings = {
         python = {
           formatting = {
@@ -127,7 +150,7 @@ for _, lsp in ipairs(servers) do
   else
     lspconfig[lsp].setup {
       on_attach = on_attach,
-      autostart = true; -- This is the important new option
+      autostart = true, -- This is the important new option
       capabilities = capabilities,
     }
   end
@@ -142,6 +165,6 @@ end
 -- The Black formatter should now be enabled for Python files. Y
 -- ou can trigger formatting by using the appropriate Neovim command
 -- (such as :lua vim.lsp.buf.formatting()).
-require'luasnip'.filetype_extend("html", {"django-html"})
-require'luasnip'.filetype_extend("htmldjango", {"django-html"})
-require'luasnip'.filetype_extend("htmldjango", {"html"})
+require("luasnip").filetype_extend("html", { "django-html" })
+require("luasnip").filetype_extend("htmldjango", { "django-html" })
+require("luasnip").filetype_extend("htmldjango", { "html" })

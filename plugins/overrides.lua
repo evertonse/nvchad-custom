@@ -54,7 +54,7 @@ M.treesitter = {
   },
 
   indent = { enable = true, disable = {} },
-  markid = { enable = true},
+  markid = { enable = true },
 
   query_linter = {
     enable = false,
@@ -71,10 +71,10 @@ M.treesitter = {
     enable = true,
     disable = {},
     keymaps = {
-      init_selection = 'gis',
-      scope_incremental = 'gsi',
-      node_incremental = 'gni',
-      node_decremental = 'gnd',
+      init_selection = "gis",
+      scope_incremental = "gsi",
+      node_incremental = "gni",
+      node_decremental = "gnd",
     },
   },
 
@@ -150,22 +150,16 @@ M.treesitter = {
 M.mason = {
   ensure_installed = {
     -- lua stuff
-   "lua-language-server",
-   "stylua",
-   "stylua",
-   "autoflake",
-   "bash-language-server",
-   "black",
-   "clangd",
-   "css-lsp",
-   "debugpy",
-   "flake8",
-   "html-lsp",
-   "jdtls",
-   "lua-language-server",
-   "opencl-language-server",
-   "pyright",
-   "rust-analyzer",
+    "lua-language-server",
+    "stylua",
+    "autoflake",
+    "bash-language-server",
+    "html-lsp",
+    "jdtls",
+    "lua-language-server",
+    "opencl-language-server",
+    "rust-analyzer",
+
     -- web dev stuff
     "css-lsp",
     "html-lsp",
@@ -177,6 +171,14 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    -- python
+    "black",
+    "flake8",
+    "debugpy",
+    "mypy",
+    "ruff",
+    "pyright",
   },
 }
 
@@ -436,7 +438,7 @@ M.telescope = {
     path_display = { "smart" },
     -- initial_mode = "normal",
     preview = {
-      treesitter = false
+      treesitter = false,
     },
     -- fzf native
     fzf = {
@@ -543,14 +545,13 @@ M.blankline = {
     "lspinfo",
     "TelescopePrompt",
     "TelescopeResults",
-    "mason",
     "nvdash",
     "nvcheatsheet",
     "cmp_menu",
     "",
   },
 
-  buftype_exclude = { 'terminal', 'nofile', 'quickfix' },
+  buftype_exclude = { "terminal", "nofile", "quickfix" },
   show_trailing_blankline_indent = false,
   show_first_indent_level = false,
   show_current_context = true,
