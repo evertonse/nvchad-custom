@@ -150,9 +150,22 @@ M.treesitter = {
 M.mason = {
   ensure_installed = {
     -- lua stuff
-    "lua-language-server",
-    "stylua",
-
+   "lua-language-server",
+   "stylua",
+   "stylua",
+   "autoflake",
+   "bash-language-server",
+   "black",
+   "clangd",
+   "css-lsp",
+   "debugpy",
+   "flake8",
+   "html-lsp",
+   "jdtls",
+   "lua-language-server",
+   "opencl-language-server",
+   "pyright",
+   "rust-analyzer",
     -- web dev stuff
     "css-lsp",
     "html-lsp",
@@ -191,7 +204,7 @@ local function nvimtree_on_attach(bufnr)
   -- Default mappings. Feel free to modify or remove as you wish.
   --
   -- BEGIN_DEFAULT_ON_ATTACH
-  vim.keymap.set("n", "<C-]>", api.tree.change_root_to_node, opts "CD")
+  vim.keymap.set("n", "sC-]s", api.tree.change_root_to_node, opts "CD")
   vim.keymap.set("n", "<C-e>", api.node.open.replace_tree_buffer, opts "Open: In Place")
   vim.keymap.set("n", "<C-k>", api.node.show_info_popup, opts "Info")
   vim.keymap.set("n", "<C-r>", api.fs.rename_sub, opts "Rename: Omit Filename")

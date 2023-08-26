@@ -6,7 +6,8 @@ M.plugins = {
   {
     -- NOTE: Yes, you can install new plugins here!
     "mfussenegger/nvim-dap",
-    enabled = false,
+    lazy = true,
+    enabled = true,
     -- NOTE: And you can specify dependencies as well
     dependencies = {
       -- Creates a beautiful debugger UI
@@ -306,6 +307,7 @@ M.plugins = {
       },
       {
         "williamboman/mason.nvim",
+        opts = overrides.mason,
         build = function()
           pcall(vim.cmd, "MasonUpdate")
         end,
@@ -557,7 +559,6 @@ M.plugins = {
       }
     end,
   },
-
   {
     "princejoogie/chafa.nvim", -- A neovim plugin for viewing images.
     lazy = false,

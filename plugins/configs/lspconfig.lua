@@ -115,6 +115,7 @@ for _, lsp in ipairs(servers) do
       on_attach = on_attach,
       autostart = true; -- This is the important new option
       capabilities = capabilities,
+      filetypes = {"python"},
       settings = {
         python = {
           formatting = {
