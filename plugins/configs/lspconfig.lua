@@ -60,9 +60,9 @@ local CompletionItemKind = {
 
 cmp.setup {
   sorting = {
-    priority_weight = 1.0,
+    priority_weight = 1.2,
     comparators = {
-      cmp.score_offset, -- not good at all
+      -- cmp.score_offset, -- not good at all
       cmp.config.compare.exact,
       function(e1, e2)
         local k1 = CompletionItemKind[e1:get_kind()]
