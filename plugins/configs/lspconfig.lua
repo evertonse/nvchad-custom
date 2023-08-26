@@ -144,6 +144,9 @@ for _, lsp in ipairs(servers) do
           formatting = {
             provider = "black",
           },
+          analysis = {
+            typeCheckingMode = "off",
+          },
         },
       },
     }
