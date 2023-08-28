@@ -72,12 +72,12 @@ cmp.setup {
         end
         return false
       end,
+      cmp.scopes, -- what?
       cmp.config.compare.locality,
       cmp.config.compare.kind,
       cmp.config.compare.recently_used,
       cmp.config.compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
       cmp.config.compare.order,
-      -- compare.scopes, -- what?
       -- compare.sort_text,
       -- compare.exact,
       -- compare.length, -- useless
@@ -159,15 +159,19 @@ for _, lsp in ipairs(servers) do
   end
 end
 
-local status_ok, illuminate = pcall(require, "illuminate")
-if not status_ok then
-  return
-end
-
 -- Start or restart Neovim.
 -- The Black formatter should now be enabled for Python files. Y
 -- ou can trigger formatting by using the appropriate Neovim command
 -- (such as :lua vim.lsp.buf.formatting()).
-require("luasnip").filetype_extend("html", { "django-html" })
-require("luasnip").filetype_extend("htmldjango", { "django-html" })
-require("luasnip").filetype_extend("htmldjango", { "html" })
+
+local luanspip_ok, luasnip = pcall(require, "luasnip")
+if luanspip_ok then
+  luasnip.filetype_extend("html", { "django-html" })
+  luasnip.filetype_extend("htmldjango", { "django-html" })
+  luasnip.filetype_extend("htmldjango", { "html" })
+end
+
+local illuminate_ok, illuminate = pcall(require, "illuminate")
+if not illuminate_ok then
+  return
+end

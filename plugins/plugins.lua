@@ -23,8 +23,21 @@ M.plugins = {
         "mfussenegger/nvim-dap-python",
         ft = "python",
         config = function(_, opts)
-          local path = "/home/excyber/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-          require("dap-python").setup(path)
+          local fallback_path = "/home/excyber/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+          --require("dap-python").setup(fallback_path) -- uncomment this to allways look for mason fall_back path
+          require("dap-python").resolve_python = function()
+            -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+            -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
+            -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+            local cwd = vim.fn.getcwd()
+            if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+              return cwd .. "/venv/bin/python"
+            elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+              return cwd .. "/.venv/bin/python"
+            else
+              return fallback_path
+            end
+          end
           require("core.utils").load_mappings "dap_python"
         end,
       },
@@ -57,9 +70,9 @@ M.plugins = {
 
       -- Basic debugging keymaps, feel free to change to your liking!
       vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
-      vim.keymap.set("n", "<F1>", dap.step_into, { desc = "Debug: Step Into" })
-      vim.keymap.set("n", "<F2>", dap.step_over, { desc = "Debug: Step Over" })
-      vim.keymap.set("n", "<F3>", dap.step_out, { desc = "Debug: Step Out" })
+      vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })
+      vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
+      vim.keymap.set("n", "<F12>", dap.step_out, { desc = "Debug: Step Out" })
       vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
       vim.keymap.set("n", "<leader>B", function()
         dap.set_breakpoint(vim.fn.input "Breakpoint condition: ")
