@@ -232,6 +232,18 @@ M.general = {
       end,
       "-- navigates to 5",
     },
+    ["<A-6>"] = {
+      function()
+        require("harpoon.ui").nav_file(6)
+      end,
+      "-- navigates to 5",
+    },
+    ["<A-7>"] = {
+      function()
+        require("harpoon.ui").nav_file(7)
+      end,
+      "-- navigates to 5",
+    },
 
     -- >> recorging
     ["Q"] = { "@", "Activate MACRO on q register" },
