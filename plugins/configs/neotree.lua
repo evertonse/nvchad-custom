@@ -53,19 +53,19 @@ require("neo-tree").setup {
     },
     name = {
       trailing_slash = false,
-      use_git_status_colors = true,
+      use_git_status_colors = false,
       -- highlight = "NeoTreeFileName",
     },
     git_status = {
       symbols = {
         -- Change type
-        added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-        modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+        added = "+", -- or "✚", but this is redundant info if you use git_status_colors on the name
+        modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
         deleted = "✖", -- this can only be used in the git_status source
         renamed = "󰁕", -- this can only be used in the git_status source
         -- Status type
         -- untracked = "",
-        untracked = "x",
+        untracked = "?",
         ignored = "",
         unstaged = "-",
         staged = "",
@@ -199,6 +199,7 @@ require("neo-tree").setup {
     window = {
       mappings = {
         ["<bs>"] = "navigate_up",
+        ["O"] = "navigate_up",
         ["."] = "set_root",
         ["o"] = "set_root",
         ["H"] = "toggle_hidden",
