@@ -542,11 +542,25 @@ M.plugins = {
     opts = overrides.treesitter,
     build = ":TSUpdate",
   },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    lazy = false,
+    enabled = true,
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    config = function()
+      require "custom.plugins.configs.neotree"
+    end,
+  },
 
   {
     "nvim-tree/nvim-tree.lua",
     lazy = true,
-    enabled = true,
+    enabled = false,
     opts = function()
       --vim.cmd "colorscheme vs"
       return overrides.nvimtree
@@ -657,6 +671,18 @@ M.plugins = {
       -- Only displayed when *not* recording. Slots with breakpoints get an extra `#`.
       -- 💡 use with the config `clear = true` to see recordings you made this session.
       require("recorder").displaySlots()
+    end,
+  },
+  {
+    "VonHeikemen/fine-cmdline.nvim",
+    dependencies = {
+      { "MunifTanjim/nui.nvim" },
+    },
+    lazy = false,
+    enabled = true,
+    config = function()
+      vim.api.nvim_set_keymap("n", "<CR>", "<cmd>FineCmdline<CR>", { noremap = true })
+      -- vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
     end,
   },
 

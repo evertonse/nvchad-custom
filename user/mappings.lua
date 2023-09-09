@@ -658,6 +658,13 @@ M.nvimtree = {
   },
 }
 
+M["neo-tree"] = {
+
+  n = {
+    ["<leader>e"] = { "<cmd> Neotree toggle <CR>", "Toggle neo tree" },
+  },
+}
+
 M.telescope = {
   plugin = true,
 
