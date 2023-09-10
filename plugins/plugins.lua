@@ -685,6 +685,17 @@ M.plugins = {
       -- vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
     end,
   },
+  {
+    "stevearc/oil.nvim",
+    lazy = false,
+    enabled = true,
+    opts = {},
+    config = function()
+      require "custom.plugins.configs.oil"
+    end,
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 
   -- {
   --   "lukas-reineke/indent-blankline.nvim",
