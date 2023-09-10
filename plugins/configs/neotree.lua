@@ -22,7 +22,7 @@ require("neo-tree").setup {
   --   end , -- this sorts files and directories descendantly
   default_component_configs = {
     container = {
-      enable_character_fade = true,
+      enable_character_fade = false,
     },
     indent = {
       indent_size = 2,

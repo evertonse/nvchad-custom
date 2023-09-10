@@ -7,8 +7,8 @@ require("oil").setup {
   columns = {
     "icon",
     -- "permissions",
-    -- "size",
-    -- "mtime",
+    "size",
+    "mtime",
   },
   -- Buffer-local options to use for oil buffers
   buf_options = {
@@ -52,6 +52,7 @@ require("oil").setup {
     ["<C-r>"] = "actions.refresh",
     ["<CR>"] = "actions.select",
     ["<leader><leader>"] = "actions.select",
+    ["<leader>l"] = "actions.select",
     ["<leader>h"] = "actions.parent",
     ["-"] = "actions.parent",
     ["_"] = "actions.open_cwd",
