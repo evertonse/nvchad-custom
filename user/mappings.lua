@@ -202,27 +202,33 @@ M.general = {
     },
 
     -- @todo close tree if opened
-    ["<A-1>"] = {
+    ["<A-'>"] = {
       function()
         require("harpoon.ui").nav_file(1)
       end,
       "-- navigates to 1",
     },
-    ["<A-2>"] = {
+    ["<A-1>"] = {
       function()
         require("harpoon.ui").nav_file(2)
+      end,
+      "-- navigates to 1",
+    },
+    ["<A-2>"] = {
+      function()
+        require("harpoon.ui").nav_file(3)
       end,
       "-- navigates to 2",
     },
     ["<A-3>"] = {
       function()
-        require("harpoon.ui").nav_file(3)
+        require("harpoon.ui").nav_file(4)
       end,
       "-- navigates to 3",
     },
     ["<A-4>"] = {
       function()
-        require("harpoon.ui").nav_file(4)
+        require("harpoon.ui").nav_file(5)
       end,
       "-- navigates to 4",
     },
@@ -234,13 +240,13 @@ M.general = {
     },
     ["<A-6>"] = {
       function()
-        require("harpoon.ui").nav_file(6)
+        require("harpoon.ui").nav_file(7)
       end,
       "-- navigates to 5",
     },
     ["<A-7>"] = {
       function()
-        require("harpoon.ui").nav_file(7)
+        require("harpoon.ui").nav_file(8)
       end,
       "-- navigates to 5",
     },
