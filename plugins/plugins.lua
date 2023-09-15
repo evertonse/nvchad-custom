@@ -536,11 +536,7 @@ M.plugins = {
     dependencies = {
       -- "nvim-treesitter/nvim-treesitter-textobjects",
     },
-    -- config = function ()
-    -- require "plugins.configs.treesitter"
-    --   require "custom.plugins.configs.treesitter"
-    -- end,
-    opts = overrides.treesitter,
+    -- opts = overrides.treesitter,
     build = ":TSUpdate",
   },
   {

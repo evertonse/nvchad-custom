@@ -401,6 +401,8 @@ M.add = {
   ["@lsp.mod.constructorOrDestructor"] = { fg = c.code.ConstrutorOnClass },
   ["@structure"] = { fg = c.code.Type, bg = "NONE" },
   ["@lsp.type.comment.c"] = { fg = c.code.DeadCode, bg = "NONE" },
+  ["cDefine"] = { fg = c.code.Preprocessor, bg = "NONE" },
+  ["@lsp.type.variable"] = { fg = c.code.Variable, bg = "NONE" },
   ["@lsp.type.comment.cpp"] = { fg = c.code.DeadCode, bg = "NONE" },
   DiagnosticUnnecessary = {
     fg = c.code.DeadCode,
