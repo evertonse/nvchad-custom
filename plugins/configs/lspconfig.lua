@@ -133,7 +133,22 @@ local on_attach = function(client, bufnr)
 end
 
 for _, lsp in ipairs(servers) do
-  if lsp == "pyright" then
+  if lsp =='clangd'  then
+    lspconfig['clangd'].setup{
+     on_attach = on_attach,
+     cmd = {
+        "clangd",
+        "--header-insertion=never"
+     },
+     capabilities = {
+        textDocument = {
+           semanticHighlightingCapabilities = {
+              semanticHighlighting = true
+           }
+        }
+      }
+     }
+  elseif lsp == "pyright" then
     lspconfig[lsp].setup {
       on_attach = on_attach,
       autostart = true, -- This is the important new option
