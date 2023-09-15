@@ -8,5 +8,7 @@ vim.cmd ':set clipboard=""'
 vim.cmd ':set ttyfast' -- Lazy Redraw
 vim.opt.rtp:prepend "righthere, how?"
 vim.treesitter.language.register("c", "*.cl")
+vim.treesitter.language.register("c", "*.h")
+vim.treesitter.language.register("c", ".h")
 vim.treesitter.language.register("c", "cl")
 vim.loader.enable()
