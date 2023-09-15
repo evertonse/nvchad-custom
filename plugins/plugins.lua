@@ -188,6 +188,7 @@ M.plugins = {
   {
     "ekickx/clipboard-image.nvim",
     lazy = true,
+    enalbed = false,
     config = function()
       require("clipboard-image").setup {
         -- Default configuration for all filetype
@@ -419,7 +420,7 @@ M.plugins = {
   {
     "nvim-treesitter/playground",
     lazy = false,
-    enabled = true,
+    enabled = false,
     config = function()
       require("nvim-treesitter.configs").setup {
         playground = {
@@ -531,9 +532,9 @@ M.plugins = {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     enabled = true,
-    commit = "59f06b3b33fb3013cfbdf378297c756e44a6919e",
+    -- commit = "59f06b3b33fb3013cfbdf378297c756e44a6919e",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
+      -- "nvim-treesitter/nvim-treesitter-textobjects",
     },
     -- config = function ()
     -- require "plugins.configs.treesitter"
@@ -544,8 +545,8 @@ M.plugins = {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    lazy = false,
-    enabled = true,
+    lazy = true,
+    enabled = false,
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -559,8 +560,8 @@ M.plugins = {
 
   {
     "nvim-tree/nvim-tree.lua",
-    lazy = true,
-    enabled = false,
+    lazy = false,
+    enabled = true,
     opts = function()
       --vim.cmd "colorscheme vs"
       return overrides.nvimtree
@@ -678,8 +679,8 @@ M.plugins = {
     dependencies = {
       { "MunifTanjim/nui.nvim" },
     },
-    lazy = false,
-    enabled = true,
+    lazy = true,
+    enabled = false,
     config = function()
       vim.api.nvim_set_keymap("n", "<CR>", "<cmd>FineCmdline<CR>", { noremap = true })
       -- vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
@@ -687,8 +688,8 @@ M.plugins = {
   },
   {
     "stevearc/oil.nvim",
-    lazy = false,
-    enabled = true,
+    lazy = true,
+    enabled = false,
     opts = {},
     config = function()
       require "custom.plugins.configs.oil"
@@ -699,37 +700,37 @@ M.plugins = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
-  -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   -- version = "2.20.7",
-  --   lazy = true,
-  --   enabled = true,
-  --   init = function()
-  --     require("core.utils").lazy_load "indent-blankline.nvim"
-  --   end,
-  --   opts = function()
-  --     return overrides.blankline
-  --   end,
-  --   config = function(_, opts)
-  --     require("core.utils").load_mappings "blankline"
-  --     dofile(vim.g.base46_cache .. "blankline")
-  --     require("indent_blankline").setup(opts)
-  --     vim.cmd[[
-  --       function! s:IndentBlanklineLinecount()
-  --           if nvim_buf_line_count(0) < 2000
-  --               IndentBlanklineRefresh
-  --           endif
-  --       endfunction
-  --
-  --       augroup IndentBlanklineAutogroup
-  --           autocmd!
-  --           autocmd OptionSet shiftwidth,tabstop IndentBlanklineRefresh
-  --           autocmd FileChangedShellPost,Syntax * IndentBlanklineRefresh
-  --           autocmd TextChanged,TextChangedI * call s:IndentBlanklineLinecount()
-  --       augroup END
-  --     ]]
-  --   end,
-  -- },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    -- version = "2.20.7",
+    lazy = true,
+    enabled = false,
+    init = function()
+      require("core.utils").lazy_load "indent-blankline.nvim"
+    end,
+    opts = function()
+      return overrides.blankline
+    end,
+    config = function(_, opts)
+      require("core.utils").load_mappings "blankline"
+      dofile(vim.g.base46_cache .. "blankline")
+      require("indent_blankline").setup(opts)
+      vim.cmd [[
+        function! s:IndentBlanklineLinecount()
+            if nvim_buf_line_count(0) < 2000
+                IndentBlanklineRefresh
+            endif
+        endfunction
+
+        augroup IndentBlanklineAutogroup
+            autocmd!
+            autocmd OptionSet shiftwidth,tabstop IndentBlanklineRefresh
+            autocmd FileChangedShellPost,Syntax * IndentBlanklineRefresh
+            autocmd TextChanged,TextChangedI * call s:IndentBlanklineLinecount()
+        augroup END
+      ]]
+    end,
+  },
 }
 --
 return M.plugins
