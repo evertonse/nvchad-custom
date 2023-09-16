@@ -530,13 +530,13 @@ M.plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy = false,
+    lazy = true,
     enabled = true,
-    -- commit = "59f06b3b33fb3013cfbdf378297c756e44a6919e",
+    commit = "59f06b3b33fb3013cfbdf378297c756e44a6919e",
     dependencies = {
       -- "nvim-treesitter/nvim-treesitter-textobjects",
     },
-    -- opts = overrides.treesitter,
+    opts = overrides.treesitter,
     build = ":TSUpdate",
   },
   {
