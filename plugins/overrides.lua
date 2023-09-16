@@ -434,10 +434,10 @@ M.telescope = {
     --prompt_prefix = " ",
     prompt_prefix = " ",
     selection_caret = " ",
-    path_display = { "smart" },
+    -- path_display = { "smart" },
     -- initial_mode = "normal",
     preview = {
-      treesitter = false,
+      treesitter = true,
     },
     -- fzf native
     fzf = {
