@@ -3,7 +3,6 @@
 (preproc_def (preproc_arg) @variable)
 
 [
-  "default"
   "enum"
   "struct"
   "typedef"
@@ -27,6 +26,7 @@
   "do"
   "continue"
   "break"
+  "default"
 ] @repeat
 
 [

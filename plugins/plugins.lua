@@ -538,7 +538,7 @@ M.plugins = {
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
-    -- opts = overrides.treesitter,
+    opts = overrides.treesitter,
     build = ":TSUpdate",
   },
   {

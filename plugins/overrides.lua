@@ -39,32 +39,32 @@ M.treesitter = {
     "java",
     "markdown_inline",
   }, -- one of "all" or a list of languages
-  sync_install = false,
+  sync_install = true,
   auto_install = true,
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension
-    use_languagetree = false,
+    use_languagetree = true,
     disable = {}, -- list of language that will be disabled
     additional_vim_regex_highlighting = false,
     custom_captures = {},
   },
 
   autopairs = {
-    enable = false,
+    enable = true,
   },
 
-  indent = { enable = false, disable = {} },
-  markid = { enable = false },
+  indent = { enable = true, disable = {} },
+  markid = { enable = true},
 
   query_linter = {
-    enable = false,
+    enable = true,
     use_virtual_text = true,
     lint_events = { "BufWrite", "CursorHold" },
   },
 
   illuminate = {
-    enable = false,
+    enable = true,
     loaded = false,
   },
 
@@ -80,7 +80,7 @@ M.treesitter = {
   },
 
   context_commentstring = {
-    enable = false,
+    enable = true,
   },
 
   playground = {
