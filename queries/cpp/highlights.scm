@@ -227,10 +227,6 @@
  "or"
 ] @keyword.operator
 
-[
- "enum"
-] @keyword.enum
-
 "<=>" @operator
 
 "::" @punctuation.delimiter

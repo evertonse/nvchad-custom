@@ -43,19 +43,19 @@ M.treesitter = {
   auto_install = true,
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
-    enable = false, -- false will disable the whole extension
-    use_languagetree = true,
+    enable = true, -- false will disable the whole extension
+    use_languagetree = false,
     disable = {}, -- list of language that will be disabled
-    additional_vim_regex_highlighting = true,
+    additional_vim_regex_highlighting = false,
     custom_captures = {},
   },
 
   autopairs = {
-    enable = true,
+    enable = false,
   },
 
-  indent = { enable = true, disable = {} },
-  markid = { enable = true },
+  indent = { enable = false, disable = {} },
+  markid = { enable = false },
 
   query_linter = {
     enable = false,
@@ -64,8 +64,8 @@ M.treesitter = {
   },
 
   illuminate = {
-    enable = true,
-    loaded = true,
+    enable = false,
+    loaded = false,
   },
 
   incremental_selection = {
@@ -80,7 +80,7 @@ M.treesitter = {
   },
 
   context_commentstring = {
-    enable = true,
+    enable = false,
   },
 
   playground = {
@@ -224,7 +224,7 @@ local function nvimtree_on_attach(bufnr)
   vim.keymap.set("n", "a", api.fs.create, opts "Create")
   vim.keymap.set("n", "bmv", api.marks.bulk.move, opts "Move Bookmarked")
   vim.keymap.set("n", "B", api.tree.toggle_no_buffer_filter, opts "Toggle No Buffer")
-  vim.keymap.set("n", "c", api.fs.copy.node, opts "Copy")
+  -- vim.keymap.set("n", "c", api.fs.copy.node, opts "Copy")
   vim.keymap.set("n", "C", api.tree.toggle_git_clean_filter, opts "Toggle Git Clean")
   vim.keymap.set("n", "[c", api.node.navigate.git.prev, opts "Prev Git")
   vim.keymap.set("n", "]c", api.node.navigate.git.next, opts "Next Git")
@@ -258,14 +258,16 @@ local function nvimtree_on_attach(bufnr)
   vim.keymap.set("n", "S", api.tree.search_node, opts "Search")
   vim.keymap.set("n", "U", api.tree.toggle_custom_filter, opts "Toggle Hidden")
   vim.keymap.set("n", "W", api.tree.collapse_all, opts "Collapse")
-  vim.keymap.set("n", "y", api.fs.copy.filename, opts "Copy Name")
-  vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts "Copy Relative Path")
   vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts "Open")
   vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts "CD")
   -- END_DEFAULT_ON_ATTACH
 
   -- Mappings migrated from view.mappings.list
-  --
+  vim.keymap.set("n", "<leader>y", api.fs.copy.filename, opts "Copy Name")
+  -- vim.keymap.set("n", "gy", api.fs.copy.filename, opts "Copy Name")
+  vim.keymap.set("n", "y", api.fs.copy.node, opts "Copy")
+  vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts "Copy Relative Path")
+  -- vim.keymap.set("n", "Y", api.fs.copy.absolute_path, opts "Copy Absolute Path")
   -- You will need to insert "your code goes here" for any mappings with a custom action_cb
   vim.keymap.set("n", "l", edit_or_open, opts "Open: No Window Picker")
 
@@ -282,9 +284,6 @@ local function nvimtree_on_attach(bufnr)
   vim.keymap.set("n", "v", api.node.open.vertical, opts "Open: Vertical Split")
   vim.keymap.del("n", "<C-k>", opts "Info")
 
-  vim.keymap.set("n", "Y", api.fs.copy.absolute_path, opts "Copy Absolute Path")
-  vim.keymap.set("n", "gy", api.fs.copy.filename, opts "Copy Name")
-  vim.keymap.set("n", "y", api.fs.copy.relative_path, opts "Copy Relative Path")
   --vim.cmd('colorscheme vs')
 end
 
@@ -366,7 +365,7 @@ M.nvimtree = {
     highlight_opened_files = "none",
 
     indent_markers = {
-      enable = false,
+      enable = true,
     },
   },
 
@@ -381,9 +380,8 @@ M.nvimtree = {
     },
   },
   view = {
-    width = 35,
+    width = 38,
     side = "left",
-
     number = false,
     relativenumber = false,
   },
@@ -531,7 +529,7 @@ M.telescope = {
 
 M.blankline = {
   indentLine_enabled = 1,
-  -- use_treesitter = true,
+  use_treesitter = true,
   filetype_exclude = {
     "help",
     "terminal",
