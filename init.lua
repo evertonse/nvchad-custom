@@ -13,3 +13,4 @@ vim.treesitter.language.register("c", ".h")
 vim.treesitter.language.register("c", "cl")
 -- vim.loader.enable()
 vim.cmd [[ let g:c_syntax_for_h = 1 ]]
+vim.cmd [[ :set iskeyword-=_ ]]

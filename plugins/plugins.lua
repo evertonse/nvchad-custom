@@ -318,6 +318,7 @@ M.plugins = {
               -- snip.filetype_extend("html", {"django-html"})
               snip.filetype_extend("htmldjango", { "djangohtml" })
               snip.filetype_extend("htmldjango", { "html" })
+              snip.filetype_extend("html", { "django-html" })
             end,
           },
         },

@@ -1,6 +1,7 @@
 local default_on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
-capabilities.offsetEncoding = { "utf-16" }
+capabilities.offsetEncoding = { "utf-8" }
+capabilities.offset_encoding = { "utf-8" }
 
 -- please take a look at this https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 --https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#completionItemKind
@@ -129,6 +130,8 @@ local on_attach = function(client, bufnr)
   default_on_attach(client, bufnr)
   client.resolved_capabilities.document_formatting = true
   client.resolved_capabilities.document_range_formatting = true
+
+  client.offset_encoding = "utf-8"
   lsp_keymaps(bufnr)
 end
 
@@ -179,12 +182,6 @@ end
 -- ou can trigger formatting by using the appropriate Neovim command
 -- (such as :lua vim.lsp.buf.formatting()).
 
-local luanspip_ok, luasnip = pcall(require, "luasnip")
-if luanspip_ok then
-  luasnip.filetype_extend("html", { "django-html" })
-  luasnip.filetype_extend("htmldjango", { "django-html" })
-  luasnip.filetype_extend("htmldjango", { "html" })
-end
 
 local illuminate_ok, illuminate = pcall(require, "illuminate")
 if not illuminate_ok then

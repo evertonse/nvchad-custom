@@ -37,7 +37,7 @@ null_ls.setup {
   debug = true,
   sources = sources,
   on_init = function(new_client, _)
-    new_client.offset_encoding = "utf-16"
+    new_client.offset_encoding = "utf-8"
   end,
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then

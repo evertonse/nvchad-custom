@@ -52,8 +52,21 @@ vim.cmd [[
 -- vim.cmd [[autocmd filetype cpp nnoremap <F5> :!g++ % -ggdb -o %:r && ./%:r <CR>]]
 -- vim.cmd [[autocmd FileType c nnoremap <F5> :!gcc % -g -o %:r && ./%:r <CR>]]
 vim.cmd [[autocmd FileType c nnoremap <F5> :!make run <CR>]]
-vim.cmd [[autocmd FileType bin nnoremap <F5> :%!xxd <CR>]]
-vim.cmd [[autocmd FileType bin nnoremap <F6> :%!xxd -r <CR>]]
+vim.cmd [[
+augroup Binary
+  au!
+  au BufReadPre  *.bin let &bin=1
+  au BufReadPost *.bin if &bin | %!xxd  
+  au BufReadPost *.bin set ft=xxd | endif
+  au BufWritePre *.bin if &bin | %!xxd -r
+  au BufWritePre *.bin endif
+  au BufWritePost *.bin if &bin | %!xxd
+  au BufWritePost *.bin set nomod | endif
+augroup END
+]]
+
+vim.cmd [[autocmd FileType bin,xxd nnoremap <F5> :%!xxd <CR>]]
+vim.cmd [[autocmd FileType bin,xxd nnoremap <F6> :%!xxd -r <CR>]]
 
 -- vim.api.nvim_create_autocmd(
 --     { "BufRead", "BufNewFile" },
