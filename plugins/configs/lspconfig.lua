@@ -1,7 +1,11 @@
 local default_on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
-capabilities.offsetEncoding = { "utf-8" }
-capabilities.offset_encoding = { "utf-8" }
+capabilities = vim.tbl_deep_extend('force', capabilities, {
+  offsetEncoding = { 'utf-8' },
+  general = {
+    positionEncodings = { 'utf-8' },
+  },
+})
 
 -- please take a look at this https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 --https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#completionItemKind
@@ -131,30 +135,29 @@ local on_attach = function(client, bufnr)
   client.resolved_capabilities.document_formatting = true
   client.resolved_capabilities.document_range_formatting = true
 
-  client.offset_encoding = "utf-8"
+  client.resolved_capabilities.offset_encoding = "utf-8"
+  client.resolved_capabilities.offset_encoding = "utf-8"
+  client.offsetEncoding = "utf-8"
+  client.offsetEncoding = "utf-8"
   lsp_keymaps(bufnr)
 end
 
 for _, lsp in ipairs(servers) do
-  if lsp =='clangd'  then
-    lspconfig['clangd'].setup{
-     on_attach = on_attach,
-     cmd = {
+  if lsp == "clangd" then
+    lspconfig["clangd"].setup {
+      on_attach = on_attach,
+      cmd = {
         "clangd",
-        "--header-insertion=never"
-     },
-     capabilities = {
-        textDocument = {
-           semanticHighlightingCapabilities = {
-              semanticHighlighting = true
-           }
-        }
-      }
-     }
+        "--header-insertion=never",
+      },
+      offset_encoding = 'utf-8',
+      capabilities = capabilities,
+    }
   elseif lsp == "pyright" then
     lspconfig[lsp].setup {
       on_attach = on_attach,
       autostart = true, -- This is the important new option
+      offset_encoding = 'utf-8',
       capabilities = capabilities,
       filetypes = { "python" },
       settings = {
@@ -172,6 +175,7 @@ for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
       on_attach = on_attach,
       autostart = true, -- This is the important new option
+      offset_encoding = 'utf-8',
       capabilities = capabilities,
     }
   end
@@ -181,7 +185,6 @@ end
 -- The Black formatter should now be enabled for Python files. Y
 -- ou can trigger formatting by using the appropriate Neovim command
 -- (such as :lua vim.lsp.buf.formatting()).
-
 
 local illuminate_ok, illuminate = pcall(require, "illuminate")
 if not illuminate_ok then
