@@ -293,7 +293,7 @@ M.nvimtree = {
   git = {
     enable = true,
     ignore = false,
-    timeout = 500,
+    timeout = 200,
   },
   filesystem_watchers = {
     enable = true,
@@ -312,7 +312,7 @@ M.nvimtree = {
   update_cwd = true,
 
   update_focused_file = {
-    enable = true,
+    enable = false,
     -- update_cwd = true, -- uncomment this line to make update cwd when focusing a tab
     update_cwd = false,
   },
