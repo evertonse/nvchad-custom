@@ -149,8 +149,9 @@ end
 M.general = {
   -- [NORMAL]
   n = {
+    -->> commands 
+    ["<leader><leader>"] = { ":", opts = noremap_opts },
     -->> Window
-
     ["<leader>sc"] = {
       scratch,
       "this works like file navigation except that if there is no terminal at the specified index a new terminal is created.",
@@ -379,6 +380,7 @@ M.general = {
   },
   -- Visual --
   v = {
+    ["<leader><leader>"] = { ":", opts = noremap_opts },
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
     ["gh"] = { 'v:count || mode(1)[0:1] == "no" ? "0" : "g0"', "Move big left", opts = { expr = true } },
@@ -437,6 +439,7 @@ M.general = {
     ["<leader>P"] = { '"+P', opts = noremap_opts },
   },
   x = {
+    ["<leader><leader>"] = { ":", opts = noremap_opts },
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
     ["gh"] = { 'v:count || mode(1)[0:1] == "no" ? "0" : "g0"', "Move big left", opts = { expr = true } },
