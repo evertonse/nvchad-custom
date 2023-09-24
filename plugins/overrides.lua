@@ -449,11 +449,11 @@ M.telescope = {
 
     mappings = {
       i = {
-        ["<C-o>"] = actions.cycle_history_prev,
-        ["<C-i>"] = actions.cycle_history_next,
+        ["<C-p>"] = actions.cycle_history_prev,
+        ["<C-n>"] = actions.cycle_history_next,
 
-        ["<C-p>"] = actions.move_selection_previous,
-        ["<C-n>"] = actions.move_selection_next,
+        -- ["<C-p>"] = actions.move_selection_previous,
+        -- ["<C-n>"] = actions.move_selection_next,
 
         -- ["<C-c>"] = actions.close,
 
@@ -486,11 +486,25 @@ M.telescope = {
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         --["<C-l>"] = actions.complete_tag,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
-        ["<esc>"] = actions.close,
+        ["<esc>"] = function(data)
+          local mode = vim.api.nvim_get_mode().mode
+          actions.close(data)
+          if mode == "i" then
+            vim.cmd [[stopinsert]]
+            return
+          end
+        end,
       },
 
       n = {
-        ["<esc>"] = actions.close,
+        ["<esc>"] = function(data)
+          local mode = vim.api.nvim_get_mode().mode
+          actions.close(data)
+          if mode == "i" then
+            vim.cmd [[stopinsert]]
+            return
+          end
+        end,
         ["<CR>"] = actions.select_default,
         ["l"] = actions.select_default,
 
