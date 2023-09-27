@@ -544,7 +544,7 @@ M.plugins = {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    lazy = true,
+    lazy = false,
     enabled = true,
     branch = "v3.x",
     dependencies = {
