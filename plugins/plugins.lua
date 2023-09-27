@@ -545,7 +545,7 @@ M.plugins = {
   {
     "nvim-neo-tree/neo-tree.nvim",
     lazy = true,
-    enabled = false,
+    enabled = true,
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -560,7 +560,7 @@ M.plugins = {
   {
     "nvim-tree/nvim-tree.lua",
     lazy = false,
-    enabled = true,
+    enabled = false,
     opts = function()
       --vim.cmd "colorscheme vs"
       return overrides.nvimtree

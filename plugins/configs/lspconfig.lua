@@ -1,9 +1,9 @@
 local default_on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
-capabilities = vim.tbl_deep_extend('force', capabilities, {
-  offsetEncoding = { 'utf-8' },
+capabilities = vim.tbl_deep_extend("force", capabilities, {
+  offsetEncoding = { "utf-8" },
   general = {
-    positionEncodings = { 'utf-8' },
+    positionEncodings = { "utf-8" },
   },
 })
 
@@ -150,22 +150,28 @@ for _, lsp in ipairs(servers) do
         "clangd",
         "--header-insertion=never",
       },
-      offset_encoding = 'utf-8',
+      offset_encoding = "utf-8",
       capabilities = capabilities,
     }
   elseif lsp == "pyright" then
+    lspconfig.pyright.setup {
+    }
     lspconfig[lsp].setup {
       on_attach = on_attach,
       autostart = true, -- This is the important new option
-      offset_encoding = 'utf-8',
+      offset_encoding = "utf-8",
       capabilities = capabilities,
       filetypes = { "python" },
       settings = {
+        pyright = { autoImportCompletion = true },
         python = {
           formatting = {
             provider = "black",
           },
           analysis = {
+            useLibraryCodeForTypes = true,
+            diagnosticMode = "openFilesOnly",
+            autoSearchPaths = true,
             typeCheckingMode = "off",
           },
         },
@@ -175,7 +181,7 @@ for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
       on_attach = on_attach,
       autostart = true, -- This is the important new option
-      offset_encoding = 'utf-8',
+      offset_encoding = "utf-8",
       capabilities = capabilities,
     }
   end
