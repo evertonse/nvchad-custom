@@ -892,6 +892,7 @@ M.dap = {
   plugin = true,
   n = {
     ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
+    ["<F9>"] = { "<cmd> DapToggleBreakpoint <CR>" },
   },
 }
 

@@ -6,7 +6,7 @@ M.plugins = {
   {
     -- NOTE: Yes, you can install new plugins here!
     "mfussenegger/nvim-dap",
-    lazy = true,
+    lazy = false,
     enabled = true,
     -- NOTE: And you can specify dependencies as well
     dependencies = {
@@ -74,6 +74,7 @@ M.plugins = {
       vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
       vim.keymap.set("n", "<F12>", dap.step_out, { desc = "Debug: Step Out" })
       vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
+      vim.keymap.set("n", "<F9>", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
       vim.keymap.set("n", "<leader>B", function()
         dap.set_breakpoint(vim.fn.input "Breakpoint condition: ")
       end, { desc = "Debug: Set Breakpoint" })
@@ -362,7 +363,7 @@ M.plugins = {
   {
     "RRethy/vim-illuminate",
     lazy = true,
-    enabled = true,
+    enabled = false,
   },
 
   {
@@ -457,7 +458,7 @@ M.plugins = {
   {
     "m-demare/hlargs.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     opts = overrides.hlargs,
     config = function()
       require "custom.plugins.configs.hlargs"
@@ -501,7 +502,7 @@ M.plugins = {
   {
     "kylechui/nvim-surround",
     lazy = true,
-    enabled = true,
+    enabled = false,
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
@@ -522,7 +523,7 @@ M.plugins = {
   { --https://github.com/andymass/vim-matchup
     "andymass/vim-matchup",
     lazy = false,
-    enabled = true,
+    enabled = false,
     config = function()
       -- may set any options here
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
