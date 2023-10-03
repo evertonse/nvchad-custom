@@ -169,9 +169,9 @@ for _, lsp in ipairs(servers) do
             provider = "black",
           },
           analysis = {
-            useLibraryCodeForTypes = true,
+            useLibraryCodeForTypes = false,
             diagnosticMode = "openFilesOnly",
-            autoSearchPaths = true,
+            autoSearchPaths = false,
             typeCheckingMode = "off",
           },
         },

@@ -6,11 +6,12 @@ require "custom.user.autocommands"
 vim.cmd ':set clipboard=""'
 -- vim.cmd ':set lz' -- Lazy Redraw
 -- vim.cmd ":set ttyfast" -- Lazy Redraw
-vim.opt.rtp:prepend "righthere, how?"
 vim.treesitter.language.register("c", "*.cl")
 vim.treesitter.language.register("c", "*.h")
 vim.treesitter.language.register("c", ".h")
 vim.treesitter.language.register("c", "cl")
+
 -- vim.loader.enable()
 vim.cmd [[ let g:c_syntax_for_h = 1 ]]
 vim.cmd [[ :set iskeyword-=- ]]
+vim.cmd [[ :set updatetime=50 ]]

@@ -21,12 +21,12 @@ local sources = {
   -- cpp
   b.formatting.clang_format,
   b.diagnostics.eslint,
-  b.completion.spell,
+  -- b.completion.spell,
 
   -- python
   b.formatting.black,
   -- b.diagnostics.ruff,
-  b.diagnostics.flake8,
+  -- b.diagnostics.flake8,
   -- b.formatting.flake8,
   -- b.diagnostics.mypy,
 
@@ -34,7 +34,7 @@ local sources = {
 }
 
 null_ls.setup {
-  debug = true,
+  -- debug = true,
   sources = sources,
   on_init = function(new_client, _)
     new_client.offset_encoding = "utf-8"
