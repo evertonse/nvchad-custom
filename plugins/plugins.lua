@@ -286,6 +286,7 @@ M.plugins = {
     dependencies = {
       {
         "jose-elias-alvarez/null-ls.nvim",
+        enabled = true,
         config = function()
           require "custom.plugins.configs.null-ls"
         end,
