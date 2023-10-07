@@ -24,7 +24,7 @@ local sources = {
   -- b.completion.spell,
 
   -- python
-  -- b.formatting.black,
+  b.formatting.black,
   -- b.diagnostics.ruff,
   -- b.diagnostics.flake8,
   -- b.formatting.flake8,

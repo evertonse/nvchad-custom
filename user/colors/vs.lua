@@ -9,6 +9,7 @@ M.code =  {
   -- Parameter         = "#9a9a9a",
   Parameter         = "#909090",
   Type              = "#4EC9B0",
+  EnumType          = "#9EC9B0",
   Construtor        = "#4EC9B0",
   ConstrutorOnClass = "#DCd97D",
   Namespace         = "#cffae4",
