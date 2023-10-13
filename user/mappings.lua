@@ -27,7 +27,8 @@ end
 
 M.disabled = {
   i = {
-    ["<tab>"] = "",
+    ["<Tab>"] = "",
+    ["<S-Tab>"] = "",
   },
   n = {
     ["<leader>D"] = "",
@@ -915,7 +916,7 @@ M.dap_python = {
 M.cmp = {
   plugin = true,
   i = {
-    ["<Tab>"] = { "<space><space><space><space>" },
+    ["<Tab>"] = { "" },
   },
 }
 

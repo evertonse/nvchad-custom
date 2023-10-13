@@ -63,6 +63,53 @@ local CompletionItemKind = {
   25,
 }
 
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+local cmp_mappings = {
+  ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+  ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+  ["<C-y>"] = cmp.mapping.confirm { select = true },
+  ["<C-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }), --['<C-space>'] = cmp.mapping.complete(),
+  --['<Tab>'] = cmp.mapping(function()end, {'i', 'c'}),  --['<C-space>'] = cmp.mapping.complete(),
+
+  -- disable completion with tab
+  -- this helps with copilot setup
+  ["<Tab>"] = nil,
+  ["<S-Tab>"] = nil,
+}
+
+local kind_icons = {
+  Text = "",
+  Method = "m",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+}
+
+local ok, lspkind = pcall(require, "lspkind")
+if not ok then
+  return
+end
+
 cmp.setup {
   sorting = {
     priority_weight = 1.2,
@@ -90,6 +137,20 @@ cmp.setup {
       -- cmp.config.compare.sort_text,
       cmp.config.compare.length,
       cmp.config.compare.order,
+    },
+  },
+  mapping = cmp_mappings,
+  formatting = {
+    format = lspkind.cmp_format {
+      mode = "symbol", -- show only symbol annotations
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+      symbol_map = kind_icons,
+      -- The function below will be called before any actual modifications from lspkind
+      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+      before = function(entry, vim_item)
+        return vim_item
+      end,
     },
   },
 }
@@ -121,7 +182,6 @@ local servers = {
   --"pyre",
   "ruff_lsp",
 }
-
 
 local lsp_keymaps = function(bufnr)
   local opts = { noremap = true, silent = true }
@@ -169,7 +229,7 @@ for _, lsp in ipairs(servers) do
       capabilities = capabilities,
     }
   elseif lsp == "pyright" then
-    print("pyrgith balling")
+    print "pyrgith balling"
     lspconfig[lsp].setup {
       on_attach = on_attach,
       autostart = true, -- This is the important new option

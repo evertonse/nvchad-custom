@@ -265,7 +265,7 @@ M.plugins = {
       { "hrsh7th/cmp-nvim-lua" },
 
       -- Snippets
-      { "L3MON4D3/LuaSnip", lazy=true },
+      { "L3MON4D3/LuaSnip", lazy = false },
       { "rafamadriz/friendly-snippets" },
     },
   },
@@ -310,7 +310,7 @@ M.plugins = {
       {
         "L3MON4D3/LuaSnip",
         lazy = true,
-        enabled = false,
+        enabled = true,
         dependencies = {
           {
             "rafamadriz/friendly-snippets",
@@ -578,7 +578,10 @@ M.plugins = {
     event = "InsertEnter",
     config = function()
       require("better_escape").setup {
-        mapping = { "jk", --[[ "jj", ]] "kj" }, -- a table with mappings to use
+        mapping = {
+          "jk", --[[ "jj", ]]
+          "kj",
+        }, -- a table with mappings to use
         timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
         clear_empty_lines = false, -- clear line after escaping if there is only whitespace
         keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
