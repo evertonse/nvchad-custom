@@ -154,6 +154,8 @@ M.general = {
   -- [NORMAL]
   n = {
     -->> commands 
+    ["<C-o>"] = { "<C-o>zz", opts = noremap_opts },
+    ["<C-i>"] = { "<C-i>zz", opts = noremap_opts },
     ["<leader><leader>"] = { ":", opts = noremap_opts },
     -->> Window
     ["<leader>sc"] = {
