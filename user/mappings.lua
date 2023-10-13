@@ -26,6 +26,9 @@ local scratch = function()
 end
 
 M.disabled = {
+  i = {
+    ["<tab>"] = "",
+  },
   n = {
     ["<leader>D"] = "",
     ["<S-tab>"] = "",
@@ -353,6 +356,7 @@ M.general = {
 
   i = {
     -- go to  beginning and end
+    ["<tab>"] = { "<space><space><space><space>", "4 spaces" },
     ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
     ["<C-e>"] = { "<End>", "End of line" },
 
@@ -904,6 +908,14 @@ M.dap_python = {
         require("dap-python").test_method()
       end,
     },
+  },
+}
+
+
+M.cmp = {
+  plugin = true,
+  i = {
+    ["<Tab>"] = { "<space><space><space><space>" },
   },
 }
 

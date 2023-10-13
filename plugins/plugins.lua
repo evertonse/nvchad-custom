@@ -6,8 +6,8 @@ M.plugins = {
   {
     -- NOTE: Yes, you can install new plugins here!
     "mfussenegger/nvim-dap",
-    lazy = false,
-    enabled = true,
+    lazy = true,
+    enabled = false,
     -- NOTE: And you can specify dependencies as well
     dependencies = {
       -- Creates a beautiful debugger UI
@@ -265,7 +265,7 @@ M.plugins = {
       { "hrsh7th/cmp-nvim-lua" },
 
       -- Snippets
-      { "L3MON4D3/LuaSnip" },
+      { "L3MON4D3/LuaSnip", lazy=true },
       { "rafamadriz/friendly-snippets" },
     },
   },
@@ -286,6 +286,7 @@ M.plugins = {
     dependencies = {
       {
         "jose-elias-alvarez/null-ls.nvim",
+        lazy = false,
         enabled = true,
         config = function()
           require "custom.plugins.configs.null-ls"
@@ -294,7 +295,7 @@ M.plugins = {
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { "j-hui/fidget.nvim", event = "LspAttach", enabled = true, tag = "legacy", opts = {} },
+      { "j-hui/fidget.nvim", event = "LspAttach", enabled = false, tag = "legacy", opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       { "folke/neodev.nvim" },
@@ -305,11 +306,11 @@ M.plugins = {
       { "saadparwaiz1/cmp_luasnip" },
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-nvim-lua" },
-
       -- Snippets
       {
         "L3MON4D3/LuaSnip",
-        lazy = false,
+        lazy = true,
+        enabled = false,
         dependencies = {
           {
             "rafamadriz/friendly-snippets",
@@ -326,18 +327,16 @@ M.plugins = {
         },
       },
 
-      { "hrsh7th/cmp-nvim-lsp" },
       {
         "williamboman/mason-lspconfig.nvim",
+        lazy = false,
+        enabled = true,
         config = function()
           require("mason-lspconfig").setup {
             ensure_installed = { "lua_ls", "rust_analyzer", "opencl_ls" },
             automatic_installation = true,
           }
         end,
-      },
-      {
-        "williamboman/mason.nvim",
       },
     },
     config = function()
@@ -349,6 +348,8 @@ M.plugins = {
 
   {
     "williamboman/mason.nvim",
+    lazy = false,
+    enabled = true,
     opts = overrides.mason,
     build = function()
       pcall(vim.cmd, "MasonUpdate")
@@ -459,7 +460,7 @@ M.plugins = {
   {
     "m-demare/hlargs.nvim",
     lazy = false,
-    enabled = false,
+    enabled = true,
     opts = overrides.hlargs,
     config = function()
       require "custom.plugins.configs.hlargs"

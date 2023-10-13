@@ -97,16 +97,31 @@ cmp.setup {
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 -- if you just want default config for the servers then put them in a table
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local servers = {
   "html",
   "cssls",
   "bashls",
-  -- "pylsp",
-  "pyright",
   --"tsserver",
+
+  --[[ C/C++ ]]
   "clangd",
+
+  --[[ OpenCL ]]
   "opencl_ls",
+
+  --[[ MuttRC ]]
+  -- "mutt_ls",
+
+  --[[ Python ]]
+  "jedi_language_server",
+  "pylsp",
+  "pyright",
+  --"pylyzer",
+  --"pyre",
+  "ruff_lsp",
 }
+
 
 local lsp_keymaps = function(bufnr)
   local opts = { noremap = true, silent = true }
@@ -154,8 +169,7 @@ for _, lsp in ipairs(servers) do
       capabilities = capabilities,
     }
   elseif lsp == "pyright" then
-    lspconfig.pyright.setup {
-    }
+    print("pyrgith balling")
     lspconfig[lsp].setup {
       on_attach = on_attach,
       autostart = true, -- This is the important new option
@@ -163,13 +177,13 @@ for _, lsp in ipairs(servers) do
       capabilities = capabilities,
       filetypes = { "python" },
       settings = {
-        pyright = { autoImportCompletion = true },
+        pyright = { autoImportCompletion = false },
         python = {
           formatting = {
             provider = "black",
           },
           analysis = {
-            useLibraryCodeForTypes = false,
+            useLibraryCodeForTypes = true,
             diagnosticMode = "openFilesOnly",
             autoSearchPaths = false,
             typeCheckingMode = "off",

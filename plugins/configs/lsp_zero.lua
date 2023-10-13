@@ -142,6 +142,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
   ['<C-y>'] = cmp.mapping.confirm({ select = true }),
   ['<C-space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),  --['<C-space>'] = cmp.mapping.complete(),
+  ['<Tab>'] = cmp.mapping(function()end, {'i', 'c'}),  --['<C-space>'] = cmp.mapping.complete(),
 })
 
 -- disable completion with tab
