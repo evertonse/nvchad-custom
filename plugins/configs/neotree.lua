@@ -22,7 +22,7 @@ require("neo-tree").setup {
   --   end , -- this sorts files and directories descendantly
   default_component_configs = {
     container = {
-      enable_character_fade = false,
+      enable_character_fade = true,
     },
     indent = {
       indent_size = 2,
@@ -48,7 +48,7 @@ require("neo-tree").setup {
       highlight = "NeoTreeFileIcon",
     },
     modified = {
-      symbol = "[+]",
+      symbol = "",
       highlight = "NeoTreeModified",
     },
     name = {
