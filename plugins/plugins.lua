@@ -7,7 +7,7 @@ M.plugins = {
     -- NOTE: Yes, you can install new plugins here!
     "mfussenegger/nvim-dap",
     lazy = true,
-    enabled = false,
+    enabled = true,
     -- NOTE: And you can specify dependencies as well
     dependencies = {
       -- Creates a beautiful debugger UI
@@ -116,8 +116,8 @@ M.plugins = {
 
   {
     "nvim-neorg/neorg",
-    enabled = false,
     lazy = true,
+    enabled = false,
     build = ":Neorg sync-parsers",
     -- lazy-load on filetype
     ft = "norg",
