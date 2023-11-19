@@ -147,6 +147,9 @@ local servers = {
   "bashls",
   --"tsserver",
 
+  --[[ Rust ]]
+  'rust_analyzer',
+
   --[[ Dart ]]
   "dartls",
 
