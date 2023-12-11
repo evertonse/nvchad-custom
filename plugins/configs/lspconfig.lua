@@ -148,7 +148,7 @@ local servers = {
   --"tsserver",
 
   --[[ Rust ]]
-  'rust_analyzer',
+  "rust_analyzer",
 
   --[[ Dart ]]
   "dartls",
@@ -159,16 +159,19 @@ local servers = {
   --[[ OpenCL ]]
   "opencl_ls",
 
+  --[[ OLS  https://github.com/DanielGavin/ols.gits ]]
+  "ols",
+
   --[[ MuttRC ]]
   -- "mutt_ls",
 
   --[[ Python ]]
-  -- "jedi_language_server",
-  "pylsp",
-  --"pyright",  -- Piss Slow on wsl and notebook idk, more diagnotics about unecessary code but too slow for usage
+  "jedi_language_server",
+  -- "pylsp",
+  -- "pyright",  -- Piss Slow on wsl and notebook idk, more diagnotics about unecessary code but too slow for usage
   --"pylyzer",
   --"pyre",
-  "ruff_lsp",
+  -- "ruff_lsp",
 }
 
 local lsp_keymaps = function(bufnr)

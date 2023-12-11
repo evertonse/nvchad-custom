@@ -460,15 +460,15 @@ M.telescope = {
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
 
-        -- ["<CR>"] = actions.select_default,
-        ["<CR>"] = function(data)
-          local mode = vim.api.nvim_get_mode().mode
-          actions.select_default(data)
-          if mode == "i" then
-            vim.cmd [[stopinsert]]
-            return
-          end
-        end,
+        ["<CR>"] = actions.select_default,
+        -- ["<CR>"] = function(data)
+        --   local mode = vim.api.nvim_get_mode().mode
+        --   actions.select_default(data)
+        --   if mode == "i" then
+        --     vim.cmd [[stopinsert]]
+        --     return
+        --   end
+        -- end,
         ["<C-l>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
