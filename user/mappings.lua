@@ -1,6 +1,7 @@
 local term_opts = { silent = true }
 local noremap_opts = { noremap = true, silent = true }
 local nowait_opts = { noremap = true, silent = true, nowait = true }
+FULLSCREEN = false
 
 local M = {}
 -- add this table only when you want to disable default keys
@@ -153,7 +154,7 @@ end
 M.general = {
   -- [NORMAL]
   n = {
-    -->> commands 
+    -->> commands
     ["<C-o>"] = { "<C-o>zz", opts = noremap_opts },
     ["<C-i>"] = { "<C-i>zz", opts = noremap_opts },
     ["<leader><leader>"] = { ":", opts = noremap_opts },
@@ -288,6 +289,18 @@ M.general = {
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
 
     -- new buffer
+    ["<C-w>f"] = {
+      function()
+        if FULLSCREEN then
+          FULLSCREEN = false
+          vim.cmd [[tabc]]
+        else
+          vim.cmd [[tab split]]
+          FULLSCREEN = true
+        end
+      end,
+      "New buffer",
+    },
     --["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
     ["<leader>nvc"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
     ["<M-Up>"] = { "ddkP", opts = noremap_opts }, --// Moving the line up
@@ -296,6 +309,8 @@ M.general = {
     ["<M-]>"] = { ":resize +2<CR>", opts = noremap_opts },
     ["<M-,>"] = { ":vertical resize -2<CR>", opts = noremap_opts },
     ["<M-.>"] = { ":vertical resize +2<CR>", opts = noremap_opts },
+    ["<C-w-,>"] = { ":vertical resize -2<CR>", opts = noremap_opts },
+    ["<C-w-.>"] = { ":vertical resize +2<CR>", opts = noremap_opts },
     -- Navigate buffers
     --- behave like other capitals
 
@@ -476,13 +491,13 @@ M.general = {
 
   t = {
     ["<C-x>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
-    ["<C-c>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
+    -- ["<C-c>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal with Crtl + c which my be strange to do since crtl+c already means something" },
     ["<C-w>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
     ["<C-w>h"] = { "<C-\\><C-N><C-w>h", opts = term_opts },
     ["<C-w>j"] = { "<C-\\><C-N><C-w>j", opts = term_opts },
     ["<C-w>k"] = { "<C-\\><C-N><C-w>k", opts = term_opts },
     ["<C-w>l"] = { "<C-\\><C-N><C-w>l", opts = term_opts },
-    ["<C-o>"] = { "<C-\\><C-N><C-o>",  opts = term_opts },
+    ["<C-o>"] = { "<C-\\><C-N><C-o>", opts = term_opts },
   },
 }
 
@@ -917,7 +932,6 @@ M.dap_python = {
     },
   },
 }
-
 
 M.cmp = {
   plugin = true,
