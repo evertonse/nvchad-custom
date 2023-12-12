@@ -55,7 +55,7 @@ M.treesitter = {
   },
 
   indent = { enable = true, disable = {} },
-  markid = { enable = true},
+  markid = { enable = true },
 
   query_linter = {
     enable = true,
@@ -446,7 +446,6 @@ M.telescope = {
       override_file_sorter = true, -- override the file sorter
       case_mode = "ignore_case", -- or "ignore_case" or "respect_case" -- the default case_mode is "smart_case"
     },
-
     mappings = {
       i = {
         ["<C-p>"] = actions.cycle_history_prev,
@@ -463,9 +462,9 @@ M.telescope = {
         -- ["<CR>"] = actions.select_default,
         ["<CR>"] = function(data)
           local mode = vim.api.nvim_get_mode().mode
-          actions.select_default(data)
-
           vim.cmd [[Neotree close]]
+          vim.cmd [[bd! ]]
+          actions.select_default(data)
           if mode == "i" then
             vim.cmd [[stopinsert]]
             return
@@ -493,6 +492,7 @@ M.telescope = {
           actions.close(data)
           if mode == "i" then
             vim.cmd [[stopinsert]]
+            vim.cmd [[bd "[No Name]"]]
             return
           end
         end,
@@ -507,7 +507,16 @@ M.telescope = {
             return
           end
         end,
-        ["<CR>"] = actions.select_default,
+        ["<CR>"] = function(data)
+          local mode = vim.api.nvim_get_mode().mode
+          actions.select_default(data)
+          vim.cmd [[Neotree close]]
+          if mode == "i" then
+            vim.cmd [[stopinsert]]
+            return
+          end
+        end,
+
         ["l"] = actions.select_default,
 
         ["<C-x>"] = actions.select_horizontal,

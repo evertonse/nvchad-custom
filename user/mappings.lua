@@ -476,10 +476,12 @@ M.general = {
 
   t = {
     ["<C-x>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
-    ["<C-h>"] = { "<C-\\><C-N><C-w>h", opts = term_opts },
-    ["<C-j>"] = { "<C-\\><C-N><C-w>j", opts = term_opts },
-    ["<C-k>"] = { "<C-\\><C-N><C-w>k", opts = term_opts },
-    ["<C-l>"] = { "<C-\\><C-N><C-w>l", opts = term_opts },
+    ["<C-c>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
+    ["<C-w>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
+    ["<C-w>h"] = { "<C-\\><C-N><C-w>h", opts = term_opts },
+    ["<C-w>j"] = { "<C-\\><C-N><C-w>j", opts = term_opts },
+    ["<C-w>k"] = { "<C-\\><C-N><C-w>k", opts = term_opts },
+    ["<C-w>l"] = { "<C-\\><C-N><C-w>l", opts = term_opts },
   },
 }
 

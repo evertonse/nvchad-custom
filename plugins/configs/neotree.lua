@@ -213,12 +213,13 @@ require("neo-tree").setup {
         ["."] = "set_root",
         ["o"] = "set_root",
         ["H"] = "toggle_hidden",
+        ["f"] = "none",
+        ["<C-f>"] = "filter_on_submit",
         ["ff"] = "fuzzy_finder",
         ["fd"] = "fuzzy_finder_directory",
         ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
         -- ["D"] = "fuzzy_sorter_directory",
         ["/"] = "none",
-        ["f"] = "filter_on_submit",
         ["<c-x>"] = "clear_filter",
         ["[g"] = "prev_git_modified",
         ["]g"] = "next_git_modified",
@@ -291,7 +292,7 @@ require("neo-tree").setup {
 
 local open_on_starup = false;
 if open_on_starup then
-  vim.cmd [[nnoremap \ :Neotree reveal<cr>]]
+  -- vim.cmd [[nnoremap \ :Neotree reveal<cr>]]
 end
 
 
