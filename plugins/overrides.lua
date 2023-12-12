@@ -463,7 +463,6 @@ M.telescope = {
         ["<CR>"] = function(data)
           local mode = vim.api.nvim_get_mode().mode
           vim.cmd [[Neotree close]]
-          vim.cmd [[bd! ]]
           actions.select_default(data)
           if mode == "i" then
             vim.cmd [[stopinsert]]
