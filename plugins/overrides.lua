@@ -491,7 +491,6 @@ M.telescope = {
           actions.close(data)
           if mode == "i" then
             vim.cmd [[stopinsert]]
-            vim.cmd [[bd "[No Name]"]]
             return
           end
         end,
