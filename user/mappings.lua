@@ -678,6 +678,7 @@ M["neo-tree"] = {
 
   n = {
     ["<leader>e"] = { "<cmd> Neotree toggle <CR>", "Toggle neo tree" },
+    ["<leader>E"] = { "<cmd> Neotree reveal_force_cwd<CR>", "Toggle neo tree" },
   },
 }
 

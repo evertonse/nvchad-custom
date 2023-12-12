@@ -5,8 +5,8 @@ vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSi
 vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
 require("neo-tree").setup {
-  close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
-  popup_border_style = "rounded",
+  close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
+  popup_border_style = "single", -- "double", "none", "rounded", "shadow", "single" or "solid"
   enable_git_status = true,
   enable_diagnostics = true,
   enable_normal_mode_for_inputs = false, -- Enable normal mode for input dialogs.
@@ -198,7 +198,7 @@ require("neo-tree").setup {
       --               -- the current file is changed while the tree is open.
       leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
     },
-    group_empty_dirs = false, -- when true, empty folders will be grouped together
+    group_empty_dirs = true, -- when true, empty folders will be grouped together
     hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
     -- in whatever position is specified in window.position
     -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -289,4 +289,9 @@ require("neo-tree").setup {
   },
 }
 
-vim.cmd [[nnoremap \ :Neotree reveal<cr>]]
+local open_on_starup = false;
+if open_on_starup then
+  vim.cmd [[nnoremap \ :Neotree reveal<cr>]]
+end
+
+
