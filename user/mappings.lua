@@ -482,6 +482,7 @@ M.general = {
     ["<C-w>j"] = { "<C-\\><C-N><C-w>j", opts = term_opts },
     ["<C-w>k"] = { "<C-\\><C-N><C-w>k", opts = term_opts },
     ["<C-w>l"] = { "<C-\\><C-N><C-w>l", opts = term_opts },
+    ["<C-o>"] = { "<C-\\><C-N><C-o>",  opts = term_opts },
   },
 }
 
