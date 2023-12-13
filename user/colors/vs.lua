@@ -8,6 +8,7 @@ M.code =  {
   Args              = "#909090",
   -- Parameter         = "#9a9a9a",
   Parameter         = "#909090",
+  BuiltInType       = "#3DC8A1",
   Type              = "#4EC9B0",
   EnumType          = "#9EC9B0",
   Construtor        = "#4EC9B0",

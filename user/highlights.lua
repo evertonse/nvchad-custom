@@ -3,7 +3,8 @@
 -- base30 variable names can also be used as colors
 local M = {}
 
-local c = require "custom.user.colors.vs"
+local pallette_options = {"vs", "gpt"}
+local c = require ("custom.user.colors." .. pallette_options[2])
 local is_transparent = require("custom.user.vars").transparency
 -- @important check https://github.com/NvChad/base46/blob/v2.0/lua/base46/integrations/tbline.lua
 -- for better ideia of highlight groups
@@ -219,9 +220,9 @@ M.override = {
   ["@type.qualifier.cpp"] = { fg = c.code.Keyword, bg = "NONE" },
   ["@type.qualifier.c"] = { fg = c.code.Keyword, bg = "NONE" },
   ["@type.definition"] = { fg = c.code.Keyword, bg = "NONE" },
-  ["@type.builtin"] = { fg = c.code.Keyword, bg = "NONE" },
-  ["@type.builtin.py"] = { fg = c.code.Type, bg = "NONE" },
-  ["@type.builtin.python"] = { fg = c.code.Type, bg = "NONE" },
+  ["@type.builtin"] = { fg = c.code.BuiltInType, bg = "NONE" },
+  ["@type.builtin.py"] = { fg = c.code.BuiltInType, bg = "NONE" },
+  ["@type.builtin.python"] = { fg = c.code.BuiltInType, bg = "NONE" },
   ["@storageclass"] = { fg = c.code.Keyword, bg = "NONE" },
   ["@structure"] = { fg = c.code.Type, bg = "NONE" },
 
