@@ -5,12 +5,13 @@ M.code =  {
   Debug             = "#FF00FF",
   DeadCode          = "#878787",
   Comment           = "#7a9f79",
-  Args              = "#a08080",
-  Parameter         = "#a08080",
+  -- Args              = "#a08080",
+  Args              = "#676767",
+  Parameter         = "#676767",
   Type              = "#6E92B8", -- Darker pastel blue
   EnumType          = "#6E92B8", -- Darker pastel blue
   Construtor        = "#6E92B8", -- Darker pastel blue
-  BuiltInType       = "#4971A8",
+  BuiltInType       = "#4869A8",
   ConstrutorOnClass = "#5A7393", -- Slightly darker pastel blue
 
   -- Type              = "#569CD6", -- Pastel blue
