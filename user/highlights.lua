@@ -3,8 +3,8 @@
 -- base30 variable names can also be used as colors
 local M = {}
 
-local pallette_options = {"vs", "gpt"}
-local c = require ("custom.user.colors." .. pallette_options[2])
+local pallette_options = {"vs", "gpt", "pleasing"}
+local c = require ("custom.user.colors." .. pallette_options[3])
 local is_transparent = require("custom.user.vars").transparency
 -- @important check https://github.com/NvChad/base46/blob/v2.0/lua/base46/integrations/tbline.lua
 -- for better ideia of highlight groups
@@ -202,7 +202,7 @@ M.override = {
   -- Variables
   ["@variable"] = { fg = c.code.Variable, bg = "NONE" },
   ["@variable.builtin"] = { fg = c.code.VariableBuiltin, bg = "NONE" },
-  ["@field"] = { fg = c.code.Normal, bg = "NONE" },
+  ["@field"] = { fg = c.code.Field, bg = "NONE" },
   ["@property"] = { fg = c.code.Normal, bg = "NONE" },
   ["@reference"] = { fg = c.code.Normal, bg = "NONE" },
   -- Preprocessores
