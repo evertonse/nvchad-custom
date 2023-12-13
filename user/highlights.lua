@@ -115,7 +115,7 @@ M.override = {
   Repeat = { fg = c.code.ControlFlow, bg = "NONE" },
   Label = { fg = c.code.ControlFlow, bg = "NONE" },
   Operator = { fg = c.code.Normal, bg = "NONE" },
-  Keyword = { fg = c.code.Keyword, bg = "NONE" },
+  Keyword = { fg = c.code.Keyword, bold=true, bg = "NONE" },
   Exception = { fg = c.code.ControlFlow, bg = "NONE" },
   PreProc = { fg = c.code.Preprocessor, bg = "NONE" },
   Include = { fg = c.code.Preprocessor, bg = "NONE" },
@@ -173,11 +173,11 @@ M.override = {
   ["@defaultLibrary.lua"] = { fg = c.code.Native },
 
   ["@comment"] = { fg = c.code.Comment, bg = "NONE" },
-  ["@keyword"] = { fg = c.code.Keyword, bg = "NONE" },
-  ["@keyword.return"] = { fg = c.code.ControlFlow, bg = "NONE" }, -- return,
-  ["@keyword.enum"] = { fg = c.code.Keyword, bg = "NONE" },
-  ["@keyword.function"] = { fg = c.code.Keyword, bg = "NONE" },
-  ["@keyword.operator"] = { fg = c.code.Keyword, bg = "NONE" },
+  ["@keyword"] = { fg = c.code.Keyword, bold=true, bg = "NONE" },
+  ["@keyword.return"] = { fg = c.code.ControlFlow, bold=true, bg = "NONE" }, -- return,
+  ["@keyword.enum"] = { fg = c.code.Keyword, bold=true, bg = "NONE" },
+  ["@keyword.function"] = { fg = c.code.Keyword, bold=true, bg = "NONE" },
+  ["@keyword.operator"] = { fg = c.code.Keyword, bold=true, bg = "NONE" },
 
   -- Fucntions
   ["@function"] = { fg = c.code.Function, bg = "NONE" },
@@ -201,7 +201,7 @@ M.override = {
 
   -- Variables
   ["@variable"] = { fg = c.code.Variable, bg = "NONE" },
-  ["@variable.builtin"] = { fg = c.code.VariableBuiltin, bold=true, italic=true, bg = "NONE" },
+  ["@variable.builtin"] = { fg = c.code.VariableBuiltin, bold=true, italic=false, bg = "NONE" },
   ["@field"] = { fg = c.code.Field, bg = "NONE" },
   ["@property"] = { fg = c.code.Property, bg = "NONE" },
   ["@reference"] = { fg = c.code.Normal, bg = "NONE" },
