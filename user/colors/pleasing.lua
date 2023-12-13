@@ -27,7 +27,6 @@ M.code =  {
   Namespace         = "#FFEDC0", -- Warm pastel yellow
   Global            = "#FFDBB5", -- Warm pastel orange
   FileScope         = "#E2E2E2", -- Light gray
-  Property          = "#C0C0C0", -- Silver
   SelfParameter     = "#D5D5FF", -- Pastel lavender
   Numeric           = "#D7ECC8", -- Pastel green
   Invalid           = "#F47E7E", -- Pastel red
@@ -41,10 +40,11 @@ M.code =  {
   Keyword           = "#9B9B9B", -- Pastel orange
 
   Normal            = "#E2E2E2", -- Light gray
-  VariableLocal     = "#D2E2FF", -- Pastel blue
+  VariableLocal     = "#D2E2Fe", -- Pastel blue
   Variable          = "#E2E2E2", -- Pastel blue
-  Field             = "#C0d9FF", -- Pastel blue
-  VariableBuiltin   = "#8099EE", -- Light pastel blue
+  Field             = "#C0d9Fe", -- Pastel blue
+  Property          = "#C0d9Fe", -- Pastel blue
+  VariableBuiltin   = "#8099fE", -- Light pastel blue
 
   ControlFlow       = "#9B9B9B", -- Pastel pink
   Label             = "#9B9B9B", -- Pastel pink
