@@ -302,7 +302,6 @@ M.general = {
       end,
       "New buffer",
     },
-    ["<C-w>f"] = { "<cmd>  <CR>", "New buffer" },
     --["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
     ["<leader>nvc"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
     ["<M-Up>"] = { "ddkP", opts = noremap_opts }, --// Moving the line up

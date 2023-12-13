@@ -11,7 +11,7 @@ M.code =  {
   Type              = "#6E92B8", -- Darker pastel blue
   EnumType          = "#6E92B8", -- Darker pastel blue
   Construtor        = "#6E92B8", -- Darker pastel blue
-  BuiltInType       = "#3849A5",
+  BuiltInType       = "#4869B8",
   ConstrutorOnClass = "#5A7393", -- Slightly darker pastel blue
 
   -- Type              = "#569CD6", -- Pastel blue
