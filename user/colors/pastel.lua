@@ -6,13 +6,26 @@ M.code =  {
   DeadCode          = "#878787",
   Comment           = "#7a9f79",
   -- Args              = "#a08080",
-  Args              = "#696969",
-  Parameter         = "#696969",
-  Type              = "#6E92B8", -- Darker pastel blue
-  EnumType          = "#6E92B8", -- Darker pastel blue
-  Construtor        = "#6E92B8", -- Darker pastel blue
-  BuiltInType       = "#4869B8",
-  ConstrutorOnClass = "#5A7393", -- Slightly darker pastel blue
+  Args              = "#898989",
+  Parameter         = "#898989",
+
+  Type              = "#64B5B7",
+  EnumType          = "#64B5B7",
+  Construtor        = "#64B5B7",
+  BuiltInType       = "#398E8E",
+  ConstrutorOnClass = "#8FCACA",
+
+  -- Type              = "#8FCACB",
+  -- EnumType          = "#8FCACB",
+  -- Construtor        = "#8FCACB",
+  -- BuiltInType       = "#59AEAE",
+  -- ConstrutorOnClass = "#8FCACA",
+
+  -- Type              = "#6E92B8",
+  -- EnumType          = "#6E92B8",
+  -- Construtor        = "#6E92B8",
+  -- BuiltInType       = "#5879A8",
+  -- ConstrutorOnClass = "#5A7393",
 
   -- Type              = "#569CD6", -- Pastel blue
   -- EnumType          = "#569CD6", -- Pastel blue
@@ -34,22 +47,26 @@ M.code =  {
   Macro             = "#D0C2FF", -- Pastel purple
   Preprocessor      = "#ABABAB", -- Gray
   Unnecessary       = "#B7B7B7", -- Light gray
+
   -- Keyword           = "#FFB366", -- Pastel orange
-  Keyword           = "#569CD6", -- Pastel orange
+  Keyword           = "#6E92B8", -- Pastel orange
+  -- Keyword           = "#8FCACA", -- Pastel orange
+  -- Keyword           = "#FFDBCC", -- Pastel orange
   -- Keyword           = "#F09683", -- Pastel orange
   -- Keyword           = "#E9BBB5", -- Pastel orange
   -- Keyword           = "#9B9B9B", -- Pastel orange
 
   Normal            = "#E2E2E2", -- Light gray
-  VariableLocal     = "#D2E2Fe", -- Pastel blue
+  VariableBuiltin   = "#c0c8FF", -- Light pastel blue
+  VariableLocal     = "#D8E9FF", -- Pastel blue
   Variable          = "#E2E2E2", -- Pastel blue
-  Field             = "#C0d9Fe", -- Pastel blue
-  Property          = "#C0d9Fe", -- Pastel blue
-  VariableBuiltin   = "#a0b9fE", -- Light pastel blue
+  Field             = "#D2E2FF", -- Pastel blue
+  Property          = "#D2E2FF", -- Pastel blue
 
   -- ControlFlow       = "#F09683",
+  ControlFlow       = "#6E92B8",
   -- ControlFlow       = "#E9BBB5",
-  ControlFlow          = "#569CD6",
+  -- ControlFlow          = "#FFDBCC", -- Pastel orange
   -- ControlFlow       = "#9B9B9B", -- Pastel pink
 
   -- Label             = "#9B9B9B", -- Pastel pink
@@ -59,9 +76,18 @@ M.code =  {
   FunctionCall      = "#FFEDC0", -- Warm pastel yellow
   Native            = "#FFDCA1", -- Pastel orange
   Special           = "#FFDCA1", -- Pastel orange
-  Constant          = "#D7ECC8", -- Pastel green
-  EnumConstant      = "#D7ECC8", -- Pastel green
-  BuiltInConstant   = "#D7ECC8", -- Pastel green
+
+  Constant          = "#D2ECC8", -- Pastel green
+  EnumConstant      = "#D2ECC8", -- Pastel green
+  BuiltInConstant   = "#D2ECC8", -- Pastel green
+
+  -- Constant          = "#b5cea8",
+  -- EnumConstant      = "#b5cea8",
+  -- BuiltInConstant   = "#b5cea8",
+
+  -- Constant          = "#D7ECC8", -- Pastel green
+  -- EnumConstant      = "#D7ECC8", -- Pastel green
+  -- BuiltInConstant   = "#D7ECC8", -- Pastel green
 }
 
 M.text = {

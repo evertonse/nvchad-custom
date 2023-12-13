@@ -4,7 +4,8 @@ if not status_ok then
   return
 end
 
-local c = require "custom.user.colors.pleasing"
+local vars = require "custom.user.vars"
+local c = require ("custom.user.colors." .. vars.theme)
 -- require('hlargs').setup(); return --DEBUG with default
 hlargs.setup {
   color = c.code.Parameter,

@@ -1,3 +1,4 @@
 return {
-    transparency = true 
+    transparency = true,
+    theme =  "pastel"
 }
