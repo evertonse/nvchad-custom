@@ -24,9 +24,9 @@ M.code =  {
   -- Construtor        = "#F09683", -- Warm pastel orange
   -- ConstrutorOnClass = "#C3B783", -- Warm pastel yellow
 
-  Namespace         = "#FFEDC0", -- Warm pastel yellow
-  Global            = "#FFDBB5", -- Warm pastel orange
-  FileScope         = "#E2E2E2", -- Light gray
+  Namespace         = "#cffae4",
+  Global            = "#F8D1EF",
+  FileScope         = "#e8D7D7",
   SelfParameter     = "#D5D5FF", -- Pastel lavender
   Numeric           = "#D7ECC8", -- Pastel green
   Invalid           = "#F47E7E", -- Pastel red
@@ -37,16 +37,18 @@ M.code =  {
   -- Keyword           = "#FFB366", -- Pastel orange
   -- Keyword           = "#569CD6", -- Pastel orange
   -- Keyword           = "#F09683", -- Pastel orange
-  Keyword           = "#9B9B9B", -- Pastel orange
+  Keyword           = "#E9BBB5", -- Pastel orange
+  -- Keyword           = "#9B9B9B", -- Pastel orange
 
   Normal            = "#E2E2E2", -- Light gray
   VariableLocal     = "#D2E2Fe", -- Pastel blue
   Variable          = "#E2E2E2", -- Pastel blue
   Field             = "#C0d9Fe", -- Pastel blue
   Property          = "#C0d9Fe", -- Pastel blue
-  VariableBuiltin   = "#8099fE", -- Light pastel blue
+  VariableBuiltin   = "#a0b9fE", -- Light pastel blue
 
-  ControlFlow       = "#9B9B9B", -- Pastel pink
+  ControlFlow       = "#E9BBB5", -- Pastel pink
+  -- ControlFlow       = "#9B9B9B", -- Pastel pink
   Label             = "#9B9B9B", -- Pastel pink
   Method            = "#FFEDC0", -- Warm pastel yellow
   Function          = '#FFEDC0', -- Warm pastel yellow

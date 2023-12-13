@@ -162,8 +162,8 @@ M.override = {
   GlobalScope = { fg = c.code.Global, bg = "None", bold = true },
   ["@global"] = { fg = c.code.Global, bg = "None", bold = true },
   LspGlobalScope = { fg = c.code.Global, bg = "None", bold = true },
-  LspNamespace = { fg = c.code.Global, bg = "None", bold = true },
-  namespace = { fg = c.code.Global, bg = "None" },
+  LspNamespace = { fg = c.code.Namespace, bg = "None", bold = true },
+  namespace = { fg = c.code.Namespace, bg = "None" },
   ["@class"] = { fg = c.code.Type, bold = false, italic = false },
   ["@macro"] = { fg = c.code.Macro, bold = false, italic = false },
   ["@namespace"] = { fg = c.code.Namespace, bold = false, italic = false },
@@ -201,7 +201,7 @@ M.override = {
 
   -- Variables
   ["@variable"] = { fg = c.code.Variable, bg = "NONE" },
-  ["@variable.builtin"] = { fg = c.code.VariableBuiltin, bg = "NONE" },
+  ["@variable.builtin"] = { fg = c.code.VariableBuiltin, bold=true, italic=true, bg = "NONE" },
   ["@field"] = { fg = c.code.Field, bg = "NONE" },
   ["@property"] = { fg = c.code.Property, bg = "NONE" },
   ["@reference"] = { fg = c.code.Normal, bg = "NONE" },
