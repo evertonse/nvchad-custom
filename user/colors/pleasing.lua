@@ -40,10 +40,10 @@ M.code =  {
   Keyword           = "#9B9B9B", -- Pastel orange
 
   Normal            = "#E2E2E2", -- Light gray
-  Variable          = "#D2E2FF", -- Pastel blue
-  VariableLocal     = "#E2E2E2", -- Pastel blue
-  Field             = "#CEE0F0", -- Pastel blue
-  VariableBuiltin   = "#B5D4FF", -- Light pastel blue
+  VariableLocal     = "#D2E2FF", -- Pastel blue
+  Variable          = "#E2E2E2", -- Pastel blue
+  Field             = "#C0d9FF", -- Pastel blue
+  VariableBuiltin   = "#B0D0FF", -- Light pastel blue
 
   ControlFlow       = "#9B9B9B", -- Pastel pink
   Label             = "#9B9B9B", -- Pastel pink

@@ -106,7 +106,7 @@ M.override = {
   String = { fg = c.editor.Orange, bg = "NONE" },
   Character = { fg = c.editor.Orange, bg = "NONE" },
   Number = { fg = c.editor.LightGreen, bg = "NONE" },
-  Boolean = { fg = c.editor.Blue, bg = "NONE" },
+  Boolean = { fg = c.code.BuiltInConstant, bg = "NONE" },
   Float = { fg = c.editor.LightGreen, bg = "NONE" },
   Identifier = { fg = c.code.Normal, bg = "NONE" },
   Function = { fg = c.editor.Yellow, bg = "NONE" },
@@ -196,7 +196,7 @@ M.override = {
 
   ["@character"] = { fg = c.editor.Orange, bg = "NONE" },
   ["@number"] = { fg = c.editor.LightGreen, bg = "NONE" },
-  ["@boolean"] = { fg = c.editor.Blue, bg = "NONE" },
+  ["@boolean"] = { fg = c.code.BuiltInConstant, bg = "NONE" },
   ["@float"] = { fg = c.editor.LightGreen, bg = "NONE" },
 
   -- Variables
