@@ -298,6 +298,7 @@ M.general = {
           vim.cmd [[tab split]]
           FULLSCREEN = true
         end
+        require("dap-python").test_method()
       end,
       "New buffer",
     },
