@@ -173,11 +173,12 @@ M.override = {
   ["@defaultLibrary.lua"] = { fg = c.code.Native },
 
   ["@comment"] = { fg = c.code.Comment, bg = "NONE" },
-  ["@keyword"] = { fg = c.code.Keyword, bold = true, bg = "NONE" },
+  ["@keyword"] = { fg = c.code.Keyword, bold = false, bg = "NONE" },
+  ["@keyword.enum"] = { fg = c.code.Keyword, bold = false, bg = "NONE" },
+  ["@keyword.function"] = { fg = c.code.Keyword, bold = false, bg = "NONE" },
+  ["@keyword.operator"] = { fg = c.code.Keyword, bold = false, bg = "NONE" },
+
   ["@keyword.return"] = { fg = c.code.ControlFlow, bold = true, bg = "NONE" }, -- return,
-  ["@keyword.enum"] = { fg = c.code.Keyword, bold = true, bg = "NONE" },
-  ["@keyword.function"] = { fg = c.code.Keyword, bold = true, bg = "NONE" },
-  ["@keyword.operator"] = { fg = c.code.Keyword, bold = true, bg = "NONE" },
 
   -- Fucntions
   ["@function"] = { fg = c.code.Function, bg = "NONE" },
