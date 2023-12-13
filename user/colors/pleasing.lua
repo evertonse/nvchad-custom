@@ -11,7 +11,7 @@ M.code =  {
   Type              = "#6E92B8", -- Darker pastel blue
   EnumType          = "#6E92B8", -- Darker pastel blue
   Construtor        = "#6E92B8", -- Darker pastel blue
-  BuiltInType       = "#4051A8",
+  BuiltInType       = "#3849A5",
   ConstrutorOnClass = "#5A7393", -- Slightly darker pastel blue
 
   -- Type              = "#569CD6", -- Pastel blue
@@ -44,7 +44,7 @@ M.code =  {
   VariableLocal     = "#D2E2FF", -- Pastel blue
   Variable          = "#E2E2E2", -- Pastel blue
   Field             = "#C0d9FF", -- Pastel blue
-  VariableBuiltin   = "#B0D0FF", -- Light pastel blue
+  VariableBuiltin   = "#8099EE", -- Light pastel blue
 
   ControlFlow       = "#9B9B9B", -- Pastel pink
   Label             = "#9B9B9B", -- Pastel pink
