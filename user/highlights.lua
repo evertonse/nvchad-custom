@@ -3,8 +3,8 @@
 -- base30 variable names can also be used as colors
 local M = {}
 
-local pallette_options = {"vs", "gpt", "pleasing"}
-local c = require ("custom.user.colors." .. pallette_options[3])
+local pallette_options = { "vs", "gpt", "pleasing" }
+local c = require("custom.user.colors." .. pallette_options[3])
 local is_transparent = require("custom.user.vars").transparency
 -- @important check https://github.com/NvChad/base46/blob/v2.0/lua/base46/integrations/tbline.lua
 -- for better ideia of highlight groups
@@ -111,11 +111,11 @@ M.override = {
   Identifier = { fg = c.code.Normal, bg = "NONE" },
   Function = { fg = c.editor.Yellow, bg = "NONE" },
   Statement = { fg = c.code.Preprocessor, bg = "NONE" },
-  Conditional = { fg = c.code.ControlFlow, bg = "NONE" },
-  Repeat = { fg = c.code.ControlFlow, bg = "NONE" },
+  Conditional = { fg = c.code.ControlFlow, bold = true, bg = "NONE" },
+  Repeat = { fg = c.code.ControlFlow, bold = true, bg = "NONE" },
   Label = { fg = c.code.ControlFlow, bg = "NONE" },
   Operator = { fg = c.code.Normal, bg = "NONE" },
-  Keyword = { fg = c.code.Keyword, bold=true, bg = "NONE" },
+  Keyword = { fg = c.code.Keyword, bold = true, bg = "NONE" },
   Exception = { fg = c.code.ControlFlow, bg = "NONE" },
   PreProc = { fg = c.code.Preprocessor, bg = "NONE" },
   Include = { fg = c.code.Preprocessor, bg = "NONE" },
@@ -173,11 +173,11 @@ M.override = {
   ["@defaultLibrary.lua"] = { fg = c.code.Native },
 
   ["@comment"] = { fg = c.code.Comment, bg = "NONE" },
-  ["@keyword"] = { fg = c.code.Keyword, bold=true, bg = "NONE" },
-  ["@keyword.return"] = { fg = c.code.ControlFlow, bold=true, bg = "NONE" }, -- return,
-  ["@keyword.enum"] = { fg = c.code.Keyword, bold=true, bg = "NONE" },
-  ["@keyword.function"] = { fg = c.code.Keyword, bold=true, bg = "NONE" },
-  ["@keyword.operator"] = { fg = c.code.Keyword, bold=true, bg = "NONE" },
+  ["@keyword"] = { fg = c.code.Keyword, bold = true, bg = "NONE" },
+  ["@keyword.return"] = { fg = c.code.ControlFlow, bold = true, bg = "NONE" }, -- return,
+  ["@keyword.enum"] = { fg = c.code.Keyword, bold = true, bg = "NONE" },
+  ["@keyword.function"] = { fg = c.code.Keyword, bold = true, bg = "NONE" },
+  ["@keyword.operator"] = { fg = c.code.Keyword, bold = true, bg = "NONE" },
 
   -- Fucntions
   ["@function"] = { fg = c.code.Function, bg = "NONE" },
@@ -201,7 +201,7 @@ M.override = {
 
   -- Variables
   ["@variable"] = { fg = c.code.Variable, bg = "NONE" },
-  ["@variable.builtin"] = { fg = c.code.VariableBuiltin, bold=true, italic=false, bg = "NONE" },
+  ["@variable.builtin"] = { fg = c.code.VariableBuiltin, bold = true, italic = false, bg = "NONE" },
   ["@field"] = { fg = c.code.Field, bg = "NONE" },
   ["@property"] = { fg = c.code.Property, bg = "NONE" },
   ["@reference"] = { fg = c.code.Normal, bg = "NONE" },
@@ -254,13 +254,13 @@ M.override = {
   ["@constructor.cpp"] = { fg = c.code.Construtor, bold = true },
   ["@constructor.py"] = { fg = c.code.Construtor, bold = true },
 
-  ["@conditional"] = { fg = c.code.ControlFlow, bg = "NONE" },
-  ["@repeat"] = { fg = c.code.ControlFlow, bg = "NONE" },
+  ["@conditional"] = { fg = c.code.ControlFlow, bold = true, bg = "NONE" },
+  ["@repeat"] = { fg = c.code.ControlFlow, bold = true, bg = "NONE" },
   ["@label"] = { fg = c.code.Label, bg = "NONE" },
   ["@operator"] = { fg = c.editor.Front, bg = "NONE" },
 
-  ["@exception"] = { fg = c.code.ControlFlow, bg = "NONE" },
-  ["@exception.python"] = { fg = c.code.ControlFlow, bg = "NONE" },
+  ["@exception"] = { fg = c.code.ControlFlow, bold = true, bg = "NONE" },
+  ["@exception.python"] = { fg = c.code.ControlFlow, bold = true, bg = "NONE" },
 
   ["@lsp.typemod.variable.globalScope"] = { fg = c.code.Global },
   ["@lsp.typemod.variable.fileScope"] = { fg = c.code.FileScope },
