@@ -82,9 +82,9 @@ vim.cmd [[autocmd filetype python nnoremap <F5> :w <bar> exec '!python '.shelles
 -- vim.cmd [[autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>]]
 vim.cmd [[autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>]]
 vim.cmd [[autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no]]
-vim.cmd [[autocmd TermOpen * startinsert ]] -- stopinsert ]]        -- starts in insert mode
--- Auto command to activate virtual environment on terminal open
+-- vim.cmd [[autocmd TermOpen * startinsert ]] -- stopinsert ]]        -- starts in insert mode
 
+-- Auto command to activate virtual environment on terminal open
 -- vim.cmd([[
 --     augroup AutoActivateVirtualEnv
 --         autocmd!
