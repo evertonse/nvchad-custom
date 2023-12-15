@@ -331,22 +331,7 @@ M.plugins = {
         "williamboman/mason-lspconfig.nvim",
         lazy = false,
         enabled = true,
-        config = function()
-          -- require("mason-lspconfig").setup {
-          require("mason").setup {
-            ensure_installed = {
-              "lua_ls",
-              "rust_analyzer",
-              "opencl_ls",
-              "jedi_language_server",
-              "clangd",
-              "clang_format",
-              "bash_language_server",
-              "stylua",
-            },
-            automatic_installation = true,
-          }
-        end,
+        config = overrides.mason.config,
       },
     },
     config = function()

@@ -246,42 +246,47 @@ M.todo = {
       max_line_len = 400, -- ignore lines longer than this
       exclude = {}, -- list of file types to exclude highlighting
     },
-  },
+  }
 }
 
 M.mason = {
-  ensure_installed = {
-    -- lua stuff
-    "lua-language-server",
-    "stylua",
-    "autoflake",
-    "bash-language-server",
-    "html-lsp",
-    "jdtls",
-    "lua-language-server",
-    "opencl-language-server",
-    "rust-analyzer",
+  config = function ()
+    require("mason-lspconfig").setup({
+      ensure_installed = {
+        -- lua stuff
+        "lua-language-server",
+        "stylua",
+        "autoflake",
+        "bash-language-server",
+        "html-lsp",
+        "jdtls",
+        "lua-language-server",
+        "opencl-language-server",
+        "rust-analyzer",
 
-    -- web dev stuff
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "bash-language-server",
-    "deno",
-    "prettier",
+        -- web dev stuff
+        "css-lsp",
+        "html-lsp",
+        "typescript-language-server",
+        "bash-language-server",
+        "deno",
+        "prettier",
 
-    -- c/cpp stuff
-    "clangd",
-    "clang-format",
+        -- c/cpp stuff
+        "clangd",
+        "clang-format",
 
-    -- python
-    "black",
-    "flake8",
-    "debugpy",
-    "mypy",
-    "ruff",
-    "pyright",
-  },
+        -- python
+        "black",
+        "flake8",
+        "debugpy",
+        "mypy",
+        "ruff",
+        "pyright",
+      },
+      automatic_installation = true,
+  })
+  end
 }
 
 local function nvimtree_on_attach(bufnr)
