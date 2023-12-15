@@ -103,7 +103,7 @@ M.override = {
 
   Constant = { fg = c.code.Constant, bg = "NONE" },
   Global = { fg = c.code.Global, bg = "NONE" },
-  String = { fg = c.editor.Orange, bg = "NONE" },
+  String = { fg = c.code.String, bg = "NONE" },
   Character = { fg = c.editor.Orange, bg = "NONE" },
   Number = { fg = c.code.Constant, bg = "NONE" },
   Boolean = { fg = c.code.BuiltInConstant, bg = "NONE" },
@@ -191,11 +191,11 @@ M.override = {
   ["@method"] = { fg = c.code.Method, bg = "NONE" },
 
   --Literals
-  ["@string.regex"] = { fg = c.editor.Orange, bg = "NONE" },
-  ["@string.escape"] = { fg = c.code.Special, bg = "NONE" },
-  ["@string"] = { fg = c.editor.Orange, bg = c.code.None },
+  ["@string.regex"] = { fg = c.code.Char, bg = "NONE" },
+  ["@string.escape"] = { fg = c.code.StringEscape, bg = "NONE" },
+  ["@string"] = { fg = c.code.String, bg = c.code.None },
 
-  ["@character"] = { fg = c.editor.Orange, bg = "NONE" },
+  ["@character"] = { fg = c.code.Char, bg = "NONE" },
   ["@number"] = { fg = c.editor.LightGreen, bg = "NONE" },
   ["@boolean"] = { fg = c.code.BuiltInConstant, bg = "NONE" },
   ["@float"] = { fg = c.editor.LightGreen, bg = "NONE" },
@@ -244,7 +244,7 @@ M.override = {
   ["@constant.macro.cpp"] = { fg = c.code.Macro, bg = "NONE" },
   --['@error']= { fg = c.editor.Red, bg = 'NONE' },
   --['@punctuation.bracket']= { fg = c.editor.Front, bg = 'NONE' },
-  ["@punctuation.special"] = { fg = c.editor.Yellow, bg = "NONE" },
+  ["@punctuation.special"] = { fg = c.code.Punct, bg = "NONE" },
   --['@constant']= { fg = c.editor.Macro, bg = 'NONE' },
   ["@constant.builtin"] = { fg = c.code.BuiltInConstant, bg = "NONE" },
 

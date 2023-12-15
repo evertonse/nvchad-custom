@@ -35,7 +35,7 @@ M.plugins = {
             elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
               return cwd .. "/.venv/bin/python"
             else
-             return fallback_path
+              return fallback_path
             end
           end
           require("core.utils").load_mappings "dap_python"
