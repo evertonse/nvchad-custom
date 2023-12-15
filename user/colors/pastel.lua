@@ -58,16 +58,18 @@ M.code = {
   Namespace               = "#cffae4",
   Global                  = "#F8D1EF",
   FileScope               = "#e8D7D7",
-  SelfParameter           = "#D5D5FF", -- Pastel lavender
+
   Numeric                 = "#D7ECC8", -- Pastel green
+
   Invalid                 = "#F47E7E", -- Pastel red
+
   MacroFunction           = "#D5D5FF", -- Pastel lavender
   Macro                   = "#D0C2FF", -- Pastel purple
 
   Preprocessor            = "#ABABAB",
   Include                 = palette.c1, -- Gray
 
-  Unnecessary             = "#B7B7B7", -- Light gray
+  Unnecessary             = "#B2B2B2", -- Light gray
 
   -- Keyword              = "#FFB366", -- Pastel orange
   -- Keyword              = "#8FCACA", -- Pastel orange
@@ -80,7 +82,7 @@ M.code = {
   Normal                  = "#E2E2E2", -- Light gray
   VariableBuiltin         = "#c0c8FF", -- Light pastel blue
   VariableLocal           = "#D8E9FF", -- Pastel blue
-  Variable                = "#d8d8d8", -- Pastel blue
+  Variable                = "#d8d8d9", -- Pastel blue
   Field                   = "#D2E2FF", -- Pastel blue
   Property                = "#D2E2FF", -- Pastel blue
 

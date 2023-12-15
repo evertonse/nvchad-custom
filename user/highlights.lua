@@ -124,7 +124,7 @@ M.override = {
   Keyword             = { fg = c.code.Keyword, bold = true, bg = "NONE" },
   Exception           = { fg = c.code.ControlFlow, bg = "NONE" },
   PreProc             = { fg = c.code.Preprocessor, bg = "NONE" },
-  Include             = { fg = c.code.Preprocessor, bg = "NONE" },
+  Include             = { fg = c.code.Include, bg = "NONE" },
   Define              = { fg = c.code.Preprocessor, bg = "NONE" },
   Macro               = { fg = c.code.Macro, bg = "NONE" },
   Type                = { fg = c.code.Type, bg = "NONE" },
