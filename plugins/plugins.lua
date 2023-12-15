@@ -592,7 +592,7 @@ M.plugins = {
           "kj",
         }, -- a table with mappings to use
         timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
-        clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+        clear_empty_lines = true, -- clear line after escaping if there is only whitespace
         keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
       }
     end,
@@ -610,19 +610,7 @@ M.plugins = {
     lazy = false,
     enabled = true,
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-      keywords = {
-        TODO = { icon = " ", color = "warn" },
-      },
-      colors = {
-        warn = { "DiagnosticWarn" },
-        info = { "DiagnosticInfo" },
-        hint = { "DiagnosticHint" },
-      },
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
+    opts = overrides.todo.opts,
   },
   {
     "edluffy/hologram.nvim",

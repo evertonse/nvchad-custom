@@ -14,100 +14,102 @@ local palette = {
 }
 
 M.code = {
-  None = "NONE",
-  Debug = "#FF00FF",
-  DeadCode = "#878787",
+  None                    = "NONE",
+  Debug                   = "#FF00FF",
+  DeadCode                = "#878787",
+  Comment                 = palette.c2,
 
-  -- Comment           = ,
-  Comment = palette.c2,
-  String = "#CE9178",
-  StringEscape = "#FFDCA1",
-  Char = "#CE9178",
-  Punct = "#CE9178",
-  -- Args              = "#a08080",
-  Args = "#898989",
-  Parameter = "#898989",
+  String                  = "#CE9178",
+  StringEscape            = "#FFDCA1",
+  Char                    = "#DE9178",
+  Punct                   = "#DE9178",
 
-  Type = "#64B5B7",
-  EnumType = "#64B5B7",
-  Construtor = "#64B5B7",
-  BuiltInType = "#398E8E",
-  ConstrutorOnClass = "#8FCACA",
+  Args                    = "#898989",
+  Parameter               = "#898989",
 
-  -- Type              = "#8FCACB",
-  -- EnumType          = "#8FCACB",
-  -- Construtor        = "#8FCACB",
-  -- BuiltInType       = "#59AEAE",
-  -- ConstrutorOnClass = "#8FCACA",
+  Type                    = "#64B5B7",
+  EnumType                = "#64B5B7",
+  Construtor              = "#64B5B7",
+  BuiltInType             = "#398E8E",
+  ConstrutorOnClass       = "#8FCACA",
 
-  -- Type              = "#6E92B8",
-  -- EnumType          = "#6E92B8",
-  -- Construtor        = "#6E92B8",
-  -- BuiltInType       = "#5879A8",
-  -- ConstrutorOnClass = "#5A7393",
+  -- Type                 = "#8FCACB",
+  -- EnumType             = "#8FCACB",
+  -- Construtor           = "#8FCACB",
+  -- BuiltInType          = "#59AEAE",
+  -- ConstrutorOnClass    = "#8FCACA",
 
-  -- Type              = "#569CD6", -- Pastel blue
-  -- EnumType          = "#569CD6", -- Pastel blue
-  -- ConstrutorOnClass = "#7D97AD", -- Slightly darker pastel blue
-  -- Construtor        = "#569CD6", -- Pastel blue
+  -- Type                 = "#6E92B8",
+  -- EnumType             = "#6E92B8",
+  -- Construtor           = "#6E92B8",
+  -- BuiltInType          = "#5879A8",
+  -- ConstrutorOnClass    = "#5A7393",
 
-  -- Type              = , -- Warm pastel orange
-  -- EnumType          = "#E9BBB5", -- Warm pastel pink
-  -- Construtor        = "#F09683", -- Warm pastel orange
-  -- ConstrutorOnClass = "#C3B783", -- Warm pastel yellow
+  -- Type                 = "#569CD6", -- Pastel blue
+  -- EnumType             = "#569CD6", -- Pastel blue
+  -- ConstrutorOnClass    = "#7D97AD", -- Slightly darker pastel blue
+  -- Construtor           = "#569CD6", -- Pastel blue
 
-  Namespace = "#cffae4",
-  Global = "#F8D1EF",
-  FileScope = "#e8D7D7",
-  SelfParameter = "#D5D5FF", -- Pastel lavender
-  Numeric = "#D7ECC8", -- Pastel green
-  Invalid = "#F47E7E", -- Pastel red
-  MacroFunction = "#D5D5FF", -- Pastel lavender
-  Macro = "#D0C2FF", -- Pastel purple
-  Preprocessor = "#ABABAB", -- Gray
-  Unnecessary = "#B7B7B7", -- Light gray
+  -- Type                 = , -- Warm pastel orange
+  -- EnumType             = "#E9BBB5", -- Warm pastel pink
+  -- Construtor           = "#F09683", -- Warm pastel orange
+  -- ConstrutorOnClass    = "#C3B783", -- Warm pastel yellow
 
-  -- Keyword           = "#FFB366", -- Pastel orange
-  -- Keyword           = "#8FCACA", -- Pastel orange
-  -- Keyword           = "#FFDBCC", -- Pastel orange
-  Keyword = palette.c1, -- Pastel orange
-  -- Keyword           = "#F09683", -- Pastel orange
-  -- Keyword           = "#E9BBB5", -- Pastel orange
-  -- Keyword           = "#9B9B9B", -- Pastel orange
+  Namespace               = "#cffae4",
+  Global                  = "#F8D1EF",
+  FileScope               = "#e8D7D7",
+  SelfParameter           = "#D5D5FF", -- Pastel lavender
+  Numeric                 = "#D7ECC8", -- Pastel green
+  Invalid                 = "#F47E7E", -- Pastel red
+  MacroFunction           = "#D5D5FF", -- Pastel lavender
+  Macro                   = "#D0C2FF", -- Pastel purple
 
-  Normal = "#E2E2E2", -- Light gray
-  VariableBuiltin = "#c0c8FF", -- Light pastel blue
-  VariableLocal = "#D8E9FF", -- Pastel blue
-  Variable = "#d8d8d8", -- Pastel blue
-  Field = "#D2E2FF", -- Pastel blue
-  Property = "#D2E2FF", -- Pastel blue
+  Preprocessor            = "#ABABAB",
+  Include                 = palette.c1, -- Gray
 
-  -- ControlFlow       = "#F09683",
-  -- ControlFlow       = "#6E92B8",
-  ControlFlow = palette.c1,
-  -- ControlFlow       = "#E9BBB5",
+  Unnecessary             = "#B7B7B7", -- Light gray
+
+  -- Keyword              = "#FFB366", -- Pastel orange
+  -- Keyword              = "#8FCACA", -- Pastel orange
+  -- Keyword              = "#FFDBCC", -- Pastel orange
+  Keyword                 = palette.c1, -- Pastel orange
+  -- Keyword              = "#F09683", -- Pastel orange
+  -- Keyword              = "#E9BBB5", -- Pastel orange
+  -- Keyword              = "#9B9B9B", -- Pastel orange
+
+  Normal                  = "#E2E2E2", -- Light gray
+  VariableBuiltin         = "#c0c8FF", -- Light pastel blue
+  VariableLocal           = "#D8E9FF", -- Pastel blue
+  Variable                = "#d8d8d8", -- Pastel blue
+  Field                   = "#D2E2FF", -- Pastel blue
+  Property                = "#D2E2FF", -- Pastel blue
+
+  -- ControlFlow          = "#F09683",
+  -- ControlFlow          = "#6E92B8",
+  ControlFlow             = palette.c1,
+  -- ControlFlow          = "#E9BBB5",
   -- ControlFlow          = "#FFDBCC", -- Pastel orange
-  -- ControlFlow       = "#9B9B9B", -- Pastel pink
+  -- ControlFlow          = "#9B9B9B", -- Pastel pink
 
-  -- Label             = "#9B9B9B", -- Pastel pink
-  Label = "#E9BBB5", -- Pastel pink
-  Method = "#FFEDC0", -- Warm pastel yellow
-  Function = "#FFEDC0", -- Warm pastel yellow
-  FunctionCall = "#FFEDC0", -- Warm pastel yellow
-  Native = "#FFDCA1", -- Pastel orange
-  Special = "#FFDCA1", -- Pastel orange
+  -- Label                = "#9B9B9B", -- Pastel pink
+  Label                   = "#E9BBB5", -- Pastel pink
+  Method                  = "#FFEDC0", -- Warm pastel yellow
+  Function                = "#FFEDC0", -- Warm pastel yellow
+  FunctionCall            = "#FFEDC0", -- Warm pastel yellow
+  Native                  = "#FFDCA1", -- Pastel orange
+  Special                 = "#FFDCA1", -- Pastel orange
 
-  Constant = "#D2ECC8", -- Pastel green
-  EnumConstant = "#D2ECC8", -- Pastel green
-  BuiltInConstant = "#D2ECC8", -- Pastel green
+  Constant                = "#D2ECC8", -- Pastel green
+  EnumConstant            = "#D2ECC8", -- Pastel green
+  BuiltInConstant         = "#D2ECC8", -- Pastel green
 
-  -- Constant          = "#b5cea8",
-  -- EnumConstant      = "#b5cea8",
-  -- BuiltInConstant   = "#b5cea8",
+  -- Constant             = "#b5cea8",
+  -- EnumConstant         = "#b5cea8",
+  -- BuiltInConstant      = "#b5cea8",
 
-  -- Constant          = "#D7ECC8", -- Pastel green
-  -- EnumConstant      = "#D7ECC8", -- Pastel green
-  -- BuiltInConstant   = "#D7ECC8", -- Pastel green
+  -- Constant             = "#D7ECC8", -- Pastel green
+  -- EnumConstant         = "#D7ECC8", -- Pastel green
+  -- BuiltInConstant      = "#D7ECC8", -- Pastel green
 }
 
 M.text = {
@@ -117,7 +119,7 @@ M.text = {
   DiffDelete = "#f44747",
   Todo = "#FFA0A9",
   Note = "#D7BA7D",
-  Error= "#f44747",
+  Error = "#f44747",
   Warn = "#FFA0A9",
   Info = "#DCDCAA",
   Hint = "#D7BA7D",
