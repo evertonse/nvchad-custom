@@ -341,6 +341,7 @@ M.plugins = {
               "jedi_language_server",
               "clangd",
               "clang_format",
+              "bash_language_server",
               "stylua",
             },
             automatic_installation = true,

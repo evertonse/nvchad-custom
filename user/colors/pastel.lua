@@ -1,16 +1,21 @@
 local M = {}
 
 local palette = {
-  -- c1 = "#6A789e",
-  -- c1 = "#6F729F",
-  -- c1 = "#7980A0",
-  c1 = "#7782A4",
-  c2 = "#748779",
-  c3 = "#7a9f79",
-  c4 = "#6E92B8",
-  c5 = "#5E82a8",
-  c6 = "#747987",
-  c7 = "#a08080",
+  -- c1  = "#6A789e",
+  -- c1  = "#6F729F",
+  -- c1  = "#7980A0",
+  c1     = "#7782A4",
+  c2     = "#748779",
+  c3     = "#7a9f79",
+  c4     = "#6E92B8",
+  c5     = "#5E82a8",
+  c6     = "#747987",
+  c7     = "#a08080",
+
+  c8     = "#d3d3d3",
+  c9     = "#D8E9FF",
+  c10    = "#D1E2FF",
+  c11    = "#c0c8FF",
 }
 
 M.code = {
@@ -80,11 +85,12 @@ M.code = {
   -- Keyword              = "#9B9B9B", -- Pastel orange
 
   Normal                  = "#E2E2E2", -- Light gray
-  VariableBuiltin         = "#c0c8FF", -- Light pastel blue
-  VariableLocal           = "#D8E9FF", -- Pastel blue
-  Variable                = "#d8d8d9", -- Pastel blue
-  Field                   = "#D2E2FF", -- Pastel blue
-  Property                = "#D2E2FF", -- Pastel blue
+
+  Variable                = palette.c8, -- Pastel blue
+  VariableLocal           = palette.c9, -- Pastel blue
+  Field                   = palette.c10, -- Pastel blue
+  Property                = palette.c10, -- Pastel blue
+  VariableBuiltin         = palette.c11, -- Light pastel blue
 
   -- ControlFlow          = "#F09683",
   -- ControlFlow          = "#6E92B8",

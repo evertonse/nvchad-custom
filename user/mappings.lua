@@ -138,6 +138,7 @@ function ToggleRecording()
   end
 end
 
+
 local change_key_value_on_press = function()
   vim.cmd [[
     nnoremap @{ :nmap ; @}<CR>qq
