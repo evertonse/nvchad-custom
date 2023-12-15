@@ -1,24 +1,37 @@
 local M = {}
 
-M.code =  {
-  None              = "NONE",
-  Debug             = "#FF00FF",
-  DeadCode          = "#878787",
+local palette = {
+  -- c1 = "#6A789e",
+  -- c1 = "#6F729F",
+  -- c1 = "#7980A0",
+  c1 = "#7782A4",
+  c2 = "#748779",
+  c3 = "#7a9f79",
+  c4 = "#6E92B8",
+  c5 = "#5E82a8",
+  c6 = "#747987",
+  c7 = "#a08080",
+}
 
-  -- Comment           = "#7a9f79",
-  Comment           = "#a08080",
-  String            = "#CE9178",
-  StringEscape      = "#FFDCA1",
-  Char              = "#CE9178",
-  Punct             = "#CE9178",
+M.code = {
+  None = "NONE",
+  Debug = "#FF00FF",
+  DeadCode = "#878787",
+
+  -- Comment           = ,
+  Comment = palette.c2,
+  String = "#CE9178",
+  StringEscape = "#FFDCA1",
+  Char = "#CE9178",
+  Punct = "#CE9178",
   -- Args              = "#a08080",
-  Args              = "#898989",
-  Parameter         = "#898989",
+  Args = "#898989",
+  Parameter = "#898989",
 
-  Type              = "#64B5B7",
-  EnumType          = "#64B5B7",
-  Construtor        = "#64B5B7",
-  BuiltInType       = "#398E8E",
+  Type = "#64B5B7",
+  EnumType = "#64B5B7",
+  Construtor = "#64B5B7",
+  BuiltInType = "#398E8E",
   ConstrutorOnClass = "#8FCACA",
 
   -- Type              = "#8FCACB",
@@ -43,51 +56,50 @@ M.code =  {
   -- Construtor        = "#F09683", -- Warm pastel orange
   -- ConstrutorOnClass = "#C3B783", -- Warm pastel yellow
 
-  Namespace         = "#cffae4",
-  Global            = "#F8D1EF",
-  FileScope         = "#e8D7D7",
-  SelfParameter     = "#D5D5FF", -- Pastel lavender
-  Numeric           = "#D7ECC8", -- Pastel green
-  Invalid           = "#F47E7E", -- Pastel red
-  MacroFunction     = "#D5D5FF", -- Pastel lavender
-  Macro             = "#D0C2FF", -- Pastel purple
-  Preprocessor      = "#ABABAB", -- Gray
-  Unnecessary       = "#B7B7B7", -- Light gray
+  Namespace = "#cffae4",
+  Global = "#F8D1EF",
+  FileScope = "#e8D7D7",
+  SelfParameter = "#D5D5FF", -- Pastel lavender
+  Numeric = "#D7ECC8", -- Pastel green
+  Invalid = "#F47E7E", -- Pastel red
+  MacroFunction = "#D5D5FF", -- Pastel lavender
+  Macro = "#D0C2FF", -- Pastel purple
+  Preprocessor = "#ABABAB", -- Gray
+  Unnecessary = "#B7B7B7", -- Light gray
 
   -- Keyword           = "#FFB366", -- Pastel orange
-  -- Keyword           = "#6E92B8", -- Pastel orange
   -- Keyword           = "#8FCACA", -- Pastel orange
   -- Keyword           = "#FFDBCC", -- Pastel orange
-  Keyword              = "#748779", -- Pastel orange
+  Keyword = palette.c1, -- Pastel orange
   -- Keyword           = "#F09683", -- Pastel orange
   -- Keyword           = "#E9BBB5", -- Pastel orange
   -- Keyword           = "#9B9B9B", -- Pastel orange
 
-  Normal            = "#E2E2E2", -- Light gray
-  VariableBuiltin   = "#c0c8FF", -- Light pastel blue
-  VariableLocal     = "#D8E9FF", -- Pastel blue
-  Variable          = "#d8d8d8", -- Pastel blue
-  Field             = "#D2E2FF", -- Pastel blue
-  Property          = "#D2E2FF", -- Pastel blue
+  Normal = "#E2E2E2", -- Light gray
+  VariableBuiltin = "#c0c8FF", -- Light pastel blue
+  VariableLocal = "#D8E9FF", -- Pastel blue
+  Variable = "#d8d8d8", -- Pastel blue
+  Field = "#D2E2FF", -- Pastel blue
+  Property = "#D2E2FF", -- Pastel blue
 
   -- ControlFlow       = "#F09683",
   -- ControlFlow       = "#6E92B8",
-  ControlFlow       = "#748779",
+  ControlFlow = palette.c1,
   -- ControlFlow       = "#E9BBB5",
   -- ControlFlow          = "#FFDBCC", -- Pastel orange
   -- ControlFlow       = "#9B9B9B", -- Pastel pink
 
   -- Label             = "#9B9B9B", -- Pastel pink
-  Label             = "#E9BBB5", -- Pastel pink
-  Method            = "#FFEDC0", -- Warm pastel yellow
-  Function          = "#FFEDC0", -- Warm pastel yellow
-  FunctionCall      = "#FFEDC0", -- Warm pastel yellow
-  Native            = "#FFDCA1", -- Pastel orange
-  Special           = "#FFDCA1", -- Pastel orange
+  Label = "#E9BBB5", -- Pastel pink
+  Method = "#FFEDC0", -- Warm pastel yellow
+  Function = "#FFEDC0", -- Warm pastel yellow
+  FunctionCall = "#FFEDC0", -- Warm pastel yellow
+  Native = "#FFDCA1", -- Pastel orange
+  Special = "#FFDCA1", -- Pastel orange
 
-  Constant          = "#D2ECC8", -- Pastel green
-  EnumConstant      = "#D2ECC8", -- Pastel green
-  BuiltInConstant   = "#D2ECC8", -- Pastel green
+  Constant = "#D2ECC8", -- Pastel green
+  EnumConstant = "#D2ECC8", -- Pastel green
+  BuiltInConstant = "#D2ECC8", -- Pastel green
 
   -- Constant          = "#b5cea8",
   -- EnumConstant      = "#b5cea8",
@@ -99,25 +111,31 @@ M.code =  {
 }
 
 M.text = {
-  Background        = "NONE",
-  DiffAdd           = "#81b88b",
-  Title             = "#90A0A0",
-  DiffDelete        = "#f44747",
+  Background = "NONE",
+  DiffAdd = "#81b88b",
+  Title = "#90A0A0",
+  DiffDelete = "#f44747",
+  Todo = "#FFA0A9",
+  Note = "#D7BA7D",
+  Error= "#f44747",
+  Warn = "#FFA0A9",
+  Info = "#DCDCAA",
+  Hint = "#D7BA7D",
 }
 
 M.editor = {
-  None           = "NONE",
-  Folder         = "#90A0A0",
-  Front          = "#D4D4D4",
-  Back           = "#1E1E1E",
+  None = "NONE",
+  Folder = "#90A0A0",
+  Front = "#D4D4D4",
+  Back = "#1E1E1E",
 
-  TabCurrent  = "#1E1E1E",
-  TabOther    = "#2D2D2D",
-  TabOutside  = "#252526",
+  TabCurrent = "#1E1E1E",
+  TabOther = "#2D2D2D",
+  TabOutside = "#252526",
 
-  LeftDark        = "#252526",
-  LeftMid         = "#373737",
-  LeftLight       = "#636369",
+  LeftDark = "#252526",
+  LeftMid = "#373737",
+  LeftLight = "#636369",
 
   PopupFront = "#BBBBBB",
   PopupBack = "#272727",
@@ -177,4 +195,3 @@ M.editor = {
 }
 
 return M
-

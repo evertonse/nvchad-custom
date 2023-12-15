@@ -332,8 +332,17 @@ M.plugins = {
         lazy = false,
         enabled = true,
         config = function()
-          require("mason-lspconfig").setup {
-            ensure_installed = { "lua_ls", "rust_analyzer", "opencl_ls" },
+          -- require("mason-lspconfig").setup {
+          require("mason").setup {
+            ensure_installed = {
+              "lua_ls",
+              "rust_analyzer",
+              "opencl_ls",
+              "jedi_language_server",
+              "clangd",
+              "clang_format",
+              "stylua",
+            },
             automatic_installation = true,
           }
         end,
@@ -588,13 +597,28 @@ M.plugins = {
       }
     end,
   },
+  {
+    "Vonr/align.nvim",
+    branch = "v2",
+    lazy = false,
+    init = overrides.align.init,
+  },
 
   {
+    -- https://github.com/folke/todo-comments.nvim
     "folke/todo-comments.nvim",
     lazy = false,
     enabled = true,
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
+      keywords = {
+        TODO = { icon = " ", color = "warn" },
+      },
+      colors = {
+        warn = { "DiagnosticWarn" },
+        info = { "DiagnosticInfo" },
+        hint = { "DiagnosticHint" },
+      },
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
