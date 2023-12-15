@@ -149,7 +149,6 @@ M.override = {
 
   DiagnosticWarn = {
     fg        = c.text.Warn,
-    bg        = c.code.None,
     italic    = true,
     underline = false,
     undercurl = false,
@@ -440,6 +439,38 @@ M.add = {
   ["@lsp.type.variable"]                = { fg = c.code.Variable, bg = "NONE" },
   ["@lsp.type.comment.cpp"]             = { fg = c.code.DeadCode, bg = "NONE" },
 
+  DiagnosticWarn = {
+    fg        = c.text.Warn,
+    bg        = c.code.None,
+    italic    = true,
+    underline = false,
+    undercurl = false,
+    sp        = c.code.None,
+  },
+  DiagnosticError = {
+    fg        = c.text.Error,
+    bg        = c.code.None,
+    italic    = true,
+    underline = false,
+    undercurl = false,
+    sp        = c.code.None,
+  },
+  DiagnosticInfo = {
+    fg        = c.text.Info,
+    bg        = c.code.None,
+    italic    = true,
+    underline = false,
+    undercurl = false,
+    sp        = c.code.None,
+  },
+  DiagnosticHint = {
+    fg        = c.text.Hint,
+    bg        = c.code.None,
+    italic    = true,
+    underline = false,
+    undercurl = false,
+    sp        = c.code.None,
+  },
   DiagnosticUnnecessary = {
     fg                  = c.code.DeadCode,
     bg                  = c.code.None,

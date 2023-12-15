@@ -127,10 +127,10 @@ M.text = {
   DiffDelete = "#f44747",
   Todo = "#FFA0A9",
   Note = "#D7BA7D",
-  Error = "#f44747",
-  Warn = "#FFA0A9",
+  Error= "#f48787",
+  Warn = "#39391e",
   Info = "#DCDCAA",
-  Hint = "#D7BA7D",
+  Hint = "#bBbBAA",
 }
 
 M.editor = {
