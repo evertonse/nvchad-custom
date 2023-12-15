@@ -251,7 +251,7 @@ M.todo = {
 
 M.mason = {
   config = function ()
-    require("mason-lspconfig").setup({
+    require("mason").setup({
       ensure_installed = {
         -- lua stuff
         "lua-language-server",
@@ -281,8 +281,8 @@ M.mason = {
         "flake8",
         "debugpy",
         "mypy",
-        "ruff",
         "pyright",
+        "pylsp",
       },
       automatic_installation = true,
   })
