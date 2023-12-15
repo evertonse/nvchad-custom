@@ -49,9 +49,10 @@ M.code =  {
   Unnecessary       = "#B7B7B7", -- Light gray
 
   -- Keyword           = "#FFB366", -- Pastel orange
-  Keyword           = "#6E92B8", -- Pastel orange
+  -- Keyword           = "#6E92B8", -- Pastel orange
   -- Keyword           = "#8FCACA", -- Pastel orange
   -- Keyword           = "#FFDBCC", -- Pastel orange
+  Keyword              = "#749079", -- Pastel orange
   -- Keyword           = "#F09683", -- Pastel orange
   -- Keyword           = "#E9BBB5", -- Pastel orange
   -- Keyword           = "#9B9B9B", -- Pastel orange
@@ -59,12 +60,13 @@ M.code =  {
   Normal            = "#E2E2E2", -- Light gray
   VariableBuiltin   = "#c0c8FF", -- Light pastel blue
   VariableLocal     = "#D8E9FF", -- Pastel blue
-  Variable          = "#E2E2E2", -- Pastel blue
+  Variable          = "#d8d8d8", -- Pastel blue
   Field             = "#D2E2FF", -- Pastel blue
   Property          = "#D2E2FF", -- Pastel blue
 
   -- ControlFlow       = "#F09683",
-  ControlFlow       = "#6E92B8",
+  -- ControlFlow       = "#6E92B8",
+  ControlFlow       = "#749079",
   -- ControlFlow       = "#E9BBB5",
   -- ControlFlow          = "#FFDBCC", -- Pastel orange
   -- ControlFlow       = "#9B9B9B", -- Pastel pink
