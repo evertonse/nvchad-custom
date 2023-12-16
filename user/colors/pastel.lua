@@ -128,7 +128,7 @@ M.text = {
   Todo = "#FFA0A9",
   Note = "#D7BA7D",
   Error= "#f48787",
-  Warn = "#cdcd77",
+  Warn = "#cdcd88",
   Info = "#DCDCAA",
   Hint = "#bBbBAA",
 }

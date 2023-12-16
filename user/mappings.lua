@@ -9,7 +9,7 @@ local M = {}
 
 -- redirect output of command to scratch buffer
 local scratch = function()
-  vim.ui.input({ prompt = "enter command", completion = "command" }, function(input)
+  vim.ui.input({ prompt = "enter command: ", completion = "command" }, function(input)
     if input == nil then
       return
     elseif input == "scratch" then
@@ -160,11 +160,11 @@ M.general = {
     ["gf"]               = { "gFzz", opts = noremap_opts },
     ["<C-o>"]            = { "<C-o>zz", opts = noremap_opts },
     ["<C-i>"]            = { "<C-i>zz", opts = noremap_opts },
-    ["<leader><leader><C-f>"] = { ":", opts = noremap_opts },
-    ["<leader>tn"] = { ":tabn", opts = noremap_opts },
-    ["<leader>tp"] = { ":tabp", opts = noremap_opts },
-    ["<leader>tt"] = { ":tab split", opts = noremap_opts },
-    ["<leader>tc"] = { ":tabc", opts = noremap_opts },
+    ["<leader><leader>"] = { ":<C-f>i", opts = noremap_opts },
+    ["<leader>tn"] = { ":tabn <CR>", opts = noremap_opts },
+    ["<leader>tp"] = { ":tabp<CR>", opts = noremap_opts },
+    ["<leader>tt"] = { ":tab split<CR>", opts = noremap_opts },
+    ["<leader>tc"] = { ":tabc<CR>", opts = noremap_opts },
     -->> Window
     ["<leader>sc"]       = {
       scratch,

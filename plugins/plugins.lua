@@ -596,7 +596,7 @@ M.plugins = {
     lazy = false,
     enabled = true,
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = overrides.todo.opts,
+    -- opts = overrides.todo.opts,
   },
   {
     "edluffy/hologram.nvim",
