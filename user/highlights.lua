@@ -240,7 +240,8 @@ M.override = {
   -- Preprocessores
   ["@preproc"]                 = { fg = c.code.Preprocessor, bg = "NONE" },
   ["@define"]                  = { fg = c.code.Preprocessor, bg = "NONE" },
-  ["@include"]                 = { fg = c.code.Preprocessor, bg = "NONE" },
+  ["@include"]                 = { fg = c.code.Include, bg = "NONE" },
+  ["@include.c"]               = { fg = c.code.Preprocessor, bg = "NONE" },
 
   -- Parameteres:
   ["@parameter"]               = { fg = c.code.Parameter, bg = "NONE" },

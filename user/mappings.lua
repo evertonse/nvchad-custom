@@ -156,10 +156,15 @@ M.general = {
   -- [NORMAL]
   n = {
     -->> commands
+    ["g"]               = { "gFzz", opts = noremap_opts },
     ["gf"]               = { "gFzz", opts = noremap_opts },
     ["<C-o>"]            = { "<C-o>zz", opts = noremap_opts },
     ["<C-i>"]            = { "<C-i>zz", opts = noremap_opts },
-    ["<leader><leader>"] = { ":", opts = noremap_opts },
+    ["<leader><leader><C-f>"] = { ":", opts = noremap_opts },
+    ["<leader>tn"] = { ":tabn", opts = noremap_opts },
+    ["<leader>tp"] = { ":tabp", opts = noremap_opts },
+    ["<leader>tt"] = { ":tab split", opts = noremap_opts },
+    ["<leader>tc"] = { ":tabc", opts = noremap_opts },
     -->> Window
     ["<leader>sc"]       = {
       scratch,
