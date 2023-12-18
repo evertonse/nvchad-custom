@@ -156,7 +156,6 @@ M.general = {
   -- [NORMAL]
   n = {
     -->> commands
-    ["g"]               = { "gFzz", opts = noremap_opts },
     ["gf"]               = { "gFzz", opts = noremap_opts },
     ["<C-o>"]            = { "<C-o>zz", opts = noremap_opts },
     ["<C-i>"]            = { "<C-i>zz", opts = noremap_opts },
