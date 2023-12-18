@@ -278,9 +278,11 @@ M.mason = {
         "clang-format",
 
         -- python
+
         "black",
         "flake8",
         "debugpy",
+        "pylyzer",
         "mypy",
         "pyright",
         "pylsp",
