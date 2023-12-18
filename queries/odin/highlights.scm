@@ -138,7 +138,7 @@
     "float" "double" "f16" "f32" "f64" "f16le" "f32le" "f64le" "f16be" "f32be" "f64be"
     "complex32" "complex64" "complex128" "complex_float" "complex_double"
     "quaternion64" "quaternion128" "quaternion256"
-    "rune" "string" "cstring" "rawptr" "typeid" "any") (#set! "priority" 105)))
+    "rune" "string" "cstring" "rawptr" "typeid" "any") (#set! "priority" 125)))
 
 
 (struct_declaration (identifier) @type "::")
