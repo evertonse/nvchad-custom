@@ -35,7 +35,7 @@ local options = {
   wrap            = false,                             -- display lines as one long line
   linebreak       = true,                        -- companion to wrap, don't split words
   scrolloff       = 4,                           -- minimal number of screen lines to keep above and below the cursor
-  sidescrolloff   = 6,                       -- minimal number of screen columns either side of cursor if wrap is `false`
+  sidescrolloff   = 4,                       -- minimal number of screen columns either side of cursor if wrap is `false`
   guifont = "JetBrainsMono NF:h9.1",               -- the font used in graphical neovim applications
   whichwrap = "bs<>[]hl",                  -- which "horizontal" keys are allowed to travel to prev/next line
 }

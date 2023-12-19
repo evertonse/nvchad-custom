@@ -62,7 +62,7 @@ ui = {
 
       modules[2] = (function()
         local path = vim.api.nvim_buf_get_name(0)
-        return "%#Normal#" .. path -- https://github.com/NvChad/base46/blob/v2.0/lua/base46/integrations/statusline.lua
+        return "%#Normal#" .. " " .. path -- https://github.com/NvChad/base46/blob/v2.0/lua/base46/integrations/statusline.lua
       end)()
     end,
   },
