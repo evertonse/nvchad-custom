@@ -704,6 +704,16 @@ M.plugins = {
   },
 
   {
+    'mg979/vim-visual-multi',
+    branch = "master",
+    lazy = false,
+    enabled = false,
+    opts = {},
+    config = function()
+    end,
+  },
+
+  {
     "lukas-reineke/indent-blankline.nvim",
     -- version = "2.20.7",
     lazy = true,

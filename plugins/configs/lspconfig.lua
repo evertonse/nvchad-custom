@@ -167,7 +167,7 @@ local servers = {
 
   --[[ Python ]]
   "jedi_language_server",
-  "pylyzer",
+  -- "pylyzer",
   -- "pylsp",
   -- "pyright",  -- Piss Slow on wsl and notebook idk, more diagnotics about unecessary code but too slow for usage
   --"pyre",
