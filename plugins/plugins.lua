@@ -704,13 +704,12 @@ M.plugins = {
   },
 
   {
-    'mg979/vim-visual-multi',
+    "mg979/vim-visual-multi",
     branch = "master",
     lazy = false,
     enabled = false,
     opts = {},
-    config = function()
-    end,
+    config = function() end,
   },
 
   {
