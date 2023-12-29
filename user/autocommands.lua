@@ -25,6 +25,15 @@ vim.cmd [[
     autocmd FileType markdown setlocal spell
   augroup end
 
+  function! odin_settings()
+    setlocal tabstop=4
+    setlocal shiftwidth=4
+    setlocal expandtab
+  endfunction
+
+  autocmd FileType odin call odin_settings()
+
+
   augroup _auto_resize
     autocmd!
     autocmd VimResized * tabdo wincmd = 
