@@ -25,13 +25,13 @@ vim.cmd [[
     autocmd FileType markdown setlocal spell
   augroup end
 
-  function! odin_settings()
+  function! Odin_settings()
     setlocal tabstop=4
     setlocal shiftwidth=4
     setlocal expandtab
   endfunction
 
-  autocmd FileType odin call odin_settings()
+  autocmd FileType odin call Odin_settings()
 
 
   augroup _auto_resize

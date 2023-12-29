@@ -295,6 +295,8 @@ M.override = {
   ["@exception"]        = { fg = c.code.ControlFlow, bold = true, bg = "NONE" },
   ["@exception.python"] = { fg = c.code.ControlFlow, bold = true, bg = "NONE" },
 
+  ["@lsp.mod.variable.global"] = { fg = c.code.Global },
+  ["@lsp.typemod.variable.global"] = { fg = c.code.Global },
   ["@lsp.typemod.variable.globalScope"] = { fg = c.code.Global },
   ["@lsp.typemod.variable.fileScope"]   = { fg = c.code.FileScope },
   ["@lsp.mod.constructorOrDestructor"]  = { fg = c.code.ConstrutorOnClass },
@@ -430,6 +432,8 @@ M.add = {
   ["@text.diff.delete.diff"]            = { fg = c.text.DiffDelete, sp = c.code.None },
   ["@text.diff.add.diff"]               = { fg = c.text.DiffAdd, sp = c.code.None, bg = c.code.None },
   ["@text.title.1.markdown"]            = { fg = c.text.Title, sp = c.code.None, bg = c.code.None },
+  ["@lsp.mod.variable.global"]          = { fg = c.code.Global },
+  ["@lsp.typemod.variable.global"]      = { fg = c.code.Global },
   ["@lsp.typemod.variable.globalScope"] = { fg = c.code.Global },
   ["@lsp.typemod.variable.fileScope"]   = { fg = c.code.FileScope },
   ["@lsp.mod.constructorOrDestructor"]  = { fg = c.code.ConstrutorOnClass },

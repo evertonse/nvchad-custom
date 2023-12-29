@@ -1,10 +1,11 @@
 local M = {}
 
-local palette = {
+local pastel = {
   -- c1  = "#6A789e",
   -- c1  = "#6F729F",
   -- c1  = "#7980A0",
-  c1     = "#7782A4",
+  c0     = "#898989",
+  c1     = "#7782A4", --oficial
   c2     = "#748779",
   c3     = "#7a9f79",
   c4     = "#6E92B8",
@@ -12,11 +13,39 @@ local palette = {
   c6     = "#747987",
   c7     = "#a08080",
 
-  c8     = "#d3d3d3",
+  c8     = "#d0d0d0",
   c9     = "#D8E9FF",
   c10    = "#D1E2FF",
   c11    = "#c0c8FF",
+  c12    = "#85897e",
+  c13    = "#b2bfc3"
 }
+
+local blow = {
+  -- c1  = "#6A789e",
+  -- c1  = "#6F729F",
+  -- c1  = "#7980A0",
+  c0     = "#797979",
+  c1     = "#FeFeFF",
+  c2     = "#748779",
+  c3     = "#7a9f79",
+  c4     = "#6E92B8",
+  c5     = "#5E82a8",
+  c6     = "#747987",
+  c7     = "#a08080",
+
+  c8     = "#c1c4cc",
+  c9     = "#c9E2Fe",
+  c10    = "#c7E1Fe",
+  c11    = "#b9c2Fe",
+  c12    = "#85897e",
+  c13    = "#b2bfc3",
+  -- c14    = "#c1ccd0",
+
+}
+
+-- local palette = pastel
+local palette = blow
 
 M.code = {
   None                    = "NONE",
@@ -29,8 +58,8 @@ M.code = {
   Char                    = "#DE9178",
   Punct                   = "#DE9178",
 
-  Args                    = "#898989",
-  Parameter               = "#898989",
+  Args                    = palette.c0,
+  Parameter               = palette.c0,
 
   Type                    = "#64B5B7",
   EnumType                = "#64B5B7",
