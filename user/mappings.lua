@@ -373,6 +373,7 @@ M.general = {
     ["<leader>D"]        = { '"_D', opts = noremap_opts },
     --["<leader>p"]      = { '"_p', opts = noremap_opts },
     ["x"]                = { '"_x', opts = noremap_opts },
+    ["s"] = { '"_s', opts = noremap_opts },
     ["ge"]               = { "G", opts = noremap_opts },
     ["gh"]               = { 'v:count || mode(1)[0:1] == "no" ? "0" : "g0"', "Move big left", opts = { expr = true } },
     ["gl"]               = { 'v:count || mode(1)[0:1] == "no" ? "$" : "g$"', "Move big right", opts = { expr = true } },
@@ -460,6 +461,7 @@ M.general = {
     ["<leader>Y"] = { '"+y$', opts = noremap_opts },
 
     ["x"] = { '"_x', opts = noremap_opts },
+    ["s"] = { '"_s', opts = noremap_opts },
     ["ge"] = { "G", opts = noremap_opts },
     ["<leader>s"] = { '"_s', opts = noremap_opts },
 
@@ -492,6 +494,7 @@ M.general = {
     ["<leader>P"] = { '"+P', opts = noremap_opts },
 
     ["x"] = { '"_x', opts = noremap_opts },
+    ["s"] = { '"_s', opts = noremap_opts },
     ["ge"] = { "G", opts = noremap_opts },
   },
 

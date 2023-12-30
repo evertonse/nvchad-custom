@@ -25,7 +25,7 @@ local blow = {
   -- c1  = "#6A789e",
   -- c1  = "#6F729F",
   -- c1  = "#7980A0",
-  c0     = "#797979",
+  c0     = "#767676",
   c1     = "#FeFeFF",
   c2     = "#748779",
   c3     = "#7a9f79",
@@ -33,13 +33,13 @@ local blow = {
   c5     = "#5E82a8",
   c6     = "#747987",
   c7     = "#a08080",
-
-  c8     = "#c1c4cc",
+  c8     = "#b1b4bc",
   c9     = "#c9E2Fe",
   c10    = "#c7E1Fe",
   c11    = "#b9c2Fe",
   c12    = "#85897e",
   c13    = "#b2bfc3",
+  c30    = "#9B9B9B",
   -- c14    = "#c1ccd0",
 
 }
@@ -100,7 +100,7 @@ M.code = {
   MacroFunction           = "#D5D5FF", -- Pastel lavender
   Macro                   = "#D0C2FF", -- Pastel purple
 
-  Preprocessor            = "#ABABAB",
+  Preprocessor            = palette.c30,
   Include                 = palette.c1, -- Gray
 
   Unnecessary             = "#B2B2B2", -- Light gray
