@@ -161,6 +161,10 @@ local servers = {
 
   --[[ OLS  https://github.com/DanielGavin/ols.gits ]]
   "ols",
+  "odinfmt",
+
+  --[[ zig ]]
+  "zls",
 
   --[[ MuttRC ]]
   -- "mutt_ls",
@@ -204,7 +208,7 @@ local on_attach = function(client, bufnr)
   client.resolved_capabilities.offset_encoding = "utf-8"
   client.resolved_capabilities.offset_encoding = "utf-8"
   client.offsetEncoding = "utf-8"
-  client.offsetEncoding = "utf-8"
+  client.offset_encoding = "utf-8"
   lsp_keymaps(bufnr)
 end
 

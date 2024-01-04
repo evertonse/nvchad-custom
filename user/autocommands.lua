@@ -110,3 +110,11 @@ vim.cmd [[
       augroup END
   endif
 ]];
+
+
+vim.api.nvim_create_autocmd("LspTokenUpdate", {
+  callback = function(args)
+    local token = args.data.token
+    print("Lsp token has been updated", token)
+  end,
+})
