@@ -89,11 +89,10 @@ M.code = {
   -- Construtor           = "#F09683", -- Warm pastel orange
   -- ConstrutorOnClass    = "#C3B783", -- Warm pastel yellow
 
-  Namespace               = "#cffae4",
+  Namespace               = "#cffffe",
   Global                  = "#F8D1EF",
   FileScope               = "#e8D7D7",
 
-  Numeric                 = "#D7ECC8", -- Pastel green
 
   Invalid                 = "#F47E7E", -- Pastel red
 
@@ -136,9 +135,11 @@ M.code = {
   Native                  = "#FFDCA1", -- Pastel orange
   Special                 = "#FFDCA1", -- Pastel orange
 
-  Constant                = "#D2ECC8", -- Pastel green
-  EnumConstant            = "#D2ECC8", -- Pastel green
-  BuiltInConstant         = "#D2ECC8", -- Pastel green
+  Numeric                 = "#D0ECC8", -- Pastel green
+  Constant                = "#D0ECC8", -- Pastel green
+  EnumConstant            = "#D0ECC8", -- Pastel green
+  BuiltInConstant         = "#b5cea8",
+
 
   -- Constant             = "#b5cea8",
   -- EnumConstant         = "#b5cea8",
