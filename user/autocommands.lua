@@ -28,7 +28,6 @@ vim.cmd [[
   function! Odin_settings()
     setlocal tabstop=4
     setlocal shiftwidth=4
-    setlocal expandtab
   endfunction
 
   autocmd FileType odin call Odin_settings()
