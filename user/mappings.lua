@@ -179,7 +179,6 @@ M.general = {
       function()
         if vim.bo.buftype == "terminal" then
           vim.cmd "bp"
-          return
         end
         require("harpoon.term").gotoTerminal(1)
       end,
@@ -505,7 +504,11 @@ M.general = {
     ["<C-x>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
     -- ["<C-c>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal with Crtl + c which my be strange to do since crtl+c already means something" },
     ["<C-w>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
-    ["<A-o>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N><C-o>", true, true, true), "Escape terminal mode" },
+    ["<A-o>"] = {
+      function ()
+        vim.cmd "bp"
+      end
+    },
     ["<C-w>h"] = { "<C-\\><C-N><C-w>h", opts = term_opts },
     ["<C-w>j"] = { "<C-\\><C-N><C-w>j", opts = term_opts },
     ["<C-w>k"] = { "<C-\\><C-N><C-w>k", opts = term_opts },
