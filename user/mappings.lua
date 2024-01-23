@@ -151,6 +151,7 @@ local change_key_value_on_press = function()
   ]]
 end
 
+local last_terminal_mode = ""
 M.general = {
   -- [NORMAL]
   n = {
@@ -178,9 +179,14 @@ M.general = {
     ["<A-o>"] = {
       function()
         if vim.bo.buftype == "terminal" then
+          last_terminal_mode = vim.fn.mode()
           vim.cmd "bp"
+        else
+          require("harpoon.term").gotoTerminal(1)
+          if last_terminal_mode == 'i' then
+            vim.cmd "startinsert"
+          end
         end
-        require("harpoon.term").gotoTerminal(1)
       end,
       "this works like file navigation except that if there is no terminal at the specified index a new terminal is created.",
     },
@@ -506,6 +512,7 @@ M.general = {
     ["<C-w>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
     ["<A-o>"] = {
       function ()
+        last_terminal_mode = 'i'
         vim.cmd "bp"
       end
     },
