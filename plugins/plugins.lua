@@ -484,6 +484,16 @@ M.plugins = {
   --   end,
   -- },
 
+  {
+    "NvChad/nvterm",
+    lazy = false,
+    enabled = true,
+    config = function()
+      -- require("nvterm").setup()
+        local ok = require "custom.plugins.configs.nvterm"
+        assert(ok, "nvterm did not config correctly")
+    end,
+  },
   -->> Utils
   {
     "dstein64/vim-startuptime",

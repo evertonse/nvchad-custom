@@ -175,8 +175,8 @@ M.general = {
       end,
       "this works like file navigation except that if there is no terminal at the specified index a new terminal is created.",
     },
-    -->> Harpoon
-    ["<A-t>"]            = {
+    -->> Harpoon A-o is more ergonomic
+    ["<A-o>"]            = {
       function()
         require("harpoon.term").gotoTerminal(0)
       end,

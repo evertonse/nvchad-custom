@@ -679,7 +679,6 @@ M.blankline = {
     "NvimTree",
     "Trouble",
     "help",
-    "terminal",
     "lazy",
     "lspinfo",
     "TelescopePrompt",
