@@ -181,6 +181,7 @@ M.general = {
         if vim.bo.buftype == "terminal" then
           last_terminal_mode = vim.fn.mode()
           vim.cmd "bp"
+          vim.cmd [[call feedkeys("<C-o>")]]
         else
           require("harpoon.term").gotoTerminal(1)
           if last_terminal_mode == 'i' then
@@ -514,6 +515,7 @@ M.general = {
       function ()
         last_terminal_mode = 'i'
         vim.cmd "bp"
+        vim.cmd [[call feedkeys("<C-o>")]]
       end
     },
     ["<C-w>h"] = { "<C-\\><C-N><C-w>h", opts = term_opts },
