@@ -176,14 +176,16 @@ M.general = {
       "this works like file navigation except that if there is no terminal at the specified index a new terminal is created.",
     },
     -->> Harpoon A-o is more ergonomic
-    ["<A-o>"] = {
+    ["<A-t>"] = {
       function()
         if vim.bo.buftype == "terminal" then
           last_terminal_mode = vim.fn.mode()
           -- vim.cmd "bp"
           vim.api.nvim_input('<C-o>')
-          -- vim.cmd [[call feedkeys("<C-o>")]]
+          vim.api.nvim_input("'M")
+          -- vim.cmd [[call feedkeys("<C-o>")]] 
         else
+          vim.api.nvim_input("mM")
           require("harpoon.term").gotoTerminal(1)
           if last_terminal_mode == 'i' then
             vim.cmd "startinsert"
@@ -517,6 +519,7 @@ M.general = {
         last_terminal_mode = 'i'
         vim.cmd "bp"
         vim.cmd [[call feedkeys("<C-o>")]]
+        vim.api.nvim_input("'M")
       end
     },
     ["<C-w>h"] = { "<C-\\><C-N><C-w>h", opts = term_opts },
@@ -781,7 +784,7 @@ M.nvterm = {
       "Toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+    ["<A-o>"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
