@@ -725,6 +725,14 @@ M.plugins = {
   },
 
   {
+    'numirias/semshi',
+    lazy = false,
+    enabled = true,
+    config = function() vim.cmd [[ :UpdateRemotePlugins]] end,
+  },
+
+
+  {
     "lukas-reineke/indent-blankline.nvim",
     -- version = "2.20.7",
     lazy = true,
