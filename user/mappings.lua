@@ -160,18 +160,25 @@ end
 local last_terminal_mode = ""
 
 local grep_and_show_results = function()
+  local patterns = {}
 
-  local pattern = vim.fn.expand("<cword>")
-
-
+  local current_word = vim.fn.expand "<cword>"
   if current_buffer_file_extension() == "odin" then
-    pattern = pattern .. ".*::"
+    table.insert(patterns, current_word .. ".*:%w*:")
+    table.insert(patterns, current_word "<cword>" .. ".*:%w*=")
+  else
+    table.insert(patterns, current_word)
   end
 
+  local results = {}
   local gg = "grep -RrEinIH "
-  local result = vim.fn.systemlist(gg .. vim.fn.shellescape(pattern))
-  -- Check if there are any results
-  if #result == 0 then
+
+  for _, pattern in ipairs(patterns) do
+    local result = vim.fn.systemlist(gg .. vim.fn.shellescape(pattern))
+    table.insert(results, result)
+    -- Check if there are any results
+  end
+  if #results == 0 then
     print "No results found."
     return
   end
@@ -189,16 +196,18 @@ local grep_and_show_results = function()
   --   end
   -- end
 
-    -- Prepare quickfix list entries
+  -- Prepare quickfix list entries
   local quickfix_list = {}
-  for _, line in ipairs(result) do
-    local filename, line_number, content = line:match "(.+):(.+):(.+)"
-    if filename and line_number  and content then
-      table.insert(quickfix_list, {
-        filename = filename,
-        lnum = tonumber(line_number),
-        text = content,
-      })
+  for _, result in ipairs(results) do
+    for _, line in ipairs(result) do
+      local filename, line_number, content = line:match "(.+):(%d+):(.+)"
+      if filename and line_number and content then
+        table.insert(quickfix_list, {
+          filename = filename,
+          lnum = tonumber(line_number),
+          text = content,
+        })
+      end
     end
   end
 
@@ -210,7 +219,6 @@ local grep_and_show_results = function()
   -- -- Close the quickfix window after setting the list
   -- vim.cmd "cclose"
 end
-
 
 M.general = {
   -- [NORMAL]

@@ -116,3 +116,6 @@ vim.cmd [[
 --     print("Lsp token has been updated", token)
 --   end,
 -- })
+--
+-- close quicklist after enter
+vim.cmd [[ autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>]]
