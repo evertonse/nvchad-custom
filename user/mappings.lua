@@ -164,8 +164,10 @@ local grep_and_show_results = function()
 
   local current_word = vim.fn.expand "<cword>"
   if current_buffer_file_extension() == "odin" then
-    table.insert(patterns, current_word .. ".*:%w*:")
-    table.insert(patterns, current_word "<cword>" .. ".*:%w*=")
+    table.insert(patterns, current_word .. ".*:.*:")
+    table.insert(patterns, current_word .. ".*:.*=")
+    table.insert(patterns, current_word .. ".*:.*$")
+    table.insert(patterns, current_word .. ".*:.*;")
   else
     table.insert(patterns, current_word)
   end
