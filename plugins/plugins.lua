@@ -725,9 +725,9 @@ M.plugins = {
   },
 
   {
-    'numirias/semshi',
+    'numirias/semshi', -- semantic highlighting in python
     lazy = false,
-    enabled = true,
+    enabled = false,
     config = function() vim.cmd [[ :UpdateRemotePlugins]] end,
   },
 

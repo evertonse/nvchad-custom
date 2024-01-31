@@ -8,6 +8,12 @@ local M = {}
 -- TIPS `:map <key>` to see all keys with that prefix
 
 -- redirect output of command to scratch buffer
+
+local current_buffer_file_extension = function()
+  local extension = vim.fn.expand "%:e"
+  return extension
+end
+
 local scratch = function()
   vim.ui.input({ prompt = "enter command: ", completion = "command" }, function(input)
     if input == nil then
@@ -152,14 +158,68 @@ local change_key_value_on_press = function()
 end
 
 local last_terminal_mode = ""
+
+local grep_and_show_results = function()
+
+  local pattern = vim.fn.expand("<cword>")
+
+
+  if current_buffer_file_extension() == "odin" then
+    pattern = pattern .. ".*::"
+  end
+
+  local gg = "grep -RrEinIH "
+  local result = vim.fn.systemlist(gg .. vim.fn.shellescape(pattern))
+  -- Check if there are any results
+  if #result == 0 then
+    print "No results found."
+    return
+  end
+
+  -- Prepare quickfix list entries
+  -- local quickfix_list = {}
+  -- for _, line in ipairs(result) do
+  --   local filename, content = line:match "([^:]+):(.+)"
+  --   if filename and content then
+  --     table.insert(quickfix_list, {
+  --       filename = filename,
+  --       lnum = 1, -- You can adjust this line number based on your needs
+  --       text = content,
+  --     })
+  --   end
+  -- end
+
+    -- Prepare quickfix list entries
+  local quickfix_list = {}
+  for _, line in ipairs(result) do
+    local filename, line_number, content = line:match "(.+):(.+):(.+)"
+    if filename and line_number  and content then
+      table.insert(quickfix_list, {
+        filename = filename,
+        lnum = tonumber(line_number),
+        text = content,
+      })
+    end
+  end
+
+  -- Set the quickfix list
+  vim.fn.setqflist(quickfix_list)
+
+  -- Open the quickfix window
+  vim.cmd "copen"
+  -- -- Close the quickfix window after setting the list
+  -- vim.cmd "cclose"
+end
+
+
 M.general = {
   -- [NORMAL]
   n = {
     -->> commands
+    ["<leader>gd"] = { grep_and_show_results, opts = noremap_opts },
     ["gf"] = { "gFzz", opts = noremap_opts },
     ["<C-o>"] = { "<C-o>zz", opts = noremap_opts },
     ["<C-i>"] = { "<C-i>zz", opts = noremap_opts },
-    ["<leader><leader>"] = { ":<C-f>i", opts = noremap_opts },
     ["<leader>tn"] = { ":tabn <CR>", opts = noremap_opts },
     ["<leader>tp"] = { ":tabp<CR>", opts = noremap_opts },
     ["<leader>tt"] = { ":tab split<CR>", opts = noremap_opts },
@@ -181,13 +241,13 @@ M.general = {
         if vim.bo.buftype == "terminal" then
           last_terminal_mode = vim.fn.mode()
           -- vim.cmd "bp"
-          vim.api.nvim_input('<C-o>')
-          vim.api.nvim_input("'M")
-          -- vim.cmd [[call feedkeys("<C-o>")]] 
+          vim.api.nvim_input "<C-o>"
+          vim.api.nvim_input "'M"
+          -- vim.cmd [[call feedkeys("<C-o>")]]
         else
-          vim.api.nvim_input("mM")
+          vim.api.nvim_input "mM"
           require("harpoon.term").gotoTerminal(1)
-          if last_terminal_mode == 'i' then
+          if last_terminal_mode == "i" then
             vim.cmd "startinsert"
           end
         end
@@ -421,7 +481,6 @@ M.general = {
   },
   -- Visual --
   v = {
-    ["<leader><leader>"] = { ":", opts = noremap_opts },
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
     ["gh"] = { 'v:count || mode(1)[0:1] == "no" ? "0" : "g0"', "Move big left", opts = { expr = true } },
@@ -481,7 +540,6 @@ M.general = {
     ["<leader>P"] = { '"+P', opts = noremap_opts },
   },
   x = {
-    ["<leader><leader>"] = { ":", opts = noremap_opts },
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
     ["gh"] = { 'v:count || mode(1)[0:1] == "no" ? "0" : "g0"', "Move big left", opts = { expr = true } },
@@ -515,12 +573,12 @@ M.general = {
     -- ["<C-c>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal with Crtl + c which my be strange to do since crtl+c already means something" },
     ["<C-w>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
     ["<A-o>"] = {
-      function ()
-        last_terminal_mode = 'i'
+      function()
+        last_terminal_mode = "i"
         vim.cmd "bp"
         vim.cmd [[call feedkeys("<C-o>")]]
-        vim.api.nvim_input("'M")
-      end
+        vim.api.nvim_input "'M"
+      end,
     },
     ["<C-w>h"] = { "<C-\\><C-N><C-w>h", opts = term_opts },
     ["<C-w>j"] = { "<C-\\><C-N><C-w>j", opts = term_opts },
