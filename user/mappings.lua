@@ -157,7 +157,7 @@ local change_key_value_on_press = function()
   ]]
 end
 
-local last_terminal_mode = ""
+local last_terminal_mode = "i"
 
 local grep_and_show_results = function()
   local patterns = {}
@@ -242,13 +242,12 @@ M.general = {
       "this works like file navigation except that if there is no terminal at the specified index a new terminal is created.",
     },
     -->> Harpoon A-o is more ergonomic
-    ["<A-t>"] = {
+    ["<A-o>"] = {
       function()
         if vim.bo.buftype == "terminal" then
           last_terminal_mode = vim.fn.mode()
           -- vim.cmd "bp"
           vim.api.nvim_input "<C-o>"
-          vim.api.nvim_input "'M"
           -- vim.cmd [[call feedkeys("<C-o>")]]
         else
           vim.api.nvim_input "mM"
@@ -581,9 +580,9 @@ M.general = {
     ["<A-o>"] = {
       function()
         last_terminal_mode = "i"
-        vim.cmd "bp"
-        vim.cmd [[call feedkeys("<C-o>")]]
-        vim.api.nvim_input "'M"
+        -- vim.cmd "bp"
+        vim.cmd [[stopinsert]]
+        vim.api.nvim_input "<C-o>"
       end,
     },
     ["<C-w>h"] = { "<C-\\><C-N><C-w>h", opts = term_opts },
@@ -848,7 +847,7 @@ M.nvterm = {
       "Toggle horizontal term",
     },
 
-    ["<A-o>"] = {
+    ["<A-t>"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
