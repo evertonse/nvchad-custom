@@ -190,16 +190,16 @@ local grep_and_show_results = function()
   local quickfix_list = {}
   for _, result in ipairs(results) do
     for _, line in ipairs(result) do
-      local filename, line_number, content = line:match "(.+):(%d+):(.+)"
-      local entry_key = filename .. ":" .. line_number
+      local file_name, line_number, content = line:match "(.+):(%d+):(.+)"
+      local entry_key = file_name .. ":" .. (line_number or "")
 
-      local found_file_extension = vim.fn.fnamemodify(filename, ":e")
+      local found_file_extension = vim.fn.fnamemodify(file_name, ":e")
       local allowed_extension = vim.tbl_contains({found_file_extension}, file_extension)
-      if filename and line_number and content and allowed_extension then
+      if file_name and line_number and content and allowed_extension then
         -- Check if the entry has been seen before
         if not seen_entries[entry_key] then
           table.insert(quickfix_list, {
-            filename = filename,
+            filename = file_name,
             lnum = tonumber(line_number),
             text = content,
           })
