@@ -161,9 +161,9 @@ local last_terminal_mode = ""
 
 local grep_and_show_results = function()
   local patterns = {}
-
+  local file_extension = current_buffer_file_extension()
   local current_word = vim.fn.expand "<cword>"
-  if current_buffer_file_extension() == "odin" then
+  if  file_extension == "odin" then
     table.insert(patterns, current_word .. ".*:.*:")
     table.insert(patterns, current_word .. ".*:.*=")
     table.insert(patterns, current_word .. ".*:.*$")
@@ -185,30 +185,26 @@ local grep_and_show_results = function()
     return
   end
 
-  -- Prepare quickfix list entries
-  -- local quickfix_list = {}
-  -- for _, line in ipairs(result) do
-  --   local filename, content = line:match "([^:]+):(.+)"
-  --   if filename and content then
-  --     table.insert(quickfix_list, {
-  --       filename = filename,
-  --       lnum = 1, -- You can adjust this line number based on your needs
-  --       text = content,
-  --     })
-  --   end
-  -- end
-
+  local seen_entries = {}
   -- Prepare quickfix list entries
   local quickfix_list = {}
   for _, result in ipairs(results) do
     for _, line in ipairs(result) do
       local filename, line_number, content = line:match "(.+):(%d+):(.+)"
-      if filename and line_number and content then
-        table.insert(quickfix_list, {
-          filename = filename,
-          lnum = tonumber(line_number),
-          text = content,
-        })
+      local entry_key = filename .. ":" .. line_number
+
+      local found_file_extension = vim.fn.fnamemodify(filename, ":e")
+      local allowed_extension = vim.tbl_contains({found_file_extension}, file_extension)
+      if filename and line_number and content and allowed_extension then
+        -- Check if the entry has been seen before
+        if not seen_entries[entry_key] then
+          table.insert(quickfix_list, {
+            filename = filename,
+            lnum = tonumber(line_number),
+            text = content,
+          })
+          seen_entries[entry_key] = true
+        end
       end
     end
   end
