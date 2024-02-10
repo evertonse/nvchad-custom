@@ -250,7 +250,7 @@ M.general = {
           vim.api.nvim_input "<C-o>"
           -- vim.cmd [[call feedkeys("<C-o>")]]
         else
-          vim.api.nvim_input "mM"
+          -- vim.api.nvim_input "mM" -- Might be useful to know this cmd exists later
           require("harpoon.term").gotoTerminal(1)
           if last_terminal_mode == "i" then
             vim.cmd "startinsert"
