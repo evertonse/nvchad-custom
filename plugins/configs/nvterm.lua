@@ -65,7 +65,8 @@ local mappings = {
     toggle_modes,
     "<F5>",
     function()
-      terminal.send("run.bat" .. vim.fn.expand "%", "float")
+      terminal.send("make -j 3 &", "float")
+      -- terminal.send("make -j 3 &" .. vim.fn.expand "%", "float")
     end,
   },
   {
