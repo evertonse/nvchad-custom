@@ -65,7 +65,7 @@ local mappings = {
     toggle_modes,
     "<F5>",
     function()
-      terminal.send("make -j 3 >NUL 2>&1 &", "float")
+      terminal.send("make run -j 3 > make.log &", "float")
       -- terminal.send("make -j 3 &" .. vim.fn.expand "%", "float")
     end,
   },

@@ -63,7 +63,8 @@ vim.cmd [[
 -- vim.cmd([[ autocmd FileType *.c nnoremap <buffer> <F5> :wa<CR>:term gcc % -o %:r && ./%:r<CR> ]])
 -- vim.cmd [[autocmd filetype cpp nnoremap <F5> :!g++ % -ggdb -o %:r && ./%:r <CR>]]
 -- vim.cmd [[autocmd FileType c nnoremap <F5> :!gcc % -g -o %:r && ./%:r <CR>]]
-vim.cmd [[autocmd FileType c nnoremap <F5> :!make run <CR>]]
+
+-- vim.cmd [[autocmd FileType * nnoremap <F5> :!make run <CR>]]
 vim.cmd [[
 augroup Binary
   au!
@@ -88,6 +89,7 @@ vim.cmd [[autocmd FileType bin,xxd nnoremap <F6> :%!xxd -r <CR>]]
 vim.cmd [[autocmd filetype python nnoremap <F5> :w <bar> exec '!python '.shellescape('%')<CR>]]
 -- vim.cmd [[autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>]]
 vim.cmd [[autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>]]
+vim.cmd [[autocmd filetype tex set wrap]]
 vim.cmd [[autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no]]
 -- vim.cmd [[autocmd TermOpen * startinsert ]] -- stopinsert ]]        -- starts terminal in insert mode
 

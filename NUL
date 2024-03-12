@@ -1,1 +1,6 @@
 git add . && git commit -m "$(date)" && git push
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+make: *** [Makefile:2: push] Error 1
