@@ -6,7 +6,7 @@ M.plugins = {
   {
     -- NOTE: Yes, you can install new plugins here!
     "mfussenegger/nvim-dap",
-    lazy = true,
+    lazy = false,
     enabled = true,
     -- NOTE: And you can specify dependencies as well
     dependencies = {
@@ -70,10 +70,9 @@ M.plugins = {
 
       -- Basic debugging keymaps, feel free to change to your liking!
       vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
-      vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })
-      vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
-      vim.keymap.set("n", "<F11>", dap.step_out, { desc = "Debug: Step Out" })
-      vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
+      vim.keymap.set("n", "<F6>", dap.step_over, { desc = "Debug: Step Over" })
+      vim.keymap.set("n", "<F7>", dap.step_into, { desc = "Debug: Step Into" })
+      vim.keymap.set("n", "<F8>", dap.step_out, { desc = "Debug: Step Out" })
       vim.keymap.set("n", "<F9>", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
       vim.keymap.set("n", "<leader>B", function()
         dap.set_breakpoint(vim.fn.input "Breakpoint condition: ")
@@ -725,12 +724,11 @@ M.plugins = {
   },
 
   {
-    'numirias/semshi', -- semantic highlighting in python
+    'ekickx/clipboard-image.nvim',
+    branch="feat_WSL",
     lazy = false,
-    enabled = false,
-    config = function() vim.cmd [[ :UpdateRemotePlugins]] end,
+    enabled = true,
   },
-
 
   {
     "lukas-reineke/indent-blankline.nvim",

@@ -30,3 +30,6 @@ rm -rf ~/.cache/nvim
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1; nvim
 ln -s ~/dotfiles/nvim/custom ~/.config/nvim/lua/custom
 touch -a -m ~/dotfiles/nvim/custom/override.lua
+
+
+:Pa
