@@ -694,10 +694,10 @@ M.plugins = {
       { "MunifTanjim/nui.nvim" },
     },
     lazy = true,
-    enabled = false,
+    enabled = true,
     config = function()
-      vim.api.nvim_set_keymap("n", "<CR>", "<cmd>FineCmdline<CR>", { noremap = true })
-      -- vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
+      -- vim.api.nvim_set_keymap("n", "<CR>", "<cmd>FineCmdline<CR>", { noremap = true })
+      vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
     end,
   },
   {
@@ -727,14 +727,14 @@ M.plugins = {
     'ekickx/clipboard-image.nvim',
     branch="feat_WSL",
     lazy = false,
-    enabled = true,
+    enabled = false,
   },
 
   {
     "lukas-reineke/indent-blankline.nvim",
     -- version = "2.20.7",
     lazy = true,
-    enabled = true,
+    enabled = false,
     init = function()
       require("core.utils").lazy_load "indent-blankline.nvim"
     end,
@@ -747,7 +747,7 @@ M.plugins = {
       require("indent_blankline").setup(opts)
       vim.cmd [[
         function! s:IndentBlanklineLinecount()
-            if nvim_buf_line_count(0) < 2000
+            if nvim_buf_line_count(0) < 600
                 IndentBlanklineRefresh
             endif
         endfunction
