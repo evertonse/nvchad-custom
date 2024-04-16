@@ -12,6 +12,7 @@ M.plugins = {
     dependencies = {
       -- Creates a beautiful debugger UI
       "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
 
       -- Installs the debug adapters for you
       "williamboman/mason.nvim",
@@ -734,7 +735,7 @@ M.plugins = {
     "lukas-reineke/indent-blankline.nvim",
     -- version = "2.20.7",
     lazy = true,
-    enabled = false,
+    enabled = true,
     init = function()
       require("core.utils").lazy_load "indent-blankline.nvim"
     end,
