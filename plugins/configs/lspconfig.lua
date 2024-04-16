@@ -161,7 +161,6 @@ local servers = {
 
   --[[ OLS  https://github.com/DanielGavin/ols.gits ]]
   "ols",
-  "odinfmt",
 
   --[[ zig ]]
   "zls",
