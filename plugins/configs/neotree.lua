@@ -9,10 +9,21 @@ require("neo-tree").setup {
   popup_border_style = "single", -- "double", "none", "rounded", "shadow", "single" or "solid"
   enable_git_status = true,
   enable_diagnostics = true,
-  enable_normal_mode_for_inputs = false, -- Enable normal mode for input dialogs.
+  -- neo_tree_popup_input_ready= false, -- Enable normal mode for input dialogs.
   open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
   sort_case_insensitive = false, -- used when sorting files and directories in the tree
   sort_function = nil, -- use a custom function for sorting files and directories in the tree
+  event_handlers = {
+    {
+      event = "neo_tree_popup_input_ready",
+      ---@param args { bufnr: integer, winid: integer }
+      handler = function(args)
+        vim.cmd "stopinsert"
+        vim.keymap.set("i", "<esc>", vim.cmd.stopinsert, { noremap = true, buffer = args.bufnr })
+      end,
+    },
+  },
+
   -- sort_function = function (a,b)
   --       if a.type == b.type then
   --           return a.path > b.path
@@ -290,9 +301,7 @@ require("neo-tree").setup {
   },
 }
 
-local open_on_starup = false;
+local open_on_starup = false
 if open_on_starup then
   -- vim.cmd [[nnoremap \ :Neotree reveal<cr>]]
 end
-
-
