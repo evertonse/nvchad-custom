@@ -748,7 +748,7 @@ M.plugins = {
       require("indent_blankline").setup(opts)
       vim.cmd [[
         function! s:IndentBlanklineLinecount()
-            if nvim_buf_line_count(0) < 600
+            if nvim_buf_line_count(0) < 500
                 IndentBlanklineRefresh
             endif
         endfunction
