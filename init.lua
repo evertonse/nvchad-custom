@@ -4,6 +4,9 @@
 -- NvChad chanding the colorscheme everyime we bufwrite
 require "custom.user.autocommands"
 vim.cmd ':set clipboard=""'
+vim.cmd ':set laststatus=0'
+vim.cmd ':set display-=msgsep'
+  
 -- vim.cmd ':set lz' -- Lazy Redraw
 -- vim.cmd ":set ttyfast" -- Lazy Redraw
 vim.treesitter.language.register("c", "*.cl")
