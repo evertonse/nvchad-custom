@@ -46,7 +46,8 @@ for k, v in pairs(options) do
 end
 
 --vim.opt.shortmess = "at"                        -- flags to shorten vim messages, see :help 'shortmess'
-vim.opt.shortmess = "atilmnrxwoOstTI"                        -- flags to shorten vim messages, see :help 'shortmess'
+vim.opt.shortmess = "atilmnrxwoOstTIF"                        -- flags to shorten vim messages, see :help 'shortmess'
+
 vim.opt.shortmess:append "c"                           -- don't give |ins-completion-menu| messages
 vim.opt.iskeyword:append "-"                           -- hyphenated words recognized by searches
 vim.opt.formatoptions:remove({ "c", "r", "o" })        -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
