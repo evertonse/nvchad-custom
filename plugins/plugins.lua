@@ -6,7 +6,7 @@ M.plugins = {
   {
     -- NOTE: Yes, you can install new plugins here!
     "mfussenegger/nvim-dap",
-    lazy = false,
+    lazy = true,
     enabled = true,
     -- NOTE: And you can specify dependencies as well
     dependencies = {
